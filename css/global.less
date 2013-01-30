@@ -1,5 +1,47 @@
+/*fonts*/
+
+/*colors*/
+@gray:	#383434;
+@white: #FFFFFF;
+
+
+/*globals*/
 html {
 	body {
 		background-image: url(../img/background.png);
+		margin: 0; 
+		font-family: "benton-sans", Helvetica, sans-serif;
+	}
+}
+
+
+/*template*/
+.header_wrapper {
+	background-color: @gray; min-width: 1180px;
+	.wrapper2 {
+		margin: 0 auto; 
+		header {
+			height: 48px; margin: 0 100px; max-width: 1450px; position: relative;
+
+			a { 
+				color: @white; 
+				&.logo { font-size: 25px; }
+			}
+
+			nav {
+				position: absolute; text-transform: uppercase; top: 0;
+				&.nav { 
+					right: 150px; 
+					a {
+						border-right: 2px solid @white; margin-right: 25px; padding-right: 25px; display: block; float: left;
+						&.about { border-right: 0; margin-right: 0; padding-right: 0; }
+					}
+				}
+				&.tools {
+					right: 0; 
+				}
+			}
+		}
+		
 	}
 }

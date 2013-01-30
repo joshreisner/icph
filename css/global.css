@@ -1,1 +1,4 @@
-html body{background-image:url(../img/background.png);}
+html body{background-image:url(../img/background.png);margin:0;font-family:"benton-sans",Helvetica,sans-serif;}
+.header_wrapper{background-color:#383434;min-width:1180px;}.header_wrapper .wrapper2{margin:0 auto;}.header_wrapper .wrapper2 header{height:48px;margin:0 100px;max-width:1450px;position:relative;}.header_wrapper .wrapper2 header a{color:#ffffff;}.header_wrapper .wrapper2 header a.logo{font-size:25px;}
+.header_wrapper .wrapper2 header nav{position:absolute;text-transform:uppercase;top:0;}.header_wrapper .wrapper2 header nav.nav{right:150px;}.header_wrapper .wrapper2 header nav.nav a{border-right:2px solid #ffffff;margin-right:25px;padding-right:25px;display:block;float:left;}.header_wrapper .wrapper2 header nav.nav a.about{border-right:0;margin-right:0;padding-right:0;}
+.header_wrapper .wrapper2 header nav.tools{right:0;}
