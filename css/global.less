@@ -1,6 +1,7 @@
 /*colors*/
-@gray:	#383434;
-@white: #FFFFFF;
+@beige : #eae3d9;
+@gray  : #383434;
+@white : #ffffff;
 
 
 /*mixins*/
@@ -37,23 +38,30 @@ html {
 			a { 
 				color: @white; 
 				&.logo {
-					font-size: 25px; 
+					font-size: 28px; position: absolute; left: 0; top: 6px; 
 					span { .fontCondBold; }
 				}
 			}
-
-			nav {
-				position: absolute; text-transform: uppercase; top: 0; .fontCondBold; font-size: 13px;
-				&.nav { 
-					right: 150px; 
-					a {
-						border-right: 2px solid @white; margin-right: 25px; padding-right: 25px; display: block; float: left;
-						&.about { border-right: 0; margin-right: 0; padding-right: 0; }
-						&:hover  { border-bottom: 3px solid @white; }
+			
+			div.menu {
+				ul {
+					list-style-type: none; margin: 0; padding: 0; text-transform: uppercase; .fontCondBold;
+					li { 
+						float: left; padding: 0; margin: 0; display: block;
+						ul { display: none; }
 					}
 				}
-				&.tools {
-					right: 0; 
+			}
+
+			#nav {
+				position: absolute; right: 0; top: 4px; 
+				li {
+					border-right: 2px solid @white; padding: 0 20px 0 0; margin: 0 20px 0 0; height: 15px; 
+					a { 
+						display: block; font-size: 18px; line-height: 18px; padding: 10px 0; 
+						&:hover { color: @beige; border-bottom: 5px solid @beige; }
+					}
+					&.current_page_item a { color: @beige; border-bottom: 5px solid @beige; }
 				}
 			}
 		}
