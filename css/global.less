@@ -1,17 +1,28 @@
-/*fonts*/
-
 /*colors*/
 @gray:	#383434;
 @white: #FFFFFF;
 
 
+/*mixins*/
+.font() {
+	font-family: "BentonSans", Helvetica, sans-serif; font-style: normal;
+}
+
+.fontBold() {
+	font-family: "BentonSans", Helvetica, sans-serif; font-style: normal; font-weight: bold;
+}
+
+.fontCondBold() {
+	font-family: "BentonSansCond", Helvetica, sans-serif; font-style: normal; font-weight: bold;
+}
+
+
 /*globals*/
 html {
 	body {
-		background-image: url(../img/background.png);
-		margin: 0; 
-		font-family: "benton-sans", Helvetica, sans-serif;
+		background-image: url(../img/background.png); margin: 0; .font;
 	}
+	a { text-decoration: none; }
 }
 
 
@@ -25,16 +36,20 @@ html {
 
 			a { 
 				color: @white; 
-				&.logo { font-size: 25px; }
+				&.logo {
+					font-size: 25px; 
+					span { .fontCondBold; }
+				}
 			}
 
 			nav {
-				position: absolute; text-transform: uppercase; top: 0;
+				position: absolute; text-transform: uppercase; top: 0; .fontCondBold; font-size: 13px;
 				&.nav { 
 					right: 150px; 
 					a {
 						border-right: 2px solid @white; margin-right: 25px; padding-right: 25px; display: block; float: left;
 						&.about { border-right: 0; margin-right: 0; padding-right: 0; }
+						&:hover  { border-bottom: 3px solid @white; }
 					}
 				}
 				&.tools {

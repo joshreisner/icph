@@ -8,7 +8,8 @@
 			wp_enqueue_script('jquery');
 			wp_head();
 		?>
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_directory');?>/css/global.css">
+		<link rel="stylesheet" type="text/css" href="//cloud.webtype.com/css/e677f601-51a3-41b8-9df8-446cd03d543f.css">
+		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory');?>/css/global.css">
 	</head>
 	<body <?php body_class();?>>
 		<div class="header_wrapper">
