@@ -1,4 +1,4 @@
 		<?php wp_footer(); ?>
-		<script src="<?php bloginfo('template_directory');?>/javascript.js"></script>
+		<script src="<?php bloginfo('template_directory');?>/js/javascript.js"></script>
 	</body>
 </html>

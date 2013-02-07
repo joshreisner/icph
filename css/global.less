@@ -1,10 +1,17 @@
-/*colors*/
-@beige : #eae3d9;
-@gray  : #383434;
-@white : #ffffff;
+/* colors */
+@beige		: #eae3d9;
+@blue		: #5e7190;
+@blue_light	: #d3d2d1;
+@gray		: #383434;
+@gray_light	: #948f89;
+@green		: #8a9d44;
+@orange		: #a3735f;
+@purple		: #78558b;
+@red		: #9c474e;
+@white		: #ffffff;
 
 
-/*mixins*/
+/* mixins */
 .font() {
 	font-family: "BentonSans", Helvetica, sans-serif; font-style: normal;
 }
@@ -17,8 +24,15 @@
 	font-family: "BentonSansCond", Helvetica, sans-serif; font-style: normal; font-weight: bold;
 }
 
+.shadowed(@x-axis: 0, @y-axis: 0px, @blur: 6px, @color: #000, @alpha: 0.6) {
+	@hsla: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+	-webkit-box-shadow: @x-axis @y-axis @blur @hsla;
+	   -moz-box-shadow: @x-axis @y-axis @blur @hsla;
+	        box-shadow: @x-axis @y-axis @blur @hsla;
+}
 
-/*globals*/
+
+/* globals */
 html {
 	body {
 		background-image: url(../img/background.png); margin: 0; .font;
@@ -27,9 +41,9 @@ html {
 }
 
 
-/*template*/
+/* template */
 .header_wrapper {
-	background-color: @gray; min-width: 1180px;
+	background-color: @gray; min-width: 1180px; .shadowed();
 	.wrapper2 {
 		margin: 0 auto; 
 		header {
@@ -65,6 +79,71 @@ html {
 				}
 			}
 		}
+	}
+}
+
+#timeline {
+	list-style-type: none; margin: 150px 0 0 0; padding: 0; font-size: 13px; background-image: url(../img/background-dark.png); overflow: auto; width: 1000000px; 
+	li {
+		width: 243px; height: 464px; margin: 0; padding: 20px; border-left: 1px solid @beige; overflow: hidden; float: left; 
+		
+		&.progressive { border-color: @blue; }
+		&.overview {
+			border-left: 0; color: @white; .fontBold; line-height: 18px; width: 270px;
+			&.progressive { background-color: @blue; }
+		}
+		&.featured {
+			border-left: 0;
+			&.progressive { background-color: @blue_light; }
+		}
+	}
+}
+
+#slider {
+	background-color: @gray_light; list-style: none; overflow: auto; color: @white; width: 980px; margin: 40px auto; padding: 5px; .shadowed; .fontCondBold; font-size: 16px;
+	li { 
+		width: 191px; float: left; border-top: 12px solid @gray_light; height: 40px; line-height: 40px; padding: 0 0 0 5px; cursor: pointer;
+		&.early_ny		{ 
+			border-color: @purple; 
+			span { display: none; }
+			&.active, &:hover {
+				background-color: @purple; 
+				span { display: inline; }
+			}
+		}
+		&.nineteenth		{ 
+			border-color: @orange; 
+			span { display: none; }
+			&.active, &:hover {
+				background-color: @orange; 
+				span { display: inline; }
+			}
+		}
+		&.progressive		{ 
+			border-color: @blue; 
+			span { display: none; }
+			&.active, &:hover {
+				background-color: @blue; 
+				span { display: inline; }
+			}
+		}
+		&.great_depression		{ 
+			border-color: @red; 
+			span { display: none; }
+			&.active, &:hover {
+				background-color: @red; 
+				span { display: inline; }
+			}
+		}
+		&.today		{ 
+			border-color: @green; 
+			span { display: none; }
+			&.active, &:hover {
+				background-color: @green; 
+				span { display: inline; }
+			}
+		}
 		
 	}
 }
+
