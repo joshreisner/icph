@@ -1,21 +1,31 @@
 jQuery(function(){
-	if (location.hash) {
-		showOverlay(location.hash.substr(1));
-	}
+	//auto open a window for a single
+	if (location.hash) showOverlay(location.hash);
+	
+	/*
+	jQuery("a").each(function(){
+		var href = jQuery(this).attr("href");
+		if (href.substr(0, 1) == "#") {
+			jQuery(this).click(function(){
+				showOverlay(href);
+			});
+		}
+	});
+	*/
+	
+	jQuery("a").live('click', function(){
+		var href = jQuery(this).attr("href");
+		if (href.substr(0, 1) == "#") showOverlay(href);
+	});
 });
 
-function showOverlay(which) {
+function showOverlay(hash) {
+	hideOverlay();
+	if (hash == "#") return;
 	jQuery.ajax({
-		url : "/" + which + "/?overlay=true",
+		url : "/" + hash.substr(1) + "/?overlay=true",
 		success : function(data) {
-			//if (!jQuery("div#overlay_backdrop").size()) jQuery("body").append("<div id='overlay_backdrop'/>");
-			//if (!jQuery("div#overlay").size()) jQuery("body").append("<div id='overlay'/>");
-			//jQuery("div#overlay").html(data);
-			hideOverlay();
 			jQuery("body").append(data);
-			
-			//set up any jquery events on these added elements
-			jQuery("div#overlay a.close").click(hideOverlay);
 		},
 		error : function(data) {
 			alert("error");

@@ -44,8 +44,9 @@
 
 /* globals */
 html {
+	min-height: 100%;
 	body {
-		background-image: url(../img/background.png); margin: 0; .font;
+		background-image: url(../img/background.png); margin: 0; .font; color: @gray;
 		a { text-decoration: none; cursor: pointer; outline: none; }
 	}
 }
@@ -110,6 +111,8 @@ footer {
 		
 		.lower {
 			background-image: url(../img/background-dark.png); padding: 20px; height: 460px;
+			img { margin: -20px -20px 10px -20px; }
+			p { margin: 0 0 10px 0; }
 		}
 		
 		&.progressive { border-color: @blue; h1, h2, h3 { color: @blue; } }
@@ -187,21 +190,47 @@ footer {
 
 #overlay {
 	width: 960px; background-color: @beige; background-image: url(../img/background.png); z-index: 1050;
-	position: absolute; top: 48px; bottom: 0; left: 50%; margin-left: -480px; height: 100%; min-height: 100%;
+	position: absolute; top: 48px; left: 50%; margin-left: -480px; min-height: 100%;
 	
 	div.header {
-		position: relative; 
-		h1, h2 { margin: 0; padding: 0; }
-		a.close { text-transform: uppercase; .fontCondBold; top: 10px; right: 10px; font-size: 11px; position: absolute; }
+		position: relative; height: 97px; .fontCondBold; 
+		h1, h2 { margin: 0; padding: 0; position: absolute; left: 20px; }
+		h1 { top: 20px; }
+		h2 { top: 60px; font-size: 18px; }
+		a.close { text-transform: uppercase; top: 10px; right: 10px; font-size: 12px; position: absolute; color: @gray; }
+		h3 { color: @white; margin: 0; height: 36px; line-height: 36px; position: absolute; bottom: 0; right: 0; width: 300px; padding: 0 0 0 20px; }
 	}
 	
 	div.body {
 		overflow: auto; 
-		div.content { width: 640px; float: left; }
-		div.navigation { width: 320px; float: left; }
+		div.content {
+			width: 640px; float: left; font-size: 13px; line-height: 16px;
+			div.inner {
+				padding: 10px 40px; 
+				a { font-weight: bold; text-decoration: none; }
+			}
+		}
+		div.navigation { 
+			position: relative; width: 320px; float: left; font-size: 12px;
+			ul {
+				list-style: none; padding: 0; margin: 0; 
+				li { 
+					border-bottom: 1px solid @blue_light; border-left: 1px solid @blue_light; padding: 10px 20px;
+					a { .fontBold; }
+					p { margin: 0 0 0 0; }
+				}
+			}
+		}
 	}
 	
 	&.progressive {
-		div.header { background-color: @blue_light; }
+		div.header { 
+			background-color: @blue_light; 
+			a { color: @blue; }
+			h3 { background-color: @blue; }
+		}
+		div.body {
+			a { color: @blue; }
+		}
 	}
 }
