@@ -24,31 +24,36 @@
 							<a href="/">Timeline</a>
 						</li>
 						<li>
-							<a href="/eras/">Eras</a>
-							<ul class="children">
-								<li>
+							<a href="#">Eras</a>
+							<ul>
+								<li class="early_ny">
 									<a href="/eras/early-new-york-city/">
-										1650s to 1830s: Family Poverty in Early New York City
+										<div>1650s to 1830s</div>
+										Family Poverty in Early New York City
 									</a>
 								</li>
-								<li>
+								<li class="nineteenth">
 									<a href="/eras/19th-century/">
-										1830s to 1890s: Poverty &#038; Homelessness in the 19th Century
+										<div>1830s to 1890s</div>
+										Poverty &#038; Homelessness in the 19th Century
 									</a>
 								</li>
-								<li>
+								<li class="progressive">
 									<a href="/eras/the-progressive-era/">
-										1890s to 1920s: Poverty &#038; Homelessness in the Progressive Era
+										<div>1890s to 1920s</div>
+										Poverty &#038; Homelessness in the Progressive Era
 									</a>
 								</li>
-								<li>
+								<li class="great_depression">
 									<a href="/eras/the-great-depression/">
-										1929 to 1945: Family Crises in the Great Depression
+										<div>1929 to 1945</div>
+										Family Crises in the Great Depression
 									</a>
 								</li>
-								<li>
+								<li class="today">
 									<a href="/eras/new-urban-poverty/">
-										1945 to Today: The Origin of New Urban Poverty
+										<div>1945 to Today</div>
+										The Origin of New Urban Poverty
 									</a>
 								</li>
 							</ul>
