@@ -49,7 +49,8 @@ html {
 	body {
 		background-image: url(../img/background.png); margin: 0; .font; color: @gray;
 		a { text-decoration: none; cursor: pointer; outline: none; }
-		h1, h2, h3 { margin: 0; padding: 0; }
+		h1, h2, h3, h4 { margin: 0; padding: 0; }
+		p { margin: 0 0 15px 0; }
 	}
 }
 
@@ -360,11 +361,12 @@ footer {
 				ul {
 					list-style: none; margin: 0; padding: 0;
 					li { 
-						float: left; .fontCondBold; font-size: 16px; vertical-align: middle;
+						float: left; .fontCondBold; font-size: 16px;
 						div { 
-							float: left; 
-							&.stat { text-align: right; margin-right: 20px; width: 150px; }
+							display: inline-block; vertical-align: middle;
+							&.stat { text-align: right; margin-right: 10px; width: 150px; }
 						}
+						&.center { margin: 0 20px; }
 					}
 				}
 			}
@@ -382,3 +384,49 @@ footer {
 	}
 }
 
+body.maps {
+	height: 100%; 
+	iframe { width: 100%; height: 100%; }
+	footer { display: none; }
+}
+
+#browse {
+	width: 940px; margin: 0 auto; padding: 80px 0 40px 0; 
+	
+	.header {
+		border-bottom: 1px solid @gray; margin-bottom: 40px; .fontCondBold; font-size: 18px; padding-bottom: 8px;
+		a { 
+			color: @gray_light; margin-left: 20px; padding-bottom: 8px; 
+			&.active { border-bottom: 4px solid @gray; padding-bottom: 4px; color: @gray; }
+		}
+	}
+	
+	.row {
+		h3 { 
+			.fontCondBold; font-size: 33px; color: @gray_light; margin-bottom: 10px; border-top: 1px solid @gray; padding-top: 10px; cursor: pointer; 
+			&.first { border-top: 0; }
+		}
+		
+		ul {
+			list-style: none; margin: 0 0 0 -20px; padding: 0; font-size: 12px; overflow: auto; display: none;
+			li { 
+				width: 280px; margin: 0 0 20px 20px; padding: 10px; background-image: url(../img/background-dark.png); float: left;
+				
+				img { float: left; margin-right: 10px; width: 100px; height: 100px; display: block; }
+				
+				div {
+					float: left; width: 160px;
+					h4 { 
+						.fontCondBold; text-transform: uppercase; margin-bottom: 10px; 
+						&.early_ny			{ color: @purple; }
+						&.nineteenth		{ color: @orange; }
+						&.progressive		{ color: @blue; }
+						&.great_depression	{ color: @red; }
+						&.today				{ color: @green; }
+					}
+					a { .fontBold; color: @gray; }
+				}
+			}
+		}
+	}
+}

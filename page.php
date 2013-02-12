@@ -104,15 +104,15 @@ get_header();
 			<ul>
 				<li>
 					<div class="stat">2/3 of New York City's population live in tenements</div>
-					<div class="img"><img src="<?php bloginfo('template_directory');?>/img/placeholder/stat1.png" alt="stat1" width="227" height="170" /></div>
+					<div class="img"><img src="<?php bloginfo('template_directory');?>/img/placeholder/stat1.png" alt="stat1" width="160" height="120" /></div>
 				</li>
-				<li>
+				<li class="center">
 					<div class="stat">Total number of child workers in the United States in 1900: 1.7 million</div>
-					<div class="img"><img src="<?php bloginfo('template_directory');?>/img/placeholder/stat2.png" alt="stat1" width="267" height="170" /></div>
+					<div class="img"><img src="<?php bloginfo('template_directory');?>/img/placeholder/stat2.png" alt="stat1" width="188" height="120" /></div>
 				</li>
 				<li>
 					<div class="stat">National economic output increased by 85%</div>
-					<div class="img"><img src="<?php bloginfo('template_directory');?>/img/placeholder/stat3.png" alt="stat1" width="85" height="170" /></div>
+					<div class="img"><img src="<?php bloginfo('template_directory');?>/img/placeholder/stat3.png" alt="stat1" width="60" height="120" /></div>
 				</li>
 			</ul>
 		</div>

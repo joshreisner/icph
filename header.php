@@ -61,8 +61,8 @@
 						<li<?php if ($_SERVER['REQUEST_URI'] == '/maps/') echo ' class="current_page_item"'?>>
 							<a href="/maps/">Maps</a>
 						</li>
-						<li<?php if ($_SERVER['REQUEST_URI'] == '/topics/') echo ' class="current_page_item"'?>>
-							<a href="/topics/">Topics</a>
+						<li<?php if ($_SERVER['REQUEST_URI'] == '/browse/') echo ' class="current_page_item"'?>>
+							<a href="/browse/">Browse</a>
 						</li>
 						<li<?php if ($_SERVER['REQUEST_URI'] == '/about/') echo ' class="current_page_item"'?>>
 							<a href="/about/">About</a>

@@ -17,6 +17,10 @@ jQuery(function(){
 		var href = jQuery(this).attr("href");
 		if (href.substr(0, 1) == "#") showOverlay(href);
 	});
+	
+	jQuery("#browse h3").click(function(){
+		jQuery(this).parent().find("ul").slideToggle();
+	});
 });
 
 function showOverlay(hash) {
