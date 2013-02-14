@@ -151,7 +151,16 @@ get_header();
 			1945 <span>Today</span>
 		</li>
 	</ul>
+	
+	<?php 
+	//get category children of "policies"
+	$policies = get_categories(array('child_of'=>21, 'hide_empty'=>false));
+	foreach ($policies as &$p) $p = array('link'=>'/policies/' . $p->slug . '/', 'content'=>$p->name);
+	array_unshift($policies, array('content'=>'View by Policy'));
+	echo icph_ul($policies, array('id'=>'slider_policy'));
+	?>
 </div>
 
 <?php
+
 get_footer();

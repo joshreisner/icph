@@ -17,3 +17,20 @@ function icph_body_class($classes)  {
 	return array_unique($classes);
 }
 
+function icph_ul($elements, $arguments) {
+	//universal lightweight method for outputting UL lists with first and last classes on LI elements
+	$count = count($elements);
+	$counter = 1;
+	foreach ($elements as &$e) {
+		$e['class'] = empty($e['class']) ? array() : explode(' ', $e['class']);
+		if ($counter == 1) $e['class'][] = 'first';
+		if ($counter == $count) $e['class'][] = 'last';
+		$e['content'] = empty($e['link']) ? $e['content'] : '<a href="' . $e['link'] . '">' . $e['content'] . '</a>';
+		$e = '<li class="' . implode(' ', array_unique($e['class'])) . '">' . $e['content'] . '</li>';
+		$counter++;
+	}
+	
+	$return = '<ul'; //assemble output
+	foreach ($arguments as $key=>$value) $return .= ' ' . $key . '="' . $value . '"';
+	return $return . '>' . implode('', $elements) . '</ul>';
+}
