@@ -33,9 +33,14 @@ get_header();
 				<h3><?php echo $y->name?></h3>
 			</div>
 			<div class="lower">
-				<p><a href="#gordon-family">Lillian Wald</a> and Mary Brewster open the Henry Street Settlement on the Lower East Side.</p>
-				<p>Vegan readymade fashion axe polaroid sapiente. Fugiat squid scenester, etsy before they sold out synth williamsburg qui keytar voluptate hella neutra. Iphone next level banh mi bespoke authentic, disrupt laborum skateboard gentrify single-origin coffee american apparel incididunt keffiyeh.</p>
-				<p>Quis vero fanny pack helvetica portland fashion axe, officia art party echo park. Beard flannel aesthetic ad. Gluten-free readymade thundercats, eu disrupt tonx narwhal brunch wayfarers cardigan.</p>
+				<?php
+				$posts = get_posts('category=' . $y->term_id);
+				foreach ($posts as $p) {
+					$excerpt = (empty($p->post_excerpt)) ? $p->post_title : $p->post_excerpt;
+					$excerpt = str_replace($p->post_title, '<a href="#' . $p->post_name . '">' . $p->post_title . '</a>', $excerpt);
+					echo '<p>' . $excerpt . '</p>';
+				}
+				?>
 			</div>
 		</li>
 		<?php }

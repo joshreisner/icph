@@ -10,7 +10,10 @@ jQuery(function(){
 	
 	//timeline scroll
 	if (jQuery("body").hasClass("home")) {
-		//alert(jQuery("ul#timeline li#progressive").offsetLeft);
+		var position = jQuery("ul#timeline li#progressive").position();
+		//alert(position.left);
+		var sliderPos = jQuery("ul#slider li").first().position();
+		jQuery("ul#timeline").css("marginLeft", "-" + (position.left - sliderPos.left + 5) + "px");
 	}
 	
 	//browse page
