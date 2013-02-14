@@ -7,9 +7,13 @@
 @gray_light		: #948f89;
 @gray_medium	: #64615c;
 @green			: #8a9d44;
+@green_light	: #e0dfcd;
 @orange			: #a3735f;
+@orange_light	: #e7d8cd;
 @purple			: #78558b;
+@purple_light	: #d9ceca;
 @red			: #9c474e;
+@red_light		: #e5cec7;
 @white			: #ffffff;
 
 
@@ -144,23 +148,90 @@ footer {
 		
 		&.overview {
 			border-left: 0; color: @white; .fontBold; line-height: 18px; width: 248px; font-size: 13px;
-			.upper { width: 420px; }
+			.upper { 
+				width: 420px; 
+				h1 { position: absolute; bottom: 60px; left: 16px; }
+				h2 { position: absolute; bottom: 19px; left: 16px; }
+			}
+			.lower { background-image: none; }
+			&.early_ny { 
+				.lower { background-color: @purple; }
+			}
+			&.nineteenth { 
+				.lower { background-color: @orange; }
+			}
 			&.progressive { 
-				.upper { 
-					h1 { position: absolute; bottom: 60px; left: 16px; }
-					h2 { position: absolute; bottom: 19px; left: 16px; }
-				}
-				.lower { background-color: @blue; background-image: none; }
+				.lower { background-color: @blue; }
+			}
+			&.great_depression { 
+				.lower { background-color: @red; }
+			}
+			&.today { 
+				.lower { background-color: @green; }
 			}
 		}
+		
 		&.featured {
 			border-left: 0;
+			.lower { background-image: none; }
+			&.early_ny {
+				.upper { }
+				.lower { background-color: @purple_light; }
+			}
 			&.progressive {
 				.upper { }
-				.lower { background-color: @blue_light; background-image: none; }
+				.lower { background-color: @orange_light; }
+			}
+			&.progressive {
+				.upper { }
+				.lower { background-color: @blue_light; }
+			}
+			&.progressive {
+				.upper { }
+				.lower { background-color: @red_light; }
+			}
+			&.progressive {
+				.upper { }
+				.lower { background-color: @green_light; }
 			}
 		}
 
+		&.early_ny { 
+			border-color: @purple; 
+			h1, h2, h3 { color: @purple; } 
+			a { 
+				color: @purple;
+				&:hover { background-color: @purple_light; }
+			}
+		}
+		
+		&.nineteenth { 
+			border-color: @orange; 
+			h1, h2, h3 { color: @orange; } 
+			a { 
+				color: @blue;
+				&:hover { background-color: @orange_light; }
+			}
+		}
+		
+		&.progressive { 
+			border-color: @blue; 
+			h1, h2, h3 { color: @blue; } 
+			a { 
+				color: @blue;
+				&:hover { background-color: @blue_light; }
+			}
+		}
+		
+		&.great_depression { 
+			border-color: @red; 
+			h1, h2, h3 { color: @red; } 
+			a { 
+				color: @blue;
+				&:hover { background-color: @red_light; }
+			}
+		}
+		
 		&.progressive { 
 			border-color: @blue; 
 			h1, h2, h3 { color: @blue; } 
@@ -190,6 +261,7 @@ footer {
 	
 	li { 
 		width: 191px; float: left; border-top: 12px solid @gray_light; height: 40px; line-height: 40px; padding: 0 0 0 5px; cursor: pointer;
+		span { float: right; margin-right: 10px;}
 		&.early_ny		{ 
 			border-color: @purple; 
 			span { display: none; }
