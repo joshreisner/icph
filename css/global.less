@@ -120,32 +120,34 @@ footer {
 
 #timeline {
 
-	list-style-type: none; margin: 100px 0 0 0; padding: 0; font-size: 13px; overflow-x: auto; overflow-y: hidden; width: 1000000px; 
+	list-style-type: none; margin: 92px 0 0 0; padding: 0; font-size: 12px; overflow-x: auto; overflow-y: hidden; width: 1000000px; 
 
 	h1 { font-size: 50px; .fontCondBold; }
 	h2 { font-size: 29px; .fontCondBold; }
 
 	li {
-		width: 283px; margin: 0; padding: 0; border-left: 1px solid @beige; float: left; 
+		width: 226px; margin: 0; padding: 0; border-left: 1px solid @beige; float: left; 
 
 		.upper {
-			height: 179px; position: relative;
-			img { position: absolute; left: -62.5px; }
-			h3 { font-weight: normal; position: absolute; bottom: 10px; left: 20px; font-size: 28px; }
+			height: 150px; position: relative;
+			img { position: absolute; left: -50px; width: 100px; height: 100px; }
+			h3 { font-weight: normal; position: absolute; bottom: 10px; left: 16px; font-size: 28px; }
 		}
 		
 		.lower {
-			background-image: url(../img/background-dark.png); padding: 20px; height: 460px;
-			img { margin: -20px -20px 10px -20px; }
+			background-image: url(../img/background-dark.png); padding: 16px; height: 372px;
+			img { margin: -16px -16px 10px -16px; }
 			p { margin: 0 0 10px 0; }
+			a { .fontBold; }
 		}
 		
 		&.overview {
-			border-left: 0; color: @white; .fontBold; line-height: 18px; width: 310px; font-size: 14px;
+			border-left: 0; color: @white; .fontBold; line-height: 18px; width: 248px; font-size: 13px;
+			.upper { width: 420px; }
 			&.progressive { 
 				.upper { 
-					h1 { position: absolute; bottom: 70px; left: 20px; }
-					h2 { position: absolute; bottom: 17px; left: 20px; }
+					h1 { position: absolute; bottom: 60px; left: 16px; }
+					h2 { position: absolute; bottom: 19px; left: 16px; }
 				}
 				.lower { background-color: @blue; background-image: none; }
 			}
@@ -161,6 +163,10 @@ footer {
 		&.progressive { 
 			border-color: @blue; 
 			h1, h2, h3 { color: @blue; } 
+			a { 
+				color: @blue;
+				&:hover { background-color: @blue_light; }
+			}
 		}
 		
 	}
@@ -168,7 +174,7 @@ footer {
 .timeline_mask { width: 100%; overflow: hidden; }
 
 #slider {
-	background-color: @gray_light; list-style: none; overflow: auto; color: @white; width: 980px; margin: 40px auto; padding: 5px; .shadowed; .fontCondBold; font-size: 16px;
+	background-color: @gray_light; list-style: none; overflow: auto; color: @white; width: 980px; margin: 48px auto; padding: 5px; .shadowed; .fontCondBold; font-size: 16px;
 	li { 
 		width: 191px; float: left; border-top: 12px solid @gray_light; height: 40px; line-height: 40px; padding: 0 0 0 5px; cursor: pointer;
 		&.early_ny		{ 
