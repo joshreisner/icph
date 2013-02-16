@@ -26,36 +26,16 @@
 						<li>
 							<a href="#">Eras</a>
 							<ul>
-								<li class="early_ny">
-									<a href="/eras/early-new-york-city/">
-										<div>1650s to 1830s</div>
-										Family Poverty in Early New York City
+								<?php 
+								global $eras;
+								foreach ($eras as $e) {?>
+								<li class="<?php echo $e['slug']?>">
+									<a href="<?php echo $e['url']?>">
+										<div><?php echo $e['start_year']?> to <?php echo $e['end_year']?></div>
+										<?php echo $e['title']?>
 									</a>
 								</li>
-								<li class="nineteenth">
-									<a href="/eras/19th-century/">
-										<div>1830s to 1890s</div>
-										Poverty &#038; Homelessness in the 19th Century
-									</a>
-								</li>
-								<li class="progressive">
-									<a href="/eras/the-progressive-era/">
-										<div>1890s to 1920s</div>
-										Poverty &#038; Homelessness in the Progressive Era
-									</a>
-								</li>
-								<li class="great_depression">
-									<a href="/eras/the-great-depression/">
-										<div>1929 to 1945</div>
-										Family Crises in the Great Depression
-									</a>
-								</li>
-								<li class="today">
-									<a href="/eras/new-urban-poverty/">
-										<div>1945 to Today</div>
-										The Origin of New Urban Poverty
-									</a>
-								</li>
+								<?php }?>
 							</ul>
 						</li>
 						<li<?php if ($_SERVER['REQUEST_URI'] == '/maps/') echo ' class="current_page_item"'?>>

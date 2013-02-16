@@ -58,6 +58,9 @@ get_header();
 	array_unshift($policies, array('content'=>'View by Policy'));
 	echo icph_ul($policies, array('id'=>'slider_policy'));
 	?>
+	
+	<div class="arrow left"></div>
+	<div class="arrow right"></div>
 </div>
 
 <?php

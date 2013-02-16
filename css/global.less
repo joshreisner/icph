@@ -232,18 +232,26 @@ footer {
 			}
 		}
 		
-		&.progressive { 
-			border-color: @blue; 
-			h1, h2, h3 { color: @blue; } 
+		&.today { 
+			border-color: @green; 
+			h1, h2, h3 { color: @green; } 
 			a { 
-				color: @blue;
-				&:hover { background-color: @blue_light; }
+				color: @green;
+				&:hover { background-color: @green_light; }
 			}
 		}
 		
 	}
 }
-.timeline_mask { width: 100%; overflow: hidden; }
+
+.timeline_mask {
+	width: 100%; overflow: hidden; position: relative;
+	div.arrow {
+		background-color: @gray; .opacity(.5); width: 38px; height: 50px; position: absolute; top: 400px;
+		&.left { left: 0; }
+		&.right { right: 0; }
+	}
+}
 
 #slider {
 	background-color: @gray_light;

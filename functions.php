@@ -10,7 +10,8 @@ $eras = array(
 		'start_year'=>1650,
 		'end_year'=>1830,
 		'name'=>'Early New York',
-		'title'=>'Family Poverty in Early New York'
+		'title'=>'Family Poverty in Early New York',
+		'url'=>'/eras/early-new-york-city/'
 	),
 	array(
 		'category_id'=>1,
@@ -18,7 +19,8 @@ $eras = array(
 		'start_year'=>1830,
 		'end_year'=>1890,
 		'name'=>'19th Century',
-		'title'=>'Homelessness in the Nineteenth Century'
+		'title'=>'Homelessness in the Nineteenth Century',
+		'url'=>'/eras/19th-century/'
 	),
 	array(
 		'category_id'=>3,
@@ -26,7 +28,8 @@ $eras = array(
 		'start_year'=>1890,
 		'end_year'=>1920,
 		'name'=>'The Progressive Era',
-		'title'=>'Homelessness in the Progressive Era'
+		'title'=>'Homelessness in the Progressive Era',
+		'url'=>'/eras/the-progressive-era/'
 	),
 	array(
 		'category_id'=>35,
@@ -34,7 +37,8 @@ $eras = array(
 		'start_year'=>1929,
 		'end_year'=>1944,
 		'name'=>'The Great Depression',
-		'title'=>'Family Crises in the Great Depression'
+		'title'=>'Family Crises in the Great Depression',
+		'url'=>'/eras/the-great-depression/'
 	),
 	array(
 		'category_id'=>4,
@@ -42,7 +46,8 @@ $eras = array(
 		'start_year'=>1945,
 		'end_year'=>'Today',
 		'name'=>'Today',
-		'title'=>'Origins of the New Urban Poverty'
+		'title'=>'Origins of the New Urban Poverty',
+		'url'=>'/eras/new-urban-poverty'
 	)
 );
 

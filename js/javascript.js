@@ -1,42 +1,94 @@
 jQuery(function(){
-	//auto open a window for a single
-	if (location.hash) showOverlay(location.hash);
 	
-	//global open an overlay
+	// 1/ global
+	//automatically open window if there's a hash
+	if (location.hash) overlayShow(location.hash);
+	
+	//set links to open overlays
 	jQuery("a").live('click', function(){
 		var href = jQuery(this).attr("href");
-		if (href.substr(0, 1) == "#") showOverlay(href);
+		if (href.substr(0, 1) == "#") overlayShow(href);
+	});
+
+
+	// 2/ timeline	
+	//sliding variables
+	var $timeline = jQuery('ul#timeline'), timeline_interval, timeline_direction;
+	var sliderLeft = jQuery("ul#slider li").first().position().left;
+	var eras = new Array("early_ny", "nineteenth", "progressive", "great_depression", "today");
+	var eraLeft = new Array();
+	for (var i = 0; i < eras.length; i++) eraLeft[eras[i]] = jQuery("ul#timeline li#" + eras[i]).position().left;
+
+	//set initial scroll
+	if (jQuery("body").hasClass("home")) timelineJump("progressive");
+	
+	jQuery("ul#slider li").click(function(){
+		var target = jQuery(this).attr("class");
+		target = target.replace(" first", "").replace(" last", "").replace(" active", "");
+		timelineJump(target);
 	});
 	
-	//timeline scroll
-	if (jQuery("body").hasClass("home")) {
-		var position = jQuery("ul#timeline li#progressive").position();
-		//alert(position.left);
-		var sliderPos = jQuery("ul#slider li").first().position();
-		jQuery("ul#timeline").css("marginLeft", "-" + (position.left - sliderPos.left + 5) + "px");
-	}
-	
-	//browse page
+	//set arrow
+	jQuery(".timeline_mask div.arrow").hover(
+		function() {
+			timeline_direction = (jQuery(this).hasClass("left")) ? 1 : -1;
+			timeline_interval = setInterval(timelineMove, 30);
+		},
+		function() {
+			clearInterval(timeline_interval);
+		}
+	);
+
+
+	// 3/ browse page
+	//set accordion
 	jQuery("#browse h3").click(function(){
 		jQuery(this).parent().find("ul").slideToggle();
 	});
-});
 
-function showOverlay(hash) {
-	hideOverlay();
-	if (hash == "#") return;
-	jQuery.ajax({
-		url : "/" + hash.substr(1) + "/?overlay=true",
-		success : function(data) {
-			jQuery("body").append(data);
-		},
-		error : function(data) {
-			alert("error");
+
+	//functions
+	function overlayShow(hash) {
+		overlayHide();
+		if (hash == "#") return;
+		jQuery.ajax({
+			url : "/" + hash.substr(1) + "/?overlay=true",
+			success : function(data) {
+				jQuery("body").append(data);
+			},
+			error : function(data) {
+				alert("error");
+			}
+		});
+	}
+	
+	function overlayHide() {
+		jQuery("div#overlay_backdrop").remove();
+		jQuery("div#overlay").remove();
+	}
+	
+	function sliderUpdate() {
+		//update the slider to
+		var currentMargin = 0 - parseInt(jQuery("ul#timeline").css("marginLeft")) + sliderLeft;
+		var currentEra = eras[0];
+		for (var i = 0; i < eras.length; i++) {
+			if (eraLeft[eras[i]] <= currentMargin) currentEra = eras[i];
+			//alert(eras[i] + " " + currentEra + " " + eraLeft[eras[i]] + " " + currentMargin);
 		}
-	});
-}
+		jQuery("ul#slider li").removeClass("active");
+		jQuery("ul#slider li." + currentEra).addClass("active");
+	}
+	
+	function timelineJump(which) {
+		//jump the timeline such that it lines up with the left side of the slider
+		//alert("-" + (eraLeft[which] - sliderLeft) + "px");
+		jQuery("ul#timeline").css("marginLeft", (0 - (eraLeft[which] - sliderLeft)) + "px");
+		sliderUpdate();
+	}
+	
+	function timelineMove() {
+		$timeline.css({ marginLeft : parseInt($timeline.css('marginLeft')) + (timeline_direction * 10) });
+		sliderUpdate();
+	}
 
-function hideOverlay() {
-	jQuery("div#overlay_backdrop").remove();
-	jQuery("div#overlay").remove();
-}
+});
