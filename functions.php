@@ -55,7 +55,8 @@ $eras = array(
 //setup
 //add_theme_support('menus');
 add_filter('body_class', 'icph_body_class');
-
+add_action('wp_ajax_browse', 'icph_browse');
+add_action('wp_ajax_nopriv_browse', 'icph_browse');
 
 //custom functions
 function icph_body_class($classes)  {
@@ -67,6 +68,46 @@ function icph_body_class($classes)  {
 		foreach((get_the_category($post->ID)) as $category) $classes[] = trim($category->category_nicename);
 	}
 	return array_unique($classes);
+}
+
+function icph_browse($type='Subject') {
+	global $eras;
+	
+	$parent_id = (isset($_POST['type']) && ($_POST['type'] == 'policy')) ? 21 : 22;
+	$categories = get_categories('parent=' . $parent_id);
+
+	foreach ($categories as $category) {?>
+		
+	<div class="row">
+		<h3<?php if ($category->name == $categories[0]->name) {?> class="first"<?php }?>><?php echo $category->name?></h3>
+		<ul>
+			<?php 
+			$posts = get_posts('category=' . $category->term_id);
+			foreach ($posts as $post) {
+				//get post's era -- probably will replace this with multiple eras?
+				$this_era = false;
+				$post_categories = wp_get_post_categories($post->ID);
+				foreach ($post_categories as $pc) {
+					foreach ($eras as $era) {
+						if ($pc == $era['category_id']) $this_era = '<h4 class="' . $era['slug'] . '">' . $era['name'] . '</h4>';
+					}
+				}
+			?>
+			<li>
+				<img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="150" height="150" />
+				<div>
+					<?php echo $this_era?>
+					<a href="#<?php echo $post->post_name?>"><?php echo $post->post_title?></a>
+					<p><?php echo $post->post_excerpt?> &hellip;</p>
+				</div>
+			</li>
+			<?php }?>
+		</ul>
+	</div>
+	
+	<?php }
+
+	if (isset($_POST['type'])) die(); //end output here on ajax requests
 }
 
 function icph_ul($elements, $arguments) {

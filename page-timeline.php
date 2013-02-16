@@ -25,7 +25,7 @@ get_header();
 			</div>
 		</li>
 		<?php 
-		$years = get_categories(array('parent'=>$e['category_id'], 'hide_empty'=>false));
+		$years = get_categories('parent=' . $e['category_id']);
 		foreach ($years as $y) {?>
 		<li class="<?php echo $e['slug']?>">
 			<div class="upper">

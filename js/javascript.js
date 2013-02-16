@@ -44,8 +44,23 @@ jQuery(function(){
 
 	// 3/ browse page
 	//set accordion
-	jQuery("#browse h3").click(function(){
+	jQuery("#browse h3").live("click", function(){
 		jQuery(this).parent().find("ul").slideToggle();
+	});
+	
+	//set links
+	jQuery("#browse .header a").click(function(){
+		jQuery("#browse .header a").removeClass("active");
+		jQuery(this).addClass("active");
+		var type = jQuery(this).html().toLowerCase();
+		jQuery.ajax({
+			url : "/wp-admin/admin-ajax.php",
+			type : "POST",
+			data : "action=browse&type=" + type,
+			success : function(data) {
+				jQuery("#browse .content").html(data);
+			}
+		});
 	});
 
 
