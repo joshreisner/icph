@@ -12,15 +12,17 @@ jQuery(function(){
 
 
 	// 2/ timeline	
-	//sliding variables
-	var $timeline = jQuery('ul#timeline'), timeline_interval, timeline_direction;
-	var sliderLeft = jQuery("ul#slider li").first().position().left;
-	var eras = new Array("early_ny", "nineteenth", "progressive", "great_depression", "today");
-	var eraLeft = new Array();
-	for (var i = 0; i < eras.length; i++) eraLeft[eras[i]] = jQuery("ul#timeline li#" + eras[i]).position().left;
 
-	//set initial scroll
-	if (jQuery("body").hasClass("home")) timelineJump("progressive");
+	//set initial scroll and variables
+	if (jQuery("body").hasClass("home")) {
+		var $timeline = jQuery('ul#timeline'), timeline_interval, timeline_direction;
+		var sliderLeft = jQuery("ul#slider li").first().position().left;
+		var eras = new Array("early_ny", "nineteenth", "progressive", "great_depression", "today");
+		var eraLeft = new Array();
+		for (var i = 0; i < eras.length; i++) eraLeft[eras[i]] = jQuery("ul#timeline li#" + eras[i]).position().left;
+	
+		timelineJump("progressive");
+	}
 	
 	jQuery("ul#slider li").click(function(){
 		var target = jQuery(this).attr("class");
