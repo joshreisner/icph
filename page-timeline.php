@@ -37,7 +37,7 @@ get_header();
 				$posts = get_posts('category=' . $y->term_id);
 				foreach ($posts as $p) {
 					$excerpt = (empty($p->post_excerpt)) ? $p->post_title : $p->post_excerpt;
-					$excerpt = str_replace($p->post_title, '<a href="#' . $p->post_name . '">' . $p->post_title . '</a>', $excerpt);
+					$excerpt = str_ireplace($p->post_title, '<a href="#' . $p->post_name . '">' . $p->post_title . '</a>', $excerpt);
 					echo '<p>' . $excerpt . '</p>';
 				}
 				?>
