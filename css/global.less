@@ -148,7 +148,7 @@ footer {
 	list-style-type: none; margin: 0; padding: 0; font-size: 12px; overflow-x: auto; overflow-y: hidden; width: 1000000px; 
 
 	li {
-		width: @timeline_column_width; margin: 0; padding: 0; border-left: 1px solid @beige; float: left; 
+		width: @timeline_column_width; margin: 0; padding: 0; border-left: 1px solid @beige; float: left; position: relative;
 
 		.upper {
 			height: @timeline_upper_height; position: relative;
@@ -161,6 +161,7 @@ footer {
 			img { margin: -@timeline_column_padding -@timeline_column_padding @timeline_paragraph_bottom -@timeline_column_padding; width: @timeline_column_width; height: auto; }
 			p { margin: 0 0 @timeline_paragraph_bottom 0; }
 			a { .fontBold; }
+			a.more { position: absolute; bottom: @timeline_column_padding; left: @timeline_column_padding; .fontCondBold; text-transform: uppercase; }
 		}
 		
 		&.overview {
@@ -170,7 +171,13 @@ footer {
 				h1 { font-size: 50px; .fontCondBold; position: absolute; bottom: 60px; left: @timeline_column_padding; }
 				h2 { font-size: 28px; .fontCondBold; position: absolute; bottom: 19px; left: @timeline_column_padding; }
 			}
-			.lower { background-image: none; }
+			.lower { 
+				background-image: none; 
+				a {
+					color: @white;
+					&:hover { background-color: transparent; }
+				}
+			}
 			&.early_ny			.lower { background-color: @purple; }
 			&.nineteenth		.lower { background-color: @orange; }
 			&.progressive		.lower { background-color: @blue; }

@@ -16,14 +16,15 @@ header #nav li:hover ul li.today div{color:#8a9d44;}
 header #nav li.current_page_item a{color:#eae3d9;border-bottom:5px solid #eae3d9;}
 footer{overflow:auto;margin-bottom:20px;}footer .copyright{float:left;margin-left:20px;}
 footer .social{float:right;margin-right:20px;}
-#timeline{list-style-type:none;margin:0;padding:0;font-size:12px;overflow-x:auto;overflow-y:hidden;width:1000000px;}#timeline li{width:226px;margin:0;padding:0;border-left:1px solid #eae3d9;float:left;}#timeline li .upper{height:150px;position:relative;}#timeline li .upper img{position:absolute;left:-50px;width:100px;height:100px;}
+#timeline{list-style-type:none;margin:0;padding:0;font-size:12px;overflow-x:auto;overflow-y:hidden;width:1000000px;}#timeline li{width:226px;margin:0;padding:0;border-left:1px solid #eae3d9;float:left;position:relative;}#timeline li .upper{height:150px;position:relative;}#timeline li .upper img{position:absolute;left:-50px;width:100px;height:100px;}
 #timeline li .upper h3{font-weight:normal;position:absolute;bottom:10px;left:16px;font-size:28px;}
 #timeline li .lower{background-image:url(../img/background-dark.png);height:372px;padding:16px;}#timeline li .lower img{margin:-16px -16px 10px -16px;width:226px;height:auto;}
 #timeline li .lower p{margin:0 0 10px 0;}
 #timeline li .lower a{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;}
+#timeline li .lower a.more{position:absolute;bottom:16px;left:16px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;text-transform:uppercase;}
 #timeline li.overview{border-left:0;color:#ffffff;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;line-height:18px;width:248px;font-size:13px;}#timeline li.overview .upper{width:474px;}#timeline li.overview .upper h1{font-size:50px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;position:absolute;bottom:60px;left:16px;}
 #timeline li.overview .upper h2{font-size:28px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;position:absolute;bottom:19px;left:16px;}
-#timeline li.overview .lower{background-image:none;}
+#timeline li.overview .lower{background-image:none;}#timeline li.overview .lower a{color:#ffffff;}#timeline li.overview .lower a:hover{background-color:transparent;}
 #timeline li.overview.early_ny .lower{background-color:#78558b;}
 #timeline li.overview.nineteenth .lower{background-color:#a3735f;}
 #timeline li.overview.progressive .lower{background-color:#5e7190;}
