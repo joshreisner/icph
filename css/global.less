@@ -151,7 +151,8 @@ footer {
 	
 		li {
 			width: @timeline_column_width; margin: 0; padding: 0; border-left: 1px solid @beige; float: left; position: relative;
-	
+			h1, h2, h3 { color: @gray_medium; } 
+
 			.upper {
 				height: @timeline_upper_height; position: relative;
 				img { position: absolute; left: -(@timeline_year_diameter / 2); width: @timeline_year_diameter; height: @timeline_year_diameter; }
@@ -170,8 +171,8 @@ footer {
 				border-left: 0; color: @white; .fontBold; line-height: 18px; width: @timeline_overview_width; font-size: 13px;
 				.upper { 
 					width: @timeline_overview_width + @timeline_column_width; 
-					h1 { font-size: 50px; .fontCondBold; position: absolute; bottom: 60px; left: @timeline_column_padding; color: @gray_medium; }
-					h2 { font-size: 28px; .fontCondBold; position: absolute; bottom: 19px; left: @timeline_column_padding; color: @gray_medium; }
+					h1 { font-size: 50px; .fontCondBold; position: absolute; bottom: 60px; left: @timeline_column_padding; }
+					h2 { font-size: 28px; .fontCondBold; position: absolute; bottom: 19px; left: @timeline_column_padding; }
 				}
 				.lower { 
 					background-image: none; background-color: @gray_medium;

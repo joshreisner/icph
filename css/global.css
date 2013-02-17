@@ -16,14 +16,15 @@ header #nav li:hover ul li.today div{color:#8a9d44;}
 header #nav li.current_page_item a{color:#eae3d9;border-bottom:5px solid #eae3d9;}
 footer{overflow:auto;margin-bottom:20px;}footer .copyright{float:left;margin-left:20px;}
 footer .social{float:right;margin-right:20px;}
-#timeline{width:100%;overflow:hidden;position:relative;margin-top:96px;}#timeline ul{list-style-type:none;margin:0;padding:0;font-size:12px;overflow-x:auto;overflow-y:hidden;width:1000000px;}#timeline ul li{width:226px;margin:0;padding:0;border-left:1px solid #eae3d9;float:left;position:relative;}#timeline ul li .upper{height:150px;position:relative;}#timeline ul li .upper img{position:absolute;left:-50px;width:100px;height:100px;}
+#timeline{width:100%;overflow:hidden;position:relative;margin-top:96px;}#timeline ul{list-style-type:none;margin:0;padding:0;font-size:12px;overflow-x:auto;overflow-y:hidden;width:1000000px;}#timeline ul li{width:226px;margin:0;padding:0;border-left:1px solid #eae3d9;float:left;position:relative;}#timeline ul li h1,#timeline ul li h2,#timeline ul li h3{color:#64615c;}
+#timeline ul li .upper{height:150px;position:relative;}#timeline ul li .upper img{position:absolute;left:-50px;width:100px;height:100px;}
 #timeline ul li .upper h3{font-weight:normal;position:absolute;bottom:10px;left:16px;font-size:28px;}
 #timeline ul li .lower{background-image:url(../img/background-dark.png);height:372px;padding:16px;}#timeline ul li .lower img{margin:-16px -16px 10px -16px;width:226px;height:auto;}
 #timeline ul li .lower p{margin:30px 0 0 0;}
 #timeline ul li .lower a{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;}
 #timeline ul li .lower a.more{position:absolute;bottom:16px;left:16px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;text-transform:uppercase;}
-#timeline ul li.overview{border-left:0;color:#ffffff;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;line-height:18px;width:248px;font-size:13px;}#timeline ul li.overview .upper{width:474px;}#timeline ul li.overview .upper h1{font-size:50px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;position:absolute;bottom:60px;left:16px;color:#64615c;}
-#timeline ul li.overview .upper h2{font-size:28px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;position:absolute;bottom:19px;left:16px;color:#64615c;}
+#timeline ul li.overview{border-left:0;color:#ffffff;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;line-height:18px;width:248px;font-size:13px;}#timeline ul li.overview .upper{width:474px;}#timeline ul li.overview .upper h1{font-size:50px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;position:absolute;bottom:60px;left:16px;}
+#timeline ul li.overview .upper h2{font-size:28px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;position:absolute;bottom:19px;left:16px;}
 #timeline ul li.overview .lower{background-image:none;background-color:#64615c;}#timeline ul li.overview .lower a{color:#ffffff;}#timeline ul li.overview .lower a:hover{background-color:transparent;}
 #timeline ul li.overview.early_ny .lower{background-color:#78558b;}
 #timeline ul li.overview.nineteenth .lower{background-color:#a3735f;}
