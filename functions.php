@@ -115,7 +115,7 @@ function icph_get_era($post_id) {
 	
 }
 
-function icph_ul($elements, $arguments) {
+function icph_ul($elements, $arguments=array()) {
 	//universal lightweight method for outputting UL lists with first and last classes on LI elements
 	$count = count($elements);
 	$counter = 1;

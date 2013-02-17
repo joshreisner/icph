@@ -4,6 +4,7 @@
 		<meta charset="<?php bloginfo('charset') ?>">
 		<title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name') ?></title>
 		<meta name="description" content="<?php bloginfo('description') ?>">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<?php
 			wp_enqueue_script('jquery');
 			wp_head();

@@ -20,7 +20,7 @@ get_header();
 		<li class="<?php echo $e['slug']?> featured">
 			<div class="upper"></div>
 			<div class="lower">
-				<a href="#gordon-family"><img src="<?php bloginfo('template_directory');?>/img/placeholder/gordon-family-s.jpg" alt="gordon-family-s" width="283" height="169" /></a>
+				<a href="#gordon-family"><img src="<?php bloginfo('template_directory');?>/img/placeholder/gordon-family-s.jpg" alt="gordon-family-s" width="283" height="169"></a>
 				<p><a href="">March 12, 1907</a> — West 28th St.<br>Storm water poured from the ceiling of the basement apartment and down its plaster walls, soaking the family’s meager bed, dresser, and table before coming to rest in deep, dirty puddles on the floor.  Maria Gordon’s family—her nine-year-old niece, Edith, and six month-old foster child, Perry—had nowhere to sleep, and the workspace where Maria laundered clothes for her clients was unusable.</p>
 			</div>
 		</li>
@@ -29,7 +29,7 @@ get_header();
 		foreach ($years as $y) {?>
 		<li class="<?php echo $e['slug']?>">
 			<div class="upper">
-				<img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125" />
+				<img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125">
 				<h3><?php echo $y->name?></h3>
 			</div>
 			<div class="lower">
