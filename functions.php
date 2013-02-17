@@ -84,19 +84,12 @@ function icph_browse($type='Subject') {
 			<?php 
 			$posts = get_posts('category=' . $category->term_id);
 			foreach ($posts as $post) {
-				//get post's era -- probably will replace this with multiple eras?
-				$this_era = false;
-				$post_categories = wp_get_post_categories($post->ID);
-				foreach ($post_categories as $pc) {
-					foreach ($eras as $era) {
-						if ($pc == $era['category_id']) $this_era = '<h4 class="' . $era['slug'] . '">' . $era['name'] . '</h4>';
-					}
-				}
+				if ($era = icph_get_era($post->ID)) $era = '<h4 class="' . $era['slug'] . '">' . $era['name'] . '</h4>';
 			?>
 			<li>
 				<img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="150" height="150" />
 				<div>
-					<?php echo $this_era?>
+					<?php echo $era?>
 					<a href="#<?php echo $post->post_name?>"><?php echo $post->post_title?></a>
 					<p><?php echo $post->post_excerpt?> &hellip;</p>
 				</div>
@@ -108,6 +101,18 @@ function icph_browse($type='Subject') {
 	<?php }
 
 	if (isset($_POST['type'])) die(); //end output here on ajax requests
+}
+
+function icph_get_era($post_id) {
+	global $eras;
+	//get post's era -- probably will replace this with multiple eras?
+	$categories = wp_get_post_categories($post_id);
+	foreach ($categories as $category_id) {
+		foreach ($eras as $era) {
+			if ($category_id == $era['category_id']) return $era;
+		}
+	}
+	
 }
 
 function icph_ul($elements, $arguments) {

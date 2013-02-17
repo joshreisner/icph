@@ -257,40 +257,26 @@ footer {
 	li { 
 		width: @slider_element_width; float: left; border-top: 12px solid @gray_light; height: @slider_element_height; line-height: @slider_element_height; padding: 0 0 0 @slider_padding; cursor: pointer;
 		span { float: right; margin-right: @slider_padding; display: none; }
-		&.early_ny		{ 
+		&.active span, &:hover span { display: inline; }
+		&.early_ny { 
 			border-color: @purple; 
-			&.active, &:hover {
-				background-color: @purple; 
-				span { display: inline; }
-			}
+			&.active, &:hover { background-color: @purple; }
 		}
-		&.nineteenth		{ 
+		&.nineteenth { 
 			border-color: @orange; 
-			&.active, &:hover {
-				background-color: @orange; 
-				span { display: inline; }
-			}
+			&.active, &:hover { background-color: @orange; }
 		}
-		&.progressive		{ 
+		&.progressive { 
 			border-color: @blue; 
-			&.active, &:hover {
-				background-color: @blue; 
-				span { display: inline; }
-			}
+			&.active, &:hover { background-color: @blue; }
 		}
-		&.great_depression		{ 
+		&.great_depression { 
 			border-color: @red; 
-			&.active, &:hover {
-				background-color: @red; 
-				span { display: inline; }
-			}
+			&.active, &:hover { background-color: @red; }
 		}
-		&.today		{ 
+		&.today { 
 			border-color: @green; 
-			&.active, &:hover {
-				background-color: @green; 
-				span { display: inline; }
-			}
+			&.active, &:hover { background-color: @green; }
 		}
 	}
 }
@@ -323,7 +309,7 @@ footer {
 		h1, h2 { position: absolute; left: @overlay_padding; }
 		h1 { top: 20px; }
 		h2 { top: 60px; font-size: 18px; }
-		a.close { text-transform: uppercase; top: 10px; right: 10px; font-size: 12px; position: absolute; color: @gray; }
+		a.close { text-transform: uppercase; top: 10px; right: 10px; font-size: 12px; position: absolute; }
 		h3 { color: @white; margin: 0; height: 36px; line-height: 36px; position: absolute; bottom: 0; right: 0; width: (@overlay_navigation_width - @overlay_padding); padding: 0 0 0 @overlay_padding; }
 	}
 	
@@ -333,7 +319,9 @@ footer {
 			width: @overlay_content_width; float: left; font-size: 14px; line-height: 18px;
 			div.inner {
 				padding: (@overlay_padding / 2) (@overlay_padding * 2); 
-				a { font-weight: bold; text-decoration: none; }
+				a { 
+					font-weight: bold; text-decoration: none; 
+				}
 			}
 		}
 		div.navigation { 
@@ -349,14 +337,54 @@ footer {
 		}
 	}
 	
+	&.early_ny {
+		a {
+			color: @purple; 
+			&:hover { background-color: @purple_light; }
+		}
+		div.header { 
+			background-color: @purple_light; 
+			h3 { background-color: @purple; }
+		}
+	}
+	&.nineteenth {
+		a {
+			color: @orange; 
+			&:hover { background-color: @orange_light; }
+		}
+		div.header { 
+			background-color: @orange_light; 
+			h3 { background-color: @orange; }
+		}
+	}
 	&.progressive {
+		a {
+			color: @blue; 
+			&:hover { background-color: @blue_light; }
+		}
 		div.header { 
 			background-color: @blue_light; 
-			a { color: @blue; }
 			h3 { background-color: @blue; }
 		}
-		div.body {
-			a { color: @blue; }
+	}
+	&.great_depression {
+		a {
+			color: @red; 
+			&:hover { background-color: @red_light; }
+		}
+		div.header { 
+			background-color: @red_light; 
+			h3 { background-color: @red; }
+		}
+	}
+	&.today {
+		a {
+			color: @green; 
+			&:hover { background-color: @green_light; }
+		}
+		div.header { 
+			background-color: @green_light; 
+			h3 { background-color: @green; }
 		}
 	}
 }

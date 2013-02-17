@@ -14,7 +14,6 @@ get_header();
 		<a href="#">Images</a>
 		-->
 	</div>
-	
 	<div class="content"><?php icph_browse()?></div>
 </div>
 

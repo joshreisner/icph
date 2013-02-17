@@ -66,11 +66,14 @@ jQuery(function(){
 
 	//functions
 	function overlayShow(hash) {
-		overlayHide();
-		if (hash == "#") return;
+		if (hash == "#") {
+			overlayHide();
+			return;
+		}
 		jQuery.ajax({
 			url : "/" + hash.substr(1) + "/?overlay=true",
 			success : function(data) {
+				overlayHide();
 				jQuery("body").append(data);
 			},
 			error : function(data) {

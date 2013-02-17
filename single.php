@@ -9,12 +9,14 @@ if (empty($_GET['overlay'])) {
 
 the_post();
 
+$era = icph_get_era($post->ID);
+
 ?>
 
-<div id="overlay" class="progressive">
+<div id="overlay" class="<?php echo $era['slug']?>">
 	<div class="header">
-		<h1>1890&ndash;1928</h1>
-		<h2>Poverty and Homelessness in the Progressive Era</h2>
+		<h1><?php echo $era['start_year']?>&ndash;<?php echo $era['end_year']?></h1>
+		<h2><?php echo $era['title']?></h2>
 		<a href="#" class="close">Back to Timeline</a>
 		<h3>Articles</h3>
 	</div>
@@ -26,42 +28,14 @@ the_post();
 		</div>
 		<div class="navigation">
 			<ul>
+				<?php
+				$posts = get_posts('category=' . $era['category_id']);
+				foreach ($posts as $post) {?>
 				<li>
-					<a href="#">The Gordon Family</a>
-					<p>Neutra PBR tousled before they sold out, 90's aesthetic readymade quinoa helvetica aliqua veniam authentic. Anim vegan nostrud vero.</p>
+					<a href="<?php echo $post->post_name?>"><?php echo $post->post_title?></a>
+					<p><?php echo $post->post_excerpt?></p>
 				</li>
-				<li>
-					<a href="#">The Gordon Family</a>
-					<p>Neutra PBR tousled before they sold out, 90's aesthetic readymade quinoa helvetica aliqua veniam authentic. Anim vegan nostrud vero.</p>
-				</li>
-				<li>
-					<a href="#">The Gordon Family</a>
-					<p>Neutra PBR tousled before they sold out, 90's aesthetic readymade quinoa helvetica aliqua veniam authentic. Anim vegan nostrud vero.</p>
-				</li>
-				<li>
-					<a href="#">The Gordon Family</a>
-					<p>Neutra PBR tousled before they sold out, 90's aesthetic readymade quinoa helvetica aliqua veniam authentic. Anim vegan nostrud vero.</p>
-				</li>
-				<li>
-					<a href="#">The Gordon Family</a>
-					<p>Neutra PBR tousled before they sold out, 90's aesthetic readymade quinoa helvetica aliqua veniam authentic. Anim vegan nostrud vero.</p>
-				</li>
-				<li>
-					<a href="#">The Gordon Family</a>
-					<p>Neutra PBR tousled before they sold out, 90's aesthetic readymade quinoa helvetica aliqua veniam authentic. Anim vegan nostrud vero.</p>
-				</li>
-				<li>
-					<a href="#">The Gordon Family</a>
-					<p>Neutra PBR tousled before they sold out, 90's aesthetic readymade quinoa helvetica aliqua veniam authentic. Anim vegan nostrud vero.</p>
-				</li>
-				<li>
-					<a href="#">The Gordon Family</a>
-					<p>Neutra PBR tousled before they sold out, 90's aesthetic readymade quinoa helvetica aliqua veniam authentic. Anim vegan nostrud vero.</p>
-				</li>
-				<li>
-					<a href="#">The Gordon Family</a>
-					<p>Neutra PBR tousled before they sold out, 90's aesthetic readymade quinoa helvetica aliqua veniam authentic. Anim vegan nostrud vero.</p>
-				</li>
+				<?php }?>
 			</ul>
 		</div>
 	</div>
