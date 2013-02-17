@@ -1,7 +1,8 @@
 <?php
 
-//eras variable, ideally this would all come from the actual categories
-//$eras = get_categories(array('parent'=>20, 'hide_empty'=>false));
+//global variables
+//era variable currently has too much information to come from wordpress
+//$eras = get_categories('parent=20&hide_empty=0'));
 
 $eras = array(
 	array(
@@ -51,24 +52,13 @@ $eras = array(
 	)
 );
 
+$policies = get_categories('parent=21&hide_empty=0');
+
 
 //setup
 //add_theme_support('menus');
-add_filter('body_class', 'icph_body_class');
 add_action('wp_ajax_browse', 'icph_browse');
 add_action('wp_ajax_nopriv_browse', 'icph_browse');
-
-//custom functions
-function icph_body_class($classes)  {
-	global $post;
-	foreach(explode('/', $_SERVER['REQUEST_URI']) as $category) {
-		if (!empty($category)) $classes[] = trim($category);
-	}
-	if ($post && $post->ID) {
-		foreach((get_the_category($post->ID)) as $category) $classes[] = trim($category->category_nicename);
-	}
-	return array_unique($classes);
-}
 
 function icph_browse($type='Subject') {
 	global $eras;
@@ -112,7 +102,20 @@ function icph_get_era($post_id) {
 			if ($category_id == $era['category_id']) return $era;
 		}
 	}
+	return false;
+}
+
+function icph_slider() {
+	global $eras, $policies;
 	
+	//eras slider	
+	foreach ($eras as &$era) $era = array('class'=>$era['slug'], 'content'=>$era['start_year'] . '<span>' . $era['name'] . '</span>');
+		
+	//policies slider
+	foreach ($policies as &$policy) $policy = array('link'=>'/policies/?' . $policy->slug, 'content'=>$policy->name);
+	array_unshift($policies, array('content'=>'View by Policy'));
+	
+	return icph_ul($eras, array('id'=>'slider')) . icph_ul($policies, array('id'=>'slider_policy'));
 }
 
 function icph_ul($elements, $arguments=array()) {

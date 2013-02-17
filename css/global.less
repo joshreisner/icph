@@ -144,107 +144,106 @@ footer {
 /* pages */
 
 #timeline {
+	width: 100%; overflow: hidden; position: relative; margin-top: (@header_height * 2);
 
-	list-style-type: none; margin: 0; padding: 0; font-size: 12px; overflow-x: auto; overflow-y: hidden; width: 1000000px; 
-
-	li {
-		width: @timeline_column_width; margin: 0; padding: 0; border-left: 1px solid @beige; float: left; position: relative;
-
-		.upper {
-			height: @timeline_upper_height; position: relative;
-			img { position: absolute; left: -(@timeline_year_diameter / 2); width: @timeline_year_diameter; height: @timeline_year_diameter; }
-			h3 { font-weight: normal; position: absolute; bottom: @timeline_paragraph_bottom; left: @timeline_column_padding; font-size: 28px; }
-		}
-		
-		.lower {
-			background-image: url(../img/background-dark.png); height: @timeline_lower_height; padding: @timeline_column_padding; 
-			img { margin: -@timeline_column_padding -@timeline_column_padding @timeline_paragraph_bottom -@timeline_column_padding; width: @timeline_column_width; height: auto; }
-			p { margin: 0 0 @timeline_paragraph_bottom 0; }
-			a { .fontBold; }
-			a.more { position: absolute; bottom: @timeline_column_padding; left: @timeline_column_padding; .fontCondBold; text-transform: uppercase; }
-		}
-		
-		&.overview {
-			border-left: 0; color: @white; .fontBold; line-height: 18px; width: @timeline_overview_width; font-size: 13px;
-			.upper { 
-				width: @timeline_overview_width + @timeline_column_width; 
-				h1 { font-size: 50px; .fontCondBold; position: absolute; bottom: 60px; left: @timeline_column_padding; }
-				h2 { font-size: 28px; .fontCondBold; position: absolute; bottom: 19px; left: @timeline_column_padding; }
+	ul {
+		list-style-type: none; margin: 0; padding: 0; font-size: 12px; overflow-x: auto; overflow-y: hidden; width: 1000000px; 
+	
+		li {
+			width: @timeline_column_width; margin: 0; padding: 0; border-left: 1px solid @beige; float: left; position: relative;
+	
+			.upper {
+				height: @timeline_upper_height; position: relative;
+				img { position: absolute; left: -(@timeline_year_diameter / 2); width: @timeline_year_diameter; height: @timeline_year_diameter; }
+				h3 { font-weight: normal; position: absolute; bottom: @timeline_paragraph_bottom; left: @timeline_column_padding; font-size: 28px; }
 			}
-			.lower { 
-				background-image: none; 
-				a {
-					color: @white;
-					&:hover { background-color: transparent; }
+			
+			.lower {
+				background-image: url(../img/background-dark.png); height: @timeline_lower_height; padding: @timeline_column_padding; 
+				img { margin: -@timeline_column_padding -@timeline_column_padding @timeline_paragraph_bottom -@timeline_column_padding; width: @timeline_column_width; height: auto; }
+				p { margin: (@timeline_paragraph_bottom * 3) 0 0 0; }
+				a { .fontBold; }
+				a.more { position: absolute; bottom: @timeline_column_padding; left: @timeline_column_padding; .fontCondBold; text-transform: uppercase; }
+			}
+			
+			&.overview {
+				border-left: 0; color: @white; .fontBold; line-height: 18px; width: @timeline_overview_width; font-size: 13px;
+				.upper { 
+					width: @timeline_overview_width + @timeline_column_width; 
+					h1 { font-size: 50px; .fontCondBold; position: absolute; bottom: 60px; left: @timeline_column_padding; color: @gray_medium; }
+					h2 { font-size: 28px; .fontCondBold; position: absolute; bottom: 19px; left: @timeline_column_padding; color: @gray_medium; }
+				}
+				.lower { 
+					background-image: none; background-color: @gray_medium;
+					a {
+						color: @white;
+						&:hover { background-color: transparent; }
+					}
+				}
+				&.early_ny			.lower { background-color: @purple; }
+				&.nineteenth		.lower { background-color: @orange; }
+				&.progressive		.lower { background-color: @blue; }
+				&.great_depression	.lower { background-color: @red; }
+				&.today				.lower { background-color: @green; }
+			}
+			
+			&.featured {
+				border-left: 0;
+				.lower { background-image: none; }
+				&.early_ny 			.lower { background-color: @purple_light; }
+				&.nineteenth 		.lower { background-color: @orange_light; }
+				&.progressive 		.lower { background-color: @blue_light; }
+				&.great_depression	.lower { background-color: @red_light; }
+				&.today		 		.lower { background-color: @green_light; }
+			}
+	
+			&.early_ny { 
+				border-color: @purple; 
+				h1, h2, h3 { color: @purple; } 
+				a { 
+					color: @purple;
+					&:hover { background-color: @purple_light; }
 				}
 			}
-			&.early_ny			.lower { background-color: @purple; }
-			&.nineteenth		.lower { background-color: @orange; }
-			&.progressive		.lower { background-color: @blue; }
-			&.great_depression	.lower { background-color: @red; }
-			&.today				.lower { background-color: @green; }
-		}
-		
-		&.featured {
-			border-left: 0;
-			.lower { background-image: none; }
-			&.early_ny 			.lower { background-color: @purple_light; }
-			&.nineteenth 		.lower { background-color: @orange_light; }
-			&.progressive 		.lower { background-color: @blue_light; }
-			&.great_depression	.lower { background-color: @red_light; }
-			&.today		 		.lower { background-color: @green_light; }
-		}
-
-		&.early_ny { 
-			border-color: @purple; 
-			h1, h2, h3 { color: @purple; } 
-			a { 
-				color: @purple;
-				&:hover { background-color: @purple_light; }
+			
+			&.nineteenth { 
+				border-color: @orange; 
+				h1, h2, h3 { color: @orange; } 
+				a { 
+					color: @orange;
+					&:hover { background-color: @orange_light; }
+				}
+			}
+			
+			&.progressive { 
+				border-color: @blue; 
+				h1, h2, h3 { color: @blue; } 
+				a { 
+					color: @blue;
+					&:hover { background-color: @blue_light; }
+				}
+			}
+			
+			&.great_depression { 
+				border-color: @red; 
+				h1, h2, h3 { color: @red; } 
+				a { 
+					color: @red;
+					&:hover { background-color: @red_light; }
+				}
+			}
+			
+			&.today { 
+				border-color: @green; 
+				h1, h2, h3 { color: @green; } 
+				a { 
+					color: @green;
+					&:hover { background-color: @green_light; }
+				}
 			}
 		}
-		
-		&.nineteenth { 
-			border-color: @orange; 
-			h1, h2, h3 { color: @orange; } 
-			a { 
-				color: @orange;
-				&:hover { background-color: @orange_light; }
-			}
-		}
-		
-		&.progressive { 
-			border-color: @blue; 
-			h1, h2, h3 { color: @blue; } 
-			a { 
-				color: @blue;
-				&:hover { background-color: @blue_light; }
-			}
-		}
-		
-		&.great_depression { 
-			border-color: @red; 
-			h1, h2, h3 { color: @red; } 
-			a { 
-				color: @red;
-				&:hover { background-color: @red_light; }
-			}
-		}
-		
-		&.today { 
-			border-color: @green; 
-			h1, h2, h3 { color: @green; } 
-			a { 
-				color: @green;
-				&:hover { background-color: @green_light; }
-			}
-		}
-		
 	}
-}
 
-.timeline_mask {
-	width: 100%; overflow: hidden; position: relative; margin-top: (@header_height * 2);
 	div.arrow {
 		background-color: @gray; .opacity(.5); width: @timeline_arrow_width; height: @timeline_arrow_height; position: absolute; top: ((@timeline_upper_height + @timeline_lower_height) / 2);
 		&.left { left: 0; }

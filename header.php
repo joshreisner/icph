@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+global $body_class;
+?><!DOCTYPE html>
 <html <?php language_attributes() ?>>
 	<head>
 		<meta charset="<?php bloginfo('charset') ?>">
@@ -12,7 +14,7 @@
 		<link rel="stylesheet" type="text/css" href="//cloud.webtype.com/css/e677f601-51a3-41b8-9df8-446cd03d543f.css">
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory');?>/css/global.css">
 	</head>
-	<body <?php body_class() ?>>
+	<body <?php body_class($body_class) ?>>
 		<header>
 			<a class="logo" href="/">Poverty & Homelessness <span>NYC</span></a>
 			

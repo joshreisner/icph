@@ -1,9 +1,10 @@
 <?php
 //blog page
+$body_class = 'timeline';
 get_header();
 ?>
-<div class="timeline_mask">
-	<ul id="timeline">
+<div id="timeline">
+	<ul>
 	<?php foreach ($eras as $era) {?>
 		
 		<li id="<?php echo $era['slug']?>" class="<?php echo $era['slug']?> overview">
@@ -58,22 +59,12 @@ get_header();
 	}?>
 	</ul>
 	
-	<?php 
-	//eras slider	
-	foreach ($eras as &$era) $era = array('class'=>$era['slug'], 'content'=>$era['start_year'] . '<span>' . $era['name'] . '</span>');
-	echo icph_ul($eras, array('id'=>'slider'));
-		
-	//policies slider
-	$policies = get_categories(array('parent'=>21, 'hide_empty'=>false));
-	foreach ($policies as &$policy) $policy = array('link'=>'/policies/' . $policy->slug . '/', 'content'=>$policy->name);
-	array_unshift($policies, array('content'=>'View by Policy'));
-	echo icph_ul($policies, array('id'=>'slider_policy'));
-	?>
-	
 	<div class="arrow left"></div>
 	<div class="arrow right"></div>
 </div>
 
 <?php
+
+echo icph_slider();
 
 get_footer();
