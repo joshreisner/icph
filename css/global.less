@@ -16,6 +16,21 @@
 @red_light		: #e5cec7;
 @white			: #ffffff;
 
+/* dimensions */
+@header_height				: 48px;
+@slider_element_height		: 40px;
+@slider_element_width		: 191px;
+@slider_padding				: 5px;
+@timeline_arrow_height		: 50px;
+@timeline_arrow_width		: 38px;
+@timeline_column_padding	: 16px;
+@timeline_column_width		: 226px;
+@timeline_lower_height		: 372px;
+@timeline_overview_width	: 248px;
+@timeline_paragraph_bottom	: 10px;
+@timeline_year_diameter		: 100px;
+@timeline_upper_height		: 150px;
+
 
 /* mixins */
 .font() {
@@ -62,7 +77,7 @@ html {
 
 /* template */
 header {
-	background-color: @gray; .shadowed(); height: 48px; position: fixed; top: 0; left: 0; right: 0; .opacity(.8); z-index: 100;
+	background-color: @gray; .shadowed(); height: @header_height; position: fixed; top: 0; left: 0; right: 0; .opacity(.8); z-index: 100;
 
 	a { 
 		color: @white; 
@@ -125,75 +140,47 @@ footer {
 
 #timeline {
 
-	list-style-type: none; margin: 92px 0 0 0; padding: 0; font-size: 12px; overflow-x: auto; overflow-y: hidden; width: 1000000px; 
-
-	h1 { font-size: 50px; .fontCondBold; }
-	h2 { font-size: 28px; .fontCondBold; }
+	list-style-type: none; margin: 0; padding: 0; font-size: 12px; overflow-x: auto; overflow-y: hidden; width: 1000000px; 
 
 	li {
-		width: 226px; margin: 0; padding: 0; border-left: 1px solid @beige; float: left; 
+		width: @timeline_column_width; margin: 0; padding: 0; border-left: 1px solid @beige; float: left; 
 
 		.upper {
-			height: 150px; position: relative;
-			img { position: absolute; left: -50px; width: 100px; height: 100px; }
-			h3 { font-weight: normal; position: absolute; bottom: 10px; left: 16px; font-size: 28px; }
+			height: @timeline_upper_height; position: relative;
+			img { position: absolute; left: -(@timeline_year_diameter / 2); width: @timeline_year_diameter; height: @timeline_year_diameter; }
+			h3 { font-weight: normal; position: absolute; bottom: @timeline_paragraph_bottom; left: @timeline_column_padding; font-size: 28px; }
 		}
 		
 		.lower {
-			background-image: url(../img/background-dark.png); padding: 16px; height: 372px;
-			img { margin: -16px -16px 10px -16px; }
-			p { margin: 0 0 10px 0; }
+			background-image: url(../img/background-dark.png); height: @timeline_lower_height; padding: @timeline_column_padding; 
+			img { margin: -@timeline_column_padding -@timeline_column_padding @timeline_paragraph_bottom -@timeline_column_padding; width: @timeline_column_width; height: auto; }
+			p { margin: 0 0 @timeline_paragraph_bottom 0; }
 			a { .fontBold; }
 		}
 		
 		&.overview {
-			border-left: 0; color: @white; .fontBold; line-height: 18px; width: 248px; font-size: 13px;
+			border-left: 0; color: @white; .fontBold; line-height: 18px; width: @timeline_overview_width; font-size: 13px;
 			.upper { 
-				width: 420px; 
-				h1 { position: absolute; bottom: 60px; left: 16px; }
-				h2 { position: absolute; bottom: 19px; left: 16px; }
+				width: @timeline_overview_width + @timeline_column_width; 
+				h1 { font-size: 50px; .fontCondBold; position: absolute; bottom: 60px; left: @timeline_column_padding; }
+				h2 { font-size: 28px; .fontCondBold; position: absolute; bottom: 19px; left: @timeline_column_padding; }
 			}
 			.lower { background-image: none; }
-			&.early_ny { 
-				.lower { background-color: @purple; }
-			}
-			&.nineteenth { 
-				.lower { background-color: @orange; }
-			}
-			&.progressive { 
-				.lower { background-color: @blue; }
-			}
-			&.great_depression { 
-				.lower { background-color: @red; }
-			}
-			&.today { 
-				.lower { background-color: @green; }
-			}
+			&.early_ny			.lower { background-color: @purple; }
+			&.nineteenth		.lower { background-color: @orange; }
+			&.progressive		.lower { background-color: @blue; }
+			&.great_depression	.lower { background-color: @red; }
+			&.today				.lower { background-color: @green; }
 		}
 		
 		&.featured {
 			border-left: 0;
 			.lower { background-image: none; }
-			&.early_ny {
-				.upper { }
-				.lower { background-color: @purple_light; }
-			}
-			&.progressive {
-				.upper { }
-				.lower { background-color: @orange_light; }
-			}
-			&.progressive {
-				.upper { }
-				.lower { background-color: @blue_light; }
-			}
-			&.progressive {
-				.upper { }
-				.lower { background-color: @red_light; }
-			}
-			&.progressive {
-				.upper { }
-				.lower { background-color: @green_light; }
-			}
+			&.early_ny 			.lower { background-color: @purple_light; }
+			&.nineteenth 		.lower { background-color: @orange_light; }
+			&.progressive 		.lower { background-color: @blue_light; }
+			&.great_depression	.lower { background-color: @red_light; }
+			&.today		 		.lower { background-color: @green_light; }
 		}
 
 		&.early_ny { 
@@ -209,7 +196,7 @@ footer {
 			border-color: @orange; 
 			h1, h2, h3 { color: @orange; } 
 			a { 
-				color: @blue;
+				color: @orange;
 				&:hover { background-color: @orange_light; }
 			}
 		}
@@ -227,7 +214,7 @@ footer {
 			border-color: @red; 
 			h1, h2, h3 { color: @red; } 
 			a { 
-				color: @blue;
+				color: @red;
 				&:hover { background-color: @red_light; }
 			}
 		}
@@ -245,17 +232,17 @@ footer {
 }
 
 .timeline_mask {
-	width: 100%; overflow: hidden; position: relative;
+	width: 100%; overflow: hidden; position: relative; margin-top: (@header_height * 2);
 	div.arrow {
-		background-color: @gray; .opacity(.5); width: 38px; height: 50px; position: absolute; top: 400px;
+		background-color: @gray; .opacity(.5); width: @timeline_arrow_width; height: @timeline_arrow_height; position: absolute; top: ((@timeline_upper_height + @timeline_lower_height) / 2);
 		&.left { left: 0; }
 		&.right { right: 0; }
 	}
 }
 
 #slider {
-	background-color: @gray_light;
-	list-style: none; overflow: hidden; color: @white; width: 980px; height: 52px; margin: 48px auto 0; padding: 5px; .shadowed; .fontCondBold; font-size: 16px;
+	background-color: @gray_light; color: @white; font-size: 15px; .fontCondBold; .shadowed; 
+	list-style: none; overflow: auto; margin: @header_height auto 0; padding: @slider_padding; width: ((@slider_element_width * 5) + (@slider_padding * 5));
 	
 	background: @gray_light; /* Old browsers */
 	background: -moz-linear-gradient(top,  @gray_light 0%, #7c7974 100%); /* FF3.6+ */
@@ -268,11 +255,10 @@ footer {
 
 	
 	li { 
-		width: 191px; float: left; border-top: 12px solid @gray_light; height: 40px; line-height: 40px; padding: 0 0 0 5px; cursor: pointer;
-		span { float: right; margin-right: 10px;}
+		width: @slider_element_width; float: left; border-top: 12px solid @gray_light; height: @slider_element_height; line-height: @slider_element_height; padding: 0 0 0 @slider_padding; cursor: pointer;
+		span { float: right; margin-right: @slider_padding; display: none; }
 		&.early_ny		{ 
 			border-color: @purple; 
-			span { display: none; }
 			&.active, &:hover {
 				background-color: @purple; 
 				span { display: inline; }
@@ -280,7 +266,6 @@ footer {
 		}
 		&.nineteenth		{ 
 			border-color: @orange; 
-			span { display: none; }
 			&.active, &:hover {
 				background-color: @orange; 
 				span { display: inline; }
@@ -288,7 +273,6 @@ footer {
 		}
 		&.progressive		{ 
 			border-color: @blue; 
-			span { display: none; }
 			&.active, &:hover {
 				background-color: @blue; 
 				span { display: inline; }
@@ -296,7 +280,6 @@ footer {
 		}
 		&.great_depression		{ 
 			border-color: @red; 
-			span { display: none; }
 			&.active, &:hover {
 				background-color: @red; 
 				span { display: inline; }
@@ -304,7 +287,6 @@ footer {
 		}
 		&.today		{ 
 			border-color: @green; 
-			span { display: none; }
 			&.active, &:hover {
 				background-color: @green; 
 				span { display: inline; }
@@ -314,7 +296,7 @@ footer {
 }
 
 #slider_policy {
-	background-color: @gray_medium; list-style-type: none; .fontCondBold; overflow: auto; width: 980px; margin: 0 auto 46px; padding: 5px;
+	background-color: @gray_medium; list-style-type: none; .fontCondBold; overflow: auto; width: ((@slider_element_width * 5) + (@slider_padding * 5)); margin: 0 auto @header_height; padding: @slider_padding;
 	li { 
 		float: left; margin-right: 30px;
 		a { color: @white; }
@@ -327,34 +309,39 @@ footer {
 	background-color: #000; .opacity; position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 1040;
 }
 
+@overlay_header_height		: 97px;
+@overlay_content_width		: 640px;
+@overlay_padding			: 20px;
+@overlay_navigation_width	: 320px; 
+
 #overlay {
-	width: 960px; background-color: @beige; background-image: url(../img/background.png); z-index: 1050;
+	width: (@overlay_content_width + @overlay_navigation_width); background-color: @beige; background-image: url(../img/background.png); z-index: 1050; .shadowed;
 	position: absolute; top: 48px; left: 50%; margin-left: -480px; min-height: 100%;
 	
 	div.header {
-		position: relative; height: 97px; .fontCondBold; 
-		h1, h2 { position: absolute; left: 20px; }
+		position: relative; height: @overlay_header_height; .fontCondBold; 
+		h1, h2 { position: absolute; left: @overlay_padding; }
 		h1 { top: 20px; }
 		h2 { top: 60px; font-size: 18px; }
 		a.close { text-transform: uppercase; top: 10px; right: 10px; font-size: 12px; position: absolute; color: @gray; }
-		h3 { color: @white; margin: 0; height: 36px; line-height: 36px; position: absolute; bottom: 0; right: 0; width: 300px; padding: 0 0 0 20px; }
+		h3 { color: @white; margin: 0; height: 36px; line-height: 36px; position: absolute; bottom: 0; right: 0; width: (@overlay_navigation_width - @overlay_padding); padding: 0 0 0 @overlay_padding; }
 	}
 	
 	div.body {
 		overflow: auto; 
 		div.content {
-			width: 640px; float: left; font-size: 14px; line-height: 18px;
+			width: @overlay_content_width; float: left; font-size: 14px; line-height: 18px;
 			div.inner {
-				padding: 10px 40px; 
+				padding: (@overlay_padding / 2) (@overlay_padding * 2); 
 				a { font-weight: bold; text-decoration: none; }
 			}
 		}
 		div.navigation { 
-			position: relative; width: 320px; float: left; font-size: 12px;
+			position: relative; width: @overlay_navigation_width; float: left; font-size: 12px;
 			ul {
 				list-style: none; padding: 0; margin: 0; 
 				li { 
-					border-bottom: 1px solid @blue_light; border-left: 1px solid @blue_light; padding: 10px 20px;
+					border-bottom: 1px solid @blue_light; border-left: 1px solid @blue_light; padding: (@overlay_padding / 2) @overlay_padding;
 					a { .fontBold; }
 					p { margin: 0 0 0 0; }
 				}
@@ -494,8 +481,8 @@ footer {
 }
 
 body.maps {
-	height: 100%; 
-	iframe { width: 100%; height: 100%; }
+	height: 100%; position: relative;
+	iframe { width: 100%; height: 100%; margin: 0; border: 0; position: fixed; top: 0; left: 0; right: 0; bottom: 0; }
 	footer { display: none; }
 }
 
