@@ -62,7 +62,7 @@ add_action('wp_ajax_nopriv_browse', 'icph_browse');
 //add_theme_support('menus');
 add_theme_support('post-thumbnails'); 
 set_post_thumbnail_size($thumbnail_diameter, $thumbnail_diameter); //wonder if there's a way to set medium to 226/0 and large to 640/0
-
+add_image_size('extra-large', 880, 880); //for the view image overlay page
 
 function icph_browse($type='Subject') {
 	global $eras;
