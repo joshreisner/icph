@@ -124,8 +124,8 @@ function icph_slider() {
 
 function icph_thumbnail($post_id) {
 	global $thumbnail_diameter;
-	$src = (has_post_thumbnail($post_id)) ? get_the_post_thumbnail($post_id, 'thumbnail') : get_bloginfo('template_directory') . '/img/placeholder/great-migration-circle.png';
-	return '<img src="' . $src . '" width="' . $thumbnail_diameter . '" height="' . $thumbnail_diameter . '" alt="' . get_the_title($post_id) . '">';
+	if (has_post_thumbnail($post_id)) return get_the_post_thumbnail($post_id, 'thumbnail');
+	return '<img src="' . get_bloginfo('template_directory') . '/img/placeholder/great-migration-circle.png" width="' . $thumbnail_diameter . '" height="' . $thumbnail_diameter . '" alt="' . get_the_title($post_id) . '">';
 }
 
 function icph_ul($elements, $arguments=array()) {
