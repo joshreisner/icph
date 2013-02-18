@@ -36,8 +36,7 @@ $era = icph_get_era($post->ID);
 					<h3>Related Articles</h3>
 					<?php
 					foreach ($related_links as &$link) {
-						$link['content'] = '<a href="' . $link['title'] . '" class="image"><img src="' . get_bloginfo('template_directory') . '/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125"></a>
-							<a href="' . $link['title'] . '" class="text">' . $link['title'] . '</a>';
+						$link['content'] = '<a href="' . $link['title'] . '">' . icph_thumbnail($link['id']) . $link['title'] . '</a>';
 					}
 					echo icph_ul($related_links);
 					?>

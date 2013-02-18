@@ -3,6 +3,7 @@
 //global variables
 //era variable currently has too much information to come from wordpress
 //$eras = get_categories('parent=20&hide_empty=0'));
+$thumbnail_diameter = 150;
 
 $eras = array(
 	array(
@@ -56,9 +57,12 @@ $policies = get_categories('parent=21&hide_empty=0');
 
 
 //setup
-//add_theme_support('menus');
 add_action('wp_ajax_browse', 'icph_browse');
 add_action('wp_ajax_nopriv_browse', 'icph_browse');
+//add_theme_support('menus');
+add_theme_support('post-thumbnails'); 
+set_post_thumbnail_size($thumbnail_diameter, $thumbnail_diameter);
+
 
 function icph_browse($type='Subject') {
 	global $eras;
@@ -77,11 +81,11 @@ function icph_browse($type='Subject') {
 				if ($era = icph_get_era($post->ID)) $era = '<h4 class="' . $era['slug'] . '">' . $era['name'] . '</h4>';
 			?>
 			<li>
-				<img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="150" height="150" />
+				<?php echo icph_thumbnail($post->ID)?>
 				<div>
 					<?php echo $era?>
 					<a href="#<?php echo $post->post_name?>"><?php echo $post->post_title?></a>
-					<p><?php echo $post->post_excerpt?> &hellip;</p>
+					<p><?php echo $post->post_excerpt?></p>
 				</div>
 			</li>
 			<?php }?>
@@ -116,6 +120,12 @@ function icph_slider() {
 	array_unshift($policies, array('content'=>'View by Policy'));
 	
 	return icph_ul($eras, array('id'=>'slider')) . icph_ul($policies, array('id'=>'slider_policy'));
+}
+
+function icph_thumbnail($post_id) {
+	global $thumbnail_diameter;
+	$src = (has_post_thumbnail($post_id)) ? get_the_post_thumbnail($post_id, 'thumbnail') : get_bloginfo('template_directory') . '/img/placeholder/great-migration-circle.png';
+	return '<img src="' . $src . '" width="' . $thumbnail_diameter . '" height="' . $thumbnail_diameter . '" alt="' . get_the_title($post_id) . '">';
 }
 
 function icph_ul($elements, $arguments=array()) {

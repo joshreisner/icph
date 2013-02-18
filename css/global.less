@@ -60,6 +60,10 @@
 	        opacity: @opacity;
 }
 
+.rounded(@diameter) {
+	width: @diameter; height: @diameter; border-radius: (@diameter / 2);
+}
+
 .shadowed(@x-axis: 0, @y-axis: 0px, @blur: 6px, @color: #000, @alpha: 0.6) {
 	@hsla: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
 	-webkit-box-shadow: @x-axis @y-axis @blur @hsla;
@@ -352,6 +356,7 @@ footer {
 							float: left; text-transform: uppercase; width: @overlay_related_diameter;
 							a { 
 								display: block; text-align: center; color: @gray; font-size: 12px; 
+								img { .rounded(@overlay_related_diameter); }
 								&:hover { background-color: transparent; }
 							}
 							&.first { margin-right: (@overlay_content_width - (@overlay_related_diameter * 3) - (@overlay_padding * 4)) / 2; }
@@ -578,7 +583,7 @@ body.maps {
 			li { 
 				width: 280px; margin: 0 0 20px 20px; padding: 10px; background-image: url(../img/background-dark.png); float: left;
 				
-				img { float: left; margin-right: 10px; width: 100px; height: 100px; display: block; }
+				img { float: left; margin-right: 10px; .rounded(100px); }
 				
 				div {
 					float: left; width: 160px;
