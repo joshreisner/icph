@@ -3,7 +3,7 @@
 //global variables
 //era variable currently has too much information to come from wordpress
 //$eras = get_categories('parent=20&hide_empty=0'));
-$thumbnail_diameter = 150;
+$thumbnail_diameter = 125;
 
 $eras = array(
 	array(
@@ -61,7 +61,7 @@ add_action('wp_ajax_browse', 'icph_browse');
 add_action('wp_ajax_nopriv_browse', 'icph_browse');
 //add_theme_support('menus');
 add_theme_support('post-thumbnails'); 
-set_post_thumbnail_size($thumbnail_diameter, $thumbnail_diameter);
+set_post_thumbnail_size($thumbnail_diameter, $thumbnail_diameter); //wonder if there's a way to set medium to 226/0 and large to 640/0
 
 
 function icph_browse($type='Subject') {

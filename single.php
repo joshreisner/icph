@@ -25,7 +25,7 @@ $era = icph_get_era($post->ID);
 		<div class="content">
 			<!-- <img src="<?php bloginfo('template_directory');?>/img/placeholder/gordon-family-m2.jpg" alt="gordon-family-m2" width="640" height="282" /> -->
 			<?php 
-			if (has_post_thumbnail()) echo '<div class="featured_image">', the_post_thumbnail(), '</div>';
+			if (has_post_thumbnail()) echo '<div class="featured_image">'. get_the_post_thumbnail($post->ID, 'large') . '</div>';
 			?>
 
 			<div class="inner">
