@@ -77,7 +77,8 @@ jQuery(function(){
 				jQuery("body").append(data);
 			},
 			error : function(data) {
-				alert("error");
+				//must clear this bad URL
+				location.href = "/";
 			}
 		});
 	}

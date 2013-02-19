@@ -159,7 +159,7 @@ footer {
 
 			.upper {
 				height: @timeline_upper_height; position: relative;
-				img { position: absolute; left: -(@timeline_year_diameter / 2); width: @timeline_year_diameter; height: @timeline_year_diameter; }
+				img { position: absolute; left: -(@timeline_year_diameter / 2); .rounded(@timeline_year_diameter); }
 				h3 { font-weight: normal; position: absolute; bottom: @timeline_paragraph_bottom; left: @timeline_column_padding; font-size: 28px; }
 			}
 			
@@ -586,16 +586,16 @@ body.maps {
 				img { float: left; margin-right: 10px; .rounded(100px); }
 				
 				div {
-					float: left; width: 160px;
+					float: left; width: 160px; height: 100px; overflow: hidden;
 					h4 { 
-						.fontCondBold; text-transform: uppercase; margin-bottom: 10px; 
+						.fontCondBold; text-transform: uppercase; margin-bottom: 8px; 
 						&.early_ny			{ color: @purple; }
 						&.nineteenth		{ color: @orange; }
 						&.progressive		{ color: @blue; }
 						&.great_depression	{ color: @red; }
 						&.today				{ color: @green; }
 					}
-					a { .fontBold; color: @gray; }
+					a { .fontBold; color: @gray; display: block; }
 				}
 			}
 		}

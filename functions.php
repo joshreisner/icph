@@ -85,7 +85,7 @@ function icph_browse($type='Subject') {
 				<div>
 					<?php echo $era?>
 					<a href="#<?php echo $post->post_name?>"><?php echo $post->post_title?></a>
-					<p><?php echo $post->post_excerpt?></p>
+					<?php echo icph_excerpt($post->post_excerpt)?>
 				</div>
 			</li>
 			<?php }?>
@@ -95,6 +95,19 @@ function icph_browse($type='Subject') {
 	<?php }
 
 	if (isset($_POST['type'])) die(); //end output here on ajax requests
+}
+
+function icph_excerpt($str, $limit=100, $append='&hellip;') {
+	$words = explode(' ', strip_tags($str));
+	$str = '';
+	$counter = 0;
+	foreach ($words as $word) {
+		if (empty($word)) continue;
+		$counter += mb_strlen($word) + 1;
+		if ($counter > $limit) return trim($str) . $append;
+		$str .= $word . ' ';
+	}
+	return trim($str);
 }
 
 function icph_get_era($post_id) {
@@ -125,7 +138,7 @@ function icph_slider() {
 function icph_thumbnail($post_id) {
 	global $thumbnail_diameter;
 	if (has_post_thumbnail($post_id)) return get_the_post_thumbnail($post_id, 'thumbnail');
-	return '<img src="' . get_bloginfo('template_directory') . '/img/placeholder/great-migration-circle.png" width="' . $thumbnail_diameter . '" height="' . $thumbnail_diameter . '" alt="' . get_the_title($post_id) . '">';
+	return '<img src="' . get_bloginfo('template_directory') . '/img/missing.png" width="' . $thumbnail_diameter . '" height="' . $thumbnail_diameter . '" alt="' . get_the_title($post_id) . '">';
 }
 
 function icph_ul($elements, $arguments=array()) {

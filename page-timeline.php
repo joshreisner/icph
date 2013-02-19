@@ -38,15 +38,16 @@ get_header();
 		<?php 
 		}
 		$years = get_categories('parent=' . $era['category_id']);
-		foreach ($years as $year) {?>
+		foreach ($years as $year) {
+			$posts = get_posts('category=' . $year->term_id);
+			?>
 		<li class="<?php echo $era['slug']?>">
 			<div class="upper">
-				<img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125">
+				<a href="#<?php echo $posts[0]->post_name?>"><?php echo icph_thumbnail($posts[0]->ID)?></a>
 				<h3><?php echo $year->name?></h3>
 			</div>
 			<div class="lower">
 				<?php
-				$posts = get_posts('category=' . $year->term_id);
 				foreach ($posts as $post) {
 					$excerpt = (empty($post->post_excerpt)) ? $post->post_title : $post->post_excerpt;
 					$excerpt = str_ireplace($post->post_title, '<a href="#' . $post->post_name . '">' . $post->post_title . '</a>', $excerpt);
