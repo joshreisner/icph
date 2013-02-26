@@ -1,0 +1,33 @@
+/* mixins */
+.font() {
+	font-family: "BentonSans", Helvetica, sans-serif; font-style: normal; font-weight: normal;
+}
+
+.fontBold() {
+	font-family: "BentonSans", Helvetica, sans-serif; font-style: normal; font-weight: bold;
+}
+
+.fontCondBold() {
+	font-family: "BentonSansCond", Helvetica, sans-serif; font-style: normal; font-weight: bold;
+}
+
+.opacity(@opacity: 0.5) {
+	@ieOpacity: @opacity * 100;
+	   -moz-opacity: @opacity;
+	 -khtml-opacity: @opacity;
+	-webkit-opacity: @opacity;
+	     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{ieOpacity})";
+	         filter: ~"alpha(opacity=@{ieOpacity})";
+	        opacity: @opacity;
+}
+
+.rounded(@diameter) {
+	width: @diameter; height: @diameter; border-radius: (@diameter / 2);
+}
+
+.shadowed(@x-axis: 0, @y-axis: 0px, @blur: 6px, @color: #000, @alpha: 0.6) {
+	@hsla: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+	-webkit-box-shadow: @x-axis @y-axis @blur @hsla;
+	   -moz-box-shadow: @x-axis @y-axis @blur @hsla;
+	        box-shadow: @x-axis @y-axis @blur @hsla;
+}

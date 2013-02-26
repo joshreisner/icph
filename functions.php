@@ -73,7 +73,7 @@ function icph_browse($type='Subject') {
 	foreach ($categories as $category) {?>
 		
 	<div class="row">
-		<h3<?php if ($category->name == $categories[0]->name) {?> class="first"<?php }?>><?php echo $category->name?></h3>
+		<h3<?php if ($category->name == $categories[0]->name) {?> class="first"<?php }?>><i class="icon-plus-sign"></i> <?php echo $category->name?></h3>
 		<ul>
 			<?php 
 			$posts = get_posts('category=' . $category->term_id);
