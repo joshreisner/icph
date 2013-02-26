@@ -1,7 +1,7 @@
 jQuery(function(){
 	
 	//automatically open window if there's a hash
-	if (location.hash) overlayShow(location.hash);
+	if (location.hash && (location.hash != "#contact")) overlayShow(location.hash);
 	
 	//set links to open overlays
 	jQuery("a").live('click', function(){

@@ -11,7 +11,7 @@ get_header();
 			<h2>The Progressive Era</h2>
 			<p>Neutra PBR tousled before they sold out, 90's aesthetic readymade quinoa helvetica aliqua veniam authentic. Anim vegan nostrud vero. Flexitarian beard plaid irure four loko, banh mi pitchfork 3 wolf moon quis before they sold out. Freegan fanny pack vero ut, skateboard terry richardson assumenda sunt irure farm-to-table organic.</p>
 			<a class="left" href="#">Continue Era Introduction</a>
-			<a class="right" href="#">Browse the Timeline</a>
+			<a class="right" href="/">Browse the Timeline</a>
 		</div>
 	</div>
 	

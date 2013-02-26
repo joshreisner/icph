@@ -10,6 +10,7 @@
 @blue_light		: #d3d2d1;
 @gray			: #383434;
 @gray_light		: #948f89;
+@gray_lighter	: #c1b8b1;
 @gray_medium	: #64615c;
 @green			: #8a9d44;
 @green_light	: #e0dfcd;
@@ -124,9 +125,22 @@ header {
 }
 
 footer {
-	overflow: auto; margin-bottom: 20px; 
-	.copyright { float: left; margin-left: 20px; }
-	.social { float: right; margin-right: 20px; }
+	overflow: auto; margin-bottom: 20px; .fontCondBold;
+	.copyright { float: left; margin-left: 20px; font-size: 11px; color: @gray_lighter; }
+	ul { 
+		float: right; list-style: none; margin: 0 20px 0 0; padding: 0; 
+		li {
+			float: left; margin: 0 0 0 20px; font-size: 16px; line-height: 16px; padding-top: 5px;
+			a { 
+				color: @gray_lighter; text-transform: uppercase; 
+				i { 
+					font-size: 26px; 
+				}
+				&:hover { color: @gray_medium; }
+			}
+			&.icon { padding-top: 0; margin-left: 4px; }
+		}
+	}
 }
 
 /* pages */
