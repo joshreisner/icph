@@ -73,6 +73,12 @@ jQuery(function(){
 	//set browse page accordion
 	jQuery("#browse h3").live("click", function(){
 		jQuery(this).parent().find("ul").slideToggle();
+		var $icon = jQuery(this).find("i").first();
+		if ($icon.hasClass("icon-plus-sign")) {
+			$icon.removeClass("icon-plus-sign").addClass("icon-minus-sign");
+		} else {
+			$icon.removeClass("icon-minus-sign").addClass("icon-plus-sign");
+		}
 	});
 	
 	//set browse page links
