@@ -219,9 +219,11 @@ footer {
 	}
 
 	div.arrow {
-		background-color: @gray; .opacity(.5); width: @timeline_arrow_width; height: @timeline_arrow_height; position: absolute; top: ((@timeline_upper_height + @timeline_lower_height) / 2);
-		&.left { left: 0; }
-		&.right { right: 0; }
+		background-color: @gray; .opacity(.5); width: @timeline_arrow_width; height: @timeline_arrow_height; position: absolute; top: ((@timeline_upper_height + @timeline_lower_height) / 2); text-align: center;
+		i { color: @white; font-size: 50px; line-height: 49px; }
+		&.left { left: 0; i { margin-left: -5px; } }
+		&.right { right: 0; i { margin-right: -5px; } }
+		&:hover { .opacity(.8); }
 	}
 }
 
