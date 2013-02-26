@@ -20,37 +20,48 @@ global $body_class;
 			
 			<!-- <div id="nav"><?php wp_nav_menu(array('theme_location'=>'nav')) ?></div> -->
 			
-			<div id="nav">
-				<div class="menu">
+			<ul id="nav">
+				<li<?php if ($_SERVER['REQUEST_URI'] == '/') echo ' class="current_page_item"'?>>
+					<a href="/">Timeline</a>
+					<div class="separator"></div>
+				</li>
+				<li>
+					<a href="#">Eras</a>
 					<ul>
-						<li<?php if ($_SERVER['REQUEST_URI'] == '/') echo ' class="current_page_item"'?>>
-							<a href="/">Timeline</a>
+						<?php 
+						global $eras;
+						foreach ($eras as $e) {?>
+						<li class="<?php echo $e['slug']?>">
+							<a href="<?php echo $e['url']?>">
+								<div><?php echo $e['start_year']?> to <?php echo $e['end_year']?></div>
+								<?php echo $e['title']?>
+							</a>
 						</li>
-						<li>
-							<a href="#">Eras</a>
-							<ul>
-								<?php 
-								global $eras;
-								foreach ($eras as $e) {?>
-								<li class="<?php echo $e['slug']?>">
-									<a href="<?php echo $e['url']?>">
-										<div><?php echo $e['start_year']?> to <?php echo $e['end_year']?></div>
-										<?php echo $e['title']?>
-									</a>
-								</li>
-								<?php }?>
-							</ul>
-						</li>
-						<li<?php if ($_SERVER['REQUEST_URI'] == '/maps/') echo ' class="current_page_item"'?>>
-							<a href="/maps/">Maps</a>
-						</li>
-						<li<?php if ($_SERVER['REQUEST_URI'] == '/browse/') echo ' class="current_page_item"'?>>
-							<a href="/browse/">Browse</a>
-						</li>
-						<li<?php if ($_SERVER['REQUEST_URI'] == '/about/') echo ' class="current_page_item"'?>>
-							<a href="/about/">About</a>
-						</li>
+						<?php }?>
 					</ul>
-				</div>
-			</div>
+					<div class="separator"></div>
+				</li>
+				<li<?php if ($_SERVER['REQUEST_URI'] == '/maps/') echo ' class="current_page_item"'?>>
+					<a href="/maps/">Maps</a>
+					<div class="separator"></div>
+				</li>
+				<li<?php if ($_SERVER['REQUEST_URI'] == '/browse/') echo ' class="current_page_item"'?>>
+					<a href="/browse/">Browse</a>
+					<div class="separator"></div>
+				</li>
+				<li<?php if ($_SERVER['REQUEST_URI'] == '/about/') echo ' class="current_page_item"'?>>
+					<a href="/about/">About</a>
+				</li>
+			</ul>
+			
+			<ul id="tools">
+				<li class="share"><i class="icon-share icon-large"></i> Share</li>
+				<li class="search">
+					<i class="icon-search icon-large"></i> Search
+
+					<form method="get" action="/">
+				        <input type="search" name="s" value="<?php the_search_query()?>">
+					</form>
+				</li>
+			</ul>
 		</header>

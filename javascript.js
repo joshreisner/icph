@@ -8,6 +8,11 @@ jQuery(function(){
 		var href = jQuery(this).attr("href");
 		if (href.substr(0, 1) == "#") overlayShow(href);
 	});
+	
+	//header
+	jQuery("li.search").hover(function(){
+		jQuery(this).find("input").first().focus();
+	});
 
 	var timeline = {
 	

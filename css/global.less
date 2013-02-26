@@ -65,47 +65,62 @@ header {
 		}
 	}
 	
-	/* both menus */
-	div.menu {
-		ul {
-			list-style-type: none; margin: 0; padding: 0; text-transform: uppercase; .fontCondBold;
-			li { 
-				float: left; padding: 0; margin: 0; display: block;
+	/* menus */
+	ul {
+		list-style-type: none; margin: 0; padding: 0; text-transform: uppercase; .fontCondBold; color: @white; position: absolute; 
+		li { 
+			float: left; padding: 0; margin: 0; display: block;	
+		}
+		
+		&#nav {
+			right: 240px; top: 5px; 
+			li {
+				padding: 0 22px 0 0; margin: 0 20px 0 0; height: 15px; position: relative;
+				a { display: block; font-size: 17px; line-height: 18px; padding: 10px 0; }
+				div.separator { background-color: @white; width: 2px; position: absolute; right: 0; top: 12px; height: 12px; }
+				ul { display: none; }
+				&:hover {
+					a { color: @beige; border-bottom: 5px solid @beige; }
+					ul { 
+						display: block; .shadowed; position: absolute; top: (@header_height - 5); background-image: url(../img/background.png); z-index: 20;
+						li { 
+							float: none; border-bottom: 1px solid @beige_dark; margin-right: 0; height: auto;
+							a, a:hover {
+								display: block; width: 240px; padding: 10px; text-transform: none; font-size: 12px; .font; color: @gray; border-bottom: none;
+								div { .fontBold; }
+							}
+							&:hover { background-image: url(../img/background-dark.png); }
+							&.early_ny div { color: @purple; }
+							&.nineteenth div { color: @orange; }
+							&.progressive div { color: @blue; }
+							&.great_depression div { color: @red; }
+							&.today div { color: @green; }
+						}
+					}
+				}
+				&.current_page_item a { color: @beige; border-bottom: 5px solid @beige; }
 			}
 		}
-	}
-
-	/* only the nav menu */
-	#nav {
-		position: absolute; right: 0; top: 5px; 
-		li {
-			padding: 0 20px 0 0; margin: 0 20px 0 0; height: 15px; 
-			a { display: block; font-size: 17px; line-height: 18px; padding: 10px 0; }
-			ul { display: none; }
-			&:hover {
-				a { color: @beige; border-bottom: 5px solid @beige; }
-				ul { 
-					display: block; .shadowed; position: absolute; top: 43px; background-image: url(../img/background.png); z-index: 20;
-					li { 
-						float: none; border-bottom: 1px solid @beige_dark; margin-right: 0; height: auto;
-						a, a:hover {
-							display: block; padding: 10px; text-transform: none; font-size: 12px; .font; color: @gray; border-bottom: none;
-							div { .fontBold; }
-						}
-						&:hover { background-image: url(../img/background-dark.png); }
-						&.early_ny div { color: @purple; }
-						&.nineteenth div { color: @orange; }
-						&.progressive div { color: @blue; }
-						&.great_depression div { color: @red; }
-						&.today div { color: @green; }
+		
+		&#tools {
+			top: 0; right: 20px; 
+			li { 
+				font-size: 13px; height: @header_height; line-height: @header_height;
+				&.share { margin-right: 20px; }
+				&.search {
+					form {
+						padding: 0 10px; margin: 0; display: none;
+						.shadowed; position: absolute; right: 0; top: @header_height; background-image: url(../img/background.png); z-index: 20; 
+						input { padding: 4px; width: 200px; font-size: 13px; margin: 0; }
+					}
+					&:hover {
+						form { display: block; }
 					}
 				}
 			}
-			&.current_page_item a { color: @beige; border-bottom: 5px solid @beige; }
 		}
+		
 	}
-	
-	/* only the sharing menu */
 }
 
 footer {
@@ -573,5 +588,13 @@ body.maps {
 				}
 			}
 		}
+	}
+}
+
+body.search {
+	.container { 
+		width: 940px; margin: 0 auto 100px; margin-top: (@header_height * 2);
+		h1 { color: @gray_light; }
+		a { color: @gray; }
 	}
 }

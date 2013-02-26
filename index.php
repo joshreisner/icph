@@ -1,2 +1,2 @@
 <?php
-//doesn't serve any purpose yet.  
+//only here to make wordpress happy (and handle 404s?)
