@@ -15,8 +15,7 @@ $era = icph_get_era($post->ID);
 
 <div id="overlay" class="<?php echo $era['slug']?>">
 	<div class="header">
-		<h1><?php echo $era['start_year']?>&ndash;<?php echo $era['end_year']?></h1>
-		<h2><?php echo $era['title']?></h2>
+		<h1><?php echo $post->post_title?></h1>
 		<a href="#" class="close">Close <i class="icon-remove-circle icon-large"></i></a>
 		<h3>Articles</h3>
 	</div>
