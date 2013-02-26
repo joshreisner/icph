@@ -340,7 +340,7 @@ footer .social{float:right;margin-right:20px;}
 #overlay{width:960px;background-color:#eae3d9;background-image:url(../img/background.png);z-index:1050;-webkit-box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);-moz-box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);position:absolute;top:48px;left:50%;margin-left:-480px;min-height:100%;}#overlay div.header{position:relative;height:97px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;}#overlay div.header h1,#overlay div.header h2{position:absolute;left:20px;}
 #overlay div.header h1{top:20px;}
 #overlay div.header h2{top:60px;font-size:18px;}
-#overlay div.header a.close{text-transform:uppercase;top:10px;right:10px;font-size:12px;position:absolute;}
+#overlay div.header a.close{text-transform:uppercase;top:10px;right:10px;font-size:12px;position:absolute;}#overlay div.header a.close i{font-size:14px;margin-left:3px;}
 #overlay div.header h3{color:#ffffff;margin:0;height:36px;line-height:36px;position:absolute;bottom:0;right:0;width:300px;padding:0 0 0 20px;}
 #overlay div.body{overflow:auto;}#overlay div.body div.content{width:640px;float:left;font-size:14px;line-height:18px;}#overlay div.body div.content div.featured_image img{width:640px;height:auto;}
 #overlay div.body div.content div.inner{padding:10px 40px;}#overlay div.body div.content div.inner div.wp-caption{font-size:11px;line-height:14px;}#overlay div.body div.content div.inner div.wp-caption p{margin:0;}
