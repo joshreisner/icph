@@ -12,6 +12,6 @@
 		</footer>
 
 		<?php wp_footer(); ?>
-		<script src="<?php bloginfo('template_directory');?>/javascript.js"></script>
+		<script src="<?php bloginfo('template_directory');?>/js/global.min.js"></script>
 	</body>
 </html>
