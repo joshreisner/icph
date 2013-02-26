@@ -48,7 +48,7 @@ $era = icph_get_era($post->ID);
 		<div class="navigation">
 			<ul>
 				<?php
-				$posts = get_posts('category=' . $era['category_id']);
+				$posts = get_posts('numberposts=-1&category=' . $era['category_id']);
 				foreach ($posts as $post) {?>
 				<li>
 					<a href="<?php echo $post->post_name?>"><?php echo $post->post_title?></a>
