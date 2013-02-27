@@ -3,11 +3,11 @@ jQuery(function(){
 	//@codekit-prepend "overlay.js";
 	
 
-if (typeof console === "undefined") {
-    window.console = {
-        log: function () {}
-    };
-}
+	if (typeof console === "undefined") {
+	    window.console = {
+	        log: function () {}
+	    };
+	}
 
 	//automatically open window if there's a hash
 	if (location.hash && (location.hash !== "#contact")) overlay.show(location.hash);
