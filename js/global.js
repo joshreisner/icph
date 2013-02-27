@@ -2,12 +2,8 @@ jQuery(function(){
 	//@codekit-prepend "timeline.js";
 	//@codekit-prepend "overlay.js";
 	
-
-	if (typeof console === "undefined") {
-	    window.console = {
-	        log: function () {}
-	    };
-	}
+	//console log helper
+	if (typeof console === "undefined") window.console = { log: function () {} };
 
 	//automatically open window if there's a hash
 	if (location.hash && (location.hash !== "#contact")) overlay.show(location.hash);
@@ -25,6 +21,17 @@ jQuery(function(){
 
 	//initialize timeline if appropriate
 	if (jQuery("body").hasClass("timeline")) timeline.init();
+	
+	//slider click
+	jQuery("#slider_policy li.first").click(function(){
+		jQuery(this).parent().toggleClass("active");
+		var $icon = jQuery(this).find("i").first();
+		if ($icon.hasClass("icon-plus-sign")) {
+			$icon.removeClass("icon-plus-sign").addClass("icon-minus-sign");
+		} else {
+			$icon.removeClass("icon-minus-sign").addClass("icon-plus-sign");
+		}
+	});
 	
 	//set browse page accordion
 	jQuery("#browse h3").live("click", function(){

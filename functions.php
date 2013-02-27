@@ -130,9 +130,9 @@ function icph_slider() {
 		
 	//policies slider
 	foreach ($policies as &$policy) $policy = array('link'=>'/policies/?' . $policy->slug, 'content'=>$policy->name);
-	array_unshift($policies, array('content'=>'View by Policy'));
+	array_unshift($policies, array('content'=>'<i class="icon-plus-sign"></i> View by Policy'));
 	
-	return icph_ul($eras, array('id'=>'slider')) . icph_ul($policies, array('id'=>'slider_policy'));
+	return '<div id="slider_policy_wrapper">' . icph_ul($eras, array('id'=>'slider')) . icph_ul($policies, array('id'=>'slider_policy')) . '</div>';
 }
 
 function icph_thumbnail($post_id) {
