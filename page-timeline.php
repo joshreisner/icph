@@ -9,7 +9,7 @@ get_header();
 		
 		<li id="<?php echo $era['slug']?>" class="<?php echo $era['slug']?> overview">
 			<div class="upper">
-				<h1><?php echo $era['start_year']?>&dash;<?php echo $era['end_year']?></h1>
+				<h1><?php echo $era['start_year']?>&ndash;<?php echo $era['end_year']?></h1>
 				<h2><?php echo $era['name']?></h2>
 			</div>
 			<div class="lower">
