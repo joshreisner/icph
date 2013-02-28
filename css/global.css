@@ -273,7 +273,7 @@ ul.icons{list-style-type:none;text-indent:-0.75em;}ul.icons li [class^="icon-"],
 .icon-github-alt:before{content:"\f113";}
 .icon-folder-close-alt:before{content:"\f114";}
 .icon-folder-open-alt:before{content:"\f115";}
-html{min-height:100%;}html body{background-image:url(../img/background.png);margin:0;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal;color:#383434;}html body a{text-decoration:none;cursor:pointer;outline:none;}
+html{min-height:100%;}html body{background-image:url(../img/background.png);margin:0;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal;color:#383434;}html body a{text-decoration:none;cursor:pointer;outline:none;}html body a img{border:0;}
 html body h1,html body h2,html body h3,html body h4{margin:0;padding:0;}
 html body p{margin:0 0 15px 0;}
 header{background-color:#383434;-webkit-box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);-moz-box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);height:48px;position:fixed;top:0;left:0;right:0;-moz-opacity:0.8;-khtml-opacity:0.8;-webkit-opacity:0.8;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";filter:alpha(opacity=80);opacity:0.8;z-index:100;}header a{color:#ffffff;}header a.logo{font-size:28px;position:absolute;left:20px;top:6px;}header a.logo span{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;}
