@@ -4,6 +4,7 @@
 //era variable currently has too much information to come from wordpress
 //$eras = get_categories('parent=20&hide_empty=0'));
 $thumbnail_diameter = 125;
+$overview_tag_id	= 24;
 
 $eras = array(
 	array(

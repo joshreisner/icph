@@ -47,7 +47,10 @@ $era = icph_get_era($post->ID);
 		<div class="navigation">
 			<ul>
 				<?php
-				$posts = get_posts('numberposts=-1&category=' . $era['category_id']);
+				$posts = array_merge(
+					get_posts('numberposts=-1&category=' . $era['category_id'] . '&tag_id=' . $overview_tag_id),
+					get_posts('numberposts=-1&category=' . $era['category_id'] . '&tag__not_in=' . $overview_tag_id)
+				);
 				foreach ($posts as $p) {?>
 				<li<?php if ($p->post_name == $post->post_name) {?> class="active"<?php }?>>
 					<a href="#<?php echo $p->post_name?>">
