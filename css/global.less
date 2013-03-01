@@ -50,6 +50,12 @@ html {
 		a { 
 			text-decoration: none; cursor: pointer; outline: none; 
 			img { border: 0; }
+			&.thumbnail {
+				display: table; overflow: hidden; position: relative; 
+				img { position: absolute; top: 0; left: 0; }
+				span { display: table-cell; text-align: center; .fontCondBold; text-transform: uppercase; vertical-align: middle; }
+				&:hover img { display: none; }
+			}
 		}
 		h1, h2, h3, h4 { margin: 0; padding: 0; }
 		p { margin: 0 0 15px 0; }
@@ -160,7 +166,10 @@ footer {
 
 			.upper {
 				height: @timeline_upper_height; position: relative;
-				img { position: absolute; left: -(@timeline_year_diameter / 2); .rounded(@timeline_year_diameter); }
+				a.thumbnail { 
+					position: absolute; left: -(@timeline_year_diameter / 2); .rounded(@timeline_year_diameter); 
+					img { .rounded(@timeline_year_diameter); }
+				}
 				h3 { font-weight: normal; position: absolute; bottom: @timeline_paragraph_bottom; left: @timeline_column_padding; font-size: 28px; }
 			}
 			
@@ -205,6 +214,7 @@ footer {
 	
 			&.early_ny { 
 				border-color: @purple; 
+				.thumbnail { background-color: @purple_light; color: @purple; }
 				h1, h2, h3 { color: @purple; } 
 				a { 
 					color: @purple;
@@ -214,6 +224,7 @@ footer {
 			
 			&.nineteenth { 
 				border-color: @orange; 
+				.thumbnail { background-color: @orange_light; color: @orange; }
 				h1, h2, h3 { color: @orange; } 
 				a { 
 					color: @orange;
@@ -223,6 +234,7 @@ footer {
 			
 			&.progressive { 
 				border-color: @blue; 
+				.thumbnail { background-color: @blue_light; color: @blue; }
 				h1, h2, h3 { color: @blue; } 
 				a { 
 					color: @blue;
@@ -232,6 +244,7 @@ footer {
 			
 			&.great_depression { 
 				border-color: @red; 
+				.thumbnail { background-color: @red_light; color: @red; }
 				h1, h2, h3 { color: @red; } 
 				a { 
 					color: @red;
@@ -241,6 +254,7 @@ footer {
 			
 			&.today { 
 				border-color: @green; 
+				.thumbnail { background-color: @green_light; color: @green; }
 				h1, h2, h3 { color: @green; } 
 				a { 
 					color: @green;
@@ -370,11 +384,12 @@ footer {
 					ul {
 						list-style-type: none; margin: 0 0 20px 0; padding: 0; overflow: auto;
 						li { 
-							float: left; text-transform: uppercase; width: @overlay_related_diameter;
-							a { 
-								display: block; text-align: center; color: @gray; font-size: 12px; 
+							float: left; text-transform: uppercase; width: @overlay_related_diameter; text-align: center;
+							a.thumbnail { 
+								.rounded(@overlay_related_diameter); margin-bottom: 10px;
 								img { .rounded(@overlay_related_diameter); }
-								&:hover { background-color: transparent; }
+								/* display: block; text-align: center; color: @gray; font-size: 12px;  */
+								/* &:hover { background-color: transparent; } */
 							}
 							&.first { margin-right: (@overlay_content_width - (@overlay_related_diameter * 3) - (@overlay_padding * 4)) / 2; }
 							&.last { margin-left: (@overlay_content_width - (@overlay_related_diameter * 3) - (@overlay_padding * 4)) / 2; }
@@ -405,7 +420,10 @@ footer {
 			background-color: @purple_light; 
 			h3 { background-color: @purple; }
 		}
-		div.related h3 { color: @purple; }
+		div.related {
+			h3 { color: @purple; }
+			a.thumbnail { background-color: @purple_light; color: @purple; }
+		}
 	}
 	&.nineteenth {
 		a {
@@ -416,7 +434,10 @@ footer {
 			background-color: @orange_light; 
 			h3 { background-color: @orange; }
 		}
-		div.related h3 { color: @orange; }
+		div.related {
+			h3 { color: @orange; }
+			a.thumbnail { background-color: @orange_light; color: @orange; }
+		}
 	}
 	&.progressive {
 		a {
@@ -427,7 +448,10 @@ footer {
 			background-color: @blue_light; 
 			h3 { background-color: @blue; }
 		}
-		div.related h3 { color: @blue; }
+		div.related {
+			h3 { color: @blue; }
+			a.thumbnail { background-color: @blue_light; color: @blue; }
+		}
 	}
 	&.great_depression {
 		a {
@@ -438,7 +462,10 @@ footer {
 			background-color: @red_light; 
 			h3 { background-color: @red; }
 		}
-		div.related h3 { color: @red; }
+		div.related {
+			h3 { color: @red; }
+			a.thumbnail { background-color: @red_light; color: @red; }
+		}
 	}
 	&.today {
 		a {
@@ -449,7 +476,10 @@ footer {
 			background-color: @green_light; 
 			h3 { background-color: @green; }
 		}
-		div.related h3 { color: @green; }
+		div.related {
+			h3 { color: @green; }
+			a.thumbnail { background-color: @green_light; color: @green; }
+		}
 	}
 }
 

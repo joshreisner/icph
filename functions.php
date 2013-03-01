@@ -135,10 +135,21 @@ function icph_slider() {
 	return '<div id="slider_policy_wrapper">' . icph_ul($eras, array('id'=>'slider')) . icph_ul($policies, array('id'=>'slider_policy')) . '</div>';
 }
 
-function icph_thumbnail($post_id) {
-	global $thumbnail_diameter;
-	if (has_post_thumbnail($post_id)) return get_the_post_thumbnail($post_id, 'thumbnail');
-	return '<img src="' . get_bloginfo('template_directory') . '/img/missing.png" width="' . $thumbnail_diameter . '" height="' . $thumbnail_diameter . '" alt="' . get_the_title($post_id) . '">';
+function icph_thumbnail($post_id, $title=false, $slug=false) {
+	if (!$title) $title = get_the_title($post_id);
+	if (!$slug) {
+		$post = get_post($post_id);
+		$slug = $post->post_name;
+	}
+	return '
+		<a class="thumbnail" href="#' . $slug . '">
+				<span>
+					<i class="icon-play-circle"></i><br>
+					Read about<br>
+					' . $title . 
+				'</span>' . 
+			(has_post_thumbnail($post_id) ? get_the_post_thumbnail($post_id, 'thumbnail') : '') . 
+		'</a>';
 }
 
 function icph_ul($elements, $arguments=array()) {

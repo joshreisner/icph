@@ -274,6 +274,9 @@ ul.icons{list-style-type:none;text-indent:-0.75em;}ul.icons li [class^="icon-"],
 .icon-folder-close-alt:before{content:"\f114";}
 .icon-folder-open-alt:before{content:"\f115";}
 html{min-height:100%;}html body{background-image:url(../img/background.png);margin:0;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal;color:#383434;}html body a{text-decoration:none;cursor:pointer;outline:none;}html body a img{border:0;}
+html body a.thumbnail{display:table;overflow:hidden;position:relative;}html body a.thumbnail img{position:absolute;top:0;left:0;}
+html body a.thumbnail span{display:table-cell;text-align:center;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;text-transform:uppercase;vertical-align:middle;}
+html body a.thumbnail:hover img{display:none;}
 html body h1,html body h2,html body h3,html body h4{margin:0;padding:0;}
 html body p{margin:0 0 15px 0;}
 header{background-color:#383434;-webkit-box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);-moz-box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);height:48px;position:fixed;top:0;left:0;right:0;-moz-opacity:0.8;-khtml-opacity:0.8;-webkit-opacity:0.8;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";filter:alpha(opacity=80);opacity:0.8;z-index:100;}header a{color:#ffffff;}header a.logo{font-size:28px;position:absolute;left:20px;top:6px;}header a.logo span{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;}
@@ -298,7 +301,7 @@ footer ul{float:right;list-style:none;margin:0 20px 0 0;padding:0;}footer ul li{
 footer ul li a:hover{color:#64615c;}
 footer ul li.icon{padding-top:0;margin-left:4px;}
 #timeline{width:100%;overflow:hidden;position:relative;margin-top:96px;}#timeline ul{list-style-type:none;margin:0;padding:0;font-size:12px;overflow-x:auto;overflow-y:hidden;width:1000000px;}#timeline ul li{width:226px;margin:0;padding:0;border-left:1px solid #eae3d9;float:left;position:relative;}#timeline ul li h1,#timeline ul li h2,#timeline ul li h3{color:#64615c;}
-#timeline ul li .upper{height:150px;position:relative;}#timeline ul li .upper img{position:absolute;left:-50px;width:100px;height:100px;border-radius:50px;}
+#timeline ul li .upper{height:150px;position:relative;}#timeline ul li .upper a.thumbnail{position:absolute;left:-50px;width:100px;height:100px;border-radius:50px;}#timeline ul li .upper a.thumbnail img{width:100px;height:100px;border-radius:50px;}
 #timeline ul li .upper h3{font-weight:normal;position:absolute;bottom:10px;left:16px;font-size:28px;}
 #timeline ul li .lower{background-image:url(../img/background-dark.png);height:372px;padding:16px;}#timeline ul li .lower img{margin:-16px -16px 10px -16px;width:226px;height:auto;}
 #timeline ul li .lower p{margin:30px 0 0 0;}
@@ -318,15 +321,20 @@ footer ul li.icon{padding-top:0;margin-left:4px;}
 #timeline ul li.featured.progressive .lower{background-color:#d3d2d1;}
 #timeline ul li.featured.great_depression .lower{background-color:#e5cec7;}
 #timeline ul li.featured.today .lower{background-color:#e0dfcd;}
-#timeline ul li.early_ny{border-color:#78558b;}#timeline ul li.early_ny h1,#timeline ul li.early_ny h2,#timeline ul li.early_ny h3{color:#78558b;}
+#timeline ul li.early_ny{border-color:#78558b;}#timeline ul li.early_ny .thumbnail{background-color:#d9ceca;color:#78558b;}
+#timeline ul li.early_ny h1,#timeline ul li.early_ny h2,#timeline ul li.early_ny h3{color:#78558b;}
 #timeline ul li.early_ny a{color:#78558b;}#timeline ul li.early_ny a:hover{background-color:#d9ceca;}
-#timeline ul li.nineteenth{border-color:#a3735f;}#timeline ul li.nineteenth h1,#timeline ul li.nineteenth h2,#timeline ul li.nineteenth h3{color:#a3735f;}
+#timeline ul li.nineteenth{border-color:#a3735f;}#timeline ul li.nineteenth .thumbnail{background-color:#e7d8cd;color:#a3735f;}
+#timeline ul li.nineteenth h1,#timeline ul li.nineteenth h2,#timeline ul li.nineteenth h3{color:#a3735f;}
 #timeline ul li.nineteenth a{color:#a3735f;}#timeline ul li.nineteenth a:hover{background-color:#e7d8cd;}
-#timeline ul li.progressive{border-color:#5e7190;}#timeline ul li.progressive h1,#timeline ul li.progressive h2,#timeline ul li.progressive h3{color:#5e7190;}
+#timeline ul li.progressive{border-color:#5e7190;}#timeline ul li.progressive .thumbnail{background-color:#d3d2d1;color:#5e7190;}
+#timeline ul li.progressive h1,#timeline ul li.progressive h2,#timeline ul li.progressive h3{color:#5e7190;}
 #timeline ul li.progressive a{color:#5e7190;}#timeline ul li.progressive a:hover{background-color:#d3d2d1;}
-#timeline ul li.great_depression{border-color:#9c474e;}#timeline ul li.great_depression h1,#timeline ul li.great_depression h2,#timeline ul li.great_depression h3{color:#9c474e;}
+#timeline ul li.great_depression{border-color:#9c474e;}#timeline ul li.great_depression .thumbnail{background-color:#e5cec7;color:#9c474e;}
+#timeline ul li.great_depression h1,#timeline ul li.great_depression h2,#timeline ul li.great_depression h3{color:#9c474e;}
 #timeline ul li.great_depression a{color:#9c474e;}#timeline ul li.great_depression a:hover{background-color:#e5cec7;}
-#timeline ul li.today{border-color:#8a9d44;}#timeline ul li.today h1,#timeline ul li.today h2,#timeline ul li.today h3{color:#8a9d44;}
+#timeline ul li.today{border-color:#8a9d44;}#timeline ul li.today .thumbnail{background-color:#e0dfcd;color:#8a9d44;}
+#timeline ul li.today h1,#timeline ul li.today h2,#timeline ul li.today h3{color:#8a9d44;}
 #timeline ul li.today a{color:#8a9d44;}#timeline ul li.today a:hover{background-color:#e0dfcd;}
 #timeline div.arrow{background-color:#383434;-moz-opacity:0.5;-khtml-opacity:0.5;-webkit-opacity:0.5;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";filter:alpha(opacity=50);opacity:0.5;width:38px;height:50px;position:absolute;top:261px;text-align:center;}#timeline div.arrow i{color:#ffffff;font-size:50px;line-height:49px;}
 #timeline div.arrow.left{left:0;}#timeline div.arrow.left i{margin-left:-5px;}
@@ -356,8 +364,7 @@ footer ul li.icon{padding-top:0;margin-left:4px;}
 #overlay div.body div.content div.inner a{font-weight:bold;text-decoration:none;}
 #overlay div.body div.content div.inner h3{margin-bottom:15px;}
 #overlay div.body div.content div.inner div.related{margin-top:40px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;}#overlay div.body div.content div.inner div.related h3{font-size:18px;}
-#overlay div.body div.content div.inner div.related ul{list-style-type:none;margin:0 0 20px 0;padding:0;overflow:auto;}#overlay div.body div.content div.inner div.related ul li{float:left;text-transform:uppercase;width:125px;}#overlay div.body div.content div.inner div.related ul li a{display:block;text-align:center;color:#383434;font-size:12px;}#overlay div.body div.content div.inner div.related ul li a img{width:125px;height:125px;border-radius:62.5px;}
-#overlay div.body div.content div.inner div.related ul li a:hover{background-color:transparent;}
+#overlay div.body div.content div.inner div.related ul{list-style-type:none;margin:0 0 20px 0;padding:0;overflow:auto;}#overlay div.body div.content div.inner div.related ul li{float:left;text-transform:uppercase;width:125px;text-align:center;}#overlay div.body div.content div.inner div.related ul li a.thumbnail{width:125px;height:125px;border-radius:62.5px;margin-bottom:10px;}#overlay div.body div.content div.inner div.related ul li a.thumbnail img{width:125px;height:125px;border-radius:62.5px;}
 #overlay div.body div.content div.inner div.related ul li.first{margin-right:92.5px;}
 #overlay div.body div.content div.inner div.related ul li.last{margin-left:92.5px;}
 #overlay div.body div.navigation{position:relative;width:320px;float:left;font-size:12px;}#overlay div.body div.navigation ul{list-style:none;padding:0;margin:0;}#overlay div.body div.navigation ul li{border-bottom:1px solid #d3d2d1;border-left:1px solid #d3d2d1;padding:10px 20px;}#overlay div.body div.navigation ul li a{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;}
@@ -365,18 +372,23 @@ footer ul li.icon{padding-top:0;margin-left:4px;}
 #overlay.early_ny a{color:#78558b;}#overlay.early_ny a:hover{background-color:#d9ceca;}
 #overlay.early_ny div.header{background-color:#d9ceca;}#overlay.early_ny div.header h3{background-color:#78558b;}
 #overlay.early_ny div.related h3{color:#78558b;}
+#overlay.early_ny div.related a.thumbnail{background-color:#d9ceca;color:#78558b;}
 #overlay.nineteenth a{color:#a3735f;}#overlay.nineteenth a:hover{background-color:#e7d8cd;}
 #overlay.nineteenth div.header{background-color:#e7d8cd;}#overlay.nineteenth div.header h3{background-color:#a3735f;}
 #overlay.nineteenth div.related h3{color:#a3735f;}
+#overlay.nineteenth div.related a.thumbnail{background-color:#e7d8cd;color:#a3735f;}
 #overlay.progressive a{color:#5e7190;}#overlay.progressive a:hover{background-color:#d3d2d1;}
 #overlay.progressive div.header{background-color:#d3d2d1;}#overlay.progressive div.header h3{background-color:#5e7190;}
 #overlay.progressive div.related h3{color:#5e7190;}
+#overlay.progressive div.related a.thumbnail{background-color:#d3d2d1;color:#5e7190;}
 #overlay.great_depression a{color:#9c474e;}#overlay.great_depression a:hover{background-color:#e5cec7;}
 #overlay.great_depression div.header{background-color:#e5cec7;}#overlay.great_depression div.header h3{background-color:#9c474e;}
 #overlay.great_depression div.related h3{color:#9c474e;}
+#overlay.great_depression div.related a.thumbnail{background-color:#e5cec7;color:#9c474e;}
 #overlay.today a{color:#8a9d44;}#overlay.today a:hover{background-color:#e0dfcd;}
 #overlay.today div.header{background-color:#e0dfcd;}#overlay.today div.header h3{background-color:#8a9d44;}
 #overlay.today div.related h3{color:#8a9d44;}
+#overlay.today div.related a.thumbnail{background-color:#e0dfcd;color:#8a9d44;}
 #era h3{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;font-size:30px;}
 #era .inner{overflow:auto;}#era .inner .column{float:left;width:460px;font-size:13px;}#era .inner .column.right{margin-left:40px;}
 #era .row.header{height:400px;padding-top:48px;background-image:url(../img/placeholder/gordon-family-sample-large.png);background-size:cover;}#era .row.header .inner{width:460px;height:360px;margin:0 auto;-moz-opacity:0.8;-khtml-opacity:0.8;-webkit-opacity:0.8;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";filter:alpha(opacity=80);opacity:0.8;color:#ffffff;padding:20px;position:relative;font-size:14px;line-height:18px;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;}#era .row.header .inner h1,#era .row.header .inner h2{text-align:center;}

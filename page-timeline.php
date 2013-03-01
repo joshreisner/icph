@@ -43,7 +43,7 @@ get_header();
 			?>
 		<li class="<?php echo $era['slug']?>">
 			<div class="upper">
-				<a href="#<?php echo $posts[0]->post_name?>"><?php echo icph_thumbnail($posts[0]->ID)?></a>
+				<?php echo icph_thumbnail($posts[0]->ID, $posts[0]->post_title, $posts[0]->post_name)?>
 				<h3><?php echo $year->name?></h3>
 			</div>
 			<div class="lower">

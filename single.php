@@ -35,7 +35,7 @@ $era = icph_get_era($post->ID);
 					<h3>Related Articles</h3>
 					<?php
 					foreach ($related_links as &$link) {
-						$link['content'] = '<a href="' . $link['title'] . '">' . icph_thumbnail($link['id']) . $link['title'] . '</a>';
+						$link['content'] = icph_thumbnail($link['id'], $link['title']) . $link['title'];
 					}
 					echo icph_ul($related_links);
 					?>
