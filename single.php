@@ -48,10 +48,12 @@ $era = icph_get_era($post->ID);
 			<ul>
 				<?php
 				$posts = get_posts('numberposts=-1&category=' . $era['category_id']);
-				foreach ($posts as $post) {?>
-				<li>
-					<a href="<?php echo $post->post_name?>"><?php echo $post->post_title?></a>
-					<p><?php echo $post->post_excerpt?></p>
+				foreach ($posts as $p) {?>
+				<li<?php if ($p->post_name == $post->post_name) {?> class="active"<?php }?>>
+					<a href="#<?php echo $p->post_name?>">
+						<strong><?php echo $p->post_title?></strong>
+						<?php echo $p->post_excerpt?>
+					</a>
 				</li>
 				<?php }?>
 			</ul>

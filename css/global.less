@@ -404,8 +404,12 @@ footer {
 				list-style: none; padding: 0; margin: 0; 
 				li { 
 					border-bottom: 1px solid @blue_light; border-left: 1px solid @blue_light; padding: (@overlay_padding / 2) @overlay_padding;
-					a { .fontBold; }
-					p { margin: 0 0 0 0; }
+					a { 
+						.font; color: @gray; 
+						strong { .fontBold; display: block; }
+						&:hover { background-color: transparent; }
+					}
+					&:hover, &.active { background-image: url(../img/background-dark.png); }
 				}
 			}
 		}
@@ -416,6 +420,7 @@ footer {
 			color: @purple; 
 			&:hover { background-color: @purple_light; }
 		}
+		div.navigation strong { color: @purple; }
 		div.header { 
 			background-color: @purple_light; 
 			h3 { background-color: @purple; }
@@ -430,6 +435,7 @@ footer {
 			color: @orange; 
 			&:hover { background-color: @orange_light; }
 		}
+		div.navigation strong { color: @orange; }
 		div.header { 
 			background-color: @orange_light; 
 			h3 { background-color: @orange; }
@@ -444,6 +450,7 @@ footer {
 			color: @blue; 
 			&:hover { background-color: @blue_light; }
 		}
+		div.navigation strong { color: @blue; }
 		div.header { 
 			background-color: @blue_light; 
 			h3 { background-color: @blue; }
@@ -458,6 +465,7 @@ footer {
 			color: @red; 
 			&:hover { background-color: @red_light; }
 		}
+		div.navigation strong { color: @red; }
 		div.header { 
 			background-color: @red_light; 
 			h3 { background-color: @red; }
@@ -472,6 +480,7 @@ footer {
 			color: @green; 
 			&:hover { background-color: @green_light; }
 		}
+		div.navigation strong { color: @green; }
 		div.header { 
 			background-color: @green_light; 
 			h3 { background-color: @green; }
