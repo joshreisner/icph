@@ -1,16 +1,29 @@
 <?php
-//era landing pages
+//era landing pages & about page
 get_header();
+
+$era = false;
+foreach ($eras as $e) {
+	if ($_SERVER['REQUEST_URI'] == $e['url']) $era = $e;
+}
+if (!$era) die('hi');
+
+//get overview and feature
+$posts = get_posts('category=' . $era['category_id'] . '&tag_id=' . $overview_tag_id);
+$overview = $posts[0];
+
+$posts = get_posts('category=' . $era['category_id'] . '&tag_id=' . $featured_tag_id);
+$feature = $posts[0];
 ?>
 
-<div id="era" class="progressive">
+<div id="era" class="<?php echo $era['slug']?>">
 
 	<div class="row header">
 		<div class="inner">
-			<h1>1890&ndash;1928</h1>
-			<h2>The Progressive Era</h2>
-			<p>Neutra PBR tousled before they sold out, 90's aesthetic readymade quinoa helvetica aliqua veniam authentic. Anim vegan nostrud vero. Flexitarian beard plaid irure four loko, banh mi pitchfork 3 wolf moon quis before they sold out. Freegan fanny pack vero ut, skateboard terry richardson assumenda sunt irure farm-to-table organic.</p>
-			<a class="left" href="#">Continue Era Introduction</a>
+			<h1><?php echo $era['start_year']?>&ndash;<?php echo $era['end_year']?></h1>
+			<h2><?php echo $era['name']?></h2>
+			<p><?php echo $overview->post_excerpt?></p>
+			<a class="left" href="#<?php echo $overview->post_name?>">Continue Era Introduction</a>
 			<a class="right" href="/">Browse the Timeline</a>
 		</div>
 	</div>
@@ -18,33 +31,28 @@ get_header();
 	<div class="row feature_policies">
 		<div class="inner">
 			<div class="column left feature">
-				<h3>The Gordon Family</h3>
-				<img src="<?php bloginfo('template_directory');?>/img/placeholder/gordon-era.jpg" alt="gordon-era" width="160" height="229" />
-				<p>Neutra PBR tousled before they sold out, 90's aesthetic readymade quinoa helvetica aliqua veniam authentic. Anim vegan nostrud vero. Flexitarian beard plaid irure four loko, banh mi pitchfork 3 wolf moon quis before they sold out. Freegan fanny pack vero ut, skateboard terry richardson assumenda sunt irure farm-to-table organic.</p>
-				<a class="more">The Gordon Family</a>
+				<h3><?php echo $feature->post_title?></h3>
+				<?php 
+				if (has_post_thumbnail($feature->ID)) echo get_the_post_thumbnail($feature->ID, 'era-landing');
+				//if (has_post_thumbnail($feature->ID)) echo get_the_post_thumbnail($feature->ID, array(160, 229));
+				?>				
+				<p><?php echo $feature->post_excerpt?></p>
+				<a class="more"><i class="icon-circle"></i> <?php echo $feature->post_title?></a>
 			</div>
 			<div class="column right policies">
 				<h3>Policy in this Time Period</h3>
 				<ul>
-					<li class="heading first">Low Income Housing</li>
-					<li><a href="#">Tenement House Act of 1901</a></li>
-					<li><a href="#">Tenement House Act of 1901</a></li>
-					<li><a href="#">Tenement House Act of 1901</a></li>
-
-					<li class="heading">Low Income Housing</li>
-					<li><a href="#">Tenement House Act of 1901</a></li>
-					<li><a href="#">Tenement House Act of 1901</a></li>
-					<li><a href="#">Tenement House Act of 1901</a></li>
-
-					<li class="heading">Low Income Housing</li>
-					<li><a href="#">Tenement House Act of 1901</a></li>
-					<li><a href="#">Tenement House Act of 1901</a></li>
-					<li><a href="#">Tenement House Act of 1901</a></li>
-
-					<li class="heading">Low Income Housing</li>
-					<li><a href="#">Tenement House Act of 1901</a></li>
-					<li><a href="#">Tenement House Act of 1901</a></li>
-					<li><a href="#">Tenement House Act of 1901</a></li>
+					<?php 
+					$policy_posts = array();
+					foreach ($policies as $policy) {
+						if ($posts = get_posts(array('category__and'=>array($era['category_id'], $policy->term_id), 'numberposts'=>-1))) {
+							if (count($posts) >= 3) $policy_posts[] = array('name'=>$policy->name, 'description'=>$policy->description, 'posts'=>array_slice($posts, 0, 3));
+							echo '<li class="heading">' . $policy->name . '</li>';
+							foreach ($posts as $post) {
+								echo '<li><a href="#' . $post->post_name . '">' . $post->post_title . '</a></li>';
+							}
+						}
+					} ?>
 				</ul>
 			</div>
 		</div>
@@ -53,51 +61,32 @@ get_header();
 	<div class="row map">
 		<div class="inner">
 			<h3>Where were the Settlement Houses?</h3>
-			<a href="#" class="more">Explore the 1900s Map</a>
+			<a href="/maps/" class="more">Explore the Map</a>
 		</div>
 	</div>
 	
+	<?php
+	if (count($policy_posts) >= 2) {
+		if (count($policy_posts) > 2) $policy_posts = array_slice($policy_posts, 0, 2);
+	?>
 	<div class="row topics">
 		<div class="inner">
-			<div class="column left">
-				<h3>The Growth of NYC</h3>
-				<p>Neutra PBR tousled before they sold out, 90's aesthetic readymade quinoa helvetica aliqua veniam authentic. Anim vegan nostrud vero. Flexitarian beard plaid irure four loko, banh mi pitchfork 3 wolf moon quis before they sold out. Freegan fanny pack vero ut, skateboard terry richardson assumenda sunt irure farm-to-table organic.</p>
-				<ul class="related">
-					<li>
-						<a href="#" class="img"><img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="150" height="150" /></a>
-						<a href="#" class="text">New Amsterdam</a>
-					</li>
-					<li class="center">
-						<a href="#" class="img"><img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="150" height="150" /></a>
-						<a href="#" class="text">New Amsterdam</a>
-					</li>
-					<li>
-						<a href="#" class="img"><img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="150" height="150" /></a>
-						<a href="#" class="text">New Amsterdam</a>
-					</li>
-				</ul>
+			<?php 
+			foreach ($policy_posts as $policy) {
+				foreach ($policy['posts'] as &$post) {
+					$post = array('content'=>icph_thumbnail($post->ID, $post->post_title, $post->post_name) . '
+						<a href="#' . $post->post_name . '" class="text">' . $post->post_title . '</a>');
+				}
+			?>
+			<div class="column">
+				<h3><?php echo $policy['name']?></h3>
+				<p><?php echo nl2br($policy['description'])?></p>
+				<?php echo icph_ul($policy['posts'])?>
 			</div>
-			<div class="column right">
-				<h3>Children Welfare</h3>
-				<p>Neutra PBR tousled before they sold out, 90's aesthetic readymade quinoa helvetica aliqua veniam authentic. Anim vegan nostrud vero. Flexitarian beard plaid irure four loko, banh mi pitchfork 3 wolf moon quis before they sold out. Freegan fanny pack vero ut, skateboard terry richardson assumenda sunt irure farm-to-table organic.</p>
-				<ul class="related">
-					<li>
-						<a href="#" class="img"><img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="150" height="150" /></a>
-						<a href="#" class="text">New Amsterdam</a>
-					</li>
-					<li class="center">
-						<a href="#" class="img"><img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="150" height="150" /></a>
-						<a href="#" class="text">New Amsterdam</a>
-					</li>
-					<li>
-						<a href="#" class="img"><img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="150" height="150" /></a>
-						<a href="#" class="text">New Amsterdam</a>
-					</li>
-				</ul>
-			</div>
+			<?php }?>
 		</div>
 	</div>
-	
+	<?php }?>
 	<div class="row stats">
 		<div class="inner">
 			<h3>By the Numbers</h3>

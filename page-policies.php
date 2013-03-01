@@ -28,7 +28,7 @@ if (!$policy) {
 		</li>
 		<li class="early_ny">
 			<div class="upper">
-				<img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125">
+				<a class="thumbnail"><img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125"></a>
 				<h3>1730</h3>
 			</div>
 			<div class="lower">
@@ -40,7 +40,7 @@ if (!$policy) {
 		</li>
 		<li class="nineteenth">
 			<div class="upper">
-				<img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125">
+				<a class="thumbnail"><img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125"></a>
 				<h3>1890</h3>
 			</div>
 			<div class="lower">
@@ -52,7 +52,7 @@ if (!$policy) {
 		</li>
 		<li class="progressive">
 			<div class="upper">
-				<img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125">
+				<a class="thumbnail"><img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125"></a>
 				<h3>1900</h3>
 			</div>
 			<div class="lower">
@@ -64,7 +64,7 @@ if (!$policy) {
 		</li>
 		<li class="progressive">
 			<div class="upper">
-				<img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125">
+				<a class="thumbnail"><img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125"></a>
 				<h3>1910</h3>
 			</div>
 			<div class="lower">
@@ -76,7 +76,7 @@ if (!$policy) {
 		</li>
 		<li class="progressive">
 			<div class="upper">
-				<img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125">
+				<a class="thumbnail"><img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125"></a>
 				<h3>1910</h3>
 			</div>
 			<div class="lower">

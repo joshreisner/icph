@@ -1,12 +1,14 @@
 <?php
 
 //global variables
-//era variable currently has too much information to come from wordpress
-//$eras = get_categories('parent=20&hide_empty=0'));
 $thumbnail_diameter = 125;
 $overview_tag_id	= 24;
+$featured_tag_id	= 19;
+$policies			= get_categories('parent=21&hide_empty=0');
 
-$eras = array(
+//era variable currently has too much information to come from wordpress
+//$eras = get_categories('parent=20&hide_empty=0'));
+$eras				= array(
 	array(
 		'category_id'=>2,
 		'slug'=>'early_ny',
@@ -54,17 +56,17 @@ $eras = array(
 	)
 );
 
-$policies = get_categories('parent=21&hide_empty=0');
 
-
-//setup
-add_action('wp_ajax_browse', 'icph_browse');
-add_action('wp_ajax_nopriv_browse', 'icph_browse');
-//add_theme_support('menus');
+//setup images and custom sizes
 add_theme_support('post-thumbnails'); 
 set_post_thumbnail_size($thumbnail_diameter, $thumbnail_diameter); //wonder if there's a way to set medium to 226/0 and large to 640/0
+add_image_size('era-landing', 160, 229); //for the era landing page
 add_image_size('extra-large', 880, 880); //for the view image overlay page
 
+
+//setup browse as an ajax function
+add_action('wp_ajax_browse', 'icph_browse');
+add_action('wp_ajax_nopriv_browse', 'icph_browse');
 function icph_browse($type='Subject') {
 	global $eras;
 	
