@@ -10,6 +10,12 @@ if (!$policy) {
 	header('Location: /');
 	exit;
 }
+
+//get overview and end piece
+$front = $end = '';
+if ($posts = get_posts('category=' . $policy->term_id . '&tag_id=' . $overview_tag_id)) {
+	list($front, $end) = explode('<!--more-->', nl2br($posts[0]->post_content));
+}
 ?>
 
 <div id="timeline">
@@ -19,71 +25,38 @@ if (!$policy) {
 				<h2><?php echo $policy->name?></h2>
 			</div>
 			<div class="lower">
-				Stumptown chambray readymade, ullamco eu +1 mustache bushwick shoreditch. Street art williamsburg dolor cliche mollit. Church-key laboris est craft beer. 
-				<br><br>
-				Culpa shoreditch twee, pork belly cillum brooklyn consectetur wes anderson delectus vegan leggings. Veniam sunt keffiyeh, trust fund bicycle rights ethical in scenester gluten-free. Aliquip semiotics est, ethical beard 8-bit consectetur odio deep v tumblr. 
-				<br><br>
-				Odio tattooed polaroid cray viral. Hoodie literally pug try-hard farm-to-table vice, adipisicing blue bottle proident. 
+				<?php echo $front?>
 			</div>
 		</li>
-		<li class="early_ny">
+		<?php
+		foreach ($eras as $era) {
+			$years = get_categories('parent=' . $era['category_id']);
+			foreach ($years as $year) {
+				if ($posts = get_posts(array('category__and'=>array($year->term_id, $policy->term_id), 'numberposts'=>-1))) {?>
+					<li class="<?php echo $era['slug']?>">
+						<div class="upper">
+							<?php echo icph_thumbnail($posts[0]->ID, $posts[0]->post_title, $posts[0]->post_name)?>
+							<h3><?php echo $year->name?></h3>
+						</div>
+						<div class="lower">
+							<?php
+							foreach ($posts as $post) {
+								echo '<p><a href="#' . $post->post_name . '">' . $post->post_title . '</a><br>' . $post->post_excerpt . '</p>';
+							}
+							?>
+						</div>
+					</li>
+					<?php 
+				}
+			}
+		}
+		?>
+		<li class="end">
 			<div class="upper">
-				<a class="thumbnail"><img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125"></a>
-				<h3>1730</h3>
+				<h2>Today</h2>
 			</div>
 			<div class="lower">
-				<p>
-					<a href="#">National Committee on Care of Transient and Homeless</a><br>
-					Hoodie literally pug try-hard farm-to-table vice, adipisicing blue bottle proident.
-				</p>	
-			</div>
-		</li>
-		<li class="nineteenth">
-			<div class="upper">
-				<a class="thumbnail"><img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125"></a>
-				<h3>1890</h3>
-			</div>
-			<div class="lower">
-				<p>
-					<a href="#">National Committee on Care of Transient and Homeless</a><br>
-					Hoodie literally pug try-hard farm-to-table vice, adipisicing blue bottle proident.
-				</p>	
-			</div>
-		</li>
-		<li class="progressive">
-			<div class="upper">
-				<a class="thumbnail"><img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125"></a>
-				<h3>1900</h3>
-			</div>
-			<div class="lower">
-				<p>
-					<a href="#">National Committee on Care of Transient and Homeless</a><br>
-					Hoodie literally pug try-hard farm-to-table vice, adipisicing blue bottle proident.
-				</p>	
-			</div>
-		</li>
-		<li class="progressive">
-			<div class="upper">
-				<a class="thumbnail"><img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125"></a>
-				<h3>1910</h3>
-			</div>
-			<div class="lower">
-				<p>
-					<a href="#">National Committee on Care of Transient and Homeless</a><br>
-					Hoodie literally pug try-hard farm-to-table vice, adipisicing blue bottle proident.
-				</p>	
-			</div>
-		</li>
-		<li class="progressive">
-			<div class="upper">
-				<a class="thumbnail"><img src="<?php bloginfo('template_directory');?>/img/placeholder/great-migration-circle.png" alt="great-migration-circle" width="125" height="125"></a>
-				<h3>1910</h3>
-			</div>
-			<div class="lower">
-				<p>
-					<a href="#">National Committee on Care of Transient and Homeless</a><br>
-					Hoodie literally pug try-hard farm-to-table vice, adipisicing blue bottle proident.
-				</p>	
+				<?php echo $end?>
 			</div>
 		</li>
 	</ul>

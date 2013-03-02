@@ -39,7 +39,7 @@ get_header();
 		}
 		$years = get_categories('parent=' . $era['category_id']);
 		foreach ($years as $year) {
-			$posts = get_posts('category=' . $year->term_id);
+			$posts = get_posts('numberposts=-1&category=' . $year->term_id);
 			?>
 		<li class="<?php echo $era['slug']?>">
 			<div class="upper">

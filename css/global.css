@@ -296,8 +296,8 @@ header ul#nav li.current_page_item a{color:#eae3d9;border-bottom:5px solid #eae3
 header ul#tools{top:0;right:20px;}header ul#tools li{font-size:13px;height:48px;line-height:48px;}header ul#tools li.share{margin-right:20px;}
 header ul#tools li.search form{padding:0 10px;margin:0;display:none;-webkit-box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);-moz-box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);position:absolute;right:0;top:48px;background-image:url(../img/background.png);z-index:20;}header ul#tools li.search form input{padding:4px;width:200px;font-size:13px;margin:0;}
 header ul#tools li.search:hover form{display:block;}
-footer{overflow:auto;margin-bottom:20px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;}footer .copyright{float:left;margin-left:20px;font-size:11px;color:#c1b8b1;}
-footer ul{float:right;list-style:none;margin:0 20px 0 0;padding:0;}footer ul li{float:left;margin:0 0 0 20px;font-size:16px;line-height:16px;padding-top:5px;}footer ul li a{color:#c1b8b1;text-transform:uppercase;}footer ul li a i{font-size:26px;}
+footer{overflow:auto;margin-bottom:20px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;}footer .copyright{float:left;margin-left:20px;font-size:11px;color:#c8c1b9;}
+footer ul{float:right;list-style:none;margin:0 20px 0 0;padding:0;}footer ul li{float:left;margin:0 0 0 20px;font-size:16px;line-height:16px;padding-top:5px;}footer ul li a{color:#c8c1b9;text-transform:uppercase;}footer ul li a i{font-size:26px;}
 footer ul li a:hover{color:#64615c;}
 footer ul li.icon{padding-top:0;margin-left:4px;}
 #timeline{width:100%;overflow:hidden;position:relative;margin-top:96px;}#timeline ul{list-style-type:none;margin:0;padding:0;font-size:12px;overflow-x:auto;overflow-y:hidden;width:1000000px;}#timeline ul li{width:226px;margin:0;padding:0;border-left:1px solid #eae3d9;float:left;position:relative;}#timeline ul li h1,#timeline ul li h2,#timeline ul li h3{color:#64615c;}
@@ -307,14 +307,15 @@ footer ul li.icon{padding-top:0;margin-left:4px;}
 #timeline ul li .lower p{margin:30px 0 0 0;}
 #timeline ul li .lower a{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;}
 #timeline ul li .lower a.more{position:absolute;bottom:16px;left:16px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;text-transform:uppercase;}
-#timeline ul li.overview{border-left:0;color:#ffffff;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;line-height:18px;width:248px;font-size:13px;}#timeline ul li.overview .upper{width:474px;}#timeline ul li.overview .upper h1{font-size:50px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;position:absolute;bottom:60px;left:16px;}
-#timeline ul li.overview .upper h2{font-size:28px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;position:absolute;bottom:19px;left:16px;}
-#timeline ul li.overview .lower{background-image:none;background-color:#64615c;}#timeline ul li.overview .lower a{color:#ffffff;}#timeline ul li.overview .lower a:hover{background-color:transparent;}
-#timeline ul li.overview.early_ny .lower{background-color:#78558b;}
-#timeline ul li.overview.nineteenth .lower{background-color:#a3735f;}
-#timeline ul li.overview.progressive .lower{background-color:#5e7190;}
-#timeline ul li.overview.great_depression .lower{background-color:#9c474e;}
-#timeline ul li.overview.today .lower{background-color:#8a9d44;}
+#timeline ul li.overview,#timeline ul li.end{border-left:0;color:#ffffff;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;line-height:18px;width:248px;font-size:13px;}#timeline ul li.overview .upper,#timeline ul li.end .upper{width:474px;}#timeline ul li.overview .upper h1,#timeline ul li.end .upper h1{font-size:50px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;position:absolute;bottom:60px;left:16px;}
+#timeline ul li.overview .upper h2,#timeline ul li.end .upper h2{font-size:28px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;position:absolute;bottom:19px;left:16px;}
+#timeline ul li.overview .lower,#timeline ul li.end .lower{background-image:none;background-color:#64615c;}#timeline ul li.overview .lower a,#timeline ul li.end .lower a{color:#ffffff;}#timeline ul li.overview .lower a:hover,#timeline ul li.end .lower a:hover{background-color:transparent;}
+#timeline ul li.overview.early_ny .lower,#timeline ul li.end.early_ny .lower{background-color:#78558b;}
+#timeline ul li.overview.nineteenth .lower,#timeline ul li.end.nineteenth .lower{background-color:#a3735f;}
+#timeline ul li.overview.progressive .lower,#timeline ul li.end.progressive .lower{background-color:#5e7190;}
+#timeline ul li.overview.great_depression .lower,#timeline ul li.end.great_depression .lower{background-color:#9c474e;}
+#timeline ul li.overview.today .lower,#timeline ul li.end.today .lower{background-color:#8a9d44;}
+#timeline ul li.end .lower{background-color:#c8c1b9;color:#383434;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal;}
 #timeline ul li.featured{border-left:0;}#timeline ul li.featured .lower{background-image:none;}
 #timeline ul li.featured.early_ny .lower{background-color:#d9ceca;}
 #timeline ul li.featured.nineteenth .lower{background-color:#e7d8cd;}
@@ -449,3 +450,11 @@ body.maps footer{display:none;}
 #browse .row ul li div a{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;color:#383434;display:block;}
 body.search .container{width:940px;margin:0 auto 100px;margin-top:96px;}body.search .container h1{color:#948f89;}
 body.search .container a{color:#383434;}
+.scroll-pane .jspContainer{overflow:hidden;position:relative;}.scroll-pane .jspContainer .jspPane{position:absolute;}
+.scroll-pane .jspContainer .jspVerticalBar{position:absolute;top:0;right:0;width:8px;height:100%;}.scroll-pane .jspContainer .jspVerticalBar .jspArrow{height:16px;}
+.scroll-pane .jspContainer .jspHorizontalBar{position:absolute;bottom:0;left:0;width:100%;height:8px;}.scroll-pane .jspContainer .jspHorizontalBar .jspArrow{width:8px;float:left;height:100%;}
+.scroll-pane .jspContainer .jspCap{display:none;}
+.scroll-pane .jspContainer .jspTrack{position:relative;}.scroll-pane .jspContainer .jspTrack .jspDrag{background:#c8c1b9;position:relative;top:0;left:0;cursor:pointer;border-radius:4px;}
+.scroll-pane .jspContainer .jspCorner{background:#eeeef4;float:left;height:100%;}
+.scroll-pane .jspContainer .jspArrow{background:#50506d;text-indent:-20000px;display:block;cursor:pointer;}.scroll-pane .jspContainer .jspArrow.jspDisabled{cursor:default;background:#80808d;}
+.scroll-pane .jspContainer .jspArrow:focus{outline:none;}

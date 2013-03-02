@@ -10,7 +10,7 @@
 @blue_light		: #d3d2d1;
 @gray			: #383434;
 @gray_light		: #948f89;
-@gray_lighter	: #c1b8b1;
+@gray_lighter	: #c8c1b9;
 @gray_medium	: #64615c;
 @green			: #8a9d44;
 @green_light	: #e0dfcd;
@@ -41,6 +41,7 @@
 @timeline_paragraph_bottom	: 10px;
 @timeline_year_diameter		: 100px;
 @timeline_upper_height		: 150px;
+@scroll_width				: 8px;
 
 /* globals */
 html {
@@ -181,7 +182,7 @@ footer {
 				a.more { position: absolute; bottom: @timeline_column_padding; left: @timeline_column_padding; .fontCondBold; text-transform: uppercase; }
 			}
 			
-			&.overview {
+			&.overview, &.end {
 				border-left: 0; color: @white; .fontBold; line-height: 18px; width: @timeline_overview_width; font-size: 13px;
 				.upper { 
 					width: @timeline_overview_width + @timeline_column_width; 
@@ -200,6 +201,10 @@ footer {
 				&.progressive		.lower { background-color: @blue; }
 				&.great_depression	.lower { background-color: @red; }
 				&.today				.lower { background-color: @green; }
+			}
+			
+			&.end .lower {
+				background-color: @gray_lighter; color: @gray; .font;
 			}
 			
 			&.featured {
@@ -713,5 +718,35 @@ body.search {
 		width: 940px; margin: 0 auto 100px; margin-top: (@header_height * 2);
 		h1 { color: @gray_light; }
 		a { color: @gray; }
+	}
+}
+
+.scroll-pane {
+	.jspContainer {
+		overflow: hidden; position: relative;
+		.jspPane {
+			position: absolute;
+		}
+		.jspVerticalBar {
+			position: absolute; top: 0; right: 0; width: @scroll_width; height: 100%;
+			.jspArrow { height: 16px; }
+		}
+		.jspHorizontalBar {
+			position: absolute; bottom: 0; left: 0; width: 100%; height: @scroll_width;
+			.jspArrow { width: @scroll_width; float: left; height: 100%; }
+		}
+		.jspCap { display: none; }
+		.jspTrack {
+			position: relative; 
+			.jspDrag { background: @gray_lighter; position: relative; top: 0; left: 0; cursor: pointer; border-radius: (@scroll_width / 2); }
+		}
+
+		.jspCorner { background: #eeeef4; float: left; height: 100%; }
+
+		.jspArrow {
+			background: #50506d; text-indent: -20000px; display: block; cursor: pointer;
+			&.jspDisabled { cursor: default; background: #80808d; }
+			&:focus { outline: none; }
+		}
 	}
 }
