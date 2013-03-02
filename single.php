@@ -63,4 +63,7 @@ $era = icph_get_era($post->ID);
 		</div>
 	</div>
 </div>
-<div id="overlay_backdrop"></div>
+<div id="overlay_backdrop">
+	<a class="arrow left"><i class="icon-angle-left"></i></a>
+	<a class="arrow right"><i class="icon-angle-right"></i></a>
+</div>

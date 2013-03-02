@@ -21,6 +21,22 @@
 	        opacity: @opacity;
 }
 
+.rgba(@color, @alpha) {
+	//http://dan.cx/blog/2012/05/rgba-in-ie
+    @alphacolor: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+    @ieAlphacolor: argb(@alphacolor);
+     
+    background-color: @color; // Fallback for older browsers
+    background-color: @alphacolor; 
+     
+    // IE hacks
+    zoom: 1; // hasLayout
+    background-color: transparent\9;
+    -ms-filter:  "progid:DXImageTransform.Microsoft.gradient(startColorstr=@{ieAlphacolor}, endColorstr=@{ieAlphacolor})"; // IE 8+
+        filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr=@{ieAlphacolor}, endColorstr=@{ieAlphacolor})"; // IE 6 & 7
+     
+}
+
 .rounded(@diameter) {
 	width: @diameter; height: @diameter; border-radius: (@diameter / 2);
 }

@@ -60,8 +60,8 @@ get_header();
 	}?>
 	</ul>
 	
-	<div class="arrow left"><i class="icon-angle-left"></i></div>
-	<div class="arrow right"><i class="icon-angle-right"></i></div>
+	<a class="arrow left"><i class="icon-angle-left"></i></a>
+	<a class="arrow right"><i class="icon-angle-right"></i></a>
 </div>
 
 <?php

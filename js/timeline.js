@@ -32,7 +32,7 @@ var timeline = {
 		});
 		
 		//set arrow
-		jQuery("#timeline div.arrow").hover(
+		jQuery("#timeline a.arrow").hover(
 			function() {
 				timeline.increment = (jQuery(this).hasClass("left")) ? 7 : -7;
 				timeline.interval = setInterval(timeline.move, 10);
