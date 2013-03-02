@@ -11,17 +11,7 @@
 	font-family: "BentonSansCond", Helvetica, sans-serif; font-style: normal; font-weight: bold;
 }
 
-.opacity(@opacity: 0.5) {
-	@ieOpacity: @opacity * 100;
-	   -moz-opacity: @opacity;
-	 -khtml-opacity: @opacity;
-	-webkit-opacity: @opacity;
-	     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{ieOpacity})";
-	         filter: ~"alpha(opacity=@{ieOpacity})";
-	        opacity: @opacity;
-}
-
-.rgba(@color, @alpha) {
+.bg_opacity(@color, @alpha) {
 	//http://dan.cx/blog/2012/05/rgba-in-ie
     @alphacolor: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
     @ieAlphacolor: argb(@alphacolor);

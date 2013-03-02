@@ -47,11 +47,14 @@ $era = icph_get_era($post->ID);
 		<div class="navigation">
 			<ul>
 				<?php
+				$nav_array = false; //for getting previous and next
 				$posts = array_merge(
 					get_posts('numberposts=-1&category=' . $era['category_id'] . '&tag_id=' . $overview_tag_id),
 					get_posts('numberposts=-1&category=' . $era['category_id'] . '&tag__not_in=' . $overview_tag_id)
 				);
-				foreach ($posts as $p) {?>
+				foreach ($posts as $p) {
+					$nav_array[$p->post_name] = $p->post_title; //for prev and next
+					?>
 				<li<?php if ($p->post_name == $post->post_name) {?> class="active"<?php }?>>
 					<a href="#<?php echo $p->post_name?>">
 						<strong><?php echo $p->post_title?></strong>
@@ -63,7 +66,39 @@ $era = icph_get_era($post->ID);
 		</div>
 	</div>
 </div>
+
+<?php
+//prev and next
+$prev = $next = $last = false;
+foreach ($nav_array as $key=>$value) {
+	if ($key == $post->post_name) {
+		$prev = $last;
+	} elseif ($prev) {
+		$next = array('slug'=>$key, 'title'=>$value); 
+		break;
+	} else {
+		$last = array('slug'=>$key, 'title'=>$value); 
+	}
+}
+
+//special catch for first element
+if (!$prev && !$next && count($nav_array > 1)) {
+	$nav_keys = array_keys($nav_array);
+	$next = array('slug'=>$nav_keys[1], 'title'=>$nav_array[$nav_keys[1]]);
+}
+?>
+
 <div id="overlay_backdrop">
-	<a class="arrow left"><i class="icon-angle-left"></i></a>
-	<a class="arrow right"><i class="icon-angle-right"></i></a>
+	<?php if ($prev) {?>
+	<a class="arrow left" href="#<?php echo $prev['slug']?>">
+		<div class="stem"><?php echo $prev['title']?></div>
+		<div class="cap"><i class="icon-angle-left"></i></div>
+	</a>
+	<?php }
+	if ($next) {?>
+	<a class="arrow right" href="#<?php echo $next['slug']?>">
+		<div class="cap"><i class="icon-angle-right"></i></div>
+		<div class="stem"><?php echo $next['title']?></div>
+	</a>
+	<?php }?>
 </div>
