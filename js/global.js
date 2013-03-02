@@ -1,3 +1,7 @@
+//@codekit-prepend "jquery-1.9.1.js";
+//@codekit-prepend "jquery.mousewheel.js";
+//@codekit-prepend "jquery.jscrollpane.js";
+
 jQuery(function(){
 	//@codekit-prepend "timeline.js";
 	//@codekit-prepend "overlay.js";
@@ -9,7 +13,7 @@ jQuery(function(){
 	if (location.hash && (location.hash !== "#contact")) overlay.show(location.hash);
 	
 	//set links to open overlays
-	jQuery("a").live('click', function(){
+	jQuery("body").on("click", "a", function(){
 		var href = jQuery(this).attr("href");
 		if (href.substr(0, 1) === "#") overlay.show(href);
 	});
@@ -34,7 +38,7 @@ jQuery(function(){
 	});
 	
 	//set browse page accordion
-	jQuery("#browse h3").live("click", function(){
+	jQuery("#browse").on("click", "h3", function(){
 		jQuery(this).parent().find("ul").slideToggle();
 		var $icon = jQuery(this).find("i").first();
 		if ($icon.hasClass("icon-plus-sign")) {
@@ -58,4 +62,8 @@ jQuery(function(){
 			}
 		});
 	});
+	
+	//era page jscrollpane
+	jQuery('.scroll-pane').jScrollPane();
+
 });

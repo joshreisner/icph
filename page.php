@@ -41,7 +41,7 @@ $feature = $posts[0];
 			</div>
 			<div class="column right policies">
 				<h3>Policy in this Time Period</h3>
-				<ul>
+				<ul class="scroll-pane">
 					<?php 
 					$policy_posts = array();
 					foreach ($policies as $policy) {
