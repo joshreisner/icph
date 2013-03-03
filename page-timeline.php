@@ -14,7 +14,7 @@ get_header();
 			</div>
 			<div class="lower">
 				<?php
-				$posts = get_posts('numberposts=1&tag=era-overview&category=' . $era['category_id']);
+				$posts = get_posts('numberposts=1&tag_id=' . $overview_tag_id . '&category=' . $era['category_id']);
 				foreach ($posts as $post) {
 					echo nl2br($post->post_excerpt);
 					echo '<a href="#' . $post->post_name . '" class="more">Era Introduction</a>';
