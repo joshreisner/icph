@@ -129,12 +129,6 @@ add_action('init', function() {
 	register_post_type('years', $args);
 });
 
-//make permalinks AJAXy
-add_action('init', function() {
-    global $wp_rewrite;
-    $wp_rewrite->set_permalink_structure('/#%postname%');
-});
-
 function icph_excerpt($str, $limit=100, $append='&hellip;') {
 	$words = explode(' ', strip_tags($str));
 	$str = '';
