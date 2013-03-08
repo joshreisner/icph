@@ -100,6 +100,36 @@ function icph_browse($type='Subject') {
 	if (isset($_POST['type'])) die(); //end output here on ajax requests
 }
 
+//set up years a custom post type
+function icph_custom_year() {
+	$labels = array(
+		'name'               => _x( 'Timeline Years', 'post type general name' ),
+		'singular_name'      => _x( 'Year', 'post type singular name' ),
+		'add_new'            => _x( 'Add New', 'book' ),
+		'add_new_item'       => __( 'Add New Year to the Timeline' ),
+		'edit_item'          => __( 'Edit Year' ),
+		'new_item'           => __( 'New Year' ),
+		'all_items'          => __( 'All Years' ),
+		'view_item'          => __( 'View Year' ),
+		'search_items'       => __( 'Search Years' ),
+		'not_found'          => __( 'No years found' ),
+		'not_found_in_trash' => __( 'No years found in the Trash' ), 
+		'parent_item_colon'  => '',
+		'menu_name'          => 'Timeline Years'
+	);
+	$args = array(
+		'labels'        => $labels,
+		'description'   => 'Years for the timeline',
+		'public'        => true,
+		'menu_position' => 5,
+		'supports'      => array( 'title', 'editor'),
+		'has_archive'   => true,
+	);
+	register_post_type('years', $args);
+}
+add_action('init', 'icph_custom_year');
+
+
 function icph_excerpt($str, $limit=100, $append='&hellip;') {
 	$words = explode(' ', strip_tags($str));
 	$str = '';
