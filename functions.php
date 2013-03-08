@@ -101,7 +101,7 @@ function icph_browse($type='Subject') {
 }
 
 //set up years a custom post type
-function icph_custom_year() {
+add_action('init', function() {
 	$labels = array(
 		'name'               => _x( 'Timeline Years', 'post type general name' ),
 		'singular_name'      => _x( 'Year', 'post type singular name' ),
@@ -126,9 +126,13 @@ function icph_custom_year() {
 		'has_archive'   => true,
 	);
 	register_post_type('years', $args);
-}
-add_action('init', 'icph_custom_year');
+});
 
+//make permalinks AJAXy
+add_action('init', function() {
+    global $wp_rewrite;
+    $wp_rewrite->set_permalink_structure('/#%postname%');
+});
 
 function icph_excerpt($str, $limit=100, $append='&hellip;') {
 	$words = explode(' ', strip_tags($str));
