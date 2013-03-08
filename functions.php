@@ -81,12 +81,12 @@ function icph_browse($type='Subject') {
 			<?php 
 			$posts = get_posts('category=' . $category->term_id);
 			foreach ($posts as $post) {
-				if ($era = icph_get_era($post->ID)) $era = '<h4 class="' . $era['slug'] . '">' . $era['name'] . '</h4>';
+				if (!$era = icph_get_era($post->ID)) $era = array('name'=>'', 'slug'=>'');
 			?>
-			<li>
-				<?php echo icph_thumbnail($post->ID)?>
+			<li class="<?php echo $era['slug']?>">
+				<?php echo icph_thumbnail($post->ID, $post->post_title, $post->post_name)?>
 				<div>
-					<?php echo $era?>
+					<h4><?php echo $era['name']?></h4>
 					<a href="#<?php echo $post->post_name?>"><?php echo $post->post_title?></a>
 					<?php echo icph_excerpt($post->post_excerpt)?>
 				</div>
