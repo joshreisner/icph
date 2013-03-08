@@ -122,8 +122,9 @@ add_action('init', function() {
 		'description'   => 'Years for the timeline',
 		'public'        => true,
 		'menu_position' => 5,
-		'supports'      => array( 'title', 'editor'),
-		'has_archive'   => true,
+		'supports'      => array('title', 'editor'),
+		'taxonomies'	=> array('category'),
+		'has_archive'   => false,
 	);
 	register_post_type('years', $args);
 });

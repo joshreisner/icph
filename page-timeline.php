@@ -37,23 +37,18 @@ get_header();
 		</li>
 		<?php 
 		}
-		$years = get_categories('parent=' . $era['category_id']);
+		$years = get_posts('post_type=years&numberposts=-1&category=' . $era['category_id']);
 		foreach ($years as $year) {
-			$posts = get_posts('numberposts=-1&category=' . $year->term_id);
 			?>
 		<li class="<?php echo $era['slug']?>">
 			<div class="upper">
-				<?php echo icph_thumbnail($posts[0]->ID, $posts[0]->post_title, $posts[0]->post_name)?>
-				<h3><?php echo $year->name?></h3>
+				<?php if ($related_links = get_related_links('post', $year->ID)) {
+					echo icph_thumbnail($related_links[0]['id'], $related_links[0]['title']);
+				}?>
+				<h3><?php echo $year->post_title?></h3>
 			</div>
 			<div class="lower">
-				<?php
-				foreach ($posts as $post) {
-					$excerpt = (empty($post->post_excerpt)) ? $post->post_title : $post->post_excerpt;
-					$excerpt = str_ireplace($post->post_title, '<a href="#' . $post->post_name . '">' . $post->post_title . '</a>', $excerpt);
-					echo '<p>' . $excerpt . '</p>';
-				}
-				?>
+				<?php echo str_replace(site_url('/'), '', nl2br($year->post_content))?>
 			</div>
 		</li>
 		<?php }
