@@ -526,8 +526,7 @@ footer {
 	
 	.row {
 		&.header {
-			height: 400px; padding-top: 48px;
-			background-image: url(../img/placeholder/gordon-family-sample-large.png); background-size: cover;
+			height: 400px; padding-top: 48px; background-size: cover;
 			.inner {
 				width: 460px; height: 360px; margin: 0 auto; color: @white; padding: 20px; position: relative;
 				font-size: 14px; line-height: 18px; .fontBold;
@@ -630,7 +629,10 @@ footer {
 	&.early_ny {
 		a, h3 { color: @purple; }
 		.row {
-			&.header .inner { .bg_opacity(@purple, .8); }
+			&.header {
+				background-image: url(../img/eras/progressive/era.jpg);
+				.inner { .bg_opacity(@purple, .8); }
+			}
 			&.topics { background-color: @purple; }
 			&.stats { background-color: @purple_light; color: @purple; }
 		}
@@ -638,7 +640,10 @@ footer {
 	&.nineteenth {
 		a, h3 { color: @orange; }
 		.row {
-			&.header .inner { .bg_opacity(@orange, .8); }
+			&.header {
+				background-image: url(../img/eras/progressive/era.jpg);
+				.inner { .bg_opacity(@orange, .8); }
+			}
 			&.topics { 
 				background-color: @blue; 
 				a.thumbnail { background-color: @orange_light; color: @orange; }
@@ -649,7 +654,10 @@ footer {
 	&.progressive {
 		a, h3 { color: @blue; }
 		.row {
-			&.header .inner { .bg_opacity(@blue, .8); }
+			&.header {
+				background-image: url(../img/eras/progressive/era.jpg);
+				.inner { .bg_opacity(@blue, .8); }
+			}
 			&.topics { 
 				background-color: @blue; 
 				a.thumbnail { background-color: @blue_light; color: @blue; }
@@ -660,7 +668,10 @@ footer {
 	&.great_depression {
 		a, h3 { color: @red; }
 		.row {
-			&.header .inner { .bg_opacity(@red, .8); }
+			&.header {
+				background-image: url(../img/eras/progressive/era.jpg);
+				.inner { .bg_opacity(@red, .8); }
+			}
 			&.topics { 
 				background-color: @red; 
 				a.thumbnail { background-color: @red_light; color: @red; }
@@ -671,7 +682,10 @@ footer {
 	&.today {
 		a, h3 { color: @green; }
 		.row {
-			&.header .inner { .bg_opacity(@green, 8); }
+			&.header {
+				background-image: url(../img/eras/progressive/era.jpg);
+				.inner { .bg_opacity(@green, 8); }
+			}
 			&.topics { 
 				background-color: @green; 
 				a.thumbnail { background-color: @green_light; color: @green; }

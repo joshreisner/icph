@@ -401,7 +401,7 @@ footer ul li.icon{padding-top:0;margin-left:4px;}
 #overlay.today div.related a.thumbnail{background-color:#e0dfcd;color:#8a9d44;}
 #era h3{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;font-size:30px;}
 #era .inner{overflow:auto;}#era .inner .column{float:left;width:460px;font-size:13px;}#era .inner .column.right{margin-left:40px;}
-#era .row.header{height:400px;padding-top:48px;background-image:url(../img/placeholder/gordon-family-sample-large.png);background-size:cover;}#era .row.header .inner{width:460px;height:360px;margin:0 auto;color:#ffffff;padding:20px;position:relative;font-size:14px;line-height:18px;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;}#era .row.header .inner h1,#era .row.header .inner h2{text-align:center;}
+#era .row.header{height:400px;padding-top:48px;background-size:cover;}#era .row.header .inner{width:460px;height:360px;margin:0 auto;color:#ffffff;padding:20px;position:relative;font-size:14px;line-height:18px;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;}#era .row.header .inner h1,#era .row.header .inner h2{text-align:center;}
 #era .row.header .inner h1{font-size:76px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;line-height:100px;}
 #era .row.header .inner h2{font-size:40px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;line-height:60px;}
 #era .row.header .inner a{color:#ffffff;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;text-transform:uppercase;position:absolute;bottom:10px;font-size:12px;}#era .row.header .inner a.left{left:20px;}
@@ -422,23 +422,23 @@ footer ul li.icon{padding-top:0;margin-left:4px;}
 #era .row.stats{margin-bottom:40px;}#era .row.stats .inner{width:960px;margin:0 auto;padding:40px 0;}#era .row.stats .inner ul{list-style:none;margin:0;padding:0;}#era .row.stats .inner ul li{float:left;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;font-size:16px;}#era .row.stats .inner ul li div{display:inline-block;vertical-align:middle;}#era .row.stats .inner ul li div.stat{text-align:right;margin-right:10px;width:150px;}
 #era .row.stats .inner ul li.center{margin:0 20px;}
 #era.early_ny a,#era.early_ny h3{color:#78558b;}
-#era.early_ny .row.header .inner{background-color:#78558b;background-color:rgba(120, 85, 139, 0.8);zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc78558b, endColorstr=#cc78558b)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc78558b, endColorstr=#cc78558b);}
+#era.early_ny .row.header{background-image:url(../img/eras/progressive/era.jpg);}#era.early_ny .row.header .inner{background-color:#78558b;background-color:rgba(120, 85, 139, 0.8);zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc78558b, endColorstr=#cc78558b)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc78558b, endColorstr=#cc78558b);}
 #era.early_ny .row.topics{background-color:#78558b;}
 #era.early_ny .row.stats{background-color:#d9ceca;color:#78558b;}
 #era.nineteenth a,#era.nineteenth h3{color:#a3735f;}
-#era.nineteenth .row.header .inner{background-color:#a3735f;background-color:rgba(164, 117, 96, 0.8);zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cca47560, endColorstr=#cca47560)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cca47560, endColorstr=#cca47560);}
+#era.nineteenth .row.header{background-image:url(../img/eras/progressive/era.jpg);}#era.nineteenth .row.header .inner{background-color:#a3735f;background-color:rgba(164, 117, 96, 0.8);zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cca47560, endColorstr=#cca47560)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cca47560, endColorstr=#cca47560);}
 #era.nineteenth .row.topics{background-color:#5e7190;}#era.nineteenth .row.topics a.thumbnail{background-color:#e7d8cd;color:#a3735f;}
 #era.nineteenth .row.stats{background-color:#e7d8cd;color:#a3735f;}
 #era.progressive a,#era.progressive h3{color:#5e7190;}
-#era.progressive .row.header .inner{background-color:#5e7190;background-color:rgba(95, 114, 145, 0.8);zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc5f7291, endColorstr=#cc5f7291)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc5f7291, endColorstr=#cc5f7291);}
+#era.progressive .row.header{background-image:url(../img/eras/progressive/era.jpg);}#era.progressive .row.header .inner{background-color:#5e7190;background-color:rgba(95, 114, 145, 0.8);zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc5f7291, endColorstr=#cc5f7291)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc5f7291, endColorstr=#cc5f7291);}
 #era.progressive .row.topics{background-color:#5e7190;}#era.progressive .row.topics a.thumbnail{background-color:#d3d2d1;color:#5e7190;}
 #era.progressive .row.stats{background-color:#d3d2d1;color:#5e7190;}
 #era.great_depression a,#era.great_depression h3{color:#9c474e;}
-#era.great_depression .row.header .inner{background-color:#9c474e;background-color:rgba(157, 72, 79, 0.8);zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc9d484f, endColorstr=#cc9d484f)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc9d484f, endColorstr=#cc9d484f);}
+#era.great_depression .row.header{background-image:url(../img/eras/progressive/era.jpg);}#era.great_depression .row.header .inner{background-color:#9c474e;background-color:rgba(157, 72, 79, 0.8);zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc9d484f, endColorstr=#cc9d484f)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc9d484f, endColorstr=#cc9d484f);}
 #era.great_depression .row.topics{background-color:#9c474e;}#era.great_depression .row.topics a.thumbnail{background-color:#e5cec7;color:#9c474e;}
 #era.great_depression .row.stats{background-color:#e5cec7;color:#9c474e;}
 #era.today a,#era.today h3{color:#8a9d44;}
-#era.today .row.header .inner{background-color:#8a9d44;background-color:#8a9d43;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff8a9d43, endColorstr=#ff8a9d43)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff8a9d43, endColorstr=#ff8a9d43);}
+#era.today .row.header{background-image:url(../img/eras/progressive/era.jpg);}#era.today .row.header .inner{background-color:#8a9d44;background-color:#8a9d43;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff8a9d43, endColorstr=#ff8a9d43)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff8a9d43, endColorstr=#ff8a9d43);}
 #era.today .row.topics{background-color:#8a9d44;}#era.today .row.topics a.thumbnail{background-color:#e0dfcd;color:#8a9d44;}
 #era.today .row.stats{background-color:#e0dfcd;color:#8a9d44;}
 body.maps{height:100%;position:relative;}body.maps iframe{width:100%;height:100%;margin:0;border:0;position:fixed;top:0;left:0;right:0;bottom:0;}
