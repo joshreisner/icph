@@ -310,6 +310,8 @@ footer ul li.icon{padding-top:0;margin-left:4px;}
 #timeline ul li .lower p{margin:30px 0 0 0;}
 #timeline ul li .lower a{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;}
 #timeline ul li .lower a.more{position:absolute;bottom:16px;left:16px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;text-transform:uppercase;}
+#timeline ul li .lower .statistic{text-align:right;font-size:20px;color:#bebab1;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;margin-top:20px;}#timeline ul li .lower .statistic p{margin:0;}
+#timeline ul li .lower .statistic .big{font-size:40px;}#timeline ul li .lower .statistic .big p{margin:0;}
 #timeline ul li.overview,#timeline ul li.end{border-left:0;color:#ffffff;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;line-height:18px;width:248px;font-size:13px;}#timeline ul li.overview .upper,#timeline ul li.end .upper{width:474px;}#timeline ul li.overview .upper h1,#timeline ul li.end .upper h1{font-size:50px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;position:absolute;bottom:60px;left:16px;}
 #timeline ul li.overview .upper h2,#timeline ul li.end .upper h2{font-size:28px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;position:absolute;bottom:19px;left:16px;}
 #timeline ul li.overview .lower,#timeline ul li.end .lower{background-image:none;background-color:#64615c;}#timeline ul li.overview .lower a,#timeline ul li.end .lower a{color:#ffffff;}#timeline ul li.overview .lower a:hover,#timeline ul li.end .lower a:hover{background-color:transparent;}

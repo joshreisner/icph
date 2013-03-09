@@ -63,7 +63,6 @@ set_post_thumbnail_size($thumbnail_diameter, $thumbnail_diameter); //wonder if t
 add_image_size('era-landing', 160, 229); //for the era landing page
 add_image_size('extra-large', 880, 880); //for the view image overlay page
 
-
 //setup browse as an ajax function
 add_action('wp_ajax_browse', 'icph_browse');
 add_action('wp_ajax_nopriv_browse', 'icph_browse');
@@ -202,22 +201,40 @@ function icph_ul($elements, $arguments=array()) {
 	return $return . '>' . implode('', $elements) . '</ul>';
 }
 
-/*
-object(stdClass)#216 (15) { 
-	["term_id"]=> &string(1) "3" 
-	["name"]=> &string(64) "1890s - 1920s: Poverty & Homelessness in The Progressive Era" 
-	["slug"]=> &string(9) "1890-1920" 
-	["term_group"]=> string(1) "0" 
-	["term_taxonomy_id"]=> string(1) "3" 
-	["taxonomy"]=> string(8) "category" 
-	["description"]=> &string(566) "Urbanization, immigration, and industrialization transformed New York City’s economy between 1890 and 1920, making poverty more prevalent among the working class while at the same time creating enormous wealth for some. Efforts to alleviate the effects of poverty among working-class and poor families through direct action and government reform become known as “progressivism.” The sights, sounds, and smells of the poorer districts in New York City in the 1890s made evident the effects of mass urbanization, immigration, and industrialization. " 
-	["parent"]=> &string(2) "20" 
-	["count"]=> &string(1) "7" 
-	["cat_ID"]=> &string(1) "3" 
-	["category_count"]=> &string(1) "7" 
-	["category_description"]=> &string(566) "Urbanization, immigration, and industrialization transformed New York City’s economy between 1890 and 1920, making poverty more prevalent among the working class while at the same time creating enormous wealth for some. Efforts to alleviate the effects of poverty among working-class and poor families through direct action and government reform become known as “progressivism.” The sights, sounds, and smells of the poorer districts in New York City in the 1890s made evident the effects of mass urbanization, immigration, and industrialization. " 
-	["cat_name"]=> &string(64) "1890s - 1920s: Poverty & Homelessness in The Progressive Era" 
-	["category_nicename"]=> &string(9) "1890-1920" 
-	["category_parent"]=> &string(2) "20" 
+//custom styles for tinymce
+add_filter('mce_css', 'icph_editor_style');  
+function icph_editor_style($url) {  
+	if (!empty($url)) $url .= ',';  
+	$url .= get_bloginfo('template_directory') . '/css/editor.css';  
+	//die($url);
+	return $url;  
+}  
+
+//remove existing styleselect
+add_filter('mce_buttons_2', 'icph_editor_buttons');
+function icph_editor_buttons($buttons) {  
+	array_unshift($buttons, 'styleselect');  
+	return $buttons;  
+}  
+  
+//i think
+add_filter('tiny_mce_before_init', 'icph_edtor_init');  
+function icph_edtor_init($settings) {  
+    $settings['style_formats'] = json_encode(
+    	array(  
+	        array(  
+	            'title' => 'Statistic',  
+	            'block' => 'div',  
+	            'classes' => 'statistic',  
+	            'wrapper' => true  
+	        ),  
+	        array(  
+	            'title' => 'Big',  
+	            'block' => 'div',  
+	            'classes' => 'big',  
+	            'wrapper' => true  
+	        ),  
+	    )
+    );
+	return $settings;  
 }
-*/

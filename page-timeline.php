@@ -48,7 +48,7 @@ get_header();
 				<h3><?php echo $year->post_title?></h3>
 			</div>
 			<div class="lower">
-				<?php echo str_replace(site_url('/'), '#', nl2br($year->post_content))?>
+				<?php echo str_replace(site_url('/'), '#', apply_filters('the_content', $year->post_content))?>
 			</div>
 		</li>
 		<?php }
