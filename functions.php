@@ -83,6 +83,12 @@ $custom_fields = array(
 			'title'		=>'Featured Post',
 		),
 	),
+	'era'=>array(
+		'start_year'=>array(
+			'type'		=>'input',
+			'title'		=>'Start Year',
+		)
+	)
 );
 
 
@@ -195,7 +201,7 @@ add_action('init', function() {
 		'description'   => 'Eras',
 		'public'        => true,
 		'menu_position' => 5,
-		'supports'      => array('title', 'editor'),
+		'supports'      => array('title', 'editor', 'excerpt'),
 		'has_archive'   => false,
 	));
 });
