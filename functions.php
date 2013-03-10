@@ -2,57 +2,12 @@
 
 //global variables
 $thumbnail_diameter = 125;
-$overview_tag_id	= 24;
-$featured_tag_id	= 19;
 $policies			= get_categories('parent=21&hide_empty=0');
-
-//maybe this will become a custom post type
-$eras = array(
-	array(
-		'slug'=>'early_ny',
-		'start_year'=>1650,
-		'end_year'=>1830,
-		'name'=>'Early New York',
-		'title'=>'Family Poverty in Early New York',
-		'url'=>'/eras/early-new-york-city/'
-	),
-	array(
-		'slug'=>'nineteenth',
-		'start_year'=>1830,
-		'end_year'=>1890,
-		'name'=>'19th Century',
-		'title'=>'Homelessness in the Nineteenth Century',
-		'url'=>'/eras/19th-century/'
-	),
-	array(
-		'slug'=>'progressive',
-		'start_year'=>1890,
-		'end_year'=>1920,
-		'name'=>'The Progressive Era',
-		'title'=>'Homelessness in the Progressive Era',
-		'url'=>'/eras/the-progressive-era/'
-	),
-	array(
-		'slug'=>'great_depression',
-		'start_year'=>1929,
-		'end_year'=>1944,
-		'name'=>'The Great Depression',
-		'title'=>'Family Crises in the Great Depression',
-		'url'=>'/eras/the-great-depression/'
-	),
-	array(
-		'slug'=>'today',
-		'start_year'=>1945,
-		'end_year'=>'Today',
-		'name'=>'Today',
-		'title'=>'Origins of the New Urban Poverty',
-		'url'=>'/eras/new-urban-poverty'
-	)
-);
+$eras				= get_posts(array('post_status'=>'publish', 'post_type'=>'era', 'meta_key'=>'start_year', 'orderby'=>'meta_value_num', 'order'=>'ASC'));
 
 //era options for select and other places
 $era_options = array();
-foreach ($eras as $era) $era_options[$era['slug']] = $era['name'];
+foreach ($eras as $era) $era_options[$era->ID] = $era->post_title;
 
 //years for year select
 $year_options = get_posts('post_type=year&numberposts=-1&orderby=post_title&order=ASC');
@@ -63,7 +18,7 @@ foreach ($year_options as &$y) $y = array(
 	);
 
 $custom_fields = array(
-	'year'=>array(
+	'timeline_year'=>array(
 		'era'=>array(
 			'type'		=>'select',
 			'title'		=>'Era',
@@ -325,6 +280,7 @@ add_action('admin_menu', function(){
 				
 				if ($features['type'] == 'input' )  { 
 					$value = get_post_meta($post->ID, $name, true);
+					$meta_box_value = get_post_meta($post->ID, $name, true);
 					if (empty($meta_box_value)) $value = $features['default'];
 					echo '<input type="text" name="'. $name .'" id="'. $name .'"  value="' . $value . '">';
 				} elseif ($features['type'] ==  'select' ) {
@@ -389,7 +345,7 @@ add_action('save_post', function($post_id) {
 });
 
 //display era column on year list
-add_filter('manage_year_posts_columns', function($defaults) {
+add_filter('manage_timeline_year_posts_columns', function($defaults) {
     return array(
     	'cb'=>'<input type="checkbox">',
     	'title'=>'Title',
@@ -399,7 +355,7 @@ add_filter('manage_year_posts_columns', function($defaults) {
 });  
 
 //fill era column on year list
-add_action('manage_year_posts_custom_column', function($column_name, $post_ID) {
+add_action('manage_timeline_year_posts_custom_column', function($column_name, $post_ID) {
 	global $era_options; 
     if ($column_name == 'era') echo @$era_options[get_post_meta($post_ID, 'era', true)];
 }, 10, 2);
