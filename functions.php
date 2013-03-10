@@ -348,6 +348,11 @@ add_filter('manage_timeline_year_posts_columns', function($defaults) {
     );
 });  
 
+add_action('manage_timeline_year_posts_custom_column', function($column_name, $post_ID) {
+	global $era_options; 
+    if ($column_name == 'era') echo @$era_options[get_post_meta($post_ID, 'era', true)];
+}, 10, 2);
+
 //display era column on posts  list
 add_filter('manage_posts_columns', function($defaults) {
     return array(
@@ -358,8 +363,7 @@ add_filter('manage_posts_columns', function($defaults) {
     );
 });  
 
-//fill era column on year list
-add_action('manage_timeline_year_posts_custom_column', function($column_name, $post_ID) {
+add_action('manage_posts_custom_column', function($column_name, $post_ID) {
 	global $era_options; 
     if ($column_name == 'era') echo @$era_options[get_post_meta($post_ID, 'era', true)];
 }, 10, 2);
