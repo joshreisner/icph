@@ -18,20 +18,21 @@ get_header();
 			</div>
 		</li>
 		<?php
-		/*$posts = get_posts('numberposts=1&tag=featured-story&category=' . $era['category_id']);
-		foreach ($posts as $post) {?>
-		<li class="<?php echo $era['slug']?> featured">
+		$featured = get_related_links('post', $era->ID);
+		foreach ($featured as $feature) {
+			$post = get_post($feature['id']);
+		?>
+		<li class="<?php echo $era->post_name?> featured">
 			<div class="upper"></div>
 			<div class="lower">
-				<?php if (has_post_thumbnail()) {?>
+				<?php if (has_post_thumbnail($post->ID)) {?>
 				<a href="#<?php echo $post->post_name?>"><?php echo get_the_post_thumbnail($post->ID, 'medium')?></a>
 				<?php }
 				echo $post->post_excerpt?>
 				<a href="#<?php echo $post->post_name?>" class="more"><?php echo $post->post_title?></a>
 			</div>
 		</li>
-		<?php 
-		}*/
+		<?php }
 		$years = get_posts('post_type=timeline_year&numberposts=-1&order_by=post_title&order=ASC&meta_key=era&meta_value=' . $era->ID);
 		foreach ($years as $year) {
 			?>

@@ -9,12 +9,12 @@ if (empty($_GET['overlay'])) {
 
 the_post();
 
-$era_id = get_post_meta($post->ID, 'era', true);
-foreach ($eras as $era) if ($era->ID == $era_id) $era_slug = $era->post_name;
+$era_id = get_post_meta($post->ID, 'era', true); //does get_post_meta cache?  if so i could make this a one-liner
+foreach ($eras as $era) if ($era->ID == $era_id) break;
 
 ?>
 
-<div id="overlay" class="<?php echo $era_slug?>">
+<div id="overlay" class="<?php echo $era->post_name?>">
 	<div class="header">
 		<h1><?php echo $post->post_title?></h1>
 		<a href="#" class="close">Close <i class="icon-remove-circle icon-large"></i></a>
@@ -48,8 +48,14 @@ foreach ($eras as $era) if ($era->ID == $era_id) $era_slug = $era->post_name;
 		<div class="navigation">
 			<ul>
 				<?php
-				$nav_array = false; //for getting previous and next
-				$posts = get_posts(array('numberposts'=>-1));
+				$nav_array = array(); //for getting previous and next
+				$exclude = array();
+				$featured = get_related_links('post', $era->ID);
+				foreach ($featured as &$feature) {
+					$exclude[] = $feature['id'];
+					$feature = get_post($feature['id']);
+				}
+				$posts = array_merge($featured, get_posts('numberposts=-1&exclude=' . implode(',', $exclude) . '&meta_key=era&meta_value=' . $era->ID));
 				foreach ($posts as $p) {
 					$nav_array[$p->post_name] = $p->post_title; //for prev and next
 					?>
