@@ -28,15 +28,13 @@ $custom_fields = array(
 			'type'		=>'select',
 			'title'		=>'Era',
 			'options'	=>$era_options,
-			'default'	=>$progressive_id,
 		),
 	),
 	'post'=>array(
 		'era'=>array(
 			'type'		=>'select',
 			'title'		=>'Era',
-			'options'	=>$era_options,
-			'default'	=>$progressive_id,
+			'options'	=>array_merge(array(''=>''), $era_options),
 		),
 	),
 	'era'=>array(
@@ -342,6 +340,16 @@ add_action('save_post', function($post_id) {
 
 //display era column on timeline year list
 add_filter('manage_timeline_year_posts_columns', function($defaults) {
+    return array(
+    	'cb'=>'<input type="checkbox">',
+    	'title'=>'Title',
+    	'era'=>'Era',
+    	'date'=>'Date',
+    );
+});  
+
+//display era column on posts  list
+add_filter('manage_posts_columns', function($defaults) {
     return array(
     	'cb'=>'<input type="checkbox">',
     	'title'=>'Title',
