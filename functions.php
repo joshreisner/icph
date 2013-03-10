@@ -47,48 +47,11 @@ $custom_fields = array(
 	)
 );
 
-
-
-
-//setup images and custom sizes
+//set up images and custom sizes
 add_theme_support('post-thumbnails'); 
 set_post_thumbnail_size($thumbnail_diameter, $thumbnail_diameter); //wonder if there's a way to set medium to 226/0 and large to 640/0
 add_image_size('era-landing', 160, 229); //for the era landing page
 add_image_size('extra-large', 880, 880); //for the view image overlay page
-
-//setup browse as an ajax function
-add_action('wp_ajax_browse', 'icph_browse');
-add_action('wp_ajax_nopriv_browse', 'icph_browse');
-function icph_browse($type='Subject') {
-	global $eras;
-	
-	$parent_id = (isset($_POST['type']) && ($_POST['type'] == 'policy')) ? 21 : 22;
-	$categories = get_categories('parent=' . $parent_id);
-
-	foreach ($categories as $category) {?>
-		
-	<div class="row">
-		<h3<?php if ($category->name == $categories[0]->name) {?> class="first"<?php }?>><i class="icon-plus-sign"></i> <?php echo $category->name?></h3>
-		<ul>
-			<?php 
-			$posts = get_posts('category=' . $category->term_id);
-			foreach ($posts as $post) {
-			?>
-			<li class="<?php echo get_post_meta($post->ID, 'era', true)?>">
-				<?php echo icph_thumbnail($post->ID, $post->post_title, $post->post_name)?>
-				<div>
-					<h4><?php echo $era['name']?></h4>
-					<a href="#<?php echo $post->post_name?>"><?php echo $post->post_title?></a>
-					<?php echo icph_excerpt($post->post_excerpt)?>
-				</div>
-			</li>
-			<?php }?>
-		</ul>
-	</div>
-	
-	<?php }
-	if (isset($_POST['type'])) die(); //end output here on ajax requests
-}
 
 //register custom post types
 add_action('init', function() {
@@ -162,6 +125,40 @@ add_action('init', function() {
 	));
 });
 
+//browse as an ajax function
+add_action('wp_ajax_browse', 'icph_browse');
+add_action('wp_ajax_nopriv_browse', 'icph_browse');
+function icph_browse($type='Subject') {
+	global $eras;
+	
+	$parent_id = (isset($_POST['type']) && ($_POST['type'] == 'policy')) ? 21 : 22;
+	$categories = get_categories('parent=' . $parent_id);
+
+	foreach ($categories as $category) {?>
+		
+	<div class="row">
+		<h3<?php if ($category->name == $categories[0]->name) {?> class="first"<?php }?>><i class="icon-plus-sign"></i> <?php echo $category->name?></h3>
+		<ul>
+			<?php 
+			$posts = get_posts('category=' . $category->term_id);
+			foreach ($posts as $post) {
+			?>
+			<li class="<?php echo get_post_meta($post->ID, 'era', true)?>">
+				<?php echo icph_thumbnail($post->ID, $post->post_title, $post->post_name)?>
+				<div>
+					<h4><?php echo $era['name']?></h4>
+					<a href="#<?php echo $post->post_name?>"><?php echo $post->post_title?></a>
+					<?php echo icph_excerpt($post->post_excerpt)?>
+				</div>
+			</li>
+			<?php }?>
+		</ul>
+	</div>
+	
+	<?php }
+	if (isset($_POST['type'])) die(); //end output here on ajax requests
+}
+
 function icph_excerpt($str, $limit=100, $append='&hellip;') {
 	$words = explode(' ', strip_tags($str));
 	$str = '';
@@ -223,13 +220,11 @@ function icph_ul($elements, $arguments=array()) {
 	return $return . '>' . implode('', $elements) . '</ul>';
 }
 
-//custom styles for tinymce
+//custom stylesheet for tinymce
 add_filter('mce_css', 'icph_editor_style');  
 function icph_editor_style($url) {  
 	if (!empty($url)) $url .= ',';  
-	$url .= get_bloginfo('template_directory') . '/css/editor.css';  
-	//die($url);
-	return $url;  
+	return $url . get_bloginfo('template_directory') . '/css/editor.css';
 }  
 
 //remove existing styleselect
@@ -239,7 +234,7 @@ function icph_editor_buttons($buttons) {
 	return $buttons;  
 }  
   
-//i think
+//add custom styles
 add_filter('tiny_mce_before_init', 'icph_edtor_init');  
 function icph_edtor_init($settings) {  
     $settings['style_formats'] = json_encode(
@@ -345,7 +340,7 @@ add_action('save_post', function($post_id) {
 	}
 });
 
-//display era column on year list
+//display era column on timeline year list
 add_filter('manage_timeline_year_posts_columns', function($defaults) {
     return array(
     	'cb'=>'<input type="checkbox">',

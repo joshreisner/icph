@@ -8,9 +8,13 @@ if (empty($_GET['overlay'])) {
 }
 
 the_post();
+
+$era_id = get_post_meta($post->ID, 'era', true);
+foreach ($eras as $era) if ($era->ID == $era_id) $era_slug = $era->post_name;
+
 ?>
 
-<div id="overlay" class="<?php echo get_post_meta($post->ID, 'era', true)?>">
+<div id="overlay" class="<?php echo $era_slug?>">
 	<div class="header">
 		<h1><?php echo $post->post_title?></h1>
 		<a href="#" class="close">Close <i class="icon-remove-circle icon-large"></i></a>
@@ -45,10 +49,7 @@ the_post();
 			<ul>
 				<?php
 				$nav_array = false; //for getting previous and next
-				$posts = array_merge(
-					get_posts('numberposts=-1&category=' . $era['category_id'] . '&tag_id=' . $overview_tag_id),
-					get_posts('numberposts=-1&category=' . $era['category_id'] . '&tag__not_in=' . $overview_tag_id)
-				);
+				$posts = get_posts(array('numberposts'=>-1));
 				foreach ($posts as $p) {
 					$nav_array[$p->post_name] = $p->post_title; //for prev and next
 					?>
