@@ -34,7 +34,8 @@ $custom_fields = array(
 		'era'=>array(
 			'type'		=>'select',
 			'title'		=>'Era',
-			'options'	=>array_merge(array(''=>''), $era_options),
+			'options'	=>$era_options,
+			'nullable'	=>true,
 		),
 	),
 	'era'=>array(
@@ -281,6 +282,7 @@ add_action('admin_menu', function(){
 					$selected = get_post_meta($post->ID, $name, true);
 					if (empty($selected)) $selected = $features['default'];
 					echo '<select name="' . $name . '" id="' . $name . '">';
+					if (isset($features['nullable'])) echo '<option></option>';
 					foreach ($features['options'] as $key=>$value) {
 						echo '<option value="' . $key . '"';
 						if ($key == $selected) echo ' selected="selected"';
