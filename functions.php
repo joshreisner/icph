@@ -7,15 +7,20 @@ $eras				= get_posts(array('post_status'=>'publish', 'post_type'=>'era', 'meta_k
 
 //era options for select and other places
 $era_options = array();
-foreach ($eras as $era) $era_options[$era->ID] = $era->post_title;
+$progressive_id = false;
+foreach ($eras as &$era) {
+	$era->start_year = get_post_meta($era->ID, 'start_year', true);
+	$era_options[$era->ID] = $era->post_title;
+	if ($era->post_name == 'progressive') $progressive_id = $era->ID;
+}
 
-//years for year select
-$year_options = get_posts('post_type=year&numberposts=-1&orderby=post_title&order=ASC');
-foreach ($year_options as &$y) $y = array(
-	'title'=>$y->post_title,
-	'value'=>$y->ID,
-	'group'=>@$era_options[get_post_meta($y->ID, 'era', true)]
-	);
+//special code to loop through again and determine the era's end_year
+$era_count = count($eras);
+for ($i = 0; $i < $era_count; $i++) {
+	$eras[$i]->end_year = (isset($eras[$i + 1])) ? $eras[$i + 1]->start_year - 1 : 'Today';
+}
+
+//die(var_dump($era_options));
 
 $custom_fields = array(
 	'timeline_year'=>array(
@@ -23,19 +28,15 @@ $custom_fields = array(
 			'type'		=>'select',
 			'title'		=>'Era',
 			'options'	=>$era_options,
-			'default'	=>'progressive',
+			'default'	=>$progressive_id,
 		),
 	),
 	'post'=>array(
-		'year'=>array(
-			'type'		=>'grouped_select',
-			'title'		=>'Year',
-			'options'	=>$year_options,
-			'default'	=>'progressive',
-		),
-		'featured'=>array(
-			'type'		=>'checkbox',
-			'title'		=>'Featured Post',
+		'era'=>array(
+			'type'		=>'select',
+			'title'		=>'Era',
+			'options'	=>$era_options,
+			'default'	=>$progressive_id,
 		),
 	),
 	'era'=>array(
@@ -178,7 +179,7 @@ function icph_slider() {
 	global $eras, $policies;
 	
 	//eras slider	
-	foreach ($eras as &$era) $era = array('class'=>$era['slug'], 'content'=>$era['start_year'] . '<span>' . $era['name'] . '</span>');
+	foreach ($eras as &$era) $era = array('class'=>$era->post_name, 'content'=>$era->start_year . '<span>' . $era->post_title . '</span>');
 		
 	//policies slider
 	foreach ($policies as &$policy) $policy = array('link'=>'/policies/?' . $policy->slug, 'content'=>$policy->name);

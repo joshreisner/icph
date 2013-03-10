@@ -25,11 +25,11 @@ global $body_class;
 					<ul>
 						<?php 
 						global $eras;
-						foreach ($eras as $e) {?>
-						<li class="<?php echo $e['slug']?>">
-							<a href="<?php echo $e['url']?>">
-								<div><?php echo $e['start_year']?> to <?php echo $e['end_year']?></div>
-								<?php echo $e['title']?>
+						foreach ($eras as $era) {?>
+						<li class="<?php echo $era->post_name?>">
+							<a href="<?php echo $era->post_name?>">
+								<div><?php echo $era->start_year?> to <?php echo $era->end_year?></div>
+								<?php echo $era->post_title?>
 							</a>
 						</li>
 						<?php }?>
