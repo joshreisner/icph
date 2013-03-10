@@ -6,11 +6,9 @@ $overview_tag_id	= 24;
 $featured_tag_id	= 19;
 $policies			= get_categories('parent=21&hide_empty=0');
 
-//era variable currently has too much information to come from wordpress
-//$eras = get_categories('parent=20&hide_empty=0'));
-$eras				= array(
+//maybe this will become a custom post type
+$eras = array(
 	array(
-		'category_id'=>2,
 		'slug'=>'early_ny',
 		'start_year'=>1650,
 		'end_year'=>1830,
@@ -19,7 +17,6 @@ $eras				= array(
 		'url'=>'/eras/early-new-york-city/'
 	),
 	array(
-		'category_id'=>1,
 		'slug'=>'nineteenth',
 		'start_year'=>1830,
 		'end_year'=>1890,
@@ -28,7 +25,6 @@ $eras				= array(
 		'url'=>'/eras/19th-century/'
 	),
 	array(
-		'category_id'=>3,
 		'slug'=>'progressive',
 		'start_year'=>1890,
 		'end_year'=>1920,
@@ -37,7 +33,6 @@ $eras				= array(
 		'url'=>'/eras/the-progressive-era/'
 	),
 	array(
-		'category_id'=>35,
 		'slug'=>'great_depression',
 		'start_year'=>1929,
 		'end_year'=>1944,
@@ -46,7 +41,6 @@ $eras				= array(
 		'url'=>'/eras/the-great-depression/'
 	),
 	array(
-		'category_id'=>4,
 		'slug'=>'today',
 		'start_year'=>1945,
 		'end_year'=>'Today',
@@ -55,6 +49,43 @@ $eras				= array(
 		'url'=>'/eras/new-urban-poverty'
 	)
 );
+
+//era options for select and other places
+$era_options = array();
+foreach ($eras as $era) $era_options[$era['slug']] = $era['name'];
+
+//years for year select
+$year_options = get_posts('post_type=year&numberposts=-1&orderby=post_title&order=ASC');
+foreach ($year_options as &$y) $y = array(
+	'title'=>$y->post_title,
+	'value'=>$y->ID,
+	'group'=>@$era_options[get_post_meta($y->ID, 'era', true)]
+	);
+
+$custom_fields = array(
+	'year'=>array(
+		'era'=>array(
+			'type'		=>'select',
+			'title'		=>'Era',
+			'options'	=>$era_options,
+			'default'	=>'progressive',
+		),
+	),
+	'post'=>array(
+		'year'=>array(
+			'type'		=>'grouped_select',
+			'title'		=>'Year',
+			'options'	=>$year_options,
+			'default'	=>'progressive',
+		),
+		'featured'=>array(
+			'type'		=>'checkbox',
+			'title'		=>'Featured Post',
+		),
+	),
+);
+
+
 
 
 //setup images and custom sizes
@@ -80,9 +111,8 @@ function icph_browse($type='Subject') {
 			<?php 
 			$posts = get_posts('category=' . $category->term_id);
 			foreach ($posts as $post) {
-				if (!$era = icph_get_era($post->ID)) $era = array('name'=>'', 'slug'=>'');
 			?>
-			<li class="<?php echo $era['slug']?>">
+			<li class="<?php echo get_post_meta($post->ID, 'era', true)?>">
 				<?php echo icph_thumbnail($post->ID, $post->post_title, $post->post_name)?>
 				<div>
 					<h4><?php echo $era['name']?></h4>
@@ -95,37 +125,79 @@ function icph_browse($type='Subject') {
 	</div>
 	
 	<?php }
-
 	if (isset($_POST['type'])) die(); //end output here on ajax requests
 }
 
-//set up years a custom post type
+//register custom post types
 add_action('init', function() {
-	$labels = array(
-		'name'               => _x( 'Timeline Years', 'post type general name' ),
-		'singular_name'      => _x( 'Year', 'post type singular name' ),
-		'add_new'            => _x( 'Add New', 'book' ),
-		'add_new_item'       => __( 'Add New Year to the Timeline' ),
-		'edit_item'          => __( 'Edit Year' ),
-		'new_item'           => __( 'New Year' ),
-		'all_items'          => __( 'All Years' ),
-		'view_item'          => __( 'View Year' ),
-		'search_items'       => __( 'Search Years' ),
-		'not_found'          => __( 'No years found' ),
-		'not_found_in_trash' => __( 'No years found in the Trash' ), 
-		'parent_item_colon'  => '',
-		'menu_name'          => 'Timeline Years'
-	);
-	$args = array(
-		'labels'        => $labels,
-		'description'   => 'Years for the timeline',
+	register_post_type('timeline_year', array(
+		'labels'        => array(
+			'name'               => _x( 'Timeline Years', 'post type general name' ),
+			'singular_name'      => _x( 'Timeline Year', 'post type singular name' ),
+			'add_new'            => _x( 'Add New', 'book' ),
+			'add_new_item'       => __( 'Add Year to the Timeline' ),
+			'edit_item'          => __( 'Edit Year' ),
+			'new_item'           => __( 'New Year' ),
+			'all_items'          => __( 'All Years' ),
+			'view_item'          => __( 'View Year' ),
+			'search_items'       => __( 'Search Years' ),
+			'not_found'          => __( 'No timeline years found' ),
+			'not_found_in_trash' => __( 'No timeline years found in the Trash' ), 
+			'parent_item_colon'  => '',
+			'menu_name'          => 'Timeline Years'
+		),
+		'description'   => 'Years for the main timeline',
 		'public'        => true,
 		'menu_position' => 5,
 		'supports'      => array('title', 'editor'),
-		'taxonomies'	=> array('category'),
 		'has_archive'   => false,
-	);
-	register_post_type('years', $args);
+	));
+	
+	register_post_type('policy_year', array(
+		'labels'        => array(
+			'name'               => _x( 'Policy Years', 'post type general name' ),
+			'singular_name'      => _x( 'Policy Year', 'post type singular name' ),
+			'add_new'            => _x( 'Add New', 'book' ),
+			'add_new_item'       => __( 'Add Year to the Policies Timelines' ),
+			'edit_item'          => __( 'Edit Year' ),
+			'new_item'           => __( 'New Year' ),
+			'all_items'          => __( 'All Years' ),
+			'view_item'          => __( 'View Year' ),
+			'search_items'       => __( 'Search Years' ),
+			'not_found'          => __( 'No policy years found' ),
+			'not_found_in_trash' => __( 'No policy years found in the Trash' ), 
+			'parent_item_colon'  => '',
+			'menu_name'          => 'Policy Years'
+		),
+		'description'   => 'Years for the policy timelines',
+		'public'        => true,
+		'menu_position' => 6,
+		'supports'      => array('title', 'editor'),
+		'has_archive'   => false,
+	));
+	
+	register_post_type('era', array(
+		'labels'        => array(
+			'name'               => _x( 'Eras', 'post type general name' ),
+			'singular_name'      => _x( 'Era', 'post type singular name' ),
+			'add_new'            => _x( 'Add New', 'book' ),
+			'add_new_item'       => __( 'Add Era' ),
+			'edit_item'          => __( 'Edit Era' ),
+			'new_item'           => __( 'New Era' ),
+			'all_items'          => __( 'All Eras' ),
+			'view_item'          => __( 'View Era' ),
+			'search_items'       => __( 'Search Eras' ),
+			'not_found'          => __( 'No eras found' ),
+			'not_found_in_trash' => __( 'No eras found in the Trash' ), 
+			'parent_item_colon'  => '',
+			'menu_name'          => 'Eras'
+		),
+		'description'   => 'Eras',
+		'public'        => true,
+		'menu_position' => 5,
+		'supports'      => array('title', 'editor'),
+		'has_archive'   => false,
+	));
 });
 
 function icph_excerpt($str, $limit=100, $append='&hellip;') {
@@ -139,18 +211,6 @@ function icph_excerpt($str, $limit=100, $append='&hellip;') {
 		$str .= $word . ' ';
 	}
 	return trim($str);
-}
-
-function icph_get_era($post_id) {
-	global $eras;
-	//get post's era -- probably will replace this with multiple eras?
-	$categories = wp_get_post_categories($post_id);
-	foreach ($categories as $category_id) {
-		foreach ($eras as $era) {
-			if ($category_id == $era['category_id']) return $era;
-		}
-	}
-	return false;
 }
 
 function icph_slider() {
@@ -238,3 +298,102 @@ function icph_edtor_init($settings) {
     );
 	return $settings;  
 }
+
+//fixing wordpress "feature" of putting checked categories on top
+add_filter('wp_terms_checklist_args', 'icph_checklist_args');
+function icph_checklist_args($args) {
+	$args['checked_ontop'] = false;
+	return $args;
+}
+
+//attach custom field forms to post types
+add_action('admin_menu', function(){
+	global $custom_fields;
+	foreach ($custom_fields as $post_type=>$fields) {
+		add_meta_box('icph-custom-fields-' . $post_type, 'Custom Metadata', function($post, $metabox){
+			global $custom_fields;
+			foreach ($custom_fields[$metabox['args']['post_type']] as $name=>$features) {
+				if (!isset($features['default'])) $features['default'] = '';
+				
+				echo '<div style="margin:10px 0;"><input type="hidden" name="' . $name . '_noncename" value="' . wp_create_nonce('icph') . '">';
+				
+				if ($features['type'] == 'input' )  { 
+					$value = get_post_meta($post->ID, $name, true);
+					if (empty($meta_box_value)) $value = $features['default'];
+					echo '<input type="text" name="'. $name .'" id="'. $name .'"  value="' . $value . '">';
+				} elseif ($features['type'] ==  'select' ) {
+					$selected = get_post_meta($post->ID, $name, true);
+					if (empty($selected)) $selected = $features['default'];
+					echo '<select name="' . $name . '" id="' . $name . '">';
+					foreach ($features['options'] as $key=>$value) {
+						echo '<option value="' . $key . '"';
+						if ($key == $selected) echo ' selected="selected"';
+						echo '>' . $value . '</option>';
+					}
+					echo '</select>';
+				} elseif ($features['type'] ==  'grouped_select' ) {
+					$selected = get_post_meta($post->ID, $name, true);
+					$last_group = '';
+					$optgroup = false;
+					if (!empty($selected)) $selected = $features['default'];
+					echo '<select name="' . $name . '" id="' . $name . '">';
+					foreach ($features['options'] as $option) {
+						if ($option['group'] != $last_group) {
+							if ($optgroup) echo '</optgroup>';
+							echo '<optgroup label="' . $option['group'] . '">';
+							$optgroup = true;
+							$last_group = $option['group'];
+						}
+						echo '<option value="' . $option['value'] . '"';
+						if ($option['value'] == $selected) echo ' selected="selected"';
+						echo '>' . $option['title'] . '</option>';
+					}
+					if ($optgroup) echo '</optgroup>';
+					echo '</select>';
+				} elseif ($features['type'] == 'checkbox') {
+					echo '<input type="checkbox" name="' . $name . '" id="' . $name . '"';
+					//checked
+					echo '>';
+				}
+				
+				echo '<label for="' . $name . '" style="font-size: 12px; margin-left: 5px;">' . $features['title'] . '</label></div>';
+			}
+		}, $post_type, 'side', 'high', array('post_type'=>$post_type));
+	}
+});
+
+//save custom custom fields to post
+add_action('save_post', function($post_id) {
+	global $post, $custom_fields;
+
+	if (empty($post->post_type)) $post->post_type = $_GET['post_type'];
+	if (!isset($custom_fields[$post->post_type])) return;
+
+	foreach($custom_fields[$post->post_type] as $name=>$features) {  
+		if (!wp_verify_nonce($_POST[$name . '_noncename'], 'icph')) return $post_id;  
+		
+		if (get_post_meta($post_id, $name) == "") {
+			add_post_meta($post_id, $name, $_POST[$name], true);  
+		} elseif ($_POST[$name] != get_post_meta($post_id, $name, true)) {
+			update_post_meta($post_id, $name, $_POST[$name]);
+		} elseif ($_POST[$name] ==  "") {
+			delete_post_meta($post_id, $name, get_post_meta($post_id, $name, true));
+		}
+	}
+});
+
+//display era column on year list
+add_filter('manage_year_posts_columns', function($defaults) {
+    return array(
+    	'cb'=>'<input type="checkbox">',
+    	'title'=>'Title',
+    	'era'=>'Era',
+    	'date'=>'Date',
+    );
+});  
+
+//fill era column on year list
+add_action('manage_year_posts_custom_column', function($column_name, $post_ID) {
+	global $era_options; 
+    if ($column_name == 'era') echo @$era_options[get_post_meta($post_ID, 'era', true)];
+}, 10, 2);

@@ -37,7 +37,7 @@ get_header();
 		</li>
 		<?php 
 		}
-		$years = get_posts('post_type=years&numberposts=-1&order_by=post_title&order=ASC&category=' . $era['category_id']);
+		$years = get_posts('post_type=timeline_year&numberposts=-1&order_by=post_title&order=ASC&meta_key=era&meta_value=' . $era['slug']);
 		foreach ($years as $year) {
 			?>
 		<li class="<?php echo $era['slug']?>">
