@@ -10,6 +10,7 @@ $era_options = array();
 $progressive_id = false;
 foreach ($eras as &$era) {
 	$era->start_year = get_post_meta($era->ID, 'start_year', true);
+	$era->description = get_post_meta($era->ID, 'description', true);
 	$era_options[$era->ID] = $era->post_title;
 	if ($era->post_name == 'progressive') $progressive_id = $era->ID;
 }
@@ -42,7 +43,11 @@ $custom_fields = array(
 		'start_year'=>array(
 			'type'		=>'input',
 			'title'		=>'Start Year',
-		)
+		),
+		'description'=>array(
+			'type'		=>'input',
+			'title'		=>'Description',
+		),
 	)
 );
 

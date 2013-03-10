@@ -29,7 +29,7 @@ global $body_class;
 						<li class="<?php echo $era->post_name?>">
 							<a href="<?php echo $era->post_name?>">
 								<div><?php echo $era->start_year?> to <?php echo $era->end_year?></div>
-								<?php echo $era->post_title?>
+								<?php echo $era->description?>
 							</a>
 						</li>
 						<?php }?>
