@@ -2,13 +2,7 @@
 //era landing pages & about page
 get_header();
 
-$era = false;
-foreach ($eras as $era) if ($post->post_name == $era->post_name) break;
-if (!$era) die('hi'); //need some better failure mechanism
-
-//get overview and feature
-//$posts = get_posts('category=' . $era->category_id'] . '&tag_id=' . $overview_tag_id);
-//$overview = $posts[0];
+if (!$era = icph_get_era(false, $post->post_name)) die('era not found'); //need some better failure mechanism
 
 if ($feature = get_related_links('post', $era->ID)) $feature = get_post($feature[0]['id']);
 ?>
@@ -105,4 +99,5 @@ if ($feature = get_related_links('post', $era->ID)) $feature = get_post($feature
 	
 </div>
 
-<?php get_footer()?>
+<?php 
+get_footer();

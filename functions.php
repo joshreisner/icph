@@ -8,15 +8,15 @@ $eras				= get_posts(array('post_status'=>'publish', 'post_type'=>'era', 'meta_k
 //era options for select and other places
 $era_options = array();
 $progressive_id = false;
-foreach ($eras as &$era) {
-	$era->start_year = get_post_meta($era->ID, 'start_year', true);
-	$era->description = get_post_meta($era->ID, 'description', true);
-	$era_options[$era->ID] = $era->post_title;
-	if ($era->post_name == 'progressive') $progressive_id = $era->ID;
+$era_count = count($eras);
+for ($i = 0; $i < $era_count; $i++) {
+	$eras[$i]->start_year = get_post_meta($eras[$i]->ID, 'start_year', true);
+	$eras[$i]->description = get_post_meta($eras[$i]->ID, 'description', true);
+	$era_options[$eras[$i]->ID] = $eras[0]->post_title;
+	if ($eras[$i]->post_name == 'progressive') $progressive_id = $eras[$i]->ID;
 }
 
 //special code to loop through again and determine the era's end_year
-$era_count = count($eras);
 for ($i = 0; $i < $era_count; $i++) {
 	$eras[$i]->end_year = (isset($eras[$i + 1])) ? $eras[$i + 1]->start_year - 1 : 'Today';
 }
@@ -146,11 +146,12 @@ function icph_browse($type='Subject') {
 			<?php 
 			$posts = get_posts('category=' . $category->term_id);
 			foreach ($posts as $post) {
+				$era = icph_get_era(get_post_meta($post->ID, 'era', true));
 			?>
-			<li class="<?php echo get_post_meta($post->ID, 'era', true)?>">
+			<li class="<?php echo $era->post_name?>">
 				<?php echo icph_thumbnail($post->ID, $post->post_title, $post->post_name)?>
 				<div>
-					<h4><?php echo $era['name']?></h4>
+					<h4><?php echo $era->title?></h4>
 					<a href="#<?php echo $post->post_name?>"><?php echo $post->post_title?></a>
 					<?php echo icph_excerpt($post->post_excerpt)?>
 				</div>
@@ -174,6 +175,15 @@ function icph_excerpt($str, $limit=100, $append='&hellip;') {
 		$str .= $word . ' ';
 	}
 	return trim($str);
+}
+
+function icph_get_era($era_id=false, $era_slug=false) {
+	global $eras;
+	foreach ($eras as $era) {
+		if ($era_id && ($era->ID == $era_id)) return $era;
+		if ($era_slug && ($era->post_name == $era_slug)) return $era;
+	}
+	return false;
 }
 
 function icph_slider() {

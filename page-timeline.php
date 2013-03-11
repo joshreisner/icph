@@ -5,7 +5,7 @@ get_header();
 ?>
 <div id="timeline">
 	<ul>
-	<?php foreach ($eras as &$era) {?>
+	<?php foreach ($eras as $era) {?>
 		
 		<li id="<?php echo $era->post_name?>" class="<?php echo $era->post_name?> overview">
 			<div class="upper">
