@@ -31,6 +31,13 @@ $custom_fields = array(
 			'options'	=>$era_options,
 		),
 	),
+	'policy_year'=>array(
+		'era'=>array(
+			'type'		=>'select',
+			'title'		=>'Era',
+			'options'	=>$era_options,
+		),
+	),
 	'post'=>array(
 		'era'=>array(
 			'type'		=>'select',
@@ -101,7 +108,7 @@ add_action('init', function() {
 		'description'   => 'Years for the policy timelines',
 		'public'        => true,
 		'menu_position' => 6,
-		'supports'      => array('title', 'editor', 'categories'),
+		'supports'      => array('title', 'editor'),
 		'has_archive'   => false,
 	));
 	
@@ -125,6 +132,7 @@ add_action('init', function() {
 		'public'        => true,
 		'menu_position' => 5,
 		'supports'      => array('title', 'editor', 'excerpt'),
+		'taxonomies'	=> array('category'),
 		'has_archive'   => false,
 	));
 });
