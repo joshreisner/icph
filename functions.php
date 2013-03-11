@@ -12,7 +12,7 @@ $era_count = count($eras);
 for ($i = 0; $i < $era_count; $i++) {
 	$eras[$i]->start_year = get_post_meta($eras[$i]->ID, 'start_year', true);
 	$eras[$i]->description = get_post_meta($eras[$i]->ID, 'description', true);
-	$era_options[$eras[$i]->ID] = $eras[0]->post_title;
+	$era_options[$eras[$i]->ID] = $eras[$i]->post_title;
 	if ($eras[$i]->post_name == 'progressive') $progressive_id = $eras[$i]->ID;
 }
 
