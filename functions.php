@@ -109,6 +109,7 @@ add_action('init', function() {
 		'public'        => true,
 		'menu_position' => 6,
 		'supports'      => array('title', 'editor'),
+		'taxonomies'	=> array('category'),
 		'has_archive'   => false,
 	));
 	
@@ -132,7 +133,6 @@ add_action('init', function() {
 		'public'        => true,
 		'menu_position' => 5,
 		'supports'      => array('title', 'editor', 'excerpt'),
-		'taxonomies'	=> array('category'),
 		'has_archive'   => false,
 	));
 });
