@@ -87,7 +87,7 @@ add_action('init', function() {
 			'name'               => _x( 'Policy Years', 'post type general name' ),
 			'singular_name'      => _x( 'Policy Year', 'post type singular name' ),
 			'add_new'            => _x( 'Add New', 'book' ),
-			'add_new_item'       => __( 'Add Year to the Policies Timelines' ),
+			'add_new_item'       => __( 'Add a Year to a Policy Timeline' ),
 			'edit_item'          => __( 'Edit Year' ),
 			'new_item'           => __( 'New Year' ),
 			'all_items'          => __( 'All Years' ),
@@ -101,7 +101,7 @@ add_action('init', function() {
 		'description'   => 'Years for the policy timelines',
 		'public'        => true,
 		'menu_position' => 6,
-		'supports'      => array('title', 'editor'),
+		'supports'      => array('title', 'editor', 'categories'),
 		'has_archive'   => false,
 	));
 	
@@ -182,6 +182,15 @@ function icph_get_era($era_id=false, $era_slug=false) {
 	foreach ($eras as $era) {
 		if ($era_id && ($era->ID == $era_id)) return $era;
 		if ($era_slug && ($era->post_name == $era_slug)) return $era;
+	}
+	return false;
+}
+
+function icph_get_policy($policy_id=false, $policy_slug=false) {
+	global $policies;
+	foreach ($policies as $policy) {
+		if ($policy_id && ($policy_id == $policy->term_id)) return $policy;
+		if ($policy_slug && ($policy_slug == $policy->slug)) return $policy;
 	}
 	return false;
 }
