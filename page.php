@@ -3,26 +3,23 @@
 get_header();
 
 $era = false;
-foreach ($eras as $e) {
-	if ($_SERVER['REQUEST_URI'] == $e['url']) $era = $e;
-}
-if (!$era) die('hi');
+foreach ($eras as $era) if ($post->post_name == $era->post_name) break;
+if (!$era) die('hi'); //need some better failure mechanism
 
 //get overview and feature
-$posts = get_posts('category=' . $era['category_id'] . '&tag_id=' . $overview_tag_id);
-$overview = $posts[0];
+//$posts = get_posts('category=' . $era->category_id'] . '&tag_id=' . $overview_tag_id);
+//$overview = $posts[0];
 
-$posts = get_posts('category=' . $era['category_id'] . '&tag_id=' . $featured_tag_id);
-$feature = $posts[0];
+if ($feature = get_related_links('post', $era->ID)) $feature = get_post($feature[0]['id']);
 ?>
 
-<div id="era" class="<?php echo $era['slug']?>">
+<div id="era" class="<?php echo $era->post_name?>">
 
 	<div class="row header">
 		<div class="inner">
-			<h1><?php echo $era['start_year']?>&ndash;<?php echo $era['end_year']?></h1>
-			<h2><?php echo $era['name']?></h2>
-			<p><?php echo $overview->post_excerpt?></p>
+			<h1><?php echo $era->start_year?>&ndash;<?php echo $era->end_year?></h1>
+			<h2><?php echo $era->post_title?></h2>
+			<p><?php echo nl2br($era->post_excerpt)?></p>
 			<a class="left" href="#<?php echo $overview->post_name?>">Continue Era Introduction</a>
 			<a class="right" href="/">Browse the Timeline</a>
 		</div>
@@ -34,7 +31,6 @@ $feature = $posts[0];
 				<h3><?php echo $feature->post_title?></h3>
 				<?php 
 				if (has_post_thumbnail($feature->ID)) echo get_the_post_thumbnail($feature->ID, 'era-landing');
-				//if (has_post_thumbnail($feature->ID)) echo get_the_post_thumbnail($feature->ID, array(160, 229));
 				?>				
 				<p><?php echo $feature->post_excerpt?></p>
 				<a class="more"><i class="icon-circle"></i> <?php echo $feature->post_title?></a>
@@ -45,7 +41,7 @@ $feature = $posts[0];
 					<?php 
 					$policy_posts = array();
 					foreach ($policies as $policy) {
-						if ($posts = get_posts(array('category__and'=>array($era['category_id'], $policy->term_id), 'numberposts'=>-1))) {
+						if ($posts = get_posts(array('category'=>$policy->term_id, 'numberposts'=>-1, 'meta_key'=>'era', 'meta_value'=>$era->ID))) {
 							if (count($posts) >= 3) $policy_posts[] = array('name'=>$policy->name, 'description'=>$policy->description, 'posts'=>array_slice($posts, 0, 3));
 							echo '<li class="heading">' . $policy->name . '</li>';
 							foreach ($posts as $post) {
@@ -109,6 +105,4 @@ $feature = $posts[0];
 	
 </div>
 
-<?php
-get_footer();
-?>
+<?php get_footer()?>
