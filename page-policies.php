@@ -2,20 +2,17 @@
 $body_class = 'timeline';
 get_header();
 
-//get category info
-$policy = false;
-foreach ($policies as $p) if ($p->slug == $_SERVER['QUERY_STRING']) $policy = $p;
-
-if (!$policy) {
+//get current policy
+if (!$policy = icph_get_policy(false, $_SERVER['QUERY_STRING'])) {
 	header('Location: /');
 	exit;
 }
 
 //get overview and end piece
 $front = $end = '';
-if ($posts = get_posts('category=' . $policy->term_id . '&tag_id=' . $overview_tag_id)) {
-	list($front, $end) = explode('<!--more-->', nl2br($posts[0]->post_content));
-}
+//if ($posts = get_posts('category=' . $policy->term_id . '&tag_id=' . $overview_tag_id)) {
+	//list($front, $end) = explode('<!--more-->', nl2br($posts[0]->post_content));
+//}
 ?>
 
 <div id="timeline">
@@ -25,12 +22,12 @@ if ($posts = get_posts('category=' . $policy->term_id . '&tag_id=' . $overview_t
 				<h2><?php echo $policy->name?></h2>
 			</div>
 			<div class="lower">
-				<?php echo $front?>
+				<?php echo $policy->description?>
 			</div>
 		</li>
 		<?php
 		foreach ($eras as $era) {
-			$years = get_categories('parent=' . $era['category_id']);
+			$years = get_posts('type=policy_year&category=' . $policy->term_id);
 			foreach ($years as $year) {
 				if ($posts = get_posts(array('category__and'=>array($year->term_id, $policy->term_id), 'numberposts'=>-1))) {?>
 					<li class="<?php echo $era['slug']?>">
@@ -68,4 +65,3 @@ if ($posts = get_posts('category=' . $policy->term_id . '&tag_id=' . $overview_t
 echo icph_slider();
 
 get_footer();
-?>

@@ -373,20 +373,6 @@ add_action('save_post', function($post_id) {
 });
 
 //customize admin screens for various post types
-add_filter('manage_timeline_year_posts_columns', function($defaults) {
-    return array(
-    	'cb'=>'<input type="checkbox">',
-    	'title'=>'Title',
-    	'era'=>'Era',
-    	'date'=>'Date',
-    );
-});  
-
-add_action('manage_timeline_year_posts_custom_column', function($column_name, $post_ID) {
-	global $era_options; 
-    if ($column_name == 'era') echo @$era_options[get_post_meta($post_ID, 'era', true)];
-}, 10, 2);
-
 add_filter('manage_post_posts_columns', function($defaults) {
     return array(
     	'cb'=>'<input type="checkbox">',
@@ -396,7 +382,17 @@ add_filter('manage_post_posts_columns', function($defaults) {
     );
 });  
 
-add_action('manage_post_posts_custom_column', function($column_name, $post_ID) {
+add_filter('manage_policy_year_posts_columns', function($defaults) {
+    return array(
+    	'cb'=>'<input type="checkbox">',
+    	'title'=>'Title',
+    	'era'=>'Era',
+    	'categories'=>'Categories',
+    	'date'=>'Date',
+    );
+});  
+
+add_action('manage_posts_custom_column', function($column_name, $post_ID) {
 	global $era_options; 
     if ($column_name == 'era') echo @$era_options[get_post_meta($post_ID, 'era', true)];
 }, 10, 2);
