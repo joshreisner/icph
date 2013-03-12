@@ -27,7 +27,7 @@ $front = $end = '';
 		</li>
 		<?php
 		foreach ($eras as $era) {
-			$years = get_posts('post_type=policy_year&orderby=post_title&order=ASC&meta_key=era&meta_value=' . $era->ID . '&category=' . $policy->term_id);
+			$years = get_posts('post_type=policy_year&numberposts=-1&orderby=post_title&order=ASC&meta_key=era&meta_value=' . $era->ID . '&category=' . $policy->term_id);
 			foreach ($years as $year) {?>
 		<li class="<?php echo $era->post_name?>">
 			<div class="upper">
