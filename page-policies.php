@@ -27,24 +27,20 @@ $front = $end = '';
 		</li>
 		<?php
 		foreach ($eras as $era) {
-			$years = get_posts('type=policy_year&category=' . $policy->term_id);
-			foreach ($years as $year) {
-				if ($posts = get_posts(array('category__and'=>array($year->term_id, $policy->term_id), 'numberposts'=>-1))) {?>
-					<li class="<?php echo $era['slug']?>">
-						<div class="upper">
-							<?php echo icph_thumbnail($posts[0]->ID, $posts[0]->post_title, $posts[0]->post_name)?>
-							<h3><?php echo $year->name?></h3>
-						</div>
-						<div class="lower">
-							<?php
-							foreach ($posts as $post) {
-								echo '<p><a href="#' . $post->post_name . '">' . $post->post_title . '</a><br>' . $post->post_excerpt . '</p>';
-							}
-							?>
-						</div>
-					</li>
-					<?php 
-				}
+			$years = get_posts('post_type=policy_year&orderby=post_title&order=ASC&meta_key=era&meta_value=' . $era->ID . '&category=' . $policy->term_id);
+			foreach ($years as $year) {?>
+		<li class="<?php echo $era->post_name?>">
+			<div class="upper">
+				<?php if ($related_links = get_related_links('post', $year->ID)) {
+					echo icph_thumbnail($related_links[0]['id'], $related_links[0]['title']);
+				}?>
+				<h3><?php echo $year->post_name?></h3>
+			</div>
+			<div class="lower">
+				<?php echo str_replace(site_url('/'), '#', apply_filters('the_content', $year->post_content))?>
+			</div>
+		</li>
+		<?php 
 			}
 		}
 		?>
