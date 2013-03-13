@@ -5,7 +5,14 @@ get_header();
 ?>
     <script src="//maps.google.com/maps/api/js?sensor=false"></script>
     <script src="//maptilercdn.s3.amazonaws.com/klokantech.js"></script>
-    <script>
+
+    <style>
+      html, body, #map { width:100%; height:100%; margin:0; padding:0; }
+    </style>
+
+    <div id="map"></div>
+
+	<script>
 		var map;
 		var mapMinZoom = 10;
 		var mapMaxZoom = 15;
@@ -16,19 +23,11 @@ get_header();
 		var mapGetTile = function(x,y,z) { 
 			return "/wp-content/themes/icph/img/eras/progressive/tiles/" + z + "/" + x + "/" + y + ".png";
 		}
-	</script>
 
-    <style>
-      html, body, #map { width:100%; height:100%; margin:0; padding:0; }
-    </style>
-
-    <div id="map"></div>
-
-	<script>
 		var opts = {
 			streetViewControl: false,
 			center: new google.maps.LatLng(0,0),
-			zoom: 10
+			zoom: 14 //10
 		};
 		map = new google.maps.Map(document.getElementById('map'), opts);
 		map.setMapTypeId(google.maps.MapTypeId.HYBRID);
