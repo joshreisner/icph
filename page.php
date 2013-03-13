@@ -48,12 +48,12 @@ if ($feature = get_related_links('post', $era->ID)) $feature = get_post($feature
 		</div>
 	</div>
 	
-	<div class="row map">
+	<a class="row map" href="/maps/">
 		<div class="inner">
 			<h3>Where Were The Settlement Houses?</h3>
-			<a href="/maps/" class="more">Explore the Map</a>
+			<span class="more">Explore the Map</span>
 		</div>
-	</div>
+	</a>
 	
 	<?php
 	if (count($policy_posts) >= 2) {
