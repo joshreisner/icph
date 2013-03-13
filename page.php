@@ -50,7 +50,7 @@ if ($feature = get_related_links('post', $era->ID)) $feature = get_post($feature
 	
 	<div class="row map">
 		<div class="inner">
-			<h3>Where were the Settlement Houses?</h3>
+			<h3>Where Were The Settlement Houses?</h3>
 			<a href="/maps/" class="more">Explore the Map</a>
 		</div>
 	</div>
