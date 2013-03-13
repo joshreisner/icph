@@ -226,7 +226,6 @@ function icph_thumbnail($post_id, $title=false, $slug=false) {
 		<a class="thumbnail" href="#' . $slug . '">
 				<span>
 					<i class="icon-play-circle"></i><br>
-					Read about<br>
 					' . $title . 
 				'</span>' . 
 			(has_post_thumbnail($post_id) ? get_the_post_thumbnail($post_id, 'thumbnail') : '') . 
