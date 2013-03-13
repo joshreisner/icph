@@ -14,7 +14,7 @@ if ($feature = get_related_links('post', $era->ID)) $feature = get_post($feature
 			<h1><?php echo $era->start_year?>&ndash;<?php echo $era->end_year?></h1>
 			<h2><?php echo $era->post_title?></h2>
 			<p><?php echo nl2br($era->post_excerpt)?></p>
-			<a class="left" href="#<?php echo $overview->post_name?>">Continue Era Introduction</a>
+			<a class="left" href="#<?php echo $overview->post_name?>">Continue</a>
 			<a class="right" href="/">Browse the Timeline</a>
 		</div>
 	</div>

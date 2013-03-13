@@ -14,7 +14,7 @@ get_header();
 			</div>
 			<div class="lower">
 				<?php echo nl2br($era->post_excerpt)?>
-				<a href="#" class="more">Era Introduction</a>
+				<a href="#" class="more">Continue</a>
 			</div>
 		</li>
 		<?php
