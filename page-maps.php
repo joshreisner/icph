@@ -3,6 +3,39 @@
 $body_class = 'maps';
 get_header();
 ?>
-<iframe src="https://maps.google.com/?ie=UTF8&amp;ll=40.733565,-73.983608&amp;spn=0.091314,0.181789&amp;t=t&amp;z=14&amp;output=embed"></iframe>
+    <script src="//maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="//maptilercdn.s3.amazonaws.com/klokantech.js"></script>
+    <script>
+		var map;
+		var mapMinZoom = 10;
+		var mapMaxZoom = 15;
+		var mapBounds = new google.maps.LatLngBounds(
+			new google.maps.LatLng(40.682437, -74.027215),
+			new google.maps.LatLng(40.880905, -73.901394)
+		);
+		var mapGetTile = function(x,y,z) { 
+			return "/wp-content/themes/icph/img/eras/progressive/tiles/" + z + "/" + x + "/" + y + ".png";
+		}
+	</script>
+
+    <style>
+      html, body, #map { width:100%; height:100%; margin:0; padding:0; }
+    </style>
+
+    <div id="map"></div>
+
+	<script>
+		var opts = {
+			streetViewControl: false,
+			center: new google.maps.LatLng(0,0),
+			zoom: 10
+		};
+		map = new google.maps.Map(document.getElementById('map'), opts);
+		map.setMapTypeId(google.maps.MapTypeId.HYBRID);
+		map.fitBounds(mapBounds);
+		var maptiler = new klokantech.MapTilerMapType(map, mapGetTile, mapBounds, mapMinZoom, mapMaxZoom);
+		var opacitycontrol = new klokantech.OpacityControl(map, maptiler);
+	</script>
+
 <?php
 get_footer();
