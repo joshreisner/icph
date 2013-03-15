@@ -86,6 +86,8 @@ get_header();
 		$points = get_posts('post_type=map_point&status=published&numberposts=-1');
 		$count = count($points);
 		for ($i = 0; $i < $count; $i++) {
+			$title = str_replace("'", '', $points[$i]->post_title);
+			$content = str_replace("'", '', $points[$i]->post_content);
 			?>
 			var marker<?php echo $i?> = new google.maps.Marker({
 				position: new google.maps.LatLng(<?php echo get_post_meta($points[$i]->ID, 'geo_latitude', true)?>, <?php echo get_post_meta($points[$i]->ID, 'geo_longitude', true)?>),
@@ -94,7 +96,7 @@ get_header();
 			});
 			
 			var popup<?php echo $i?> = new google.maps.InfoWindow({
-			    content: '<div style="font-weight:bold;"><?php echo $points[$i]->post_title?></div><?php echo $points[$i]->post_content?>'
+			    content: '<div style="font-weight:bold;"><?php echo $title?></div><?php echo $content?>'
 			});
 			
 			google.maps.event.addListener(marker<?php echo $i?>, 'click', function(e) {
