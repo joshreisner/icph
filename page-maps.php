@@ -82,22 +82,27 @@ get_header();
 		var maptiler = new klokantech.MapTilerMapType(map, mapGetTile, mapBounds, mapMinZoom, mapMaxZoom);
 		var opacitycontrol = new klokantech.OpacityControl(map, maptiler);
 		
-		
-		var marker = new google.maps.Marker({
-			position: new google.maps.LatLng(40.725, -73.985),
-			map: map,
-			icon: '/wp-content/themes/icph/img/eras/progressive/marker.png'
-		});
-		
-		var popup = new google.maps.InfoWindow({
-		    content: "Hello"
-		});
-		
-		google.maps.event.addListener(marker, 'click', function(e) {
-		    // you can use event object as 'e' here
-		    popup.open(map, this);
-		});
-		
+		<?php
+		$points = get_posts('post_type=map_point&status=published&numberposts=-1');
+		$count = count($points);
+		for ($i = 0; $i < $count; $i++) {
+			?>
+			var marker<?php echo $i?> = new google.maps.Marker({
+				position: new google.maps.LatLng(<?php echo get_post_meta($points[$i]->ID, 'geo_latitude', true)?>, <?php echo get_post_meta($points[$i]->ID, 'geo_longitude', true)?>),
+				map: map,
+				icon: '/wp-content/themes/icph/img/eras/progressive/marker.png'
+			});
+			
+			var popup<?php echo $i?> = new google.maps.InfoWindow({
+			    content: '<div style="font-weight:bold;"><?php echo $points[$i]->post_title?></div><?php echo $points[$i]->post_content?>'
+			});
+			
+			google.maps.event.addListener(marker<?php echo $i?>, 'click', function(e) {
+			    // you can use event object as 'e' here
+			    popup<?php echo $i?>.open(map, this);
+			});
+			<?php
+		}?>
 		
 	</script>
 

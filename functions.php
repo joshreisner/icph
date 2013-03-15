@@ -135,6 +135,29 @@ add_action('init', function() {
 		'supports'      => array('title', 'editor', 'excerpt'),
 		'has_archive'   => false,
 	));
+	
+	register_post_type('map_point', array(
+		'labels'        => array(
+			'name'               => _x( 'Map Points', 'post type general name' ),
+			'singular_name'      => _x( 'Map Point', 'post type singular name' ),
+			'add_new'            => _x( 'Add New', 'book' ),
+			'add_new_item'       => __( 'Add Map Point' ),
+			'edit_item'          => __( 'Edit Map Point' ),
+			'new_item'           => __( 'New Map Point' ),
+			'all_items'          => __( 'All Map Points' ),
+			'view_item'          => __( 'View Map Point' ),
+			'search_items'       => __( 'Search Map Points' ),
+			'not_found'          => __( 'No map points found' ),
+			'not_found_in_trash' => __( 'No map points found in the Trash' ), 
+			'parent_item_colon'  => '',
+			'menu_name'          => 'Map Points'
+		),
+		'description'   => 'Map Points',
+		'public'        => true,
+		'menu_position' => 5,
+		'supports'      => array('title', 'editor'),
+		'has_archive'   => false,
+	));
 });
 
 //browse as an ajax function
