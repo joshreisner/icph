@@ -12,6 +12,8 @@ var overlay = {
 					overlay.hide();
 					location.href = "#";
 				});*/
+				
+				//escape key to close overlay
 				jQuery("body").keydown(function(e){
 					//bind the escape key to overlay-closing
 					//window.alert(e.keyCode);
@@ -20,6 +22,13 @@ var overlay = {
 						location.href = "#";
 					}
 				});
+				
+				//affix
+				jQuery(".navigation").affix({offset:143});
+				
+				//jscrollpane
+				jQuery('.scroll-pane').jScrollPane();
+				
 			},
 			error : function() {
 				//must clear this bad URL

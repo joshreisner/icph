@@ -28,6 +28,7 @@
 @overlay_content_width		: 640px;
 @overlay_header_height		: 97px;
 @overlay_navigation_width	: 320px; 
+@overlay_navigation_height	: 400px;
 @overlay_padding			: 20px;
 @overlay_related_diameter	: 125px; 
 @slider_element_height		: 40px;
@@ -392,7 +393,7 @@ footer {
 	div.body {
 		overflow: auto; 
 		div.content {
-			width: @overlay_content_width; float: left; font-size: 14px; line-height: 18px;
+			width: @overlay_content_width; float: left; font-size: 14px; line-height: 18px; 
 			div.featured_image {
 				img { width: @overlay_content_width; height: auto; }
 			}
@@ -435,7 +436,7 @@ footer {
 		div.navigation { 
 			position: relative; width: @overlay_navigation_width; float: left; font-size: 12px;
 			ul {
-				list-style: none; padding: 0; margin: 0; 
+				list-style: none; padding: 0; margin: 0; height: @overlay_navigation_height; overflow-y: scroll; display: block;
 				li { 
 					border-bottom: 1px solid @blue_light; border-left: 1px solid @blue_light; padding: (@overlay_padding / 2) @overlay_padding;
 					a { 
@@ -446,6 +447,7 @@ footer {
 					&:hover, &.active { background-image: url(../img/background-dark.png); }
 				}
 			}
+			&.affix { position: fixed; top: 0; left: 50%; margin-left: ((@overlay_content_width + @overlay_navigation_width) / 2) - @overlay_navigation_width; }
 		}
 	}
 	

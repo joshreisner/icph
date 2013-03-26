@@ -46,7 +46,7 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 			
 		</div>
 		<div class="navigation">
-			<ul>
+			<ul class="scroll-pane">
 				<?php
 				$nav_array = array(); //for getting previous and next
 				$exclude = array();
@@ -62,7 +62,7 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 				<li<?php if ($p->post_name == $post->post_name) {?> class="active"<?php }?>>
 					<a href="#<?php echo $p->post_name?>">
 						<strong><?php echo $p->post_title?></strong>
-						<?php echo $p->post_excerpt?>
+						<!-- <?php echo $p->post_excerpt?> -->
 					</a>
 				</li>
 				<?php }?>
