@@ -22,7 +22,7 @@ get_header();
 			new google.maps.LatLng(40.682437, -74.027215),
 			new google.maps.LatLng(40.880905, -73.901394)
 		);
-		map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+		map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 		map.fitBounds(mapBounds);
 
 		//workaround to fix zoom
