@@ -111,7 +111,8 @@ get_header();
 			} else {
 				
 				echo '
-				// ' . $title . ' ommitted because of empty coordinates';
+				// ' . $title . ' ommitted because of empty coordinates
+				';
 
 			}
 		}?>
