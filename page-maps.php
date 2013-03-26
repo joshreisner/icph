@@ -88,22 +88,32 @@ get_header();
 		for ($i = 0; $i < $count; $i++) {
 			$title = str_replace("'", '', $points[$i]->post_title);
 			$content = str_replace("'", '', $points[$i]->post_content);
-			?>
-			var marker<?php echo $i?> = new google.maps.Marker({
-				position: new google.maps.LatLng(<?php echo get_post_meta($points[$i]->ID, 'geo_latitude', true)?>, <?php echo get_post_meta($points[$i]->ID, 'geo_longitude', true)?>),
-				map: map,
-				icon: '/wp-content/themes/icph/img/eras/progressive/marker.png'
-			});
+			$latitude = get_post_meta($points[$i]->ID, 'geo_latitude', true);
+			$longitude = get_post_meta($points[$i]->ID, 'geo_longitude', true);
 			
-			var popup<?php echo $i?> = new google.maps.InfoWindow({
-			    content: '<div style="font-weight:bold;"><?php echo $title?></div><?php echo $content?>'
-			});
-			
-			google.maps.event.addListener(marker<?php echo $i?>, 'click', function(e) {
-			    // you can use event object as 'e' here
-			    popup<?php echo $i?>.open(map, this);
-			});
-			<?php
+			if (!empty($latitude) && !empty($longitude)) {
+				?>
+				var marker<?php echo $i?> = new google.maps.Marker({
+					position: new google.maps.LatLng(<?php echo $latitude?>, <?php echo $longitude?>),
+					map: map,
+					icon: '/wp-content/themes/icph/img/eras/progressive/marker.png'
+				});
+				
+				var popup<?php echo $i?> = new google.maps.InfoWindow({
+				    content: '<div style="font-weight:bold;"><?php echo $title?></div><?php echo $content?>'
+				});
+				
+				google.maps.event.addListener(marker<?php echo $i?>, 'click', function(e) {
+				    // you can use event object as 'e' here
+				    popup<?php echo $i?>.open(map, this);
+				});
+				<?php
+			} else {
+				
+				echo '
+				// ' . $title . ' ommitted because of empty coordinates';
+
+			}
 		}?>
 		
 	</script>
