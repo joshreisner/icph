@@ -79,23 +79,21 @@ if ($feature = get_related_links('post', $era->ID)) $feature = get_post($feature
 		</div>
 	</div>
 	<?php }?>
-	<div class="row stats">
+	<div class="row infographics">
 		<div class="inner">
 			<h3>By the Numbers</h3>
-			<ul>
-				<li>
-					<div class="stat">2/3 of New York City's population live in tenements</div>
-					<div class="img"><img src="<?php bloginfo('template_directory');?>/img/placeholder/stat1.png" alt="stat1" width="160" height="120" /></div>
-				</li>
-				<li class="center">
-					<div class="stat">Total number of child workers in the United States in 1900: 1.7 million</div>
-					<div class="img"><img src="<?php bloginfo('template_directory');?>/img/placeholder/stat2.png" alt="stat1" width="188" height="120" /></div>
-				</li>
-				<li>
-					<div class="stat">National economic output increased by 85%</div>
-					<div class="img"><img src="<?php bloginfo('template_directory');?>/img/placeholder/stat3.png" alt="stat1" width="60" height="120" /></div>
-				</li>
-			</ul>
+			<div class="scroll-pane">
+				<ul>
+					<li class="text">In 1900, two-thirds of New Yorkers lived in tenement houses.</li>
+					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/tenement.png" alt="Tenement" width="237" height="171"></li>
+					<li class="text">In 1914, a dozen eggs cost 50 cents&ndash;$11.36 in today's dollars.<cite>(BLS)</cite></li>
+					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/eggs.png" alt="Eggs" width="181" height="86"></li>
+					<li class="text">In 1900, 30.6% of New Yorkers were 14. Only 2.8% were over 65.<cite>(Jackson)</cite></li>
+					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/age.png" alt="Age" width="174" height="172"></li>
+					<li class="text">In 1918, low-income families of four spent an average of 45% of their income on food.<cite>(BLS)</cite></li>
+					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/money.png" alt="Money" width="170" height="153"></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	

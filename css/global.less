@@ -621,19 +621,22 @@ footer {
 			}
 		}
 		
-		&.stats {
+		&.infographics {
 			margin-bottom: 40px; 
 			.inner { 
 				width: 960px; margin: 0 auto; padding: 40px 0;
-				ul {
-					list-style: none; margin: 0; padding: 0;
-					li { 
-						float: left; .fontCondBold; font-size: 16px;
-						div { 
-							display: inline-block; vertical-align: middle;
-							&.stat { text-align: right; margin-right: 10px; width: 150px; }
+				div.scroll-pane {
+					overflow-x: scroll; width: 960px; 
+					ul {
+						display: table-row; 
+						li { 
+							display: table-cell; .fontCondBold; font-size: 16px; text-align: right; padding-right: 10px; padding-bottom: 14px; vertical-align: middle; 
+							&.text {
+								min-width: 170px; padding-left: 30px; 
+								&:first-child { padding-left: 0; }
+							}
+							cite { font-style: normal; display: block; font-size: 12px; }
 						}
-						&.center { margin: 0 20px; }
 					}
 				}
 			}
@@ -649,7 +652,7 @@ footer {
 				.inner { .bg_opacity(@purple, .8); }
 			}
 			&.topics { background-color: @purple; }
-			&.stats { background-color: @purple_light; color: @purple; }
+			&.infographics { background-color: @purple_light; color: @purple; }
 		}
 	}
 	&.nineteenth {
@@ -663,7 +666,7 @@ footer {
 				background-color: @blue; 
 				a.thumbnail { background-color: @orange_light; color: @orange; }
 			}
-			&.stats { background-color: @orange_light; color: @orange; }
+			&.infographics { background-color: @orange_light; color: @orange; }
 		}
 	}
 	&.progressive {
@@ -677,7 +680,10 @@ footer {
 				background-color: @blue; 
 				a.thumbnail { background-color: @blue_light; color: @blue; }
 			}
-			&.stats { background-color: @blue_light; color: @blue; }
+			&.infographics { 
+				background-color: @blue_light; color: @blue; 
+				.jspDrag { background: @blue; }
+			}
 		}
 	}
 	&.great_depression {
@@ -691,7 +697,7 @@ footer {
 				background-color: @red; 
 				a.thumbnail { background-color: @red_light; color: @red; }
 			}
-			&.stats { background-color: @red_light; color: @red; }
+			&.infographics { background-color: @red_light; color: @red; }
 		}
 	}
 	&.today {
@@ -705,7 +711,7 @@ footer {
 				background-color: @green; 
 				a.thumbnail { background-color: @green_light; color: @green; }
 			}
-			&.stats { background-color: @green_light; color: @green; }
+			&.infographics { background-color: @green_light; color: @green; }
 		}
 	}
 }
@@ -786,18 +792,17 @@ body.search {
 	outline: none; 
 	.jspContainer {
 		overflow: hidden; position: relative;
-		.jspPane {
-			position: absolute;
-		}
-		.jspVerticalBar {
-			position: absolute; top: 0; right: 0; width: @scroll_width; height: 100%;
-			.jspArrow { height: 16px; }
-		}
+		.jspPane { position: absolute; }
+		
+		.jspVerticalBar { position: absolute; top: 0; right: 0; width: @scroll_width; height: 100%; }
+		
 		.jspHorizontalBar {
 			position: absolute; bottom: 0; left: 0; width: 100%; height: @scroll_width;
-			.jspArrow { width: @scroll_width; float: left; height: 100%; }
+			.jspDrag { height: @scroll_width; }
 		}
-		.jspCap { display: none; }
+		
+		.jspCap, .jspArrow { display: none; }
+		
 		.jspTrack {
 			position: relative; 
 			.jspDrag { background: @gray_lighter; position: relative; top: 0; left: 0; cursor: pointer; border-radius: (@scroll_width / 2); }
