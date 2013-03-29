@@ -23,8 +23,10 @@ get_header();
 		zoomControl: false
 	});
 	var mapBounds = new google.maps.LatLngBounds(
-		new google.maps.LatLng(40.682437, -74.027215),
-		new google.maps.LatLng(40.880905, -73.901394)
+		//new google.maps.LatLng(20.682437, -74.027215),
+		//new google.maps.LatLng(40.880905, -73.901394)
+		new google.maps.LatLng(0.682437, -94.027215),
+		new google.maps.LatLng(60.880905, -53.901394)
 	);
 	map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 	map.fitBounds(mapBounds);
@@ -82,10 +84,59 @@ get_header();
 		map.setZoom(zoom - 1);
 	});
 	
-	var mapMinZoom = 12;
+	var mapMinZoom = 10;
 	var mapMaxZoom = 15;
+	var tiles = {
+		10 : {
+			301 : { min: 384, max: 385 }
+		},
+		11 : {
+			602 : { min: 769, max: 770 },
+			603 : { min: 768, max: 770 }
+		},
+		12 : {
+			1205 : { min: 1538, max: 1540 },
+			1206 : { min: 1537, max: 1540 },
+			1207 : { min: 1537, max: 1540 }
+		},
+		13 : {
+			2411 : { min: 3077, max: 3080 },
+			2412 : { min: 3074, max: 3080 },
+			2413 : { min: 3074, max: 3080 },
+			2414 : { min: 3075, max: 3080 }
+		},
+		14 : {
+			4822 : { min: 6156, max: 6161 },
+			4823 : { min: 6155, max: 6161 },
+			4824 : { min: 6153, max: 6161 },
+			4825 : { min: 6149, max: 6161 },
+			4826 : { min: 6149, max: 6161 },
+			4827 : { min: 6149, max: 6161 },
+			4828 : { min: 6150, max: 6161 }
+		},
+		15 : {
+			9645 : { min: 12313, max: 12323 },
+			9646 : { min: 12311, max: 12323 },
+			9647 : { min: 12311, max: 12323 },
+			9648 : { min: 12306, max: 12323 },
+			9649 : { min: 12306, max: 12323 },
+			9650 : { min: 12299, max: 12323 },
+			9651 : { min: 12299, max: 12323 },
+			9652 : { min: 12299, max: 12323 },
+			9653 : { min: 12299, max: 12323 },
+			9654 : { min: 12299, max: 12323 },
+			9655 : { min: 12299, max: 12323 },
+			9656 : { min: 12300, max: 12323 },
+			9657 : { min: 12300, max: 12323 }
+		}
+	}
+	
 	var mapGetTile = function(x,y,z) { 
-		return "/wp-content/themes/icph/img/eras/progressive/tiles/" + z + "/" + x + "/" + y + ".png";
+		if ((z in tiles) && (x in tiles[z]) && (y >= tiles[z][x].min) && (y <= tiles[z][x].max)) {
+			return "/wp-content/themes/icph/img/eras/progressive/tiles/" + z + "/" + x + "/" + y + ".png";
+		} else {
+			return "/wp-content/themes/icph/img/blank_tile.jpg";
+		}
 	}
 
 	var maptiler = new klokantech.MapTilerMapType(map, mapGetTile, mapBounds, mapMinZoom, mapMaxZoom);
