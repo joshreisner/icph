@@ -11,7 +11,9 @@ get_header();
     html, body, #map { width:100%; height:100%; margin:0; padding:0; }
 </style>
 
-<div id="map"></div>
+<div id="mapwrapper">
+	<div id="map"></div>
+</div>
 
 <script>
 	var map = new google.maps.Map(document.getElementById('map'), {
@@ -115,12 +117,6 @@ get_header();
 			google.maps.event.addListener(marker<?php echo $i?>, 'click', function(e) {
 				infowindow.setContent('<div class="title"><?php echo $title?></div><?php echo $content?>');
 				infowindow.open(map, marker<?php echo $i?>);
-
-				jQuery(infowindow).on("click", "a", function(){
-					alert('hi');
-					var href = jQuery(this).attr("href");
-					if (href.substr(0, 1) === "#") overlay.show(href);
-				});
 			});
 			<?php
 		} else {

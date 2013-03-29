@@ -13,11 +13,20 @@ jQuery(function(){
 	//automatically open window if there's a hash
 	if (location.hash && (location.hash !== "#contact")) overlay.show(location.hash);
 	
-	//set links to open overlays
+	/*set links to open overlays
 	jQuery(document).on("click", "a", function(){
 		var href = jQuery(this).attr("href");
 		if (href.substr(0, 1) === "#") overlay.show(href);
+	});*/
+	
+	$(window).on('hashchange', function() {
+		if (location.hash && (location.hash !== "#contact")) {
+			overlay.show(location.hash);
+		} else {
+			overlay.hide();
+		}
 	});
+	
 	
 	//header
 	jQuery("li.search").hover(function(){
