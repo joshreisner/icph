@@ -5,6 +5,7 @@ get_header();
 ?>
 <script src="//maps.google.com/maps/api/js?key=AIzaSyADB0wyHm58AKLfOefVvZ13G-oZq3UftWY&sensor=false"></script>
 <script src="//maptilercdn.s3.amazonaws.com/klokantech.js"></script>
+<script src="/wp-content/themes/icph/js/infobox.js"></script>
 
 <style>
     html, body, #map { width:100%; height:100%; margin:0; padding:0; }
@@ -85,8 +86,8 @@ get_header();
 	var maptiler = new klokantech.MapTilerMapType(map, mapGetTile, mapBounds, mapMinZoom, mapMaxZoom);
 	var opacitycontrol = new klokantech.OpacityControl(map, maptiler);
 
-	infowindow = new google.maps.InfoWindow();
-	
+	infowindow = new InfoBox({closeBoxURL:"",alignBottom:true});
+
 	<?php
 	$points = get_posts('post_type=map_point&status=published&numberposts=-1');
 	$count = count($points);
@@ -95,6 +96,13 @@ get_header();
 		$content = str_replace("'", '', $points[$i]->post_content);
 		$latitude = get_post_meta($points[$i]->ID, 'geo_latitude', true);
 		$longitude = get_post_meta($points[$i]->ID, 'geo_longitude', true);
+		
+		$related = get_related_links('post', $points[$i]->ID);
+		if (count($related)) {
+			//unshift $related
+			$post = get_post($related[0]['id']);
+			$title = '<a href="#' . $post->post_name . '">' . $title . '</a>';
+		}
 		
 		if (!empty($latitude) && !empty($longitude)) {
 			?>
@@ -105,8 +113,14 @@ get_header();
 			});
 			
 			google.maps.event.addListener(marker<?php echo $i?>, 'click', function(e) {
-				infowindow.setContent('<div style="font-weight:bold;"><?php echo $title?></div><?php echo $content?>');
+				infowindow.setContent('<div class="title"><?php echo $title?></div><?php echo $content?>');
 				infowindow.open(map, marker<?php echo $i?>);
+
+				jQuery(infowindow).on("click", "a", function(){
+					alert('hi');
+					var href = jQuery(this).attr("href");
+					if (href.substr(0, 1) === "#") overlay.show(href);
+				});
 			});
 			<?php
 		} else {

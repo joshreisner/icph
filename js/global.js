@@ -14,7 +14,7 @@ jQuery(function(){
 	if (location.hash && (location.hash !== "#contact")) overlay.show(location.hash);
 	
 	//set links to open overlays
-	jQuery("body").on("click", "a", function(){
+	jQuery(document).on("click", "a", function(){
 		var href = jQuery(this).attr("href");
 		if (href.substr(0, 1) === "#") overlay.show(href);
 	});
