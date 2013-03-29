@@ -31,9 +31,9 @@ get_header();
 
 	//workaround to fix zoom
 	zoomChangeBoundsListener = google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
-    	this.setZoom(15);
+    	this.setZoom(14);
     	//this.setOptions({disableDoubleClickZoom: true});
-    	this.setCenter(new google.maps.LatLng(40.715, -73.985));
+    	this.setCenter(new google.maps.LatLng(40.725, -73.965));
 	});
 	setTimeout(function(){google.maps.event.removeListener(zoomChangeBoundsListener)}, 2000);
 
@@ -113,8 +113,9 @@ get_header();
 			});
 			
 			google.maps.event.addListener(marker<?php echo $i?>, 'click', function(e) {
-				infowindow.setContent('<div class="title"><?php echo $title?></div><?php echo $content?>');
+				infowindow.setContent('<div class="title"><?php echo $title?></div><div class="content"><?php echo $content?></div>');
 				infowindow.open(map, marker<?php echo $i?>);
+				jQuery(".content").jScrollPane();
 			});
 			<?php
 		} else {
