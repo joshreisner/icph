@@ -30,10 +30,13 @@ get_header();
 	map.fitBounds(mapBounds);
 
 	//workaround to fix zoom
+	var center_latitude = 40.725;
+	var center_longitude = -73.965;
+	
 	zoomChangeBoundsListener = google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
     	this.setZoom(14);
     	//this.setOptions({disableDoubleClickZoom: true});
-    	this.setCenter(new google.maps.LatLng(40.725, -73.965));
+    	this.setCenter(new google.maps.LatLng(center_latitude, center_longitude));
 	});
 	setTimeout(function(){google.maps.event.removeListener(zoomChangeBoundsListener)}, 2000);
 
@@ -87,6 +90,11 @@ get_header();
 	var opacitycontrol = new klokantech.OpacityControl(map, maptiler);
 
 	infowindow = new InfoBox({closeBoxURL:"",alignBottom:true});
+	
+	infowindow_static = new InfoBox({closeBoxURL:"", position: new google.maps.LatLng(center_latitude + .0217, center_longitude + .03)});
+	infowindow_static.setContent('<h3>1890 - 1929: The Rise of Settlement Houses</h3><p>Selvage helvetica synth officia squid. Gastropub exercitation banksy art party sed meh direct trade keffiyeh, in magna dreamcatcher. YOLO enim veniam anim freegan sustainable, leggings commodo ex aliqua laborum. Meh aesthetic yr, +1 keffiyeh YOLO tattooed fingerstache. Salvia post-ironic nesciunt eiusmod elit bespoke.</p>');
+	infowindow_static.open(map);
+
 
 	<?php
 	$points = get_posts('post_type=map_point&status=published&numberposts=-1');
