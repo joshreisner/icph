@@ -32,7 +32,7 @@ get_header();
 	//workaround to fix zoom
 	zoomChangeBoundsListener = google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
     	this.setZoom(15);
-    	this.setOptions({disableDoubleClickZoom: true});
+    	//this.setOptions({disableDoubleClickZoom: true});
     	this.setCenter(new google.maps.LatLng(40.715, -73.985));
 	});
 	setTimeout(function(){google.maps.event.removeListener(zoomChangeBoundsListener)}, 2000);
@@ -40,7 +40,6 @@ get_header();
 	var controlDiv = document.createElement('div');
 	controlDiv.style.padding = '70px 20px';
 
-	/*
 	var zoomIn = document.createElement('div');
 	zoomIn.innerHTML = '+';
 	zoomIn.style.color = 'white';
@@ -78,8 +77,7 @@ get_header();
 		map.setZoom(zoom - 1);
 	});
 	
-	*/
-	var mapMinZoom = 15;
+	var mapMinZoom = 12;
 	var mapMaxZoom = 15;
 	var mapGetTile = function(x,y,z) { 
 		return "/wp-content/themes/icph/img/eras/progressive/tiles/" + z + "/" + x + "/" + y + ".png";
