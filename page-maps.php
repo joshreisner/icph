@@ -170,6 +170,7 @@ get_header();
 			var marker<?php echo $i?> = new google.maps.Marker({
 				position: new google.maps.LatLng(<?php echo $latitude?>, <?php echo $longitude?>),
 				map: map,
+				title: '<?php echo $title?>',
 				icon: '/wp-content/themes/icph/img/eras/progressive/marker.png'
 			});
 			
