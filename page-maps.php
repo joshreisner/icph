@@ -160,9 +160,19 @@ get_header();
 		
 		$related = get_related_links('post', $points[$i]->ID);
 		if (count($related)) {
-			//unshift $related
-			$post = get_post($related[0]['id']);
+			$main_related_link = array_shift($related);
+			$post = get_post($main_related_link['id']);
 			$title = '<a href="#' . $post->post_name . '">' . $title . '</a>';
+			
+			//if there are more related links, append as UL
+			if (count($related)) {
+				$content .= '<br><br>Related:<ul>';
+				foreach ($related as $secondary_related_link) {
+					$post = get_post($secondary_related_link['id']);
+					$content .= '<li><a href="#' . $post->post_name . '">' . $secondary_related_link['title'] . '</a></li>';
+				}
+				$content .= '</ul>';
+			}
 		}
 		
 		if (!empty($latitude) && !empty($longitude)) {
