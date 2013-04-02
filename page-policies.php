@@ -54,8 +54,8 @@ $front = $end = '';
 		</li>
 	</ul>
 	
-	<div class="arrow left"></div>
-	<div class="arrow right"></div>
+	<a class="arrow left"><div class="cap"><i class="icon-angle-left"></i></div></a>
+	<a class="arrow right"><div class="cap"><i class="icon-angle-right"></i></div></a>
 </div>
 <?php
 echo icph_slider();

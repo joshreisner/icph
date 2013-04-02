@@ -12,13 +12,8 @@ jQuery(function(){
 
 	//automatically open window if there's a hash
 	if (location.hash && (location.hash !== "#contact")) overlay.show(location.hash);
-	
-	/*set links to open overlays
-	jQuery(document).on("click", "a", function(){
-		var href = jQuery(this).attr("href");
-		if (href.substr(0, 1) === "#") overlay.show(href);
-	});*/
-	
+
+	//open overlays when hash link clicked
 	$(window).on('hashchange', function() {
 		if (location.hash && (location.hash !== "#contact")) {
 			overlay.show(location.hash);
@@ -26,7 +21,6 @@ jQuery(function(){
 			overlay.hide();
 		}
 	});
-	
 	
 	//header
 	jQuery("li.search").hover(function(){

@@ -14,12 +14,17 @@ var timeline = {
 	init : function(){
 	
 		for (var i = 0; i < this.eras.length; i++) {
-			this.positions[this.eras[i]] = jQuery("#timeline li#" + this.eras[i]).position().left;
+			var fallback = jQuery("#timeline li").not('.overview').first().position().left;
+			if (jQuery("#timeline li." + this.eras[i]).size()) {
+				this.positions[this.eras[i]] = jQuery("#timeline li." + this.eras[i]).first().position().left;
+			} else {
+				this.positions[this.eras[i]] = fallback;
+			}
 		}
 		
 		//set up vars
 		this.slider_start	= this.$slider_eras.first().position().left;
-		this.slider_end		= (0 - this.positions.today + this.slider_start);
+		this.slider_end		= (0 - (jQuery("#timeline li").last().position().left - this.slider_start));
 		
 		//start on progressive era
 		this.jump("progressive");
