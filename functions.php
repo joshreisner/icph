@@ -425,10 +425,10 @@ add_filter('pre_get_posts', function($wp_query) {
 		$wp_query->set('orderby', 'meta_value');
 		$wp_query->set('order', 'ASC');
 	} elseif ($wp_query->query['post_type'] == 'timeline_year') {
-		$wp_query->set('orderby', 'post_title');
+		$wp_query->set('orderby', 'title');
 		$wp_query->set('order', 'ASC');
 	} elseif ($wp_query->query['post_type'] == 'policy_year') {
-		$wp_query->set('orderby', 'post_title');
+		$wp_query->set('orderby', 'title');
 		$wp_query->set('order', 'ASC');
 	}
 });
