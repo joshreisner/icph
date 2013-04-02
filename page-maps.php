@@ -145,7 +145,7 @@ get_header();
 	infowindow = new InfoBox({closeBoxURL:"",alignBottom:true});
 	
 	infowindow_static = new InfoBox({closeBoxURL:"", position: new google.maps.LatLng(center_latitude + .0217, center_longitude + .03)});
-	infowindow_static.setContent('<h3>1890 - 1929: The Rise of Settlement Houses</h3><p>Selvage helvetica synth officia squid. Gastropub exercitation banksy art party sed meh direct trade keffiyeh, in magna dreamcatcher. YOLO enim veniam anim freegan sustainable, leggings commodo ex aliqua laborum. Meh aesthetic yr, +1 keffiyeh YOLO tattooed fingerstache. Salvia post-ironic nesciunt eiusmod elit bespoke.</p>');
+	infowindow_static.setContent('<div class="title">Settlement Houses in New York City: 1886 to 1929</div><div class="content"><p>Over the late nineteenth and early twentieth centuries many settlement houses opened in New York City. These settlements provided sites for the middle-class to live and provide assistance to the poor. This map shows the original location of these settlements, the poorest neighborhoods in the city at the time. Intended to be directed by the needs of the local community, settlements became important service providers in New York’s poor communities. Settlement workers also became leading advocates for social reforms using data collected in their work to support public playgrounds, housing reform, restrictions on child labor, and pensions for widowed mothers. Today many of these organizations continue to be important social service providers.</p></div>');
 	infowindow_static.open(map);
 
 
