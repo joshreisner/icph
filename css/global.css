@@ -322,6 +322,7 @@ footer ul li.icon{padding-top:0;margin-left:4px;}
 #timeline ul li.overview.today .lower,#timeline ul li.end.today .lower{background-color:#8a9d44;}
 #timeline ul li.end .lower{background-color:#c8c1b9;color:#383434;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal;}
 #timeline ul li.featured{border-left:0;}#timeline ul li.featured .lower{background-image:none;}
+#timeline ul li.featured a.more{text-transform:none;}
 #timeline ul li.featured.early_ny .lower{background-color:#d9ceca;}
 #timeline ul li.featured.nineteenth .lower{background-color:#e7d8cd;}
 #timeline ul li.featured.progressive .lower{background-color:#d3d2d1;}
@@ -412,7 +413,7 @@ footer ul li.icon{padding-top:0;margin-left:4px;}
 #era .row.feature_policies{width:100%;}#era .row.feature_policies .inner{width:960px;margin:0 auto;padding:40px 0;}#era .row.feature_policies .inner .column h3{margin-bottom:20px;}
 #era .row.feature_policies .inner .column.feature img{float:left;margin:0 10px 10px 0;}
 #era .row.feature_policies .inner .column.feature p{margin:0 0 20px 0;}
-#era .row.feature_policies .inner .column.feature a.more{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;text-transform:uppercase;}
+#era .row.feature_policies .inner .column.feature a.more{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;}
 #era .row.feature_policies .inner .column.policies ul{list-style:none;margin:0;padding:0;height:300px;overflow-y:scroll;}#era .row.feature_policies .inner .column.policies ul li{padding:7px 0 0 0;}#era .row.feature_policies .inner .column.policies ul li a{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;}
 #era .row.feature_policies .inner .column.policies ul li.heading{color:#948f89;text-transform:uppercase;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;border-bottom:1px solid #948f89;padding:20px 0 5px 0;}
 #era .row.feature_policies .inner .column.policies ul li:first-child{padding-top:0;}

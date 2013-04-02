@@ -29,7 +29,7 @@ get_header();
 				<a href="#<?php echo $post->post_name?>"><?php echo get_the_post_thumbnail($post->ID, 'medium')?></a>
 				<?php }
 				echo $post->post_excerpt?>
-				<a href="#<?php echo $post->post_name?>" class="more"><?php echo $post->post_title?></a>
+				<a href="#<?php echo $post->post_name?>" class="more">Meet the <?php echo $post->post_title?></a>
 			</div>
 		</li>
 		<?php }
