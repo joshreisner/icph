@@ -21,6 +21,7 @@ jQuery(function(){
 			overlay.hide();
 		}
 	});
+
 	
 	//header
 	jQuery("li.search").hover(function(){

@@ -71,6 +71,7 @@ get_header();
 	zoomOut.style.marginTop = '10px';
 	zoomOut.style.cursor = 'pointer';
 	controlDiv.appendChild(zoomOut);
+	
 
 	map.controls[google.maps.ControlPosition.TOP_LEFT].push(controlDiv);
 
@@ -142,12 +143,8 @@ get_header();
 	var maptiler = new klokantech.MapTilerMapType(map, mapGetTile, mapBounds, mapMinZoom, mapMaxZoom);
 	var opacitycontrol = new klokantech.OpacityControl(map, maptiler);
 
-	infowindow = new InfoBox({closeBoxURL:"",alignBottom:true});
+	infowindow = new InfoBox({alignBottom:true});
 	
-	infowindow_static = new InfoBox({closeBoxURL:"", position: new google.maps.LatLng(center_latitude + .0217, center_longitude + .03)});
-	infowindow_static.setContent('<div class="title">Settlement Houses in New York City: 1886 to 1929</div><div class="content"><p>Over the late nineteenth and early twentieth centuries many settlement houses opened in New York City. These settlements provided sites for the middle-class to live and provide assistance to the poor. This map shows the original location of these settlements, the poorest neighborhoods in the city at the time. Intended to be directed by the needs of the local community, settlements became important service providers in New York’s poor communities. Settlement workers also became leading advocates for social reforms using data collected in their work to support public playgrounds, housing reform, restrictions on child labor, and pensions for widowed mothers. Today many of these organizations continue to be important social service providers.</p></div>');
-	infowindow_static.open(map);
-
 
 	<?php
 	$points = get_posts('post_type=map_point&status=published&numberposts=-1');
@@ -200,6 +197,14 @@ get_header();
 	}?>
 	
 </script>
+
+<div id="description">
+	<div class="menubar"></div>
+	<h3>Settlement Houses in New York City: 1886 to 1929</h3>
+	<div class="content scroll-pane">
+		<p>Over the late nineteenth and early twentieth centuries many settlement houses opened in New York City. These settlements provided sites for the middle-class to live and provide assistance to the poor. This map shows the original location of these settlements, the poorest neighborhoods in the city at the time. Intended to be directed by the needs of the local community, settlements became important service providers in New York’s poor communities. Settlement workers also became leading advocates for social reforms using data collected in their work to support public playgrounds, housing reform, restrictions on child labor, and pensions for widowed mothers. Today many of these organizations continue to be important social service providers.</p>
+	</div>
+</div>
 
 <?php
 get_footer();
