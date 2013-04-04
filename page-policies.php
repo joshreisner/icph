@@ -27,14 +27,14 @@ $front = $end = '';
 		</li>
 		<?php
 		foreach ($eras as $era) {
-			$years = get_posts('post_type=policy_year&numberposts=-1&orderby=post_title&order=ASC&meta_key=era&meta_value=' . $era->ID . '&category=' . $policy->term_id);
+			$years = get_posts('post_type=policy_year&numberposts=-1&orderby=title&order=ASC&meta_key=era&meta_value=' . $era->ID . '&category=' . $policy->term_id);
 			foreach ($years as $year) {?>
 		<li class="<?php echo $era->post_name?>">
 			<div class="upper">
 				<?php if ($related_links = get_related_links('post', $year->ID)) {
 					echo icph_thumbnail($related_links[0]['id'], $related_links[0]['title']);
 				}?>
-				<h3><?php echo $year->post_name?></h3>
+				<h3><?php echo $year->post_title?></h3>
 			</div>
 			<div class="lower">
 				<?php echo str_replace(site_url('/'), '#', apply_filters('the_content', $year->post_content))?>
