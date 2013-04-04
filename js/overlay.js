@@ -29,6 +29,15 @@ var overlay = {
 				//jscrollpane
 				jQuery('.scroll-pane').jScrollPane();
 				
+				jQuery("#overlay_backdrop").click(function(){
+					overlay.hide();
+					location.href = "#";
+				});
+				
+				jQuery("a.arrow").click(function(e){
+					e.stopPropagation();
+				});
+				
 			},
 			error : function() {
 				//must clear this bad URL
