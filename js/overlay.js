@@ -2,16 +2,14 @@ var overlay = {
 	show : function(hash) {
 		if (hash === "#") return this.hide();
 	
+		jQuery("body").append("<div id='overlay_loading'></div>");
+		
 		jQuery.ajax({
 			url : "/" + hash.substr(1) + "/?overlay=true",
 			success : function(data) {
 				overlay.hide();
 				jQuery("body").append(data);
-				/* jQuery("div#overlay_backdrop").click(function(){
-					//clicking off the overlay closes it
-					overlay.hide();
-					location.href = "#";
-				});*/
+				jQuery("#overlay_loading").remove();
 				
 				//escape key to close overlay
 				jQuery("body").keydown(function(e){
