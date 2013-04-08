@@ -26,8 +26,14 @@ var timeline = {
 		this.slider_start	= this.$slider_eras.first().position().left;
 		this.slider_end		= (0 - (jQuery("#timeline li").last().position().left - this.slider_start));
 		
-		//start on progressive era
-		this.jump("progressive");
+		//set initial scroll
+		if (this.$timeline.hasClass("policy")) {
+			//policy timeline, start on overview
+			this.$timeline.css("marginLeft", this.slider_start + "px");
+		} else {
+			//home page, start on progressive era
+			this.jump("progressive");
+		}
 		
 		//set slider era links
 		this.$slider_eras.click(function(){

@@ -16,7 +16,7 @@ $front = $end = '';
 ?>
 
 <div id="timeline">
-	<ul>
+	<ul class="policy">
 		<li class="overview">
 			<div class="upper">
 				<h2><?php echo $policy->name?></h2>
