@@ -44,6 +44,7 @@ var overlay = {
 		});
 	},
 	hide : function() {
+		jQuery("#overlay_loading").remove();
 		jQuery("div#overlay_backdrop").remove();
 		jQuery("div#overlay").remove();
 	}
