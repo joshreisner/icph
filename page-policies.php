@@ -46,7 +46,7 @@ $front = $end = '';
 		?>
 		<li class="end">
 			<div class="upper">
-				<h2>Today</h2>
+				<h2>Now</h2>
 			</div>
 			<div class="lower">
 				<?php echo $end?>
