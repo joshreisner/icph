@@ -424,8 +424,9 @@ footer ul li.icon{padding-top:0;margin-left:4px;}
 #era .row.topics .inner ul{list-style:none;margin:0;padding:0;}#era .row.topics .inner ul li{float:left;text-align:center;width:115px;margin:0;}#era .row.topics .inner ul li a{text-transform:uppercase;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;}#era .row.topics .inner ul li a.thumbnail{width:115px;height:115px;border-radius:57.5px;overflow:hidden;margin-bottom:10px;}#era .row.topics .inner ul li a.thumbnail img{width:115px;height:115px;border-radius:57.5px;overflow:hidden;}
 #era .row.topics .inner ul li.first{margin-right:58px;}
 #era .row.topics .inner ul li.last{margin-left:57px;}
-#era .row.infographics{margin-bottom:40px;}#era .row.infographics .inner{width:960px;margin:0 auto;padding:40px 0;}#era .row.infographics .inner div.scroll-pane{overflow-x:scroll;width:960px;}#era .row.infographics .inner div.scroll-pane ul{display:table-row;}#era .row.infographics .inner div.scroll-pane ul li{display:table-cell;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;font-size:16px;text-align:right;padding-right:10px;padding-bottom:14px;vertical-align:middle;}#era .row.infographics .inner div.scroll-pane ul li.text{min-width:170px;padding-left:30px;}#era .row.infographics .inner div.scroll-pane ul li.text:first-child{padding-left:0;}
-#era .row.infographics .inner div.scroll-pane ul li cite{font-style:normal;display:block;font-size:12px;}
+#era .row.infographics{margin-bottom:40px;position:relative;}#era .row.infographics .inner{width:960px;margin:0 auto;padding:40px 0;}#era .row.infographics .inner div.infographic_scroller{overflow-x:scroll;width:960px;}#era .row.infographics .inner div.infographic_scroller ul{display:table-row;}#era .row.infographics .inner div.infographic_scroller ul li{display:table-cell;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;font-size:16px;text-align:right;padding-right:10px;padding-bottom:14px;vertical-align:middle;}#era .row.infographics .inner div.infographic_scroller ul li.text{min-width:170px;padding-left:30px;}#era .row.infographics .inner div.infographic_scroller ul li.text:first-child{padding-left:0;}
+#era .row.infographics .inner div.infographic_scroller ul li cite{font-style:normal;display:block;font-size:12px;}
+#era .row.infographics .arrow{width:38px;height:50px;background-color:#5e7190;color:#ffffff;top:136px;}#era .row.infographics .arrow.left{display:none;}
 #era.early_ny a,#era.early_ny h3{color:#78558b;}
 #era.early_ny .row.header{background-image:url(../img/eras/progressive/era.jpg);}#era.early_ny .row.header .inner{background-color:#78558b;background-color:rgba(120, 85, 139, 0.8);zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc78558b, endColorstr=#cc78558b)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc78558b, endColorstr=#cc78558b);}
 #era.early_ny .row.topics{background-color:#78558b;}
@@ -472,11 +473,11 @@ body.maps div#description .content{font-family:"BentonSans",Helvetica,sans-serif
 #browse .row ul li.today a.thumbnail{background-color:#e0dfcd;color:#8a9d44;}
 body.search .container{width:940px;margin:0 auto 100px;margin-top:96px;}body.search .container h1{color:#948f89;}
 body.search .container a{color:#383434;}
-.scroll-pane{outline:none;}.scroll-pane .jspContainer{overflow:hidden;position:relative;}.scroll-pane .jspContainer .jspPane{position:absolute;}
-.scroll-pane .jspContainer .jspVerticalBar{position:absolute;top:0;right:0;width:8px;height:100%;}
-.scroll-pane .jspContainer .jspHorizontalBar{position:absolute;bottom:0;left:0;width:100%;height:8px;}.scroll-pane .jspContainer .jspHorizontalBar .jspDrag{height:8px;}
-.scroll-pane .jspContainer .jspCap,.scroll-pane .jspContainer .jspArrow{display:none;}
-.scroll-pane .jspContainer .jspTrack{position:relative;}.scroll-pane .jspContainer .jspTrack .jspDrag{background:#c8c1b9;position:relative;top:0;left:0;cursor:pointer;border-radius:4px;}
-.scroll-pane .jspContainer .jspCorner{background:#eeeef4;float:left;height:100%;}
-.scroll-pane .jspContainer .jspArrow{background:#50506d;text-indent:-20000px;display:block;cursor:pointer;}.scroll-pane .jspContainer .jspArrow.jspDisabled{cursor:default;background:#80808d;}
-.scroll-pane .jspContainer .jspArrow:focus{outline:none;}
+.scroll-pane,.infographics .inner div{outline:none;}.scroll-pane .jspContainer,.infographics .inner div .jspContainer{overflow:hidden;position:relative;}.scroll-pane .jspContainer .jspPane,.infographics .inner div .jspContainer .jspPane{position:absolute;}
+.scroll-pane .jspContainer .jspVerticalBar,.infographics .inner div .jspContainer .jspVerticalBar{position:absolute;top:0;right:0;width:8px;height:100%;}
+.scroll-pane .jspContainer .jspHorizontalBar,.infographics .inner div .jspContainer .jspHorizontalBar{position:absolute;bottom:0;left:0;width:100%;height:8px;}.scroll-pane .jspContainer .jspHorizontalBar .jspDrag,.infographics .inner div .jspContainer .jspHorizontalBar .jspDrag{height:8px;}
+.scroll-pane .jspContainer .jspCap,.infographics .inner div .jspContainer .jspCap,.scroll-pane .jspContainer .jspArrow,.infographics .inner div .jspContainer .jspArrow{display:none;}
+.scroll-pane .jspContainer .jspTrack,.infographics .inner div .jspContainer .jspTrack{position:relative;}.scroll-pane .jspContainer .jspTrack .jspDrag,.infographics .inner div .jspContainer .jspTrack .jspDrag{background:#c8c1b9;position:relative;top:0;left:0;cursor:pointer;border-radius:4px;}
+.scroll-pane .jspContainer .jspCorner,.infographics .inner div .jspContainer .jspCorner{background:#eeeef4;float:left;height:100%;}
+.scroll-pane .jspContainer .jspArrow,.infographics .inner div .jspContainer .jspArrow{background:#50506d;text-indent:-20000px;display:block;cursor:pointer;}.scroll-pane .jspContainer .jspArrow.jspDisabled,.infographics .inner div .jspContainer .jspArrow.jspDisabled{cursor:default;background:#80808d;}
+.scroll-pane .jspContainer .jspArrow:focus,.infographics .inner div .jspContainer .jspArrow:focus{outline:none;}

@@ -68,7 +68,33 @@ jQuery(function(){
 		});
 	});
 	
-	//era page jscrollpane
+	//regular jscrollpane
 	jQuery('.scroll-pane').jScrollPane();
+	
+	//era page infographic scrollpane, has to be done differently
+	var element = jQuery(".infographics .inner div.infographic_scroller")
+		.jScrollPane()
+		.bind('jsp-scroll-x', function(event, scrollPositionX, isAtLeft, isAtRight) {
+			if (isAtLeft) {
+				jQuery(".infographics a.arrow.left").hide();
+			} else {
+				jQuery(".infographics a.arrow.left").show();
+			}
+			if (isAtRight) {
+				jQuery(".infographics a.arrow.right").hide();
+			} else {
+				jQuery(".infographics a.arrow.right").show();
+			}
+		});
+	var interval = false;
+	jQuery(".infographics a.arrow").hover(function(){
+		var increment = (jQuery(this).hasClass("left")) ? -7 : 7;
+		interval = setInterval(function(){
+			element.data('jsp').scrollByX(increment);
+		}, 10);
+	}, function(){
+		clearInterval(interval);
+	});
+
 
 });

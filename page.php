@@ -82,7 +82,7 @@ if ($feature = get_related_links('post', $era->ID)) $feature = get_post($feature
 	<div class="row infographics">
 		<div class="inner">
 			<h3>By the Numbers</h3>
-			<div class="scroll-pane">
+			<div class="infographic_scroller">
 				<ul>
 					<li class="text">In 1900, two-thirds of New Yorkers lived in tenement houses.</li>
 					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/tenement.png" alt="Tenement" width="237" height="171"></li>
@@ -95,6 +95,8 @@ if ($feature = get_related_links('post', $era->ID)) $feature = get_post($feature
 				</ul>
 			</div>
 		</div>
+		<a class="arrow left"><div class="cap"><i class="icon-angle-left"></i></div></a>
+		<a class="arrow right"><div class="cap"><i class="icon-angle-right"></i></div></a>
 	</div>
 	
 </div>

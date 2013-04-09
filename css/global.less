@@ -628,10 +628,10 @@ footer {
 		}
 		
 		&.infographics {
-			margin-bottom: 40px; 
+			margin-bottom: 40px; position: relative;
 			.inner { 
 				width: 960px; margin: 0 auto; padding: 40px 0;
-				div.scroll-pane {
+				div.infographic_scroller {
 					overflow-x: scroll; width: 960px; 
 					ul {
 						display: table-row; 
@@ -645,6 +645,10 @@ footer {
 						}
 					}
 				}
+			}
+			.arrow { 
+				width: @timeline_arrow_width; height: @timeline_arrow_height; background-color: @blue; color: @white; top: 136px; 
+				&.left { display: none; }
 			}
 		}
 		
@@ -816,7 +820,7 @@ body.search {
 	}
 }
 
-.scroll-pane {
+.scroll-pane, .infographics .inner div {
 	outline: none; 
 	.jspContainer {
 		overflow: hidden; position: relative;
