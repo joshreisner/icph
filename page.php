@@ -29,7 +29,7 @@ if ($feature = get_related_links('post', $era->ID)) $feature = get_post($feature
 				}
 				?>				
 				<p><?php echo $feature->post_excerpt?></p>
-				<a class="more" href="#<?php echo $feature->post_name?>"><i class="icon-circle"></i> Meet the <?php echo $feature->post_title?></a>
+				<a class="more" href="#<?php echo $feature->post_name?>"><i class="icon-right-circle"></i> Meet the <?php echo $feature->post_title?></a>
 			</div>
 			<div class="column right policies">
 				<h3>Policy in this Time Period</h3>
@@ -95,8 +95,8 @@ if ($feature = get_related_links('post', $era->ID)) $feature = get_post($feature
 				</ul>
 			</div>
 		</div>
-		<a class="arrow left"><div class="cap"><i class="icon-angle-left"></i></div></a>
-		<a class="arrow right"><div class="cap"><i class="icon-angle-right"></i></div></a>
+		<a class="arrow left"><div class="cap"><i class="icon-left-open-big"></i></div></a>
+		<a class="arrow right"><div class="cap"><i class="icon-right-open-big"></i></div></a>
 	</div>
 	
 </div>

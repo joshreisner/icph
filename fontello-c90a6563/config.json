@@ -1,0 +1,358 @@
+{
+  "name": "",
+  "glyphs": [
+    {
+      "search": [
+        "mail",
+        "email"
+      ],
+      "code": 9993,
+      "uid": "e335adbc2d898c7d85d40c507796e7b4",
+      "css": "mail",
+      "orig_css": "mail",
+      "orig_code": 9993,
+      "src": "entypo",
+      "from": 9993
+    },
+    {
+      "search": [
+        "close",
+        "cancel",
+        "reject"
+      ],
+      "code": 10006,
+      "uid": "c759418c008e9562944080fee617fc76",
+      "css": "cancel-circled",
+      "orig_css": "cancel-circled",
+      "orig_code": 10006,
+      "src": "entypo",
+      "from": 10006
+    },
+    {
+      "search": [
+        "plus"
+      ],
+      "code": 10133,
+      "from": 10133,
+      "uid": "a66cdc7278e6b33b8bd44a141f5e1a8d",
+      "css": "plus-circled",
+      "orig_css": "plus-circled",
+      "orig_code": 10133,
+      "src": "entypo"
+    },
+    {
+      "search": [
+        "minus"
+      ],
+      "code": 10134,
+      "from": 10134,
+      "uid": "3eb93689881ad0804f87052a53edc2b6",
+      "css": "minus-circled",
+      "orig_css": "minus-circled",
+      "orig_code": 10134,
+      "src": "entypo"
+    },
+    {
+      "search": [
+        "zoom",
+        "scale",
+        "out"
+      ],
+      "code": 57344,
+      "uid": "295287b96e50d494ba38a1ed9e06d8db",
+      "css": "zoom-out",
+      "orig_css": "zoom-out",
+      "orig_code": 57344,
+      "src": "elusive",
+      "from": 57344
+    },
+    {
+      "search": [
+        "zoom",
+        "scale",
+        "in"
+      ],
+      "code": 57345,
+      "uid": "68c7be0f4cab6b82d5725b1ba7cec4d6",
+      "css": "zoom-in",
+      "orig_css": "zoom-in",
+      "orig_code": 57345,
+      "src": "elusive",
+      "from": 57345
+    },
+    {
+      "search": [
+        "play",
+        "player"
+      ],
+      "code": 57435,
+      "uid": "7acc2dfe18c6f4548626696fab27ba8a",
+      "css": "play-circled2",
+      "orig_css": "play-circled2",
+      "orig_code": 57435,
+      "src": "elusive",
+      "from": 57435
+    },
+    {
+      "search": [
+        "play",
+        "player"
+      ],
+      "code": 57436,
+      "uid": "fc006ff27e50163bdec3a7588226171b",
+      "css": "play-circled",
+      "orig_css": "play-circled",
+      "orig_code": 57436,
+      "src": "elusive",
+      "from": 57436
+    },
+    {
+      "search": [
+        "arrow",
+        "right"
+      ],
+      "code": 58530,
+      "from": 58530,
+      "uid": "d30928620bda0d5eaa85d3b65bf19963",
+      "css": "right-circle",
+      "orig_css": "right-circle",
+      "orig_code": 58530,
+      "src": "websymbols"
+    },
+    {
+      "search": [
+        "export",
+        "share"
+      ],
+      "code": 59157,
+      "uid": "390d6d13398cbf8c8c3c5493f7d34088",
+      "css": "export",
+      "orig_css": "export",
+      "orig_code": 59157,
+      "src": "entypo",
+      "from": 59157
+    },
+    {
+      "search": [
+        "share"
+      ],
+      "code": 59196,
+      "uid": "91426c82d94428a33353e495418435e3",
+      "css": "share",
+      "orig_css": "share",
+      "orig_code": 59196,
+      "src": "entypo",
+      "from": 59196
+    },
+    {
+      "search": [
+        "arrow",
+        "left"
+      ],
+      "code": 59237,
+      "uid": "884cfc3e6e2d456dd2a2ca0dbb9e6337",
+      "css": "left-open-big",
+      "orig_css": "left-open-big",
+      "orig_code": 59237,
+      "src": "entypo",
+      "from": 59237
+    },
+    {
+      "search": [
+        "arrow",
+        "right"
+      ],
+      "code": 59238,
+      "uid": "004882ab2d5c418c5b2060e80596279b",
+      "css": "right-open-big",
+      "orig_css": "right-open-big",
+      "orig_code": 59238,
+      "src": "entypo",
+      "from": 59238
+    },
+    {
+      "search": [
+        "load",
+        "progress",
+        "wait"
+      ],
+      "code": 59440,
+      "meta": {
+        "email": "berbentseva_angela@yahoo.com",
+        "author": "Angela Berbentseva, specially for fontello"
+      },
+      "uid": "72109d2fb3088d0e66ea6a9204297651",
+      "css-ext": "animate-spin",
+      "css": "spin1",
+      "orig_css": "spin1",
+      "orig_code": 59440,
+      "src": "fontelico",
+      "from": 59440
+    },
+    {
+      "search": [
+        "load",
+        "progress",
+        "wait"
+      ],
+      "code": 59444,
+      "meta": {
+        "email": "berbentseva_angela@yahoo.com",
+        "author": "Angela Berbentseva, specially for fontello"
+      },
+      "uid": "9bd60140934a1eb9236fd7a8ab1ff6ba",
+      "css-ext": "animate-spin",
+      "css": "spin4",
+      "orig_css": "spin4",
+      "orig_code": 59444,
+      "src": "fontelico",
+      "from": 59444
+    },
+    {
+      "search": [
+        "load",
+        "progress",
+        "wait"
+      ],
+      "code": 59449,
+      "meta": {
+        "email": "berbentseva_angela@yahoo.com",
+        "author": "Angela Berbentseva, specially for fontello"
+      },
+      "uid": "9bc2902722abb366a213a052ade360bc",
+      "css-ext": "animate-spin",
+      "css": "spin6",
+      "orig_css": "spin6",
+      "orig_code": 59449,
+      "src": "fontelico",
+      "from": 59449
+    },
+    {
+      "search": [
+        "twitter",
+        "social",
+        "logo"
+      ],
+      "code": 62217,
+      "uid": "d090355c31f497b61d676416c1fd39fb",
+      "css": "twitter",
+      "orig_css": "twitter",
+      "orig_code": 62217,
+      "src": "entypo",
+      "from": 62217
+    },
+    {
+      "search": [
+        "twitter",
+        "social",
+        "logo"
+      ],
+      "code": 62218,
+      "uid": "0419da6446cb4f31093e2022793571ca",
+      "css": "twitter-circled",
+      "orig_css": "twitter-circled",
+      "orig_code": 62218,
+      "src": "entypo",
+      "from": 62218
+    },
+    {
+      "search": [
+        "facebook",
+        "social",
+        "logo"
+      ],
+      "code": 62220,
+      "uid": "bc50457410acf467b8b5721240768742",
+      "css": "facebook",
+      "orig_css": "facebook",
+      "orig_code": 62220,
+      "src": "entypo",
+      "from": 62220
+    },
+    {
+      "search": [
+        "facebook",
+        "social",
+        "logo"
+      ],
+      "code": 62221,
+      "uid": "ce1d525f3f31024c6a6b38f5e9a88953",
+      "css": "facebook-circled",
+      "orig_css": "facebook-circled",
+      "orig_code": 62221,
+      "src": "entypo",
+      "from": 62221
+    },
+    {
+      "search": [
+        "google",
+        "plus",
+        "social",
+        "logo"
+      ],
+      "code": 62223,
+      "uid": "b945f4ac2439565661e8e4878e35d379",
+      "css": "gplus",
+      "orig_css": "gplus",
+      "orig_code": 62223,
+      "src": "entypo",
+      "from": 62223
+    },
+    {
+      "search": [
+        "google",
+        "plus",
+        "social",
+        "logo"
+      ],
+      "code": 62224,
+      "uid": "818a6c2a76c89800632c0335e9cdafee",
+      "css": "gplus-circled",
+      "orig_css": "gplus-circled",
+      "orig_code": 62224,
+      "src": "entypo",
+      "from": 62224
+    },
+    {
+      "search": [
+        "pinterest",
+        "social",
+        "logo"
+      ],
+      "code": 62226,
+      "uid": "689febe699d74bc8862965555503e445",
+      "css": "pinterest",
+      "orig_css": "pinterest",
+      "orig_code": 62226,
+      "src": "entypo",
+      "from": 62226
+    },
+    {
+      "search": [
+        "pinterest",
+        "social",
+        "logo"
+      ],
+      "code": 62227,
+      "uid": "2e9c0fdd4d59598cb122801ab80222e7",
+      "css": "pinterest-circled",
+      "orig_css": "pinterest-circled",
+      "orig_code": 62227,
+      "src": "entypo",
+      "from": 62227
+    },
+    {
+      "search": [
+        "search",
+        "find"
+      ],
+      "code": 128269,
+      "uid": "7222571caa5c15f83dcfd447c58d68d9",
+      "css": "search",
+      "orig_css": "search",
+      "orig_code": 128269,
+      "src": "entypo",
+      "from": 128269
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 /*import*/
 @import 'mixins.less';
-@import 'font-awesome.less';
+@import '../fontello-c90a6563/css/fontello.css';
 
 
 /* colors */
@@ -67,10 +67,10 @@ html {
 			position: absolute; top: ((@timeline_upper_height + @timeline_lower_height) / 2);
 			div.cap {
 				width: @timeline_arrow_width; height: @timeline_arrow_height; text-align: center; 
-				i { font-size: 50px; line-height: 49px; }
+				i { font-size: 30px; line-height: 50px; }
 			}
 			&.left { left: 0; i { margin-left: -5px; } }
-			&.right { right: 0; i { margin-right: -5px; } }
+			&.right { right: 0; }
 		}
 		
 		div.wp-caption {
@@ -191,6 +191,7 @@ footer {
 				height: @timeline_upper_height; position: relative;
 				a.thumbnail { 
 					position: absolute; left: -(@timeline_year_diameter / 2); .rounded(@timeline_year_diameter); 
+					i { line-height: 20px; }
 					img { .rounded(@timeline_year_diameter); }
 				}
 				h3 { font-weight: normal; position: absolute; bottom: @timeline_paragraph_bottom; left: @timeline_column_padding; font-size: 28px; }

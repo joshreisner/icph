@@ -172,7 +172,7 @@ function icph_browse($type='Subject') {
 	foreach ($categories as $category) {?>
 		
 	<div class="row">
-		<h3<?php if ($category->name == $categories[0]->name) {?> class="first"<?php }?>><i class="icon-plus-sign"></i> <?php echo $category->name?></h3>
+		<h3<?php if ($category->name == $categories[0]->name) {?> class="first"<?php }?>><i class="icon-plus-circled"></i> <?php echo $category->name?></h3>
 		<ul>
 			<?php 
 			$posts = get_posts('category=' . $category->term_id);
@@ -234,7 +234,7 @@ function icph_slider() {
 		
 	//policies slider
 	foreach ($policies as &$policy) $policy = array('link'=>'/policies/?' . $policy->slug, 'content'=>$policy->name);
-	array_unshift($policies, array('content'=>'<i class="icon-plus-sign"></i> View by Policy'));
+	array_unshift($policies, array('content'=>'<i class="icon-plus-circled"></i> View by Policy'));
 	
 	return '<div id="slider_policy_wrapper">' . icph_ul($eras, array('id'=>'slider')) . icph_ul($policies, array('id'=>'slider_policy')) . '</div>';
 }
@@ -248,7 +248,7 @@ function icph_thumbnail($post_id, $title=false, $slug=false) {
 	return '
 		<a class="thumbnail" href="#' . $slug . '">
 				<span>
-					<i class="icon-play-circle"></i><br>
+					<i class="icon-play-circled"></i><br>
 					' . $title . 
 				'</span>' . 
 			(has_post_thumbnail($post_id) ? get_the_post_thumbnail($post_id, 'thumbnail') : '') . 

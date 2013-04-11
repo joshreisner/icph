@@ -35,10 +35,10 @@ jQuery(function(){
 	jQuery("#slider_policy li.first").click(function(){
 		jQuery(this).parent().toggleClass("active");
 		var $icon = jQuery(this).find("i").first();
-		if ($icon.hasClass("icon-plus-sign")) {
-			$icon.removeClass("icon-plus-sign").addClass("icon-minus-sign");
+		if ($icon.hasClass("icon-plus-circled")) {
+			$icon.removeClass("icon-plus-circled").addClass("icon-minus-circled");
 		} else {
-			$icon.removeClass("icon-minus-sign").addClass("icon-plus-sign");
+			$icon.removeClass("icon-minus-circled").addClass("icon-plus-circled");
 		}
 	});
 	
@@ -46,10 +46,10 @@ jQuery(function(){
 	jQuery("#browse").on("click", "h3", function(){
 		jQuery(this).parent().find("ul").slideToggle();
 		var $icon = jQuery(this).find("i").first();
-		if ($icon.hasClass("icon-plus-sign")) {
-			$icon.removeClass("icon-plus-sign").addClass("icon-minus-sign");
+		if ($icon.hasClass("icon-plus-circled")) {
+			$icon.removeClass("icon-plus-circled").addClass("icon-minus-circled");
 		} else {
-			$icon.removeClass("icon-minus-sign").addClass("icon-plus-sign");
+			$icon.removeClass("icon-minus-circled").addClass("icon-plus-circled");
 		}
 	});
 	

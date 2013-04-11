@@ -50,9 +50,9 @@ global $body_class;
 			</ul>
 			
 			<ul id="tools">
-				<li class="share"><i class="icon-share icon-large"></i> Share</li>
+				<li class="share"><i class="icon-export"></i> Share</li>
 				<li class="search">
-					<i class="icon-search icon-large"></i> Search
+					<i class="icon-search"></i> Search
 
 					<form method="get" action="/">
 				        <input type="search" name="s" value="<?php the_search_query()?>">
