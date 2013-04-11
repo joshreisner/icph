@@ -96,12 +96,12 @@ if (!$prev && !$next && count($nav_array > 1)) {
 	<?php if ($prev) {?>
 	<a class="arrow left" href="#<?php echo $prev['slug']?>">
 		<div class="stem"><?php echo $prev['title']?></div>
-		<div class="cap"><i class="icon-angle-left"></i></div>
+		<div class="cap"><i class="icon-left-open-big"></i></div>
 	</a>
 	<?php }
 	if ($next) {?>
 	<a class="arrow right" href="#<?php echo $next['slug']?>">
-		<div class="cap"><i class="icon-angle-right"></i></div>
+		<div class="cap"><i class="icon-right-open-big"></i></div>
 		<div class="stem"><?php echo $next['title']?></div>
 	</a>
 	<?php }?>
