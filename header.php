@@ -62,10 +62,29 @@ global $body_class;
 				</li>
 				<li class="search">
 					<i class="icon-search"></i> Search
-
-					<form method="get" action="/">
-				        <input type="search" name="s" value="<?php the_search_query()?>">
-					</form>
+					<ul class="dropdown">
+						<li class="form">							
+							<form method="get" action="/">
+						        <input type="text" name="s" value="<?php the_search_query()?>" placeholder="What are you looking for?">
+						        <i class="icon-cancel-circled"></i>
+							</form>
+						</li>
+						<li class="result">
+							<a href="#">The Tenement House Exhibiti&hellip;</a>
+						</li>
+						<li class="result">
+							<a href="#">Charity Organization Societ&hellip;</a>
+						</li>
+						<li class="result">
+							<a href="#">Congestion Exhibit&hellip;</a>
+						</li>
+						<li class="result">
+							<a href="#">Title&hellip;</a>
+						</li>
+						<li class="all">
+							<a href="#"><i class="icon-right-circle"></i> All Results</a>
+						</li>
+					</ul>
 				</li>
 			</ul>
 		</header>

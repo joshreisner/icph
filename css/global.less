@@ -149,6 +149,15 @@ header {
 							i { color: @gray_light; font-size: 20px; display: block; float: left; margin-right: 6px; }
 							span { display: block; float: left; }
 						}
+						&.form {
+							input { .fontBold; width: 201px; font-size: 13px; padding: 4px 2px; margin: 0 8px; }
+							i { color: @gray; position: absolute; top: 0; right: 10px; }
+							&:hover { background: @beige; }
+						}
+						&.all a { 
+							color: @gray_light; text-transform: uppercase; .fontCondBold; 
+							i { margin-top: 1px; }
+						}
 						&:first-child { border-top: none; }
 						&:hover { background: @beige_dark; }
 					}
@@ -156,14 +165,7 @@ header {
 				
 				&.share { margin-right: 20px; }
 				&.search {
-					form {
-						padding: 0 10px; margin: 0; display: none;
-						.shadowed; position: absolute; right: 0; top: @header_height; background-image: url(../img/background.png); z-index: 20; 
-						input { padding: 4px; width: 200px; font-size: 13px; margin: 0; }
-					}
-					&:hover {
-						form { display: block; }
-					}
+					ul.dropdown { display: block; position: absolute; right: 0; }
 				}
 				&:hover ul.dropdown { display: block; }
 			}
