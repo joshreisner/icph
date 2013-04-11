@@ -51,7 +51,7 @@ global $body_class;
 			
 			<ul id="tools">
 				<li class="share">
-					<i class="icon-export"></i> Share
+					<a><i class="icon-export"></i> Share</a>
 					<ul class="dropdown">
 						<li><a href="#"><i class="icon-facebook-circled"></i> Facebook</a></li>
 						<li><a href="#"><i class="icon-twitter-circled"></i> Twitter</a></li>
@@ -61,7 +61,7 @@ global $body_class;
 					</ul>
 				</li>
 				<li class="search">
-					<i class="icon-search"></i> Search
+					<a><i class="icon-search"></i> Search</a>
 					<ul class="dropdown">
 						<li class="form">							
 							<form method="get" action="/">

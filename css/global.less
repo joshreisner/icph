@@ -46,11 +46,19 @@
 @timeline_upper_height		: 150px;
 @scroll_width				: 8px;
 
+.bg() {
+	background-color: @beige; background-image: url(../img/background.png);
+}
+
+.bgDark() {
+	background-color: @beige_dark; background-image: url(../img/background-dark.png);
+}
+
 /* globals */
 html {
 	min-height: 100%;
 	body {
-		background-image: url(../img/background.png); margin: 0; .font; color: @gray;
+		.bg; margin: 0; .font; color: @gray;
 		a { 
 			text-decoration: none; cursor: pointer; outline: none; 
 			img { border: 0; }
@@ -77,7 +85,7 @@ html {
 			font-size: 12px; line-height: 14px;
 			iframe { margin: 0; }
 			a { display: block; }
-			p.wp-caption-text { margin: -3px 0 0 0; .fontCondBold; padding: 10px; background-color: @beige_dark; }
+			p.wp-caption-text { margin: -3px 0 0 0; .fontCondBold; padding: 10px; .bgDark; }
 			&.alignleft { float: left; margin: 0 10px 10px 0; }
 			&.alignright { float: right; margin: 0 0 10px 10px; }
 		}
@@ -108,21 +116,21 @@ header {
 		&#nav {
 			right: 240px; top: 5px; 
 			li {
-				padding: 0 22px 0 0; margin: 0 20px 0 0; height: 15px; position: relative;
+				padding: 0 22px 0 0; margin: 0 20px 0 0; height: 15px; position: relative; 
 				a { display: block; font-size: 17px; line-height: 18px; padding: 10px 0; }
 				div.separator { background-color: @white; width: 2px; position: absolute; right: 0; top: 12px; height: 12px; }
 				ul { display: none; }
 				&:hover {
 					a { color: @beige; border-bottom: 5px solid @beige; }
 					ul { 
-						display: block; .shadowed; position: absolute; top: (@header_height - 5); background-image: url(../img/background.png); z-index: 20;
+						display: block; .shadowed; position: absolute; top: (@header_height - 5); .bg; z-index: -1;
 						li { 
 							float: none; border-bottom: 1px solid @beige_dark; margin-right: 0; height: auto;
 							a, a:hover {
 								display: block; width: 240px; padding: 10px; text-transform: none; font-size: 12px; .font; color: @gray; border-bottom: none;
 								div { .fontBold; }
 							}
-							&:hover { background-image: url(../img/background-dark.png); }
+							&:hover { .bgDark; }
 							&.early_ny div { color: @purple; }
 							&.nineteenth div { color: @orange; }
 							&.progressive div { color: @blue; }
@@ -140,8 +148,9 @@ header {
 			li { 
 				font-size: 13px; height: @header_height; line-height: @header_height;
 				
+				a { padding-bottom: 11px; }
 				ul.dropdown {
-					background-color: @beige; .shadowed(); overflow: auto; display: none; 
+					.bg; .shadowed(); overflow: auto; display: none; z-index: -1;
 					li { 
 						float: none; border-top: 1px solid @gray_lighter; margin: 0; height: auto; overflow: auto; 
 						a { 
@@ -152,22 +161,28 @@ header {
 						&.form {
 							input { .fontBold; width: 201px; font-size: 13px; padding: 4px 2px; margin: 0 8px; }
 							i { color: @gray; position: absolute; top: 0; right: 10px; }
-							&:hover { background: @beige; }
+							&:hover { .bg; }
 						}
 						&.all a { 
 							color: @gray_light; text-transform: uppercase; .fontCondBold; 
 							i { margin-top: 1px; }
 						}
 						&:first-child { border-top: none; }
-						&:hover { background: @beige_dark; }
+						&:hover { .bgDark; }
 					}
 				}
 				
 				&.share { margin-right: 20px; }
 				&.search {
-					ul.dropdown { display: block; position: absolute; right: 0; }
+					ul.dropdown { position: absolute; right: 0; }
 				}
-				&:hover ul.dropdown { display: block; }
+				&:hover {
+					a { border-bottom: 5px solid @beige; color: @beige; }
+					ul.dropdown {
+						display: block; 
+						li a { border-bottom: 0; }
+					}
+				}
 			}
 		}
 		
@@ -216,7 +231,7 @@ footer {
 			}
 			
 			.lower {
-				background-image: url(../img/background-dark.png); height: @timeline_lower_height; padding: @timeline_column_padding; 
+				.bgDark; height: @timeline_lower_height; padding: @timeline_column_padding; 
 				img { margin: -@timeline_column_padding -@timeline_column_padding @timeline_paragraph_bottom -@timeline_column_padding; width: @timeline_column_width; height: auto; }
 				p { 
 					margin: @timeline_paragraph_bottom 0 0 0; 
@@ -401,7 +416,7 @@ footer {
 #overlay_backdrop { 
 	position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 1040; .bg_opacity(#000, .5); 
 	a.arrow {
-		background-color: @beige; display: table; color: @gray; top: ((@timeline_upper_height + @timeline_lower_height) / 2) + (@header_height * 2);
+		.bg; display: table; color: @gray; top: ((@timeline_upper_height + @timeline_lower_height) / 2) + (@header_height * 2);
 		div.cap { background-color: @beige_light; }
 		div.stem { width: 130px; .fontCondBold; display: none; vertical-align: middle; font-size: 13px; line-height: 16px; }
 		&.left .stem { padding-right: 10px; text-align: right; }
@@ -411,7 +426,7 @@ footer {
 }
 
 #overlay {
-	width: (@overlay_content_width + @overlay_navigation_width); background-color: @beige; background-image: url(../img/background.png); z-index: 1050; .shadowed;
+	width: (@overlay_content_width + @overlay_navigation_width); .bg; z-index: 1050; .shadowed;
 	position: absolute; top: 48px; left: 50%; margin-left: -480px; min-height: 100%;
 	
 	div.header {
@@ -474,7 +489,7 @@ footer {
 						strong { .fontBold; display: block; }
 						&:hover { background-color: transparent; }
 					}
-					&:hover, &.active { background-image: url(../img/background-dark.png); }
+					&:hover, &.active { .bgDark; }
 				}
 			}
 			&.affix { position: fixed; top: 0; left: 50%; margin-left: ((@overlay_content_width + @overlay_navigation_width) / 2) - @overlay_navigation_width; }
@@ -767,7 +782,7 @@ body.maps {
 	#mapwrapper { position: fixed; width: 100%; height: 100%; }
 	
 	div.infoBox {
-		background-image: url(../img/background.png); width: 300px; height: 130px; padding: 10px; .font; font-size: 12px; .shadowed; 
+		.bg; width: 300px; height: 130px; padding: 10px; .font; font-size: 12px; .shadowed; 
 		margin-bottom: 50px; position: relative;
 		div.title, h3 { .fontBold; margin-bottom: 6px; }
 		div.content { height: 106px; overflow-y: scroll; }
@@ -778,8 +793,8 @@ body.maps {
 	}
 	
 	div#description {
-		position: absolute; top: 60px; right: 10px; background-color: @beige; width: 400px; height: 240px; .shadowed;
-		.menubar { background-color: @beige_dark; height: 20px; }
+		position: absolute; top: 60px; right: 10px; .bg; width: 400px; height: 240px; .shadowed;
+		.menubar { .bgDark; height: 20px; }
 		h3 { .fontCondBold; font-size: 16px; margin: 0 0 8px; margin: 10px; }
 		.content {
 			.font; font-size: 12px; height: 170px; overflow: scroll; margin: 10px;
@@ -807,7 +822,7 @@ body.maps {
 		ul {
 			list-style: none; margin: 0 0 0 -20px; padding: 0; font-size: 12px; overflow: auto; display: none;
 			li { 
-				width: 280px; margin: 0 0 20px 20px; padding: 10px; background-image: url(../img/background-dark.png); float: left;
+				width: 280px; margin: 0 0 20px 20px; padding: 10px; .bgDark; float: left;
 				
 				a.thumbnail {
 					float: left; margin-right: 10px; .rounded(100px); 
