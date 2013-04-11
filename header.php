@@ -50,7 +50,16 @@ global $body_class;
 			</ul>
 			
 			<ul id="tools">
-				<li class="share"><i class="icon-export"></i> Share</li>
+				<li class="share">
+					<i class="icon-export"></i> Share
+					<ul class="dropdown">
+						<li><a href="#"><i class="icon-facebook-circled"></i> Facebook</a></li>
+						<li><a href="#"><i class="icon-twitter-circled"></i> Twitter</a></li>
+						<li><a href="#"><i class="icon-gplus-circled"></i> Google Plus</a></li>
+						<li><a href="#"><i class="icon-pinterest-circled"></i> Pinterest</a></li>
+						<li><a href="#"><i class="icon-mail"></i> Email</a></li>
+					</ul>
+				</li>
 				<li class="search">
 					<i class="icon-search"></i> Search
 

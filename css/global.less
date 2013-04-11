@@ -139,6 +139,21 @@ header {
 			top: 0; right: 20px; 
 			li { 
 				font-size: 13px; height: @header_height; line-height: @header_height;
+				
+				ul.dropdown {
+					background-color: @beige; .shadowed(); overflow: auto; display: none; 
+					li { 
+						float: none; border-top: 1px solid @gray_lighter; margin: 0; height: auto; overflow: auto; 
+						a { 
+							display: block; color: @gray; padding: 6px 20px 6px 6px; line-height: 23px; text-transform: none; white-space: nowrap; .fontBold;
+							i { color: @gray_light; font-size: 20px; display: block; float: left; margin-right: 6px; }
+							span { display: block; float: left; }
+						}
+						&:first-child { border-top: none; }
+						&:hover { background: @beige_dark; }
+					}
+				}
+				
 				&.share { margin-right: 20px; }
 				&.search {
 					form {
@@ -150,6 +165,7 @@ header {
 						form { display: block; }
 					}
 				}
+				&:hover ul.dropdown { display: block; }
 			}
 		}
 		

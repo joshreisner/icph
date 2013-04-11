@@ -27,9 +27,14 @@ header ul#nav li:hover ul li.progressive div{color:#5e7190;}
 header ul#nav li:hover ul li.great_depression div{color:#9c474e;}
 header ul#nav li:hover ul li.today div{color:#8a9d44;}
 header ul#nav li.current_page_item a{color:#eae3d9;border-bottom:5px solid #eae3d9;}
-header ul#tools{top:0;right:20px;}header ul#tools li{font-size:13px;height:48px;line-height:48px;}header ul#tools li.share{margin-right:20px;}
+header ul#tools{top:0;right:20px;}header ul#tools li{font-size:13px;height:48px;line-height:48px;}header ul#tools li ul.dropdown{background-color:#eae3d9;-webkit-box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);-moz-box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);overflow:auto;display:none;}header ul#tools li ul.dropdown li{float:none;border-top:1px solid #c8c1b9;margin:0;height:auto;overflow:auto;}header ul#tools li ul.dropdown li a{display:block;color:#383434;padding:6px 20px 6px 6px;line-height:23px;text-transform:none;white-space:nowrap;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;}header ul#tools li ul.dropdown li a i{color:#948f89;font-size:20px;display:block;float:left;margin-right:6px;}
+header ul#tools li ul.dropdown li a span{display:block;float:left;}
+header ul#tools li ul.dropdown li:first-child{border-top:none;}
+header ul#tools li ul.dropdown li:hover{background:#d2cbc1;}
+header ul#tools li.share{margin-right:20px;}
 header ul#tools li.search form{padding:0 10px;margin:0;display:none;-webkit-box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);-moz-box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);position:absolute;right:0;top:48px;background-image:url(../img/background.png);z-index:20;}header ul#tools li.search form input{padding:4px;width:200px;font-size:13px;margin:0;}
 header ul#tools li.search:hover form{display:block;}
+header ul#tools li:hover ul.dropdown{display:block;}
 footer{overflow:auto;margin-bottom:20px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;}footer .copyright{float:left;margin-left:20px;font-size:11px;color:#c8c1b9;}
 footer ul{float:right;list-style:none;margin:0 20px 0 0;padding:0;}footer ul li{float:left;margin:0 0 0 20px;font-size:16px;line-height:16px;padding-top:5px;}footer ul li a{color:#c8c1b9;text-transform:uppercase;}footer ul li a i{font-size:26px;}
 footer ul li a:hover{color:#64615c;}
