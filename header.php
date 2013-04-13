@@ -7,6 +7,9 @@ global $body_class;
 		<title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name') ?></title>
 		<meta name="description" content="<?php bloginfo('description') ?>">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 		<?php wp_head(); ?>
 		<link rel="stylesheet" type="text/css" href="//cloud.webtype.com/css/e677f601-51a3-41b8-9df8-446cd03d543f.css">
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory');?>/css/global.css">
@@ -17,11 +20,11 @@ global $body_class;
 			
 			<ul id="nav">
 				<li<?php if ($_SERVER['REQUEST_URI'] == '/') echo ' class="current_page_item"'?>>
-					<a href="/">Timeline</a>
+					<a class="main" href="/">Timeline</a>
 					<div class="separator"></div>
 				</li>
 				<li>
-					<a href="#">Eras</a>
+					<a class="main" href="#">Eras</a>
 					<ul>
 						<?php 
 						global $eras;
@@ -37,15 +40,15 @@ global $body_class;
 					<div class="separator"></div>
 				</li>
 				<li<?php if ($_SERVER['REQUEST_URI'] == '/maps/') echo ' class="current_page_item"'?>>
-					<a href="/maps/">Maps</a>
+					<a class="main" href="/maps/">Maps</a>
 					<div class="separator"></div>
 				</li>
 				<li<?php if ($_SERVER['REQUEST_URI'] == '/browse/') echo ' class="current_page_item"'?>>
-					<a href="/browse/">Browse</a>
+					<a class="main" href="/browse/">Browse</a>
 					<div class="separator"></div>
 				</li>
 				<li<?php if ($_SERVER['REQUEST_URI'] == '/about/') echo ' class="current_page_item"'?>>
-					<a href="/about/">About</a>
+					<a class="main" href="/about/">About</a>
 				</li>
 			</ul>
 			
