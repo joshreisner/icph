@@ -195,7 +195,7 @@ get_header();
 			});
 			
 			google.maps.event.addListener(marker<?php echo $i?>, 'click', function(e) {
-				infowindow.setContent('<div class="title"><?php echo $title?></div><div class="content"><?php echo $content?></div>');
+				infowindow.setContent('<div class="title"><?php echo $title?></div><div class="content scroll-pane"><?php echo $content?></div>');
 				infowindow.open(map, marker<?php echo $i?>);
 				//infowindow.jScrollPane(); //doesn't work
 			});
