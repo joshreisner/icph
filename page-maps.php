@@ -152,13 +152,19 @@ get_header();
 
 	infowindow = new InfoBox({alignBottom:true});
 	
+	//doesn't work
+	//google.maps.event.addListener(infowindow, 'opened', function(){
+	//	jQuery('div.content', this.div_).jScrollPane({autoReinitialise: true});
+	//});
 
 	<?php
 	$points = get_posts('post_type=map_point&status=published&numberposts=-1');
 	$count = count($points);
 	for ($i = 0; $i < $count; $i++) {
 		$title = str_replace("'", '', $points[$i]->post_title);
-		$content = str_replace("'", '', $points[$i]->post_content);
+		$content = str_replace("'", '', nl2br($points[$i]->post_content));
+		$content = str_replace("\n", '', $content);
+		$content = str_replace("\r", '', $content);
 		$latitude = get_post_meta($points[$i]->ID, 'geo_latitude', true);
 		$longitude = get_post_meta($points[$i]->ID, 'geo_longitude', true);
 		
@@ -191,7 +197,7 @@ get_header();
 			google.maps.event.addListener(marker<?php echo $i?>, 'click', function(e) {
 				infowindow.setContent('<div class="title"><?php echo $title?></div><div class="content"><?php echo $content?></div>');
 				infowindow.open(map, marker<?php echo $i?>);
-				jQuery(".content").jScrollPane();
+				//infowindow.jScrollPane(); //doesn't work
 			});
 			<?php
 		} else {
