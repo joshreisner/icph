@@ -195,14 +195,14 @@ header {
 }
 
 footer {
-	overflow: auto; margin-bottom: 20px; .fontCondBold;
-	.copyright { float: left; margin-left: 20px; font-size: 11px; color: @gray_lighter; }
+	overflow: auto; margin-bottom: 20px; .font;
+	.copyright { float: left; margin-left: 20px; font-size: 11px; color: @gray_light; }
 	ul { 
-		float: right; list-style: none; margin: 0 20px 0 0; padding: 0; 
+		float: right; list-style: none; margin: 0 20px 0 0; padding: 0; .fontCondBold;
 		li {
 			float: left; margin: 0 0 0 20px; font-size: 16px; line-height: 16px; padding-top: 5px;
 			a { 
-				color: @gray_lighter; text-transform: uppercase; 
+				color: @gray_light; text-transform: uppercase; 
 				i { 
 					font-size: 26px; 
 				}
@@ -239,11 +239,14 @@ footer {
 				.bgDark; height: @timeline_lower_height; padding: @timeline_column_padding; 
 				img { margin: -@timeline_column_padding -@timeline_column_padding @timeline_paragraph_bottom -@timeline_column_padding; width: @timeline_column_width; height: auto; }
 				p { 
-					margin: @timeline_paragraph_bottom 0 0 0; 
-					&:first-child { margin-top: (@timeline_paragraph_bottom * 2); }
+					margin: @timeline_paragraph_bottom 0 0 0; line-height: 17px;
+					&:first-child { margin-top: @timeline_paragraph_bottom; }
 				}
 				a { .fontBold; }
-				a.more { position: absolute; bottom: @timeline_column_padding; left: @timeline_column_padding; .fontCondBold; text-transform: uppercase; }
+				a.more { 
+					position: absolute; bottom: @timeline_column_padding; left: @timeline_column_padding; .fontCondBold; text-transform: uppercase; 
+					&:hover span { text-decoration: underline; }
+				}
 				
 				.statistic {
 					text-align: right; font-size: 20px; color: #bebab1; .fontCondBold(); margin-top: 20px; 
@@ -400,8 +403,8 @@ footer {
 			float: left; margin-right: 20px; display: none; cursor: pointer; padding: @slider_padding @slider_padding @slider_padding @slider_padding; 
 			a { color: @white; border-bottom: 3px solid transparent; padding-bottom: 3px; }
 			&.first {
-				background-color: @gray_medium; color: @gray_light; display: inline; padding-right: 10px; 
-				i { color: @gray_light; }
+				background-color: @gray_medium; color: @gray_lighter; display: inline; padding-right: 10px; 
+				i { color: @gray_lighter; }
 			}
 			&.last { margin-right: 0; }
 			&:hover, &.active { a { border-color: @white; } }

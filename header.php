@@ -85,7 +85,7 @@ global $body_class;
 							<a href="#">Title&hellip;</a>
 						</li>
 						<li class="all">
-							<a href="#"><i class="icon-right-circle"></i> All Results</a>
+							<a href="#"><i class="icon-play-circled"></i> All Results</a>
 						</li>
 					</ul>
 				</li>
