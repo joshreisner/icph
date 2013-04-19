@@ -35,7 +35,11 @@ jQuery(function(){
 		jQuery(this).attr("placeholder", jQuery(this).attr("data-placeholder"));
 		jQuery(this).attr("data-placeholder", "");
 	});
-
+	
+	jQuery("li.search i").click(function(){
+		jQuery("input#search").val("");
+	});
+	
 	//initialize timeline if appropriate
 	if (jQuery("body").hasClass("timeline")) timeline.init();
 

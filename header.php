@@ -68,10 +68,16 @@ global $body_class;
 					<ul class="dropdown">
 						<li class="form">							
 							<form method="get" action="/">
-						        <input type="text" name="s" value="<?php the_search_query()?>" placeholder="What are you looking for?">
+								<?php
+								$posts = get_posts('numberposts=-1');
+								foreach ($posts as &$p) $p = '"' . str_replace('"', '', str_replace("'", '&quot;', $p->post_title)) . '"';
+								$posts = implode(',', $posts);
+								?>
+						        <input type="text" name="s" id="search" data-provide="typeahead" data-source='[<?php echo $posts?>]' value="<?php the_search_query()?>" placeholder="What are you looking for?">
 						        <i class="icon-cancel-circled"></i>
 							</form>
 						</li>
+						<!--
 						<li class="result">
 							<a href="#">The Tenement House Exhibiti&hellip;</a>
 						</li>
@@ -84,6 +90,7 @@ global $body_class;
 						<li class="result">
 							<a href="#">Title&hellip;</a>
 						</li>
+						-->
 						<li class="all">
 							<a href="#"><i class="icon-play-circled"></i> All Results</a>
 						</li>

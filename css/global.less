@@ -165,8 +165,8 @@ header {
 							span { display: block; float: left; }
 						}
 						&.form {
-							input { .fontBold; width: 201px; font-size: 13px; padding: 4px 2px; margin: 0 8px; }
-							i { color: @gray; position: absolute; top: 0; right: 10px; }
+							input { .fontBold; width: 184px; font-size: 13px; padding: 4px 19px 4px 2px; margin: 0 8px; }
+							i { color: @gray; position: absolute; top: 0; right: 10px; cursor: pointer; }
 							&:hover { .bg; }
 						}
 						&.all a { 
@@ -180,7 +180,14 @@ header {
 				}
 				
 				&.share { margin-right: 20px; }
-				&.search ul.dropdown { right: 20px; }
+				&.search ul.dropdown { 
+					right: 20px; 
+					ul.typeahead {
+						position: static; 
+						width:224px; 
+						li { overflow-x: hidden; }
+					}
+				}
 				&:hover {
 					a { border-bottom: 5px solid @beige; color: @beige; }
 					ul.dropdown {
@@ -191,6 +198,7 @@ header {
 			}
 		}
 		
+		&.typeahead { position: static; }
 	}
 }
 
