@@ -85,23 +85,23 @@ if ($feature = get_related_links('post', $era->ID)) $feature = get_post($feature
 			<div class="infographic_scroller">
 				<ul>
 					<li class="text">In 1900, two-thirds of New Yorkers lived in tenement houses.</li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/tenement.png" alt="Tenement" width="237" height="171"></li>
+					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/tenement.gif" alt="Tenement" width="237" height="171"></li>
 					<li class="text">In 1900, 30.6% of New Yorkers were 14. Only 2.8% were over 65.<cite>(Jackson)</cite></li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/age.png" alt="Age" width="174" height="172"></li>
+					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/age.gif" alt="Age" width="174" height="172"></li>
 					<li class="text">In 1918, low-income families of four spent an average of 45% of their income on food.<cite>(BLS)</cite></li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/money.png" alt="Money" width="201" height="130"></li>
+					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/money.gif" alt="Money" width="201" height="130"></li>
 					<li class="text">In 1914, a dozen eggs cost 50 cents&ndash;$11.36 in today's dollars.<cite>(BLS)</cite></li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/eggs.png" alt="Eggs" width="181" height="86"></li>
+					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/eggs.gif" alt="Eggs" width="181" height="86"></li>
 					<li class="text">In 1885, 27 out of 100 infants died before their first birthday.  By 1914, 9 out of 100 died&ndash;a 65% decrease.<cite>(Meyer)</cite></li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/infants.png" alt="Infants" width="325" height="107"></li>
+					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/infants.gif" alt="Infants" width="325" height="107"></li>
 					<li class="text">In 1900, only 6 in 10 school-aged children in New York were enrolled in school.  By 1920, 9 out of every 10 school age children were registered for school.</li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/education.png" alt="Education" width="271" height="126"></li>
+					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/education.gif" alt="Education" width="271" height="126"></li>
 					<li class="text">If you lived in a tenement you shared a toilet with about 7 people.  Often the bathroom was outside.</li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/toilet.png" alt="Toilet" width="358" height="166"></li>
+					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/toilet.gif" alt="Toilet" width="358" height="166"></li>
 					<li class="text">Between 1890 and 1920 the population of NYC increased 124%.<cite>Encyclopedia of New York City</cite></li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/population.png" alt="Population" width="228" height="162"></li>
+					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/population.gif" alt="Population" width="228" height="162"></li>
 					<li class="text">In 1910, 4 out of every 10 New Yorkers were born in another country.</li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/migration.png" alt="Migration" width="315" height="127"></li>
+					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/migration.gif" alt="Migration" width="315" height="127"></li>
 				</ul>
 			</div>
 		</div>
