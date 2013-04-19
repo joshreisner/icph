@@ -789,10 +789,12 @@ body.maps {
 	
 	#mapwrapper { position: fixed; width: 100%; height: 100%; }
 	
+	a.close { position: absolute; top: 4px; right: 4px; font-size: 16px; }
+	
 	div.infoBox {
 		.bg; width: 300px; height: 205px; padding: 10px; .font; font-size: 12px; .shadowed; 
 		margin: 0 0 30px -10px; position: relative;
-		div.title, h3 { .fontBold; margin-bottom: 6px; }
+		div.title { .fontCondBold; margin-bottom: 6px; font-size: 20px; display: block; width: 300px; line-height: 22px; }
 		div.content { height: 181px; overflow-y: scroll; }
 		a { 
 			color: @gray;
@@ -805,11 +807,21 @@ body.maps {
 	}
 	
 	div#description {
-		position: absolute; top: 60px; right: 10px; .bg; width: 400px; height: 240px; .shadowed;
-		.menubar { .bgDark; height: 20px; }
-		h3 { .fontCondBold; font-size: 16px; margin: 0 0 8px; margin: 10px; }
+		position: absolute; top: 60px; right: 10px; width: 400px; height: 240px; color: @white;
+		.bg_opacity(@blue, .8); 
+		h3 { 
+			.fontCondBold; font-size: 16px; margin: 0 0 8px; margin: 10px; 
+			&.minimized { display: none; }
+		}
 		.content {
-			.font; font-size: 12px; height: 170px; overflow: scroll; margin: 10px;
+			.font; font-size: 12px; height: 190px; overflow: scroll; margin: 10px;
+		}
+		&.minimized {
+			width: 200px; height: 40px;	cursor: pointer;
+			h3 { display: none; }
+			a.close { display: none; }
+			h3.minimized { display: block; }
+			.content { display: none; }
 		}
 	}
 }

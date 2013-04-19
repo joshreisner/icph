@@ -9,6 +9,7 @@ get_header();
 
 <style>
     html, body, #map { width:100%; height:100%; margin:0; padding:0; }
+    div.goog-slider-horizontal { display: none; }
 </style>
 
 <div id="mapwrapper">
@@ -20,11 +21,11 @@ get_header();
 		streetViewControl: false,
 		panControl: false,
 		scrollwheel: false,
-		zoomControl: false
+		zoomControl: false,
+		mapTypeControl: false,
+		opacitycontrol: false
 	});
 	var mapBounds = new google.maps.LatLngBounds(
-		//new google.maps.LatLng(20.682437, -74.027215),
-		//new google.maps.LatLng(40.880905, -73.901394)
 		new google.maps.LatLng(0.682437, -94.027215),
 		new google.maps.LatLng(60.880905, -53.901394)
 	);
@@ -150,7 +151,7 @@ get_header();
 	var maptiler = new klokantech.MapTilerMapType(map, mapGetTile, mapBounds, mapMinZoom, mapMaxZoom);
 	var opacitycontrol = new klokantech.OpacityControl(map, maptiler);
 
-	infowindow = new InfoBox({alignBottom:true});
+	infowindow = new InfoBox({alignBottom:true, closeBoxURL: ""});
 	
 	//doesn't work
 	//google.maps.event.addListener(infowindow, 'opened', function(){
@@ -195,9 +196,17 @@ get_header();
 			});
 			
 			google.maps.event.addListener(marker<?php echo $i?>, 'click', function(e) {
-				infowindow.setContent('<div class="title"><?php echo $title?></div><div class="content scroll-pane"><?php echo $content?></div>');
+				var content = document.createElement("div");
+				content.innerHTML = '<a class="close"><i class="icon-cancel-circled"></i></a><div class="title"><?php echo $title?></div><div class="content"><?php echo $content?></div>';
+
+				$(content).find("a.close").click(function(){
+					infowindow.close(map, marker<?php echo $i?>);
+				})
+				
+				//$(content).find("div.content").jScrollPane(); //works, but is invisible
+
+				infowindow.setContent(content);
 				infowindow.open(map, marker<?php echo $i?>);
-				//infowindow.jScrollPane(); //doesn't work
 			});
 			<?php
 		} else {
@@ -212,8 +221,9 @@ get_header();
 </script>
 
 <div id="description">
-	<div class="menubar"></div>
+	<a class="close"><i class="icon-cancel-circled"></i></a>
 	<h3>Settlement Houses in New York City: 1886 to 1929</h3>
+	<h3 class="minimized">Settlement Houses</h3>
 	<div class="content scroll-pane">
 		<p>Over the late nineteenth and early twentieth centuries many settlement houses opened in New York City. These settlements provided sites for the middle-class to live and provide assistance to the poor. This map shows the original location of these settlements, the poorest neighborhoods in the city at the time. Intended to be directed by the needs of the local community, settlements became important service providers in New York’s poor communities. Settlement workers also became leading advocates for social reforms using data collected in their work to support public playgrounds, housing reform, restrictions on child labor, and pensions for widowed mothers. Today many of these organizations continue to be important social service providers.</p>
 	</div>

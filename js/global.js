@@ -6,7 +6,7 @@
 jQuery(function(){
 	//@codekit-prepend "timeline.js";
 	//@codekit-prepend "overlay.js";
-	
+
 	//console log helper
 	if (typeof console === "undefined") window.console = { log: function () {} };
 
@@ -22,7 +22,6 @@ jQuery(function(){
 		}
 	});
 
-	
 	//header
 	jQuery("li.search").hover(function(){
 		jQuery(this).find("input").first().focus();
@@ -30,7 +29,7 @@ jQuery(function(){
 
 	//initialize timeline if appropriate
 	if (jQuery("body").hasClass("timeline")) timeline.init();
-	
+
 	//slider click
 	jQuery("#slider_policy li.first").click(function(){
 		jQuery(this).parent().toggleClass("active");
@@ -41,7 +40,7 @@ jQuery(function(){
 			$icon.removeClass("icon-minus-circled").addClass("icon-plus-circled");
 		}
 	});
-	
+
 	//set browse page accordion
 	jQuery("#browse").on("click", "h3", function(){
 		jQuery(this).parent().find("ul").slideToggle();
@@ -52,7 +51,7 @@ jQuery(function(){
 			$icon.removeClass("icon-minus-circled").addClass("icon-plus-circled");
 		}
 	});
-	
+
 	//set browse page links
 	jQuery("#browse .header a").click(function(){
 		jQuery("#browse .header a").removeClass("active");
@@ -67,10 +66,10 @@ jQuery(function(){
 			}
 		});
 	});
-	
+
 	//regular jscrollpane
 	jQuery('.scroll-pane').jScrollPane();
-	
+
 	//era page infographic scrollpane, has to be done differently
 	var element = jQuery(".infographics .inner div.infographic_scroller")
 		.jScrollPane()
@@ -96,5 +95,13 @@ jQuery(function(){
 		clearInterval(interval);
 	});
 
+	//map page description
+	jQuery("div#description a.close").click(function(e){
+		jQuery(this).parent().toggleClass("minimized");
+		e.stopPropagation();
+	});
+	jQuery("body").on("click", "div#description.minimized", function(){
+		jQuery(this).toggleClass("minimized");
+	});
 
 });
