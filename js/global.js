@@ -26,6 +26,15 @@ jQuery(function(){
 	jQuery("li.search").hover(function(){
 		jQuery(this).find("input").first().focus();
 	});
+	
+	//hide placeholder on focus
+	jQuery("input").focus(function(){
+		jQuery(this).attr("data-placeholder", jQuery(this).attr("placeholder"));
+		jQuery(this).attr("placeholder", "");
+	}).blur(function(){
+		jQuery(this).attr("placeholder", jQuery(this).attr("data-placeholder"));
+		jQuery(this).attr("data-placeholder", "");
+	});
 
 	//initialize timeline if appropriate
 	if (jQuery("body").hasClass("timeline")) timeline.init();
