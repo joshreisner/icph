@@ -97,6 +97,7 @@ html {
 /* template */
 header {
 	.bg_opacity(@gray, .8); .shadowed(); height: @header_height; position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+	overflow: visible;
 
 	a { 
 		color: @white; 
@@ -116,14 +117,14 @@ header {
 		&#nav {
 			right: 240px; top: 5px; 
 			li {
-				padding: 0 22px 0 0; margin: 0 20px 0 0; position: relative;
+				padding: 0 22px 0 0; margin: 0 20px 0 0; position: relative; 
 				a.main { display: block; font-size: 17px; line-height: 18px; padding: 10px 0; }
 				div.separator { background-color: @white; width: 2px; position: absolute; right: 0; top: 12px; height: 12px; }
 				ul { 
 					display: none;
 					.shadowed; position: fixed; top: @header_height; .bg; z-index: -1;
 					li { 
-						float: none; border-bottom: 1px solid @beige_dark; margin-right: 0; height: auto;
+						float: none; border-bottom: 1px solid @beige_dark; margin-right: 0; height: auto; z-index: 10;
 						display: block;
 						a {
 							display: block; width: 240px; padding: 10px; text-transform: none; font-size: 12px; .font; color: @gray; border-bottom: 0;
@@ -139,10 +140,12 @@ header {
 					&:hover { display: block; }			
 				}
 				&:hover {
+					overflow: auto; 
 					a.main { color: @beige; border-bottom: 5px solid @beige; }
 					ul {
-						display: block; 
+						display: block; overflow: auto;
 						li { height: auto; }
+						&:hover { display: block; }			
 					}
 				}
 				&.current_page_item a { color: @beige; border-bottom: 5px solid @beige; }

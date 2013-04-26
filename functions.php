@@ -46,6 +46,13 @@ $custom_fields = array(
 			'nullable'	=>true,
 		),
 	),
+	'map_point'=>array(
+		'era'=>array(
+			'type'		=>'select',
+			'title'		=>'Era',
+			'options'	=>$era_options,
+		),
+	),
 	'era'=>array(
 		'start_year'=>array(
 			'type'		=>'input',
@@ -288,8 +295,7 @@ function icph_editor_buttons($buttons) {
 }  
   
 //add custom styles
-add_filter('tiny_mce_before_init', 'icph_edtor_init');  
-function icph_edtor_init($settings) {  
+add_filter('tiny_mce_before_init', function($settings) {  
     $settings['style_formats'] = json_encode(
     	array(  
 	        array(  
@@ -307,7 +313,7 @@ function icph_edtor_init($settings) {
 	    )
     );
 	return $settings;  
-}
+});
 
 //fixing wordpress "feature" of putting checked categories on top
 add_filter('wp_terms_checklist_args', 'icph_checklist_args');
@@ -396,6 +402,15 @@ add_action('save_post', function($post_id) {
 
 //customize admin screens for various post types
 add_filter('manage_post_posts_columns', function($defaults) {
+    return array(
+    	'cb'=>'<input type="checkbox">',
+    	'title'=>'Title',
+    	'era'=>'Era',
+    	'date'=>'Date',
+    );
+});  
+
+add_filter('manage_map_point_posts_columns', function($defaults) {
     return array(
     	'cb'=>'<input type="checkbox">',
     	'title'=>'Title',
