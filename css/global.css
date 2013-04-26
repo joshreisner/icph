@@ -28,7 +28,7 @@ header ul#nav li ul:hover{display:block;}
 header ul#nav li:hover a.main{color:#eae3d9;border-bottom:5px solid #eae3d9;}
 header ul#nav li:hover ul{display:block;}header ul#nav li:hover ul li{height:auto;}
 header ul#nav li.current_page_item a{color:#eae3d9;border-bottom:5px solid #eae3d9;}
-header ul#tools{top:0;right:20px;}header ul#tools li{font-size:13px;height:48px;line-height:48px;position:relative;overflow:auto;}header ul#tools li a{padding-bottom:11px;}
+header ul#tools{top:0;right:20px;}header ul#tools li{font-size:13px;height:48px;line-height:48px;position:relative;}header ul#tools li a{padding-bottom:11px;}
 header ul#tools li ul.dropdown{background-color:#eae3d9;background-image:url(../img/background.png);-webkit-box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);-moz-box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);overflow:auto;display:none;z-index:-1;position:fixed;}header ul#tools li ul.dropdown li{float:none;border-top:1px solid #c8c1b9;margin:0;height:auto;overflow:auto;}header ul#tools li ul.dropdown li a{display:block;color:#383434;padding:6px 20px 6px 6px;line-height:23px;text-transform:none;white-space:nowrap;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;}header ul#tools li ul.dropdown li a i{color:#948f89;font-size:20px;display:block;float:left;margin-right:6px;}
 header ul#tools li ul.dropdown li a span{display:block;float:left;}
 header ul#tools li ul.dropdown li.form input{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;width:184px;font-size:13px;padding:4px 19px 4px 2px;margin:0 8px;}
