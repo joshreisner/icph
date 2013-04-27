@@ -62,6 +62,18 @@ $custom_fields = array(
 			'type'		=>'input',
 			'title'		=>'Description',
 		),
+		'map_title'=>array(
+			'type'		=>'input',
+			'title'		=>'Map Title',
+		),
+		'map_title_short'=>array(
+			'type'		=>'input',
+			'title'		=>'Short Title',
+		),
+		'map_description'=>array(
+			'type'		=>'textarea',
+			'title'		=>'Map Text',
+		),
 	)
 );
 
@@ -335,8 +347,7 @@ add_action('admin_menu', function(){
 				
 				if ($features['type'] == 'input' )  { 
 					$value = get_post_meta($post->ID, $name, true);
-					$meta_box_value = get_post_meta($post->ID, $name, true);
-					if (empty($meta_box_value)) $value = $features['default'];
+					if (empty($value)) $value = $features['default'];
 					echo '<input type="text" name="'. $name .'" id="'. $name .'"  value="' . $value . '">';
 				} elseif ($features['type'] ==  'select' ) {
 					$selected = get_post_meta($post->ID, $name, true);
@@ -372,6 +383,9 @@ add_action('admin_menu', function(){
 					echo '<input type="checkbox" name="' . $name . '" id="' . $name . '"';
 					//checked
 					echo '>';
+				} elseif ($features['type'] == 'textarea') {
+					$value = get_post_meta($post->ID, $name, true);
+					echo '<textarea style="width:170px; height:100px;" name="' . $name . '" id="' . $name . '">' . $value . '</textarea>';
 				}
 				
 				echo '<label for="' . $name . '" style="font-size: 12px; margin-left: 5px;">' . $features['title'] . '</label></div>';
@@ -390,6 +404,7 @@ add_action('save_post', function($post_id) {
 	foreach($custom_fields[$post->post_type] as $name=>$features) {  
 		if (!wp_verify_nonce($_POST[$name . '_noncename'], 'icph')) return $post_id;  
 		
+		$_POST[$name] = trim($_POST[$name]);
 		if (get_post_meta($post_id, $name) == "") {
 			add_post_meta($post_id, $name, $_POST[$name], true);  
 		} elseif ($_POST[$name] != get_post_meta($post_id, $name, true)) {

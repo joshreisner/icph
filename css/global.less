@@ -56,7 +56,7 @@
 
 /* globals */
 html {
-	min-height: 100%;
+	min-height: 100%; height: 100%; 
 	body {
 		.bg; margin: 0; .font; color: @gray;
 		a { 
@@ -794,19 +794,47 @@ footer {
 }
 
 body.maps {
-	height: 100%; position: relative;
-	iframe { width: 100%; height: 100%; margin: 0; border: 0; position: fixed; top: 0; left: 0; right: 0; bottom: 0; }
+
 	footer { display: none; }
 	
-	#mapwrapper { position: fixed; width: 100%; height: 100%; }
+	div.mapwrapper {
+		position: fixed; width: 100%; height: 100%; 
+		div.map { width:100%; height:100%; }
+		
+		&.early_ny { 
+			display: none; 
+			div#description { .bg_opacity(@purple, .8); }
+		}
+		&.nineteenth { 
+			display: none; 
+			div#description { .bg_opacity(@orange, .8); }
+		}
+		&.progressive { 
+			div#description { .bg_opacity(@blue, .8); }
+		}
+		&.great_depression { 
+			display: none; 
+			div#description { .bg_opacity(@red, .8); }
+		}
+		&.today { 
+			display: none; 
+			div#description { .bg_opacity(@green, .8); }
+		}
+	}
 	
 	a.close { position: absolute; top: 4px; right: 4px; font-size: 16px; }
 	
+	div.zoom {
+		color: @white; background-color: black; text-align: center; line-height: 30px; font-size: 20px; opacity: .5; width: 30px; height: 30px; cursor: pointer; position: absolute; left: 20px;
+		&.in { top: 70px; }
+		&.out { top: 110px; }
+	}
+	
 	div.infoBox {
-		.bg; width: 300px; height: 205px; padding: 10px; .font; font-size: 12px; .shadowed; 
+		.bg; width: 300px; padding: 10px; .font; font-size: 12px; .shadowed; 
 		margin: 0 0 30px -10px; position: relative;
 		div.title { .fontCondBold; margin-bottom: 6px; font-size: 20px; display: block; width: 300px; line-height: 22px; }
-		div.content { height: 181px; overflow-y: scroll; }
+		div.content { max-height: 181px; overflow-y: scroll; }
 		a { 
 			color: @gray;
 			&:hover { text-decoration: underline; }
@@ -815,17 +843,22 @@ body.maps {
 			&.alignleft { float: left; margin: 0 10px 10px 0; }
 			&.alignright { float: right; margin: 0 0 10px 10px; }
 		}
+		div.related { 
+			display: block; margin-top: 10px; 
+			ul { 
+				margin-top:5px;
+			}
+		}
 	}
 	
 	div#description {
-		position: absolute; top: 60px; right: 10px; width: 400px; height: 240px; color: @white;
-		.bg_opacity(@blue, .8); 
+		position: absolute; top: 60px; right: 10px; width: 400px; color: @white; 
 		h3 { 
 			.fontCondBold; font-size: 16px; margin: 0 0 8px; margin: 10px; 
 			&.minimized { display: none; }
 		}
 		.content {
-			.font; font-size: 12px; height: 190px; overflow: scroll; margin: 10px;
+			.font; font-size: 12px; height: 170px; overflow: scroll; margin: 10px; line-height: 18px;
 		}
 		&.minimized {
 			width: 200px; height: 40px;	cursor: pointer;
@@ -835,6 +868,9 @@ body.maps {
 			.content { display: none; }
 		}
 	}
+	
+	#slider { position: absolute; bottom: 20px; }
+	#slider_policy { display: none; }
 }
 
 #browse {
