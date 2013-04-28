@@ -34,6 +34,7 @@ foreach ($eras as $era) {
 			zoomControl: false,
 			mapTypeControl: false,
 			zoom: 14,
+			backgroundColor: '#d8d1c9',
 			center: new google.maps.LatLng(40.725, -73.965)
 		});
 			
