@@ -22,20 +22,38 @@ var overlay = {
 				});
 				
 				//affix
-				jQuery(".navigation").affix({offset:143});
+				jQuery(".navigation").affix({offset:108});
 				
 				//jscrollpane
 				jQuery('.scroll-pane').jScrollPane();
 				
+				//close on click outside
 				jQuery("#overlay_backdrop").click(function(){
 					overlay.hide();
 					location.href = "#";
 				});
 				
+				//arrows
 				jQuery("a.arrow").click(function(e){
 					e.stopPropagation();
 				});
 				
+				//open attachment overlay
+				jQuery("a.enlarge").click(function(e){
+					e.preventDefault();
+					jQuery("div.body").hide();
+					jQuery("div.header a.close").hide();
+					jQuery("div.header a.back").show();
+					jQuery("div.attachments").show();
+				});
+				
+				jQuery("a.back").click(function(e){
+					e.preventDefault();
+					jQuery("div.body").show();
+					jQuery("div.header a.close").show();
+					jQuery("div.header a.back").hide();
+					jQuery("div.attachments").hide();
+				});
 			},
 			error : function() {
 				//must clear this bad URL

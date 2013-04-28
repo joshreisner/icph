@@ -453,11 +453,12 @@ footer {
 		h1 {
 			position: absolute; bottom: @overlay_padding; left: @overlay_padding; width: @overlay_content_width; line-height: 30px;
 		}
-		a.close { 
-			text-transform: uppercase; top: 10px; right: 10px; font-size: 12px; position: absolute; 
-			i { font-size: 14px; margin-left: 3px; }
+		a.close, a.back { 
+			text-transform: uppercase; top: 10px; right: 10px; font-size: 12px; position: absolute; line-height: 22px; 
+			span { float: left; }
+			i { float: left; font-size: 17px; margin-top: -1px; }
+			&.back { display: none; }
 		}
-		h3 { color: @white; margin: 0; height: 36px; line-height: 36px; position: absolute; bottom: 0; right: 0; width: (@overlay_navigation_width - @overlay_padding); padding: 0 0 0 @overlay_padding; }
 	}
 	
 	div.body {
@@ -466,7 +467,12 @@ footer {
 		div.content {
 			width: @overlay_content_width; float: left; font-size: 14px; line-height: 18px; 
 			div.featured_image {
+				position: relative;
 				img { width: @overlay_content_width; height: auto; }
+				a.enlarge {
+					color: @white; position: absolute; bottom: 20px; right: 10px; font-size: 20px; .opacity(.5); 
+					&:hover { .opacity(1); background-color: transparent; }
+				}
 			}
 			div.inner {
 				padding: (@overlay_padding / 2) (@overlay_padding * 2); 
@@ -498,9 +504,11 @@ footer {
 			}
 		}
 		div.navigation { 
-			position: relative; width: @overlay_navigation_width; float: left; font-size: 12px;
+			position: absolute; width: @overlay_navigation_width; float: left; font-size: 12px; top: 61px; right: 0;
+			h3 { color: @white; margin: 0; font-size: 20px; height: 36px; line-height: 36px; width: (@overlay_navigation_width - @overlay_padding); padding: 0 0 0 @overlay_padding; }
+			div.scroll-pane { height: @overlay_navigation_height; overflow: auto; }
 			ul {
-				list-style: none; padding: 0; margin: 0; height: @overlay_navigation_height; overflow-y: scroll; display: block;
+				list-style: none; padding: 0; margin: 0; width: @overlay_navigation_width; overflow-y: scroll; display: block;
 				li { 
 					border-bottom: 1px solid @blue_light; border-left: 1px solid @blue_light; padding: (@overlay_padding / 2) @overlay_padding;
 					a { 
@@ -511,7 +519,18 @@ footer {
 					&:hover, &.active { .bgDark; }
 				}
 			}
+			div.jspPane { overflow-x: visible; width: @overlay_navigation_width; }
+			div.jspVerticalBar {
+				position: absolute; right: 4px;
+			}
 			&.affix { position: fixed; top: 0; left: 50%; margin-left: ((@overlay_content_width + @overlay_navigation_width) / 2) - @overlay_navigation_width; }
+		}
+	}
+	
+	div.attachments {
+		div.image {
+			margin: 20px auto; text-align: center; 
+			img { max-width: 880px; height: auto; }
 		}
 	}
 	
@@ -520,10 +539,10 @@ footer {
 			color: @purple; 
 			&:hover { background-color: @purple_light; }
 		}
-		div.navigation strong { color: @purple; }
-		div.header { 
-			background-color: @purple_light; 
+		div.header { background-color: @purple_light; }
+		div.navigation {
 			h3 { background-color: @purple; }
+			strong { color: @purple; }
 		}
 		div.related {
 			h3 { color: @purple; }
@@ -535,10 +554,10 @@ footer {
 			color: @orange; 
 			&:hover { background-color: @orange_light; }
 		}
-		div.navigation strong { color: @orange; }
-		div.header { 
-			background-color: @orange_light; 
+		div.header { background-color: @orange_light; }
+		div.navigation {
 			h3 { background-color: @orange; }
+			strong { color: @orange; }
 		}
 		div.related {
 			h3 { color: @orange; }
@@ -550,10 +569,10 @@ footer {
 			color: @blue; 
 			&:hover { background-color: @blue_light; }
 		}
-		div.navigation strong { color: @blue; }
-		div.header { 
-			background-color: @blue_light; 
+		div.header { background-color: @blue_light; }
+		div.navigation {
 			h3 { background-color: @blue; }
+			strong { color: @blue; }
 		}
 		div.related {
 			h3 { color: @blue; }
@@ -565,10 +584,10 @@ footer {
 			color: @red; 
 			&:hover { background-color: @red_light; }
 		}
-		div.navigation strong { color: @red; }
-		div.header { 
-			background-color: @red_light; 
+		div.header { background-color: @red_light; }
+		div.navigation {
 			h3 { background-color: @red; }
+			strong { color: @red; }
 		}
 		div.related {
 			h3 { color: @red; }
@@ -580,10 +599,10 @@ footer {
 			color: @green; 
 			&:hover { background-color: @green_light; }
 		}
-		div.navigation strong { color: @green; }
-		div.header { 
-			background-color: @green_light; 
+		div.header { background-color: @green_light; }
+		div.navigation {
 			h3 { background-color: @green; }
+			strong { color: @green; }
 		}
 		div.related {
 			h3 { color: @green; }
@@ -825,7 +844,7 @@ body.maps {
 	a.close { position: absolute; top: 4px; right: 4px; font-size: 16px; }
 	
 	div.zoom {
-		color: @white; background-color: black; text-align: center; line-height: 30px; font-size: 20px; opacity: .5; width: 30px; height: 30px; cursor: pointer; position: absolute; left: 20px;
+		color: @white; background-color: black; text-align: center; line-height: 30px; font-size: 20px; .opacity(.5); width: 30px; height: 30px; cursor: pointer; position: absolute; left: 20px;
 		&.in { top: 70px; }
 		&.out { top: 110px; }
 	}

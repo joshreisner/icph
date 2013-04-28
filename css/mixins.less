@@ -27,6 +27,16 @@
      
 }
 
+.opacity(@opacity: 0.5) {
+	@ieOpacity: @opacity * 100;
+	   -moz-opacity: @opacity;
+	 -khtml-opacity: @opacity;
+	-webkit-opacity: @opacity;
+	     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{ieOpacity})";
+	         filter: ~"alpha(opacity=@{ieOpacity})";
+	        opacity: @opacity;
+}
+
 .rounded(@diameter) {
 	width: @diameter; height: @diameter; border-radius: (@diameter / 2); overflow: hidden;
 }

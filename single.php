@@ -17,16 +17,19 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 <div id="overlay" class="<?php echo $era->post_name?>">
 	<div class="header">
 		<h1><?php echo $post->post_title?></h1>
-		<a href="#" class="close">Close <i class="icon-remove-circle icon-large"></i></a>
-		<h3>Articles</h3>
+		<a href="#" class="close"><span>Close</span> <i class="icon-cancel-circled"></i></a>
+		<a href="#" class="back"><span>Back to Article</span> <i class="icon-cancel-circled"></i></a>
 	</div>
 	
 	<div class="body">
 		<div class="content">
 			<!-- <img src="<?php bloginfo('template_directory');?>/img/placeholder/gordon-family-m2.jpg" alt="gordon-family-m2" width="640" height="282" /> -->
-			<?php 
-			if (has_post_thumbnail()) echo '<div class="featured_image">'. get_the_post_thumbnail($post->ID, 'large') . '</div>';
-			?>
+			<?php if (has_post_thumbnail()) {?>
+				<div class="featured_image">
+					<?php echo get_the_post_thumbnail($post->ID, 'large')?>
+					<a class="enlarge"><i class="icon-plus-circled"></i></a>
+				</div>
+			<?php } ?>
 
 			<div class="inner">
 				<?php the_content()?>
@@ -46,7 +49,9 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 			
 		</div>
 		<div class="navigation">
-			<ul class="scroll-pane">
+			<h3>Articles</h3>
+			<div class="scroll-pane">
+				<ul>
 				<?php
 				$nav_array = array(); //for getting previous and next
 				$exclude = array();
@@ -66,8 +71,24 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 					</a>
 				</li>
 				<?php }?>
-			</ul>
+				</ul>
+			</div>
 		</div>
+	</div>
+	
+	<div class="attachments">
+		<?php
+		if ($images = get_posts(array('post_parent'=>$post->ID, 'post_type'=>'attachment', 'numberposts'=>-1, 'post_mime_type'=>'image'))) {
+			foreach ($images as $image) {
+				$url = wp_get_attachment_url($image->ID);
+				//$image = wp_get_attachment_image_src($image->ID, 'full');
+				$description = apply_filters('the_description', $image->post_content);
+				$title = apply_filters('the_title', $image->post_title);
+				
+				echo '<div class="image"><img src="' . $url . '"></div>';
+			}
+		}
+		?>	
 	</div>
 </div>
 
