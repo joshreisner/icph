@@ -38,15 +38,6 @@ var overlay = {
 					e.stopPropagation();
 				});
 				
-				//open attachment overlay
-				jQuery("a.enlarge").click(function(e){
-					e.preventDefault();
-					jQuery("div.body").hide();
-					jQuery("div.header a.close").hide();
-					jQuery("div.header a.back").show();
-					jQuery("div.attachments").show();
-				});
-				
 				jQuery("a.back").click(function(e){
 					e.preventDefault();
 					jQuery("div.body").show();

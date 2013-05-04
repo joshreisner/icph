@@ -75,21 +75,6 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 			</div>
 		</div>
 	</div>
-	
-	<div class="attachments">
-		<?php
-		if ($images = get_posts(array('post_parent'=>$post->ID, 'post_type'=>'attachment', 'numberposts'=>-1, 'post_mime_type'=>'image'))) {
-			foreach ($images as $image) {
-				$url = wp_get_attachment_url($image->ID);
-				//$image = wp_get_attachment_image_src($image->ID, 'full');
-				$description = apply_filters('the_description', $image->post_content);
-				$title = apply_filters('the_title', $image->post_title);
-				
-				echo '<div class="image"><img src="' . $url . '"></div>';
-			}
-		}
-		?>	
-	</div>
 </div>
 
 <?php

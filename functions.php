@@ -462,3 +462,24 @@ add_filter('pre_get_posts', function($wp_query) {
 		$wp_query->set('order', 'ASC');
 	}
 });
+
+
+//adding custom document checkbox to the attachment
+add_filter('attachment_fields_to_edit', function($form_fields, $post) {
+    $document = (bool) get_post_meta($post->ID, 'document', true);
+	$form_fields['document'] = array(
+		'label' => 'Document',
+		'input' => 'html',
+	    'html' => '<label for="attachments-'.$post->ID.'-document"><input type="checkbox" id="attachments-' . $post->ID . '-document" name="attachments[' . $post->ID . '][document]"' . ($document ? ' checked="checked"' : '') . '></label>',
+		'value' => $document,
+		'helps' => '',
+	);
+	return $form_fields;
+}, 10, 2);
+
+add_filter('attachment_fields_to_save', function($post, $attachment) {
+    update_post_meta($post['ID'], 'document', (($attachment['document'] == 'on') ? '1' : '0'));  
+    return $post;  
+}, null, 2 );
+
+
