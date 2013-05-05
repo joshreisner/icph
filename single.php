@@ -18,18 +18,17 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 	<div class="header">
 		<h1><?php echo $post->post_title?></h1>
 		<a href="#" class="close"><span>Close</span> <i class="icon-cancel-circled"></i></a>
-		<a href="#" class="back"><span>Back to Article</span> <i class="icon-cancel-circled"></i></a>
 	</div>
 	
 	<div class="body">
 		<div class="content">
-			<!-- <img src="<?php bloginfo('template_directory');?>/img/placeholder/gordon-family-m2.jpg" alt="gordon-family-m2" width="640" height="282" /> -->
-			<?php if (has_post_thumbnail()) {?>
-				<div class="featured_image">
-					<?php echo get_the_post_thumbnail($post->ID, 'large')?>
-					<a class="enlarge"><i class="icon-plus-circled"></i></a>
-				</div>
-			<?php } ?>
+			<?php 
+			if (has_post_thumbnail()) {
+				echo '<a class="featured_image" href="' . icph_img(get_post_thumbnail_id($post->ID)) . '" title="' . the_title_attribute('echo=0') . '" >';
+				echo get_the_post_thumbnail($post->ID, 'large');
+				echo '<i class="icon-plus-circled"></i></a>';
+			}
+			?>
 
 			<div class="inner">
 				<?php the_content()?>
@@ -49,7 +48,11 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 			
 		</div>
 		<div class="navigation">
-			<h3>Articles</h3>
+			<h3>
+				<a class="articles active">Articles</a>
+				<a class="imagery">Imagery</a>
+				<a class="documents">Documents</a>
+			</h3>
 			<div class="scroll-pane">
 				<ul>
 				<?php
@@ -64,14 +67,18 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 				foreach ($posts as $p) {
 					$nav_array[$p->post_name] = $p->post_title; //for prev and next
 					?>
-				<li<?php if ($p->post_name == $post->post_name) {?> class="active"<?php }?>>
-					<a href="#<?php echo $p->post_name?>">
-						<strong><?php echo $p->post_title?></strong>
-						<!-- <?php echo $p->post_excerpt?> -->
+				<li>
+					<a href="#<?php echo $p->post_name?>"<?php if ($p->post_name == $post->post_name) {?> class="active"<?php }?>>
+						<?php echo $p->post_title?>
 					</a>
 				</li>
 				<?php }?>
 				</ul>
+				
+				<h4>Era Imagery<a href="/browse/?type=imagery">View All</a></h4>
+				
+				<h4>Era Documents<a href="/browse/?type=documents">View All</a></h4>
+				
 			</div>
 		</div>
 	</div>

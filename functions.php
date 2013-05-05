@@ -292,6 +292,14 @@ function icph_ul($elements, $arguments=array()) {
 	return $return . '>' . implode('', $elements) . '</ul>';
 }
 
+function icph_img($image_id) {
+	return str_replace(site_url('/'), '#', get_permalink($image_id));
+}
+
+function icph_post($post_id) {
+	return str_replace(site_url('/'), '#', get_permalink($post_id));
+}
+
 //custom stylesheet for tinymce
 add_filter('mce_css', 'icph_editor_style');  
 function icph_editor_style($url) {  
@@ -483,3 +491,10 @@ add_filter('attachment_fields_to_save', function($post, $attachment) {
 }, null, 2 );
 
 
+//fix attachment image margins
+add_filter('img_caption_shortcode', function($current_html, $attr, $content) {
+	extract(shortcode_atts(array('id'=>'', 'align'=>'alignnone', 'width'=>'', 'caption'=>''), $attr));
+	if (1 > (int) $width || empty($caption)) return $content;
+	if ($id) $id = 'id="' . esc_attr($id) . '" ';
+	return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: ' . ((int) $width) . 'px">' . do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
+}, 10, 3 );

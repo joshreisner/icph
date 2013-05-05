@@ -2,6 +2,7 @@ var overlay = {
 	show : function(hash) {
 		if (hash === "#") return this.hide();
 	
+		jQuery("div#overlay_backdrop").remove();
 		jQuery("body").append("<div id='overlay_loading'></div>");
 		
 		jQuery.ajax({
@@ -22,7 +23,12 @@ var overlay = {
 				});
 				
 				//affix
-				jQuery(".navigation").affix({offset:108});
+				jQuery(".navigation").affix({offset:60});
+				
+				//set the height of the side nav
+				//window.alert($(window).height());
+				var windowHeight = jQuery(window).height() - 36;
+				jQuery("div.navigation .scroll-pane").css({height: windowHeight + 'px'});
 				
 				//jscrollpane
 				jQuery('.scroll-pane').jScrollPane();
