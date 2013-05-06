@@ -7,11 +7,12 @@ if (empty($_GET['overlay'])) {
 
 the_post();
 
+//get era information
 $era_id = get_post_meta($post->post_parent, 'era', true); //does get_post_meta cache?  if so i could make this a one-liner
 foreach ($eras as $era) if ($era->ID == $era_id) break;
 
+//get image properties
 list($url, $width, $height) = wp_get_attachment_image_src($post->ID, 'extra-large');
-
 $orientation = ($width > $height) ? 'landscape' : 'portrait';
 
 ?>
@@ -32,14 +33,19 @@ $orientation = ($width > $height) ? 'landscape' : 'portrait';
 		<?php }?>
 	</div>
 </div>
-
 <?php
+
 //prev and next
 $nav_array = array();
+$parent = get_post($post->post_parent);
+$siblings = get_posts('post_type=attachment&post_status=any&post_parent=' . $post->post_parent);
+foreach ($siblings as $sibling) {
+	$nav_array[$parent->post_name . '/' . $sibling->post_name] = $sibling->post_title; //for prev and next
+}
 
 $prev = $next = $last = false;
 foreach ($nav_array as $key=>$value) {
-	if ($key == $post->post_name) {
+	if ($key == $parent->post_name . '/' . $post->post_name) {
 		$prev = $last;
 	} elseif ($prev) {
 		$next = array('slug'=>$key, 'title'=>$value); 

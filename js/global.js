@@ -68,7 +68,8 @@ jQuery(function(){
 	});
 
 	//set browse page links
-	jQuery("#browse .header a").click(function(){
+	jQuery("#browse .header a").click(function(e){
+		e.preventDefault();
 		jQuery("#browse .header a").removeClass("active");
 		jQuery(this).addClass("active");
 		var type = jQuery(this).html().toLowerCase();
