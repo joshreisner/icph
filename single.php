@@ -22,13 +22,18 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 	
 	<div class="body">
 		<div class="content">
-			<?php 
-			if (has_post_thumbnail()) {
-				echo '<a class="featured_image" href="' . icph_img(get_post_thumbnail_id($post->ID)) . '" title="' . the_title_attribute('echo=0') . '" >';
-				echo get_the_post_thumbnail($post->ID, 'large');
-				echo '<i class="icon-plus-circled"></i></a>';
-			}
-			?>
+			<?php  if (has_post_thumbnail()) {
+				$thumbnail_id = get_post_thumbnail_id($post->ID);
+				$thumbnail = get_posts(array('p' => $thumbnail_id, 'post_type'=>'attachment'));
+				?>
+				<div class="featured_image">
+					<?php echo get_the_post_thumbnail($post->ID, 'large')?>
+					<a class="featured_image" href="<?php echo icph_img($thumbnail_id)?>">
+						<?php echo $thumbnail[0]->post_excerpt?>
+						<i class="icon-zoom-in"></i>
+					</a>
+				</div>
+			<?php }?>
 
 			<div class="inner">
 				<?php the_content()?>
@@ -56,7 +61,7 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 			<div class="scroll-pane">
 				<ul>
 				<?php
-				$nav_array = array(); //for getting previous and next
+				$nav_array = $era_posts = array(); //for getting previous and next
 				$exclude = array();
 				$featured = get_related_links('post', $era->ID);
 				foreach ($featured as &$feature) {
@@ -65,6 +70,7 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 				}
 				$posts = array_merge($featured, get_posts('numberposts=-1&exclude=' . implode(',', $exclude) . '&meta_key=era&meta_value=' . $era->ID));
 				foreach ($posts as $p) {
+					$era_posts[] = $p->ID;
 					$nav_array[$p->post_name] = $p->post_title; //for prev and next
 					?>
 				<li>
@@ -75,10 +81,44 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 				<?php }?>
 				</ul>
 				
-				<h4>Era Imagery<a href="/browse/?type=imagery">View All</a></h4>
+				<?php
+				//get attachments
+				$posts = get_posts('numberposts=-1&post_type=attachment&post_status=any');
+				$images = $documents = array();
+				foreach ($posts as $p) {
+					if (!in_array($p->post_parent, $era_posts)) continue; //remove non-era attachments
+					if (get_post_meta($p->ID, 'document', true) == 1) {
+						if (count($documents) < 6) $documents[] = $p;
+					} else {
+						if (count($images) < 6) $images[] = $p;
+					}
+				}
+				?>
+				<div class="gallery images">
+					<h4>Era Imagery<a href="/browse/?type=imagery">View All</a></h4>
+					<?php
+					foreach ($images as $image) {
+						list($url, $width, $height) = wp_get_attachment_image_src($image->ID, 'medium');
+						$orientation = ($width > $height) ? 'landscape' : 'portrait';
+						?>
+						<img src="<?php echo $url?>" width="<?php echo $width?>" height="<?php echo $height?>" class="<?php echo $orientation?>">
+						<?php
+					}
+					?>
+				</div>
 				
-				<h4>Era Documents<a href="/browse/?type=documents">View All</a></h4>
-				
+				<div class="gallery documents">
+					<h4>Era Documents<a href="/browse/?type=documents">View All</a></h4>
+					<?php
+					foreach ($documents as $document) {
+						list($url, $width, $height) = wp_get_attachment_image_src($document->ID, 'medium');
+						$orientation = ($width > $height) ? 'landscape' : 'portrait';
+						?>
+						<img src="<?php echo $url?>" width="<?php echo $width?>" height="<?php echo $height?>" class="<?php echo $orientation?>">
+						<?php
+					}
+					?>
+				</div>
 			</div>
 		</div>
 	</div>

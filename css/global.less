@@ -472,11 +472,13 @@ footer {
 
 		div.content {
 			width: @overlay_content_width; float: left; font-size: 14px; line-height: 18px; 
-			a.featured_image {
-				position: relative; display: block;
-				img { width: @overlay_content_width; height: auto; }
-				i { color: @white; position: absolute; bottom: 20px; right: 10px; font-size: 20px; .opacity(.5); }
-				&:hover i { .opacity(1); }
+			div.featured_image {
+				position: relative; 
+				img { width: @overlay_content_width; height: auto; display: block; }
+				a {
+					.fontCondBold; position: absolute; color: @white; display: block; left: 0; right: 0; bottom: 0; padding: (@overlay_padding / 2) (@overlay_padding * 2); min-height: 30px;
+					i { color: @white; position: absolute; right: 10px; bottom: 10px; font-size: 20px; }
+				}
 			}
 			div.inner {
 				padding: (@overlay_padding / 2) (@overlay_padding * 2); 
@@ -517,13 +519,6 @@ footer {
 					&:first-child { margin-left: 0; }
 				}
 			}
-			h4 { 
-				font-size: 24px; color: @gray_light; .fontCondBold; padding: @overlay_navigation_padding; position: relative;
-				a { 
-					color: @gray; text-transform: uppercase; font-size: 14px; 
-					position: absolute; right: 0; bottom: @overlay_navigation_padding + 4; 
-				 }
-			}
 			ul {
 				list-style: none; padding: 0; margin: 0; width: @overlay_navigation_width; overflow-y: scroll; display: block;
 				li { 
@@ -538,7 +533,22 @@ footer {
 			div.jspVerticalBar { position: absolute; right: 4px; }
 			&.affix, &.affix-bottom { 
 				position: fixed; top: 0; left: 50%; height: 100%; margin-left: ((@overlay_content_width + @overlay_navigation_width) / 2) - @overlay_navigation_width; 
-				.scroll-pane { height: 100%; }
+				.scroll-pane { height: 100%; padding-bottom: @overlay_navigation_padding; }
+			}
+			div.gallery {
+				border-bottom: 1px solid @blue_light; overflow: auto; padding-bottom: 20px;
+				h4 { 
+					font-size: 24px; color: @gray_light; .fontCondBold; padding: @overlay_navigation_padding; position: relative;
+					a { 
+						color: @gray; text-transform: uppercase; font-size: 14px; 
+						position: absolute; right: 0; bottom: @overlay_navigation_padding + 4; 
+					 }
+				}
+				img {
+					width: auto; height: auto; margin: 0 0 15px 15px;
+					&.portrait { height: 137px; }
+					&.landscape { width: 137px; }
+				}
 			}
 		}
 	}
@@ -606,7 +616,8 @@ footer {
 		}
 	}
 	&.progressive {
-		div.content a {
+		div.featured_image a { .bg_opacity(@blue, .8); }
+		div.content div.inner a {
 			color: @blue; 
 			&:hover { background-color: @blue_light; }
 		}
