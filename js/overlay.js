@@ -33,6 +33,19 @@ var overlay = {
 				//jscrollpane
 				jQuery('.scroll-pane').jScrollPane();
 				
+				//magnifying glass
+				var mGlass = false;
+				jQuery(".attachment a.mag").click(function(){
+					if (mGlass) {
+						jQuery(this).html("<i class='icon-zoom-in'></i> Magnifying Glass On");
+						mGlass = false;
+						jQuery("#overlay div.body").html(jQuery("div.mglass_picture_box").html());
+					} else {
+						jQuery(this).html("<i class='icon-zoom-out'></i> Magnifying Glass Off");
+						mGlass = new MGlass("zoomable", jQuery("#zoomable").attr("data-full"));
+					}
+				});
+				
 				//close on click outside
 				jQuery("#overlay_backdrop").click(function(){
 					overlay.hide();

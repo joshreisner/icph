@@ -2,6 +2,7 @@
 //@codekit-prepend "jquery.mousewheel.js";
 //@codekit-prepend "jquery.jscrollpane.js";
 //@codekit-prepend "bootstrap.js";
+//@codekit-prepend "mglass.js";
 
 jQuery(function(){
 	//@codekit-prepend "timeline.js";

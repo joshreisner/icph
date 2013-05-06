@@ -460,10 +460,13 @@ footer {
 		h1 {
 			position: absolute; bottom: @overlay_padding; left: @overlay_padding; width: @overlay_content_width; line-height: 30px;
 		}
-		a.close { 
-			color: @gray; text-transform: uppercase; top: 10px; right: 10px; font-size: 12px; position: absolute; line-height: 22px; 
-			span { float: left; }
-			i { float: left; font-size: 17px; margin-top: -1px; }
+		a {
+			color: @gray; text-transform: uppercase; 
+			&.close { 
+				top: 10px; right: 10px; font-size: 12px; line-height: 22px; position: absolute; 
+				span { float: left; }
+				i { float: left; font-size: 17px; margin-top: -1px; }
+			}
 		}
 	}
 	
@@ -558,18 +561,49 @@ footer {
 			h1 { 
 				font-size: 22px; top: 20px;
 			}
+			.attachment { 
+				position: absolute; top: 60px; left: @overlay_padding;
+				a { float: left; margin-right: @overlay_padding * 2; }
+			}
 		}
 		div.body {
-			margin: 20px auto; text-align: center; 
+			margin: 20px auto;  
 			img { 
-				width: auto; height: auto;
+				/* width: auto; height: auto;
 				&.portrait { height: @image_max; }
 				&.landscape { width: @image_max; }
+				*/
+				max-width: 100%; width: auto\9; margin: 0 auto; display: block;
 			}
 			div.transcript {
 				text-align: left; width: @image_max; margin: @overlay_padding auto; font-size: 14px;
 				h2 { color: @gray_lighter; .fontCondBold; }
 			}
+			.mglass_wrapper {
+				cursor: url(blank.cur),default; margin: 0 auto;
+			}
+			.mglass_picture_box {
+				zoom: 1.0;
+				z-index: 1;
+			}
+			.mglass_viewer {
+				position: absolute;
+				visibility: hidden;
+				width: 150px; 
+				height: 150px;
+				z-index: 2;
+				overflow: hidden;	
+				margin-left: -238px;
+			
+				-moz-border-radius: 75px;
+				-webkit-border-radius: 75px;
+				-khtml-border-radius: 75px;
+				border-radius: 75px;
+				
+				-moz-box-shadow: 15px 15px 30px #000000;
+				-webkit-box-shadow: 15px 15px 30px #000000;
+				box-shadow: 15px 15px 30px #000000;
+			}			
 		}
 	}
 	

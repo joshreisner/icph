@@ -81,7 +81,7 @@ $custom_fields = array(
 add_theme_support('post-thumbnails'); 
 set_post_thumbnail_size($thumbnail_diameter, $thumbnail_diameter); //wonder if there's a way to set medium to 226/0 and large to 640/0
 add_image_size('era-landing', 160, 229); //for the era landing page
-add_image_size('extra-large', 880, 880); //for the view image overlay page
+//add_image_size('extra-large', 880, 880); //for the view image overlay page
 
 //register custom post types
 add_action('init', function() {

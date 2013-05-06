@@ -12,18 +12,31 @@ $era_id = get_post_meta($post->post_parent, 'era', true); //does get_post_meta c
 foreach ($eras as $era) if ($era->ID == $era_id) break;
 
 //get image properties
-list($url, $width, $height) = wp_get_attachment_image_src($post->ID, 'extra-large');
+list($url, $width, $height) = wp_get_attachment_image_src($post->ID, 'large');
+list($full_url, $full_width, $full_height) = wp_get_attachment_image_src($post->ID, 'full');
 $orientation = ($width > $height) ? 'landscape' : 'portrait';
+
+//download link?
+$download = $wpdb->get_var($wpdb->prepare("SELECT guid FROM $wpdb->posts WHERE post_parent = %d AND post_title = %s AND post_mime_type = 'application/pdf' AND post_type='attachment'", $post->post_parent, $post->post_title));
 
 ?>
 <div id="overlay" class="image <?php echo $era->post_name?>">
 	<div class="header">
 		<h1><?php echo $post->post_title?></h1>
 		<a href="<?php echo icph_post($post->post_parent)?>" class="close"><span>Back to Article</span> <i class="icon-cancel-circled"></i></a>
+		<div class="attachment">
+			<?php if ($download) {?>
+			<a href="<?php echo $download?>">Download as .PDF</a>
+			<?php }
+			if (!empty($post->post_content)) {?>
+			<a class="transcript">Transcript</a>
+			<?php }?>
+			<a class="mag"><i class="icon-zoom-in"></i> Magnifying Glass On</a>
+		</div>
 	</div>
 	
 	<div class="body">
-		<img src="<?php echo $url?>" width="<?php echo $width?>" height="<?php echo $height?>" class="<?php echo $orientation?>">
+		<img src="<?php echo $url?>" width="<?php echo $width?>" height="<?php echo $height?>" class="<?php echo $orientation?>" id="zoomable" data-full="<?php echo $full_url?>">
 		
 		<?php if (!empty($post->post_content)) {?>
 			<div class="transcript">
@@ -38,7 +51,7 @@ $orientation = ($width > $height) ? 'landscape' : 'portrait';
 //prev and next
 $nav_array = array();
 $parent = get_post($post->post_parent);
-$siblings = get_posts('post_type=attachment&post_status=any&post_parent=' . $post->post_parent);
+$siblings = get_posts('post_type=attachment&post_status=any&post_mime_type=image&post_parent=' . $post->post_parent);
 foreach ($siblings as $sibling) {
 	$nav_array[$parent->post_name . '/' . $sibling->post_name] = $sibling->post_title; //for prev and next
 }
