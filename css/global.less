@@ -475,12 +475,16 @@ footer {
 
 		div.content {
 			width: @overlay_content_width; float: left; font-size: 14px; line-height: 18px; 
-			div.featured_image {
-				position: relative; 
+			a.featured_image {
+				display:block; position: relative; 
 				img { width: @overlay_content_width; height: auto; display: block; }
-				a {
-					.fontCondBold; position: absolute; color: @white; display: block; left: 0; right: 0; bottom: 0; padding: (@overlay_padding / 2) (@overlay_padding * 2); min-height: 30px;
-					i { color: @white; position: absolute; right: 10px; bottom: 10px; font-size: 20px; }
+				div.caption {
+					.fontCondBold; position: absolute; color: @white; display: block; left: 0; right: 0; bottom: 0; padding: (@overlay_padding / 2) (@overlay_padding * 2); display: none;
+				}
+				i { color: @white; position: absolute; right: 10px; bottom: 10px; font-size: 20px; .opacity(.5); }
+				&:hover {
+					div.caption { display: block; }
+					i { .opacity(1); }
 				}
 			}
 			div.inner {
@@ -650,7 +654,7 @@ footer {
 		}
 	}
 	&.progressive {
-		div.featured_image a { .bg_opacity(@blue, .8); }
+		a.featured_image div.caption { .bg_opacity(@blue, .8); }
 		div.content div.inner a {
 			color: @blue; 
 			&:hover { background-color: @blue_light; }
