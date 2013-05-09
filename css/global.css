@@ -132,9 +132,9 @@ footer ul li.icon{padding-top:0;margin-left:4px;}
 #overlay div.body div.navigation div.gallery img.landscape{width:137px;}
 #overlay.image div.header h1{font-size:22px;top:20px;}
 #overlay.image div.header .attachment{position:absolute;top:60px;left:20px;}#overlay.image div.header .attachment a{float:left;margin-right:40px;}
-#overlay.image div.body{margin:20px auto;}#overlay.image div.body img{max-width:100%;width:auto\9;margin:0 auto;display:block;}
-#overlay.image div.body div.transcript{text-align:left;width:880px;margin:20px auto;font-size:14px;}#overlay.image div.body div.transcript h2{color:#c8c1b9;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;}
-#overlay.image div.body .mglass_wrapper{cursor:url(blank.cur),default;margin:0 auto;}
+#overlay.image div.body{margin:20px auto;}#overlay.image div.body img{width:920px;height:auto;display:block;margin:0 20px;}
+#overlay.image div.body div.transcript{text-align:left;width:920px;margin:20px auto;font-size:14px;}#overlay.image div.body div.transcript h2{color:#c8c1b9;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;}
+#overlay.image div.body .mglass_wrapper{cursor:url(blank.cur),default;}
 #overlay.image div.body .mglass_picture_box{zoom:1.0;z-index:1;}
 #overlay.image div.body .mglass_viewer{position:absolute;visibility:hidden;width:150px;height:150px;z-index:2;overflow:hidden;margin-left:-238px;-moz-border-radius:75px;-webkit-border-radius:75px;-khtml-border-radius:75px;border-radius:75px;-moz-box-shadow:15px 15px 30px #000000;-webkit-box-shadow:15px 15px 30px #000000;box-shadow:15px 15px 30px #000000;}
 #overlay.early_ny div.content a{color:#78558b;}#overlay.early_ny div.content a:hover{background-color:#d9ceca;}

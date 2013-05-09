@@ -1,7 +1,6 @@
 <?php
 
 //global variables
-$thumbnail_diameter = 125;
 $policies			= get_categories('parent=21&hide_empty=0');
 $eras				= get_posts(array('post_status'=>'publish', 'post_type'=>'era', 'meta_key'=>'start_year', 'orderby'=>'meta_value_num', 'order'=>'ASC'));
 
@@ -79,9 +78,32 @@ $custom_fields = array(
 
 //set up images and custom sizes
 add_theme_support('post-thumbnails'); 
-set_post_thumbnail_size($thumbnail_diameter, $thumbnail_diameter); //wonder if there's a way to set medium to 226/0 and large to 640/0
-add_image_size('era-landing', 160, 229); //for the era landing page
-//add_image_size('extra-large', 880, 880); //for the view image overlay page
+
+update_option('thumbnail_size_w', 226);
+update_option('thumbnail_size_h', 0);
+update_option('thumbnail_crop', 0);
+
+//wp medium size not used
+update_option('medium_size_w', 226);
+update_option('medium_size_h', 0);
+update_option('medium_crop', 0);
+
+//wp large size used for article overlay
+update_option('large_size_w', 640);
+update_option('large_size_h', 0);
+update_option('large_crop', 0);
+
+//additional sizes
+add_image_size('circle', 125, 125, 1); //the little circles
+add_image_size('inline', 160); //for the era landing page or map point insert
+add_image_size('featured', 226, 120, 1); //for the featured story in the main timeline
+add_image_size('xl', 920); //for the view image overlay page
+
+add_filter('image_size_names_choose', function ($sizes) {
+	//they should only be inserting thumbnails
+	foreach ($sizes as $key=>$value) return array($key=>$value);
+});
+
 
 //register custom post types
 add_action('init', function() {
@@ -270,7 +292,7 @@ function icph_thumbnail($post_id, $title=false, $slug=false) {
 					<i class="icon-play-circled"></i><br>
 					' . $title . 
 				'</span>' . 
-			(has_post_thumbnail($post_id) ? get_the_post_thumbnail($post_id, 'thumbnail') : '') . 
+			(has_post_thumbnail($post_id) ? get_the_post_thumbnail($post_id, 'circle') : '') . 
 		'</a>';
 }
 

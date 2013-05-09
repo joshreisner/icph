@@ -25,7 +25,7 @@ if ($feature = get_related_links('post', $era->ID)) $feature = get_post($feature
 				<h3><a href="#<?php echo $feature->post_name?>"><?php echo $feature->post_title?></a></h3>
 				<?php 
 				if (has_post_thumbnail($feature->ID)) {
-					echo '<a href="#' . $feature->post_name . '">' . get_the_post_thumbnail($feature->ID, 'era-landing') . '</a>';
+					echo '<a href="#' . $feature->post_name . '">' . get_the_post_thumbnail($feature->ID, 'thumbnail') . '</a>';
 				}
 				?>				
 				<p><?php echo $feature->post_excerpt?></p>

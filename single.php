@@ -23,11 +23,12 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 	<div class="body">
 		<div class="content">
 			<?php if (has_post_thumbnail()) {
-				$thumbnail = get_post(get_post_thumbnail_id($post->ID));
+				$featured = get_post(get_post_thumbnail_id($post->ID));
+				$images = get_posts('post_type=attachment&post_status=any&post_mime_type=image&post_parent=' . $post->ID . '&exclude=' . $featured->ID);
 				?>
-				<a class="featured_image" href="<?php echo icph_img($thumbnail->ID)?>">
+				<a class="featured_image" href="<?php echo icph_img($images[0]->ID)?>">
 					<?php echo get_the_post_thumbnail($post->ID, 'large')?>
-					<?php if (!empty($thumbnail->post_excerpt)) {?><div class="caption"><?php echo $thumbnail->post_excerpt?></div><?php }?>
+					<?php if (!empty($featured->post_excerpt)) {?><div class="caption"><?php echo $featured->post_excerpt?></div><?php }?>
 					<i class="icon-zoom-in"></i>
 				</a>
 			<?php }?>

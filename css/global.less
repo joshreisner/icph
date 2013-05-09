@@ -51,7 +51,7 @@
 @timeline_year_diameter		: 100px;
 @timeline_upper_height		: 150px;
 @scroll_width				: 8px;
-@image_max					: 880px;
+@image_max					: 920px;
 
 .bg() {
 	background-color: @beige; background-image: url(../img/background.png);
@@ -576,15 +576,16 @@ footer {
 				/* width: auto; height: auto;
 				&.portrait { height: @image_max; }
 				&.landscape { width: @image_max; }
-				*/
 				max-width: 100%; width: auto\9; margin: 0 auto; display: block;
+				*/
+				width: @image_max; height: auto; display: block; margin: 0 20px;
 			}
 			div.transcript {
 				text-align: left; width: @image_max; margin: @overlay_padding auto; font-size: 14px;
 				h2 { color: @gray_lighter; .fontCondBold; }
 			}
 			.mglass_wrapper {
-				cursor: url(blank.cur),default; margin: 0 auto;
+				cursor: url(blank.cur),default;
 			}
 			.mglass_picture_box {
 				zoom: 1.0;

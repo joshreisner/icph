@@ -1,7 +1,7 @@
 <?php
 if (empty($_GET['overlay'])) {
 	//not an overlay, forward to overlay page
-	header('Location: /#' . str_replace('/', '', $_SERVER['REQUEST_URI']));
+	header('Location: /#' . substr($_SERVER['REQUEST_URI'], 1));
 	exit;
 }
 
@@ -12,7 +12,7 @@ $era_id = get_post_meta($post->post_parent, 'era', true); //does get_post_meta c
 foreach ($eras as $era) if ($era->ID == $era_id) break;
 
 //get image properties
-list($url, $width, $height) = wp_get_attachment_image_src($post->ID, 'large');
+list($url, $width, $height) = wp_get_attachment_image_src($post->ID, 'xl');
 list($full_url, $full_width, $full_height) = wp_get_attachment_image_src($post->ID, 'full');
 $orientation = ($width > $height) ? 'landscape' : 'portrait';
 
@@ -51,7 +51,7 @@ $download = $wpdb->get_var($wpdb->prepare("SELECT guid FROM $wpdb->posts WHERE p
 //prev and next
 $nav_array = array();
 $parent = get_post($post->post_parent);
-$siblings = get_posts('post_type=attachment&post_status=any&post_mime_type=image&post_parent=' . $post->post_parent);
+$siblings = get_posts('post_type=attachment&post_status=any&post_mime_type=image&post_parent=' . $post->post_parent . '&exclude=' . get_post_thumbnail_id($post->post_parent));
 foreach ($siblings as $sibling) {
 	$nav_array[$parent->post_name . '/' . $sibling->post_name] = $sibling->post_title; //for prev and next
 }

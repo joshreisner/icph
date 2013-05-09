@@ -26,7 +26,7 @@ get_header();
 			<div class="upper"></div>
 			<div class="lower">
 				<?php if (has_post_thumbnail($post->ID)) {?>
-				<a href="#<?php echo $post->post_name?>"><?php echo get_the_post_thumbnail($post->ID, 'medium')?></a>
+				<a href="#<?php echo $post->post_name?>"><?php echo get_the_post_thumbnail($post->ID, 'featured')?></a>
 				<?php }
 				echo $post->post_excerpt?>
 				<a href="#<?php echo $post->post_name?>" class="more"><i class="icon-play-circled"></i> <span>Meet the <?php echo $post->post_title?></span></a>
