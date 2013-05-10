@@ -953,7 +953,10 @@ body.maps {
 		}
 	}
 	
-	a.close { position: absolute; top: 4px; right: 4px; font-size: 16px; }
+	a.control {
+		position: absolute; top: 4px; right: 4px; font-size: 16px; 
+		&.expand { display: none; }
+	}
 	
 	div.zoom {
 		color: @white; background-color: black; text-align: center; line-height: 30px; font-size: 20px; .opacity(.5); width: 30px; height: 30px; cursor: pointer; position: absolute; left: 20px;
@@ -995,6 +998,7 @@ body.maps {
 			width: 200px; height: 40px;	cursor: pointer;
 			h3 { display: none; }
 			a.close { display: none; }
+			a.expand { display: block; }
 			h3.minimized { display: block; }
 			.content { display: none; }
 		}

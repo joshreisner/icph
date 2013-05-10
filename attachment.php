@@ -51,7 +51,7 @@ $download = $wpdb->get_var($wpdb->prepare("SELECT guid FROM $wpdb->posts WHERE p
 //prev and next
 $nav_array = array();
 $parent = get_post($post->post_parent);
-$siblings = get_posts('post_type=attachment&post_status=any&post_mime_type=image&post_parent=' . $post->post_parent . '&exclude=' . get_post_thumbnail_id($post->post_parent));
+$siblings = get_posts('post_type=attachment&post_status=any&post_mime_type=image&orderby=post_order&order=ASC&post_parent=' . $post->post_parent . '&exclude=' . get_post_thumbnail_id($post->post_parent));
 foreach ($siblings as $sibling) {
 	$nav_array[$parent->post_name . '/' . $sibling->post_name] = $sibling->post_title; //for prev and next
 }

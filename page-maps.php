@@ -16,7 +16,8 @@ foreach ($eras as $era) {
 		<div class="zoom out" id="zoom-out<?php echo $era->ID?>"><i class="icon-minus-circled"></i></div>
 		
 		<div id="description">
-			<a class="close"><i class="icon-cancel-circled"></i></a>
+			<a class="control close"><i class="icon-cancel-circled"></i></a>
+			<a class="control expand"><i class="icon-plus-circled"></i></a>
 			<h3><?php echo get_post_meta($era->ID, 'map_title', true)?></h3>
 			<h3 class="minimized"><?php echo get_post_meta($era->ID, 'map_title_short', true)?></h3>
 			<div class="content scroll-pane">
@@ -106,7 +107,7 @@ foreach ($eras as $era) {
 				
 				google.maps.event.addListener(marker<?php echo $point->ID?>, 'click', function(e) {
 					var content = document.createElement("div");
-					content.innerHTML = '<a class="close"><i class="icon-cancel-circled"></i></a><div class="title"><?php echo $title?></div><div class="content"><?php echo $content?></div>';
+					content.innerHTML = '<a class="control close"><i class="icon-cancel-circled"></i></a><div class="title"><?php echo $title?></div><div class="content"><?php echo $content?></div>';
 	
 					jQuery(content).find("a.close").click(function(){
 						infowindow.close(map<?php echo $era->ID?>, marker<?php echo $point->ID?>);

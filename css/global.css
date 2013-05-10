@@ -225,7 +225,7 @@ body.maps div.mapwrapper.nineteenth{display:none;}body.maps div.mapwrapper.ninet
 body.maps div.mapwrapper.progressive div#description{background-color:#5e7190;background-color:rgba(95, 114, 145, 0.8);zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc5f7291, endColorstr=#cc5f7291)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc5f7291, endColorstr=#cc5f7291);}
 body.maps div.mapwrapper.great_depression{display:none;}body.maps div.mapwrapper.great_depression div#description{background-color:#9c474e;background-color:rgba(157, 72, 79, 0.8);zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc9d484f, endColorstr=#cc9d484f)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc9d484f, endColorstr=#cc9d484f);}
 body.maps div.mapwrapper.today{display:none;}body.maps div.mapwrapper.today div#description{background-color:#8a9d44;background-color:rgba(138, 157, 67, 0.8);zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc8a9d43, endColorstr=#cc8a9d43)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc8a9d43, endColorstr=#cc8a9d43);}
-body.maps a.close{position:absolute;top:4px;right:4px;font-size:16px;}
+body.maps a.control{position:absolute;top:4px;right:4px;font-size:16px;}body.maps a.control.expand{display:none;}
 body.maps div.zoom{color:#ffffff;background-color:black;text-align:center;line-height:30px;font-size:20px;-moz-opacity:0.5;-khtml-opacity:0.5;-webkit-opacity:0.5;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";filter:alpha(opacity=50);opacity:0.5;width:30px;height:30px;cursor:pointer;position:absolute;left:20px;}body.maps div.zoom.in{top:70px;}
 body.maps div.zoom.out{top:110px;}
 body.maps div.infoBox{background-color:#eae3d9;background-image:url(../img/background.png);width:300px;padding:10px;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal;font-size:12px;-webkit-box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);-moz-box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);box-shadow:0 0px 6px rgba(0, 0, 0, 0.6);margin:0 0 30px -10px;position:relative;}body.maps div.infoBox div.title{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;margin-bottom:6px;font-size:20px;display:block;width:300px;line-height:22px;}
@@ -238,6 +238,7 @@ body.maps div#description{position:absolute;top:60px;right:10px;width:400px;colo
 body.maps div#description .content{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal;font-size:12px;height:170px;overflow:scroll;margin:10px;line-height:18px;}
 body.maps div#description.minimized{width:200px;height:40px;cursor:pointer;}body.maps div#description.minimized h3{display:none;}
 body.maps div#description.minimized a.close{display:none;}
+body.maps div#description.minimized a.expand{display:block;}
 body.maps div#description.minimized h3.minimized{display:block;}
 body.maps div#description.minimized .content{display:none;}
 body.maps #slider{position:absolute;bottom:20px;}
