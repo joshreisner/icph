@@ -26,12 +26,41 @@ var overlay = {
 				jQuery(".navigation").affix({offset:60});
 				
 				//set the height of the side nav
-				//window.alert($(window).height());
 				var windowHeight = jQuery(window).height() - 36;
 				jQuery("div.navigation .scroll-pane").css({height: windowHeight + 'px'});
 				
-				//jscrollpane
-				jQuery('.scroll-pane').jScrollPane();
+				//jscrollpane, with hooks for scroll-spying
+				var articlesY = 0;
+				var imagesY = jQuery("ul#articles").height();
+				var documentsY = imagesY + jQuery("div.gallery.images").height();
+				var navScroller = jQuery('.navigation .scroll-pane').jScrollPane().bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
+					//window.console.log('scrollPositionY=', scrollPositionY, 'isAtTop=', isAtTop, 'isAtBottom=', isAtBottom);
+					//window.console.log(scrollPositionY + "--" + imagesY);
+					var shouldBeHighlighted = "articles";
+					if ((scrollPositionY >= documentsY) || isAtBottom) {
+						shouldBeHighlighted = "documents";
+					} else if (scrollPositionY >= imagesY) {
+						shouldBeHighlighted = "images";
+					}
+					
+					if (!jQuery("#navbar a." + shouldBeHighlighted).hasClass("active")) {
+						jQuery("#navbar a.active").removeClass("active");
+						jQuery("#navbar a." + shouldBeHighlighted).addClass("active");
+					}
+				});
+				
+				//navbar links
+				jQuery("#navbar a").click(function(e){
+					e.preventDefault();
+					if (jQuery(this).hasClass("articles")) {
+						navScroller.data('jsp').scrollTo(0, articlesY);
+					} else if (jQuery(this).hasClass("images")) {
+						navScroller.data('jsp').scrollTo(0, imagesY);
+					} else if (jQuery(this).hasClass("documents")) {
+						navScroller.data('jsp').scrollTo(0, documentsY);
+					}
+				});
+
 				
 				//magnifying glass
 				var mGlass = false;

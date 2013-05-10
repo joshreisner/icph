@@ -24,7 +24,7 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 		<div class="content">
 			<?php if (has_post_thumbnail()) {
 				$featured = get_post(get_post_thumbnail_id($post->ID));
-				$images = get_posts('post_type=attachment&post_status=any&post_mime_type=image&post_parent=' . $post->ID . '&exclude=' . $featured->ID);
+				$images = get_posts('post_type=attachment&post_status=any&post_mime_type=image&orderby=post_order&order=ASC&post_parent=' . $post->ID . '&exclude=' . $featured->ID);
 				?>
 				<a class="featured_image" href="<?php echo icph_img($images[0]->ID)?>">
 					<?php echo get_the_post_thumbnail($post->ID, 'large')?>
@@ -51,13 +51,13 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 			
 		</div>
 		<div class="navigation">
-			<h3>
-				<a class="articles active">Articles</a>
-				<a class="imagery">Imagery</a>
-				<a class="documents">Documents</a>
+			<h3 id="navbar">
+				<a class="articles active" href="#articles">Articles</a>
+				<a class="images" href="#images">Images</a>
+				<a class="documents" href="#documents">Documents</a>
 			</h3>
 			<div class="scroll-pane">
-				<ul>
+				<ul id="articles">
 				<?php
 				$nav_array = $era_posts = array(); //for getting previous and next
 				$exclude = array();
@@ -81,7 +81,7 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 				
 				<?php
 				//get attachments
-				$posts = get_posts('numberposts=-1&post_type=attachment&post_status=any');
+				$posts = get_posts('numberposts=-1&post_type=attachment&post_mime_type=image&post_status=any');
 				$images = $documents = array();
 				foreach ($posts as $p) {
 					if (!in_array($p->post_parent, $era_posts)) continue; //remove non-era attachments
@@ -93,26 +93,26 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 				}
 				?>
 				<div class="gallery images">
-					<h4>Era Imagery<a href="/browse/?type=imagery">View All</a></h4>
+					<h4 id="images">Era Images<a href="/browse/?type=imagery">View All</a></h4>
 					<?php
 					foreach ($images as $image) {
 						list($url, $width, $height) = wp_get_attachment_image_src($image->ID, 'medium');
 						$orientation = ($width > $height) ? 'landscape' : 'portrait';
 						?>
-						<img src="<?php echo $url?>" width="<?php echo $width?>" height="<?php echo $height?>" class="<?php echo $orientation?>">
+						<a href="<?php echo icph_img($image->ID)?>"><img src="<?php echo $url?>" width="<?php echo $width?>" height="<?php echo $height?>" class="<?php echo $orientation?>"></a>
 						<?php
 					}
 					?>
 				</div>
 				
 				<div class="gallery documents">
-					<h4>Era Documents<a href="/browse/?type=documents">View All</a></h4>
+					<h4 id="documents">Era Documents<a href="/browse/?type=documents">View All</a></h4>
 					<?php
 					foreach ($documents as $document) {
-						list($url, $width, $height) = wp_get_attachment_image_src($document->ID, 'medium');
+						list($url, $width, $height) = wp_get_attachment_image_src($document->ID, 'inline');
 						$orientation = ($width > $height) ? 'landscape' : 'portrait';
 						?>
-						<img src="<?php echo $url?>" width="<?php echo $width?>" height="<?php echo $height?>" class="<?php echo $orientation?>">
+						<a href="<?php echo icph_img($document->ID)?>"><img data-id="<?php echo $document->ID?>" src="<?php echo $url?>" width="<?php echo $width?>" height="<?php echo $height?>" class="<?php echo $orientation?>"></a>
 						<?php
 					}
 					?>

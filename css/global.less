@@ -453,7 +453,7 @@ footer {
 
 #overlay {
 	width: (@overlay_content_width + @overlay_navigation_width); .bg; z-index: 1050; .shadowed;
-	position: absolute; top: 0; left: 50%; margin-left: -480px; min-height: 100%;
+	position: absolute; top: 0; bottom: 0; left: 50%; margin-left: -480px; min-height: 100%; 
 	
 	div.header {
 		position: relative; height: @overlay_header_height; .fontCondBold; 
@@ -471,7 +471,7 @@ footer {
 	}
 	
 	div.body {
-		overflow: auto; 
+		overflow: auto; .bg;
 
 		div.content {
 			width: @overlay_content_width; float: left; font-size: 14px; line-height: 18px; 
@@ -547,14 +547,17 @@ footer {
 				h4 { 
 					font-size: 24px; color: @gray_light; .fontCondBold; padding: @overlay_navigation_padding; position: relative;
 					a { 
-						color: @gray; text-transform: uppercase; font-size: 14px; 
+						color: @gray; text-transform: uppercase; font-size: 14px; margin: 0;
 						position: absolute; right: 0; bottom: @overlay_navigation_padding + 4; 
 					 }
 				}
-				img {
-					width: auto; height: auto; margin: 0 0 15px 15px;
-					&.portrait { height: 137px; }
-					&.landscape { width: 137px; }
+				a {
+					display: block; margin: 0 0 15px 15px; float: left;
+					img {
+						width: auto; height: auto;
+						&.portrait { height: 137px; }
+						&.landscape { width: 137px; }
+					}
 				}
 			}
 		}

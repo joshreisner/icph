@@ -17,7 +17,7 @@ if (have_posts()) {
 		<?php
 	}
 } else {
-	echo 'no results homie';	
+	echo 'No results found.';	
 }
 
 echo '</div>';
