@@ -49,12 +49,6 @@ jQuery(function(){
 	//slider click
 	jQuery("#slider_policy li.first").click(function(){
 		jQuery(this).parent().toggleClass("active");
-		var $icon = jQuery(this).find("i").first();
-		if ($icon.hasClass("icon-plus-circled")) {
-			$icon.removeClass("icon-plus-circled").addClass("icon-minus-circled");
-		} else {
-			$icon.removeClass("icon-minus-circled").addClass("icon-plus-circled");
-		}
 	});
 
 	//set browse page accordion

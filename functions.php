@@ -267,17 +267,23 @@ function icph_get_policy($policy_id=false, $policy_slug=false) {
 	return false;
 }
 
-function icph_slider() {
+function icph_slider($policy_active=false) {
 	global $eras, $policies;
 	
 	//eras slider	
 	foreach ($eras as &$era) $era = array('class'=>$era->post_name, 'content'=>$era->start_year . '<span>' . $era->post_title . '</span>');
-		
+
 	//policies slider
-	foreach ($policies as &$policy) $policy = array('link'=>'/policies/?' . $policy->slug, 'content'=>$policy->name);
-	array_unshift($policies, array('content'=>'<i class="icon-plus-circled"></i> View by Policy'));
+	foreach ($policies as &$policy) {
+		$policy = array(
+			'link'=>'/policies/?' . $policy->slug, 
+			'content'=>$policy->name,
+			'class'=>($_SERVER['REQUEST_URI'] == '/policies?' . $policy->slug) ? 'active' : false
+		);
+	}
+	array_unshift($policies, array('content'=>'<i class="icon-plus-circled expand"></i><i class="icon-minus-circled close"></i> View by Policy'));
 	
-	return '<div id="slider_policy_wrapper">' . icph_ul($eras, array('id'=>'slider')) . icph_ul($policies, array('id'=>'slider_policy')) . '</div>';
+	return '<div id="slider_policy_wrapper">' . icph_ul($eras, array('id'=>'slider')) . icph_ul($policies, array('id'=>'slider_policy', 'class'=>($policy_active ? 'active' : false))) . '</div>';
 }
 
 function icph_thumbnail($post_id, $title=false, $slug=false) {

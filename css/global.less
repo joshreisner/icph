@@ -416,9 +416,10 @@ footer {
 	width: ((@slider_element_width * 5) + (@slider_padding * 7)); margin: 0 auto @header_height; 
 	
 	#slider_policy {
-		list-style-type: none; .fontCondBold; overflow: auto; margin: 0; padding: 0; display: block;
+		list-style-type: none; .fontCondBold; overflow: auto; margin: 0; padding: 0 0 1px 0; display: block;
 		li { 
 			float: left; margin-right: 20px; display: none; cursor: pointer; padding: @slider_padding @slider_padding @slider_padding @slider_padding; 
+			i.close { display: none; }
 			a { color: @white; border-bottom: 3px solid transparent; padding-bottom: 3px; }
 			&.first {
 				background-color: @gray_medium; color: @gray_lighter; display: inline; padding-right: 10px; 
@@ -430,6 +431,8 @@ footer {
 		&.active {
 			background-color: @gray_medium; 
 			li { display: block; }
+			i.close { display: inline; }
+			i.expand { display: none; }
 		}
 	}
 }

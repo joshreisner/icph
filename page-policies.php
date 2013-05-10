@@ -1,5 +1,5 @@
 <?php
-$body_class = 'timeline';
+$body_class = 'timeline policies';
 get_header();
 
 //get current policy
@@ -58,6 +58,6 @@ $front = $end = '';
 	<a class="arrow right"><div class="cap"><i class="icon-right-open-big"></i></div></a>
 </div>
 <?php
-echo icph_slider();
+echo icph_slider(true);
 
 get_footer();
