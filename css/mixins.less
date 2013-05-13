@@ -17,13 +17,14 @@
     @ieAlphacolor: argb(@alphacolor);
      
     background-color: @color; // Fallback for older browsers
-    background-color: @alphacolor; 
      
     // IE hacks
     zoom: 1; // hasLayout
     background-color: transparent\9;
     -ms-filter:  "progid:DXImageTransform.Microsoft.gradient(startColorstr=@{ieAlphacolor}, endColorstr=@{ieAlphacolor})"; // IE 8+
         filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr=@{ieAlphacolor}, endColorstr=@{ieAlphacolor})"; // IE 6 & 7
+
+    background-color: @alphacolor; 
      
 }
 
