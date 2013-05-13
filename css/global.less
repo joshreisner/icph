@@ -1106,3 +1106,56 @@ body.search {
 		}
 	}
 }
+
+@media (min-width: 1000px) {
+	header { 
+		/* background-color: @purple;  */
+		ul#nav { 
+			right: 100px; 
+			li { padding-right: 14px; margin-right: 12px; }
+		}
+		ul#tools {
+			li {
+				a {
+					span { display: none; }
+				}
+				&.share {
+					ul.dropdown {
+						right: 58px; 						
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	header {
+		/* background-color: @red;  */
+		ul#nav { 
+			right: 200px; 
+			li { padding-right: 14px; margin-right: 12px; }
+		}
+		ul#tools {
+			li {
+				a {
+					span { display: inline; }
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1400px) {
+	header { 
+		/* background-color: @blue;  */
+		ul#nav { right: 300px; }
+		ul#tools {
+			li {
+				a {
+					span { display: inline; }
+				}
+			}
+		}
+	}
+}

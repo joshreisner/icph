@@ -13,6 +13,7 @@ global $body_class;
 		<?php wp_head(); ?>
 		<link rel="stylesheet" type="text/css" href="//cloud.webtype.com/css/e677f601-51a3-41b8-9df8-446cd03d543f.css">
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory');?>/css/global.css">
+		<script src="<?php bloginfo('template_directory');?>/js/respond.min.js"></script>
 	</head>
 	<body <?php body_class($body_class) ?>>
 		<header>
@@ -54,7 +55,7 @@ global $body_class;
 			
 			<ul id="tools">
 				<li class="share">
-					<a><i class="icon-export"></i> Share</a>
+					<a><i class="icon-export"></i> <span>Share</span></a>
 					<ul class="dropdown">
 						<li><a href="#"><i class="icon-facebook-circled"></i> Facebook</a></li>
 						<li><a href="#"><i class="icon-twitter-circled"></i> Twitter</a></li>
@@ -64,7 +65,7 @@ global $body_class;
 					</ul>
 				</li>
 				<li class="search">
-					<a><i class="icon-search"></i> Search</a>
+					<a><i class="icon-search"></i> <span>Search</span></a>
 					<ul class="dropdown">
 						<li class="form">							
 							<form method="get" action="/">
@@ -77,20 +78,6 @@ global $body_class;
 						        <i class="icon-cancel-circled"></i>
 							</form>
 						</li>
-						<!--
-						<li class="result">
-							<a href="#">The Tenement House Exhibiti&hellip;</a>
-						</li>
-						<li class="result">
-							<a href="#">Charity Organization Societ&hellip;</a>
-						</li>
-						<li class="result">
-							<a href="#">Congestion Exhibit&hellip;</a>
-						</li>
-						<li class="result">
-							<a href="#">Title&hellip;</a>
-						</li>
-						-->
 						<li class="all">
 							<a href="#"><i class="icon-play-circled"></i> All Results</a>
 						</li>
