@@ -31,7 +31,7 @@ $download = $wpdb->get_var($wpdb->prepare("SELECT guid FROM $wpdb->posts WHERE p
 			if (!empty($post->post_content)) {?>
 			<a class="transcript">Transcript</a>
 			<?php }?>
-			<a class="mag"><i class="icon-zoom-in"></i> Magnifying Glass On</a>
+			<!-- <a class="mag"><i class="icon-zoom-in"></i> Magnifying Glass On</a> -->
 		</div>
 	</div>
 	
