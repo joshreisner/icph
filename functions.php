@@ -173,7 +173,7 @@ add_action('init', function() {
 		'description'   => 'Eras',
 		'public'        => true,
 		'menu_position' => 5,
-		'supports'      => array('title', 'editor', 'excerpt'),
+		'supports'      => array('title'),
 		'has_archive'   => false,
 	));
 	

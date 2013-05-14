@@ -4,7 +4,9 @@ get_header();
 
 if (!$era = icph_get_era(false, $post->post_name)) die('era not found'); //need some better failure mechanism
 
-if ($feature = get_related_links('post', $era->ID)) $feature = get_post($feature[0]['id']);
+$related = get_related_links('post', $era->ID);
+if (isset($related[0])) $overview = get_post($related[0]['id']);
+if (isset($related[1])) $featured = get_post($related[1]['id']);
 ?>
 
 <div id="era" class="<?php echo $era->post_name?>">
@@ -13,7 +15,7 @@ if ($feature = get_related_links('post', $era->ID)) $feature = get_post($feature
 		<div class="inner">
 			<h1><?php echo $era->start_year?>&ndash;<?php echo $era->end_year?></h1>
 			<h2><?php echo $era->post_title?></h2>
-			<p><?php echo nl2br($era->post_excerpt)?></p>
+			<p><?php echo nl2br($overview->post_excerpt)?></p>
 			<a class="left" href="#<?php echo $overview->post_name?>">Continue</a>
 			<a class="right" href="/">Browse the Timeline</a>
 		</div>
@@ -22,14 +24,14 @@ if ($feature = get_related_links('post', $era->ID)) $feature = get_post($feature
 	<div class="row feature_policies">
 		<div class="inner">
 			<div class="column left feature">
-				<h3><a href="#<?php echo $feature->post_name?>"><?php echo $feature->post_title?></a></h3>
+				<h3><a href="#<?php echo $featured->post_name?>"><?php echo $featured->post_title?></a></h3>
 				<?php 
-				if (has_post_thumbnail($feature->ID)) {
-					echo '<a href="#' . $feature->post_name . '">' . get_the_post_thumbnail($feature->ID, 'thumbnail') . '</a>';
+				if (has_post_thumbnail($featured->ID)) {
+					echo '<a href="#' . $featured->post_name . '">' . get_the_post_thumbnail($featured->ID, 'thumbnail') . '</a>';
 				}
 				?>				
-				<p><?php echo $feature->post_excerpt?></p>
-				<a class="more" href="#<?php echo $feature->post_name?>"><i class="icon-play-circled"></i> Meet the <?php echo $feature->post_title?></a>
+				<p><?php echo $featured->post_excerpt?></p>
+				<a class="more" href="#<?php echo $featured->post_name?>"><i class="icon-play-circled"></i> Meet the <?php echo $featured->post_title?></a>
 			</div>
 			<div class="column right policies">
 				<h3>Policy in this Time Period</h3>

@@ -5,20 +5,23 @@ get_header();
 ?>
 <div id="timeline">
 	<ul>
-	<?php foreach ($eras as $era) {?>
-		
+	<?php foreach ($eras as $era) {
+		//overview & featured
+		$featured = get_related_links('post', $era->ID);
+		$overview = array_shift($featured);
+		$overview = get_post($overview['id']);
+	?>
 		<li id="<?php echo $era->post_name?>" class="<?php echo $era->post_name?> overview">
 			<div class="upper">
 				<h1><?php echo $era->start_year?>&ndash;<?php echo $era->end_year?></h1>
 				<h2><?php echo $era->post_title?></h2>
 			</div>
 			<div class="lower">
-				<?php echo nl2br($era->post_excerpt)?>
-				<a href="#" class="more"><i class="icon-play-circled"></i> <span>Continue</span></a>
+				<?php echo nl2br($overview->post_excerpt)?>
+				<a href="#<?php echo $overview->post_name?>" class="more"><i class="icon-play-circled"></i> <span>Continue</span></a>
 			</div>
 		</li>
 		<?php
-		$featured = get_related_links('post', $era->ID);
 		foreach ($featured as $feature) {
 			$post = get_post($feature['id']);
 		?>
