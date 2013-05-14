@@ -102,7 +102,7 @@ html {
 
 
 /* template */
-header {
+#header {
 	.bg_opacity(@gray, .8); .shadowed(); height: @header_height; position: fixed; top: 0; left: 0; right: 0; z-index: 100;
 	overflow: visible;
 
@@ -118,23 +118,31 @@ header {
 	ul {
 		list-style-type: none; margin: 0; padding: 0; text-transform: uppercase; .fontCondBold; color: @white; position: absolute;
 		li { 
-			float: left; padding: 0; margin: 0; display: block;	
+			float: left; margin: 0; padding: 0; position: relative;
+			a.main { height: @header_height - 25; line-height: @header_height - 20; display: block; border-bottom: 5px solid transparent; padding: 10px 0; }
+			ul {
+				display: none; position: fixed; top: @header_height; .bg; z-index: -1; .shadowed;
+				li {
+					float: none; border-bottom: 1px solid @beige_dark;
+					a {
+						display: block; padding: 10px; height: auto;
+					}
+				}
+			}
+			&:hover a.main, &.current_page_item a.main { color: @beige; border-color: @beige; }
+			&:hover ul { display: block; }
 		}
 		
 		&#nav {
-			right: 240px; top: 5px; 
 			li {
-				padding: 0 22px 0 0; margin: 0 20px 0 0; position: relative; 
-				a.main { display: block; font-size: 17px; line-height: 18px; padding: 10px 0; }
-				div.separator { background-color: @white; width: 2px; position: absolute; right: 0; top: 12px; height: 12px; }
+				padding: 0 22px 0 0; margin: 0 20px 0 0; overflow: auto; 
+				a.main { font-size: 17px; }
+				div.separator { background-color: @white; width: 2px; position: absolute; right: 0; top: 17px; height: 13px; }
 				ul { 
-					display: none;
-					.shadowed; position: fixed; top: @header_height; .bg; z-index: -1;
 					li { 
-						float: none; border-bottom: 1px solid @beige_dark; margin-right: 0; height: auto; z-index: 10;
-						display: block;
+						margin: 0;
 						a {
-							display: block; width: 240px; padding: 10px; text-transform: none; font-size: 12px; .font; color: @gray; border-bottom: 0;
+							width: 240px; font-size: 12px; .font; color: @gray; line-height: 16px; text-transform: none;
 							div { .fontBold; }
 						}
 						&:hover { .bgDark; }
@@ -144,39 +152,25 @@ header {
 						&.great_depression div { color: @red; }
 						&.today div { color: @green; }
 					}
-					&:hover { display: block; }			
 				}
-				&:hover {
-					overflow: auto; 
-					a.main { color: @beige; border-bottom: 5px solid @beige; }
-					ul {
-						display: block; overflow: auto;
-						li { height: auto; }
-						&:hover { display: block; }			
-					}
-				}
-				&.current_page_item a { color: @beige; border-bottom: 5px solid @beige; }
 			}
 		}
 		
 		&#tools {
-			top: 0; right: 20px; 
+			right: 20px; 
 			li { 
-				font-size: 13px; height: @header_height; line-height: @header_height; position: relative;
-				
-				a { padding-bottom: 11px; }
+				a.main { font-size: 13px; }
 				ul.dropdown {
-					.bg; .shadowed(); overflow: auto; display: none; z-index: -1; position: fixed; 
 					li { 
-						float: none; border-top: 1px solid @gray_lighter; margin: 0; height: auto; overflow: auto; 
 						a { 
-							display: block; color: @gray; padding: 6px 20px 6px 6px; line-height: 23px; text-transform: none; white-space: nowrap; .fontBold;
+							color: @gray; padding: 6px 20px 6px 6px; line-height: 23px; text-transform: none; white-space: nowrap; .fontBold;
 							i { color: @gray_light; font-size: 20px; display: block; float: left; margin-right: 6px; }
 							span { display: block; float: left; }
 						}
 						&.form {
+							padding-top: 10px;
 							input { .fontBold; width: 184px; font-size: 13px; padding: 4px 19px 4px 2px; margin: 0 8px; }
-							i { color: @gray; position: absolute; top: 0; right: 10px; cursor: pointer; }
+							i { color: @gray; position: absolute; top: 14px; right: 10px; cursor: pointer; }
 							&:hover { .bg; }
 						}
 						&.all a { 
@@ -1108,7 +1102,7 @@ body.search {
 }
 
 @media (min-width: 1000px) {
-	header { 
+	#header { 
 		/* background-color: @purple;  */
 		ul#nav { 
 			right: 85px; 
@@ -1130,7 +1124,7 @@ body.search {
 }
 
 @media (min-width: 1200px) {
-	header {
+	#header {
 		/* background-color: @red;  */
 		ul#nav { 
 			right: 200px; 
@@ -1141,13 +1135,18 @@ body.search {
 				a {
 					span { display: inline; }
 				}
+				&.share {
+					ul.dropdown {
+						right: auto; 
+					}
+				}
 			}
 		}
 	}
 }
 
 @media (min-width: 1400px) {
-	header { 
+	#header { 
 		/* background-color: @blue;  */
 		ul#nav { right: 300px; }
 		ul#tools {

@@ -16,7 +16,7 @@ global $body_class;
 		<script src="<?php bloginfo('template_directory');?>/js/respond.min.js"></script>
 	</head>
 	<body <?php body_class($body_class) ?>>
-		<header>
+		<div id="header">
 			<a class="logo" href="/">Poverty & Homelessness History <span>NYC</span></a>
 			
 			<ul id="nav">
@@ -55,7 +55,7 @@ global $body_class;
 			
 			<ul id="tools">
 				<li class="share">
-					<a><i class="icon-export"></i> <span>Share</span></a>
+					<a class="main"><i class="icon-export"></i> <span>Share</span></a>
 					<ul class="dropdown">
 						<li><a href="#"><i class="icon-facebook-circled"></i> Facebook</a></li>
 						<li><a href="#"><i class="icon-twitter-circled"></i> Twitter</a></li>
@@ -65,7 +65,7 @@ global $body_class;
 					</ul>
 				</li>
 				<li class="search">
-					<a><i class="icon-search"></i> <span>Search</span></a>
+					<a class="main"><i class="icon-search"></i> <span>Search</span></a>
 					<ul class="dropdown">
 						<li class="form">							
 							<form method="get" action="/">
@@ -84,4 +84,4 @@ global $body_class;
 					</ul>
 				</li>
 			</ul>
-		</header>
+		</div>
