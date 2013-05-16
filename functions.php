@@ -204,35 +204,75 @@ add_action('init', function() {
 //browse as an ajax function
 add_action('wp_ajax_browse', 'icph_browse');
 add_action('wp_ajax_nopriv_browse', 'icph_browse');
-function icph_browse($type='Subject') {
+function icph_browse() {
 	global $eras;
-	
-	$parent_id = (isset($_POST['type']) && ($_POST['type'] == 'policy')) ? 21 : 22;
-	$categories = get_categories('parent=' . $parent_id);
 
-	foreach ($categories as $category) {?>
-		
-	<div class="row">
-		<h3<?php if ($category->name == $categories[0]->name) {?> class="first"<?php }?>><i class="icon-plus-circled"></i> <?php echo $category->name?></h3>
-		<ul>
-			<?php 
-			$posts = get_posts('category=' . $category->term_id);
-			foreach ($posts as $post) {
-				$era = icph_get_era(get_post_meta($post->ID, 'era', true));
-			?>
-			<li class="<?php echo $era->post_name?>">
-				<?php echo icph_thumbnail($post->ID, $post->post_title, $post->post_name)?>
-				<div>
-					<h4><?php echo $era->title?></h4>
-					<a href="#<?php echo $post->post_name?>"><?php echo $post->post_title?></a>
-					<?php echo icph_excerpt($post->post_excerpt)?>
-				</div>
-			</li>
-			<?php }?>
-		</ul>
-	</div>
+	if (isset($_POST['type']) && in_array($_POST['type'], array('images', 'documents'))) {
 	
-	<?php }
+		//get array to exclude all featured images
+		$featured_images = array();
+		$posts = get_posts();
+		foreach ($posts as $post) {
+			$image = get_post_thumbnail_id($post->ID);
+			$featured_images[] = $image->ID;
+		}
+		
+		//get images
+		$images = get_posts('post_type=attachment&post_status=any&post_mime_type=image&exclude=' . implode(',', $featured_images));
+		
+		echo '<div class="row"><ul style="display:block;">';
+		foreach ($images as $image) {
+			$era = icph_get_era(get_post_meta($image->post_parent, 'era', true));
+			list($src, $width, $height) = wp_get_attachment_image_src($image->ID, 'circle');
+			$post = get_post($image->post_parent);
+			?>
+				<li class="<?php echo $era->post_name?>">
+					<a class="thumbnail" href="#<?php echo $post->post_name?>/<?php echo $image->post_name?>">
+						<span>
+							<i class="icon-play-circled"></i><br>
+							<?php echo $post->post_title?>
+						</span>
+						<img src="<?php echo $src?>" width="<?php echo $width?>" height="<?php echo $height?>" border="0">
+					</a>
+					<div>
+						<h4><?php echo $era->title?></h4>
+						<a href="#<?php echo $image->post_name?>"><?php echo $image->post_title?></a>
+						<?php echo icph_excerpt($image->post_excerpt)?>
+					</div>
+				</li>
+			<?php
+		}
+		echo '</ul></div>';
+		
+	} else {
+		$parent_id = (isset($_POST['type']) && ($_POST['type'] == 'policy')) ? 21 : 22;
+		$categories = get_categories('parent=' . $parent_id);
+	
+		foreach ($categories as $category) {?>
+			
+		<div class="row">
+			<h3<?php if ($category->name == $categories[0]->name) {?> class="first"<?php }?>><i class="icon-plus-circled"></i> <?php echo $category->name?></h3>
+			<ul>
+				<?php 
+				$posts = get_posts('category=' . $category->term_id);
+				foreach ($posts as $post) {
+					$era = icph_get_era(get_post_meta($post->ID, 'era', true));
+				?>
+				<li class="<?php echo $era->post_name?>">
+					<?php echo icph_thumbnail($post->ID, $post->post_title, $post->post_name)?>
+					<div>
+						<h4><?php echo $era->title?></h4>
+						<a href="#<?php echo $post->post_name?>"><?php echo $post->post_title?></a>
+						<?php echo icph_excerpt($post->post_excerpt)?>
+					</div>
+				</li>
+				<?php }?>
+			</ul>
+		</div>
+		
+		<?php }
+	}
+	
 	if (isset($_POST['type'])) die(); //end output here on ajax requests
 }
 

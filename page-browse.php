@@ -9,10 +9,8 @@ get_header();
 		Browse by
 		<a href="#" class="active">Subject</a>
 		<a href="#">Policy</a>
-		<!--
-		<a href="#">Documents</a>
 		<a href="#">Images</a>
-		-->
+		<a href="#">Documents</a>
 	</div>
 	<div class="content"><?php icph_browse()?></div>
 </div>
