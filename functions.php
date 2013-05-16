@@ -204,10 +204,12 @@ add_action('init', function() {
 //browse as an ajax function
 add_action('wp_ajax_browse', 'icph_browse');
 add_action('wp_ajax_nopriv_browse', 'icph_browse');
-function icph_browse() {
+function icph_browse($type='subject') {
 	global $eras;
 
-	if (isset($_POST['type']) && in_array($_POST['type'], array('images', 'documents'))) {
+	if (isset($_POST['type'])) $type = $_POST['type'];
+
+	if (in_array($type, array('images', 'documents'))) {
 	
 		//get array to exclude all featured images
 		$featured_images = array();
@@ -218,11 +220,15 @@ function icph_browse() {
 		}
 		
 		//get images
-		$images = get_posts('post_type=attachment&post_status=any&post_mime_type=image&exclude=' . implode(',', $featured_images));
+		$images = get_posts('numberposts=-1&post_type=attachment&post_status=any&post_mime_type=image&exclude=' . implode(',', $featured_images));
 		
 		echo '<div class="row"><ul style="display:block;">';
 		foreach ($images as $image) {
+			$document = get_post_meta($image->ID, 'document', true);
+			if ((($type == 'documents') && !$document) || (($type == 'images') && $document)) continue;
+
 			$era = icph_get_era(get_post_meta($image->post_parent, 'era', true));
+			
 			list($src, $width, $height) = wp_get_attachment_image_src($image->ID, 'circle');
 			$post = get_post($image->post_parent);
 			?>
@@ -245,7 +251,7 @@ function icph_browse() {
 		echo '</ul></div>';
 		
 	} else {
-		$parent_id = (isset($_POST['type']) && ($_POST['type'] == 'policy')) ? 21 : 22;
+		$parent_id = ($type == 'policy') ? 21 : 22;
 		$categories = get_categories('parent=' . $parent_id);
 	
 		foreach ($categories as $category) {?>

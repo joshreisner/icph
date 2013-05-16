@@ -1,5 +1,5 @@
 <?php
-//maps page
+//browse page
 get_header();
 
 ?>
@@ -7,12 +7,15 @@ get_header();
 <div id="browse">
 	<div class="header">
 		Browse by
-		<a href="#" class="active">Subject</a>
-		<a href="#">Policy</a>
-		<a href="#">Images</a>
-		<a href="#">Documents</a>
+		<?php
+		$type = (isset($_GET['type'])) ? $_GET['type'] : 'subject';
+		$types = array('Subject', 'Policy', 'Images', 'Documents');
+		foreach ($types as $t) {
+			echo '<a href="#"' . (($type == strtolower($t)) ? ' class="active"' : '') . '">' . $t . '</a>';
+		}
+		?>
 	</div>
-	<div class="content"><?php icph_browse()?></div>
+	<div class="content"><?php icph_browse($_GET['type'])?></div>
 </div>
 
 <?php
