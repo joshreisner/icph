@@ -220,7 +220,7 @@ function icph_browse($type='subject') {
 		}
 		
 		//get images
-		$images = get_posts('numberposts=-1&post_type=attachment&post_status=any&post_mime_type=image&exclude=' . implode(',', $featured_images));
+		$images = get_posts('numberposts=-1&post_type=attachment&post_status=any&post_mime_type=image&orderby=title&order=ASC&exclude=' . implode(',', $featured_images));
 		
 		echo '<div class="row"><ul style="display:block;">';
 		foreach ($images as $image) {
