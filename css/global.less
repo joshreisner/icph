@@ -103,7 +103,7 @@ html {
 
 /* template */
 #header {
-	.bg_opacity(@gray, .8); .shadowed(); height: @header_height; position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+	.bg_opacity(@gray, .8); .shadowed(); height: @header_height; position: fixed; top: 0; left: 0; right: 0; 
 	overflow: visible;
 
 	a { 
@@ -121,7 +121,7 @@ html {
 			float: left; margin: 0; padding: 0; position: relative;
 			a.main { height: @header_height - 25; line-height: @header_height - 20; display: block; border-bottom: 5px solid transparent; padding: 10px 0; }
 			ul {
-				display: none; position: fixed; top: @header_height; .bg; z-index: -1; .shadowed;
+				display: none; position: fixed; top: @header_height; .bg; .shadowed;
 				li {
 					float: none; border-bottom: 1px solid @beige_dark;
 					a {

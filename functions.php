@@ -317,7 +317,8 @@ function icph_slider($policy_active=false) {
 	global $eras, $policies;
 	
 	//eras slider	
-	foreach ($eras as &$era) $era = array('class'=>$era->post_name, 'content'=>$era->start_year . '<span>' . $era->post_title . '</span>');
+	$slider_eras = $eras; //need to preserve the eras variable now that the header is in footer.php
+	foreach ($slider_eras as &$era) $era = array('class'=>$era->post_name, 'content'=>$era->start_year . '<span>' . $era->post_title . '</span>');
 
 	//policies slider
 	foreach ($policies as &$policy) {
@@ -329,7 +330,7 @@ function icph_slider($policy_active=false) {
 	}
 	array_unshift($policies, array('content'=>'<i class="icon-plus-circled expand"></i><i class="icon-minus-circled close"></i> View by Policy'));
 	
-	return '<div id="slider_policy_wrapper">' . icph_ul($eras, array('id'=>'slider')) . icph_ul($policies, array('id'=>'slider_policy', 'class'=>($policy_active ? 'active' : false))) . '</div>';
+	return '<div id="slider_policy_wrapper">' . icph_ul($slider_eras, array('id'=>'slider')) . icph_ul($policies, array('id'=>'slider_policy', 'class'=>($policy_active ? 'active' : false))) . '</div>';
 }
 
 function icph_thumbnail($post_id, $title=false, $slug=false) {
