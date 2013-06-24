@@ -76,7 +76,9 @@ foreach ($eras as $era) {
 		$points = get_posts('post_type=map_point&status=published&numberposts=-1&meta_key=era&meta_value=' . $era->ID);
 		foreach ($points as $point) {
 			$title = str_replace("'", '&rsquo;', $point->post_title);
-			$content = str_replace("'", '&rsquo;', nl2br($point->post_content));
+			$content = str_replace("'", '&rsquo;', $point->post_content);
+			$content = str_replace(array("\r\n", "\r", "\n"), '<br>', $content); //extra linebreaking
+
 			$latitude = get_post_meta($point->ID, 'geo_latitude', true);
 			$longitude = get_post_meta($point->ID, 'geo_longitude', true);
 	
