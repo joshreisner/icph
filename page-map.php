@@ -87,6 +87,7 @@ foreach ($eras as $era) {
 		foreach ($points as $point) {
 			$title = str_replace("'", '&rsquo;', $point->post_title);
 			$content = str_replace("'", '&rsquo;', nl2br($point->post_content));
+			$content = str_replace(array("\r\n", "\r", "\n"), '<br>', $content); //extra linebreaking
 			$latitude = get_post_meta($point->ID, 'geo_latitude', true);
 			$longitude = get_post_meta($point->ID, 'geo_longitude', true);
 	
