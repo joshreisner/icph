@@ -97,7 +97,7 @@ footer ul li.icon{padding-top:0;margin-left:4px;}
 #slider li.today{border-color:#8a9d44;}#slider li.today.active,#slider li.today:hover{background-color:#8a9d44;}
 #slider_policy_wrapper{width:990px;margin:0 auto 48px;}#slider_policy_wrapper #slider_policy{list-style-type:none;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;overflow:auto;margin:0;padding:0 0 1px 0;display:block;}#slider_policy_wrapper #slider_policy li{float:left;margin-right:20px;display:none;cursor:pointer;padding:5px 5px 5px 5px;}#slider_policy_wrapper #slider_policy li i.close{display:none;}
 #slider_policy_wrapper #slider_policy li a{color:#ffffff;border-bottom:3px solid transparent;padding-bottom:3px;}
-#slider_policy_wrapper #slider_policy li.first{background-color:#64615c;color:#c8c1b9;display:inline;padding-right:10px;}#slider_policy_wrapper #slider_policy li.first i{color:#c8c1b9;}
+#slider_policy_wrapper #slider_policy li.first{background-color:#64615c;color:#ffffff;display:inline;padding-right:10px;}#slider_policy_wrapper #slider_policy li.first i{color:#ffffff;}
 #slider_policy_wrapper #slider_policy li.last{margin-right:0;}
 #slider_policy_wrapper #slider_policy li:hover a,#slider_policy_wrapper #slider_policy li.active a{border-color:#ffffff;}
 #slider_policy_wrapper #slider_policy.active{background-color:#64615c;}#slider_policy_wrapper #slider_policy.active li{display:block;}
