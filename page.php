@@ -96,8 +96,8 @@ if (isset($related[1])) $featured = get_post($related[1]['id']);
 					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/eggs.png" alt="Eggs" width="181" height="86"></li>
 					<li class="text">In 1885, 27 out of 100 infants died before their first birthday.  By 1914, 9 out of 100 died&ndash;a 65% decrease.<cite>(Meyer)</cite></li>
 					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/infants.png" alt="Infants" width="325" height="107"></li>
-					<li class="text">In 1900, only 6 in 10 school-aged children in New York were enrolled in school.  By 1920, 9 out of every 10 school age children were registered for school.</li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/education.png" alt="Education" width="271" height="126"></li>
+					<!--<li class="text">In 1900, only 6 in 10 school-aged children in New York were enrolled in school.  By 1920, 9 out of every 10 school age children were registered for school.</li>
+					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/education.png" alt="Education" width="271" height="126"></li>-->
 					<li class="text">If you lived in a tenement you shared a toilet with about 7 people.  Often the bathroom was outside.</li>
 					<li><img src="<?php bloginfo('template_directory');?>/img/eras/progressive/infographics/toilet.png" alt="Toilet" width="358" height="166"></li>
 					<li class="text">Between 1890 and 1920 the population of NYC increased 124%.<cite>Encyclopedia of New York City</cite></li>
