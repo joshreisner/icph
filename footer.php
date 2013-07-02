@@ -1,5 +1,5 @@
 		<div id="header">
-			<a class="logo" href="/">Poverty & Homelessness History <span>NYC</span></a>
+			<a class="logo" href="/">History of Poverty & Homelessness <span>NYC</span></a>
 			
 			<ul id="nav">
 				<li<?php if ($_SERVER['REQUEST_URI'] == '/') echo ' class="current_page_item"'?>>
