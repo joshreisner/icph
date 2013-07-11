@@ -141,4 +141,10 @@ foreach ($eras as $era) {
 }
 echo icph_slider();
 
+?>
+
+<a style="display:block;position:absolute;bottom:40px;right:20px;" href="http://www.icphusa.org/"><img src="<?php bloginfo('template_directory');?>/img/logo.png" width="229" height="27" border="0"></a>
+
+<?php
+
 get_footer();
