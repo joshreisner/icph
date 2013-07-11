@@ -66,7 +66,7 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 					$exclude[] = $feature['id'];
 					$feature = get_post($feature['id']);
 				}
-				$posts = array_merge($featured, get_posts('numberposts=-1&exclude=' . implode(',', $exclude) . '&meta_key=era&meta_value=' . $era->ID));
+				$posts = array_merge($featured, get_posts('orderby=title&order=asc&numberposts=-1&exclude=' . implode(',', $exclude) . '&meta_key=era&meta_value=' . $era->ID));
 				foreach ($posts as $p) {
 					$era_posts[] = $p->ID;
 					$nav_array[$p->post_name] = $p->post_title; //for prev and next
