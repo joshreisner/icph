@@ -51,11 +51,12 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 			
 		</div>
 		<div class="navigation">
-			<h3 id="navbar">
-				<a class="articles active" href="#articles">Articles</a>
-				<a class="images" href="#images">Images</a>
-				<a class="documents" href="#documents">Documents</a>
-			</h3>
+			<?php
+			//trim leading "the " off of article name to prevent "the progressive era articles"
+			$article_era = $era->post_title . ' Articles';
+			if (substr($article_era, 0, 4) == 'The ') $article_era = substr($article_era, 4);
+			?>
+			<h3><?php echo $article_era?></h3>
 			<div class="scroll-pane">
 				<ul id="articles">
 				<?php
@@ -78,45 +79,6 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 				</li>
 				<?php }?>
 				</ul>
-				
-				<?php
-				//get attachments
-				$posts = get_posts('numberposts=-1&post_type=attachment&post_mime_type=image&post_status=any');
-				$images = $documents = array();
-				foreach ($posts as $p) {
-					if (!in_array($p->post_parent, $era_posts)) continue; //remove non-era attachments
-					if (get_post_meta($p->ID, 'document', true) == 1) {
-						if (count($documents) < 6) $documents[] = $p;
-					} else {
-						if (count($images) < 6) $images[] = $p;
-					}
-				}
-				?>
-				<div class="gallery images">
-					<h4 id="images">Era Images<a href="/browse/?type=imagery">View All</a></h4>
-					<?php
-					foreach ($images as $image) {
-						list($url, $width, $height) = wp_get_attachment_image_src($image->ID, 'medium');
-						$orientation = ($width > $height) ? 'landscape' : 'portrait';
-						?>
-						<a href="<?php echo icph_img($image->ID)?>"><img src="<?php echo $url?>" width="<?php echo $width?>" height="<?php echo $height?>" class="<?php echo $orientation?>"></a>
-						<?php
-					}
-					?>
-				</div>
-				
-				<div class="gallery documents">
-					<h4 id="documents">Era Documents<a href="/browse/?type=documents">View All</a></h4>
-					<?php
-					foreach ($documents as $document) {
-						list($url, $width, $height) = wp_get_attachment_image_src($document->ID, 'inline');
-						$orientation = ($width > $height) ? 'landscape' : 'portrait';
-						?>
-						<a href="<?php echo icph_img($document->ID)?>"><img data-id="<?php echo $document->ID?>" src="<?php echo $url?>" width="<?php echo $width?>" height="<?php echo $height?>" class="<?php echo $orientation?>"></a>
-						<?php
-					}
-					?>
-				</div>
 			</div>
 		</div>
 	</div>

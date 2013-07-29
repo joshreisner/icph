@@ -33,47 +33,7 @@ var overlay = {
 				var articlesY = 0;
 				var imagesY = jQuery("ul#articles").height();
 				var documentsY = imagesY + jQuery("div.gallery.images").height();
-				var navScroller = jQuery('.navigation .scroll-pane').jScrollPane().bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
-					//window.console.log('scrollPositionY=', scrollPositionY, 'isAtTop=', isAtTop, 'isAtBottom=', isAtBottom);
-					//window.console.log(scrollPositionY + "--" + imagesY);
-					var shouldBeHighlighted = "articles";
-					if ((scrollPositionY >= documentsY) || isAtBottom) {
-						shouldBeHighlighted = "documents";
-					} else if (scrollPositionY >= imagesY) {
-						shouldBeHighlighted = "images";
-					}
-					
-					if (!jQuery("#navbar a." + shouldBeHighlighted).hasClass("active")) {
-						jQuery("#navbar a.active").removeClass("active");
-						jQuery("#navbar a." + shouldBeHighlighted).addClass("active");
-					}
-				});
-				
-				//navbar links
-				jQuery("#navbar a").click(function(e){
-					e.preventDefault();
-					if (jQuery(this).hasClass("articles")) {
-						navScroller.data('jsp').scrollTo(0, articlesY);
-					} else if (jQuery(this).hasClass("images")) {
-						navScroller.data('jsp').scrollTo(0, imagesY);
-					} else if (jQuery(this).hasClass("documents")) {
-						navScroller.data('jsp').scrollTo(0, documentsY);
-					}
-				});
-
-				
-				//magnifying glass
-				var mGlass = false;
-				jQuery(".attachment a.mag").click(function(){
-					if (mGlass) {
-						jQuery(this).html("<i class='icon-zoom-in'></i> Magnifying Glass On");
-						mGlass = false;
-						jQuery("#overlay div.body").html(jQuery("div.mglass_picture_box").html());
-					} else {
-						jQuery(this).html("<i class='icon-zoom-out'></i> Magnifying Glass Off");
-						mGlass = new MGlass("zoomable", jQuery("#zoomable").attr("data-full"));
-					}
-				});
+				var navScroller = jQuery('.navigation .scroll-pane').jScrollPane();
 				
 				//close on click outside
 				jQuery("#overlay_backdrop").click(function(){
