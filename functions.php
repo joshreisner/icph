@@ -20,8 +20,6 @@ for ($i = 0; $i < $era_count; $i++) {
 	$eras[$i]->end_year = (isset($eras[$i + 1])) ? $eras[$i + 1]->start_year - 1 : 'Today';
 }
 
-//die(var_dump($era_options));
-
 $custom_fields = array(
 	'timeline_year'=>array(
 		'era'=>array(
@@ -227,6 +225,9 @@ function icph_browse($type='subject') {
 			$document = get_post_meta($image->ID, 'document', true);
 			if ((($type == 'documents') && !$document) || (($type == 'images') && $document)) continue;
 
+			$hide_from_browse = get_post_meta($image->ID, 'hide_from_browse', true);
+			if ($hide_from_browse) continue;
+
 			$era = icph_get_era(get_post_meta($image->post_parent, 'era', true));
 			
 			list($src, $width, $height) = wp_get_attachment_image_src($image->ID, 'circle');
@@ -313,6 +314,14 @@ function icph_get_policy($policy_id=false, $policy_slug=false) {
 	return false;
 }
 
+function icph_img($image_id) {
+	return str_replace(site_url('/'), '#', get_permalink($image_id));
+}
+
+function icph_post($post_id) {
+	return str_replace(site_url('/'), '#', get_permalink($post_id));
+}
+
 function icph_slider($policy_active=false) {
 	global $eras, $policies;
 	
@@ -367,27 +376,17 @@ function icph_ul($elements, $arguments=array()) {
 	return $return . '>' . implode('', $elements) . '</ul>';
 }
 
-function icph_img($image_id) {
-	return str_replace(site_url('/'), '#', get_permalink($image_id));
-}
-
-function icph_post($post_id) {
-	return str_replace(site_url('/'), '#', get_permalink($post_id));
-}
-
 //custom stylesheet for tinymce
-add_filter('mce_css', 'icph_editor_style');  
-function icph_editor_style($url) {  
+add_filter('mce_css', function($url) {  
 	if (!empty($url)) $url .= ',';  
 	return $url . get_bloginfo('template_directory') . '/css/editor.css';
-}  
+});
 
 //remove existing styleselect
-add_filter('mce_buttons_2', 'icph_editor_buttons');
-function icph_editor_buttons($buttons) {  
+add_filter('mce_buttons_2', function($buttons) {  
 	array_unshift($buttons, 'styleselect');  
 	return $buttons;  
-}  
+});
   
 //add custom styles
 add_filter('tiny_mce_before_init', function($settings) {  
@@ -411,11 +410,10 @@ add_filter('tiny_mce_before_init', function($settings) {
 });
 
 //fixing wordpress "feature" of putting checked categories on top
-add_filter('wp_terms_checklist_args', 'icph_checklist_args');
-function icph_checklist_args($args) {
+add_filter('wp_terms_checklist_args', function($args) {
 	$args['checked_ontop'] = false;
 	return $args;
-}
+});
 
 //attach custom field forms to post types
 add_action('admin_menu', function(){
@@ -547,14 +545,22 @@ add_filter('pre_get_posts', function($wp_query) {
 });
 
 
-//adding custom document checkbox to the attachment
+//adding custom document and hide_from_browse checkboxes to the attachment
 add_filter('attachment_fields_to_edit', function($form_fields, $post) {
     $document = (bool) get_post_meta($post->ID, 'document', true);
 	$form_fields['document'] = array(
 		'label' => 'Document',
 		'input' => 'html',
-	    'html' => '<label for="attachments-'.$post->ID.'-document"><input type="checkbox" id="attachments-' . $post->ID . '-document" name="attachments[' . $post->ID . '][document]"' . ($document ? ' checked="checked"' : '') . '></label>',
+	    'html' => '<label for="attachments-'.$post->ID.'-document"><input type="checkbox" style="margin-top:7px;" id="attachments-' . $post->ID . '-document" name="attachments[' . $post->ID . '][document]"' . ($document ? ' checked="checked"' : '') . '></label>',
 		'value' => $document,
+		'helps' => '',
+	);
+    $hide_from_browse = (bool) get_post_meta($post->ID, 'hide_from_browse', true);
+	$form_fields['hide_from_browse'] = array(
+		'label' => 'Hide Browse',
+		'input' => 'html',
+	    'html' => '<label for="attachments-'.$post->ID.'-hide_from_browse"><input type="checkbox" style="margin-top:7px;" id="attachments-' . $post->ID . '-hide_from_browse" name="attachments[' . $post->ID . '][hide_from_browse]"' . ($hide_from_browse ? ' checked="checked"' : '') . '></label>',
+		'value' => $hide_from_browse,
 		'helps' => '',
 	);
 	return $form_fields;
@@ -562,6 +568,7 @@ add_filter('attachment_fields_to_edit', function($form_fields, $post) {
 
 add_filter('attachment_fields_to_save', function($post, $attachment) {
     update_post_meta($post['ID'], 'document', (($attachment['document'] == 'on') ? '1' : '0'));  
+    update_post_meta($post['ID'], 'hide_from_browse', (($attachment['hide_from_browse'] == 'on') ? '1' : '0'));  
     return $post;  
 }, null, 2 );
 
