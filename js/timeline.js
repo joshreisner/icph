@@ -2,23 +2,26 @@
 
 var timeline = {
 
-	$timeline		: jQuery('#timeline ul'),
-	$slider_eras	: jQuery("ul#slider li"),
+	$timeline		: false,
+	$slider_eras	: false,
 	interval		: false,
 	increment		: 0,
 	slider_start	: false,
 	slider_end		: false,
 	eras			: ["early_ny", "nineteenth", "progressive", "great_depression", "today"],
-	positions		: [],
+	positions		: false,
 	
 	init : function(){
-	
+		this.positions = [];
+		this.$timeline = jQuery('#timeline ul');
+		this.$slider_eras = jQuery("ul#slider li");
+
+		//because not all eras were entered / can't depend on each era having years
 		for (var i = 0; i < this.eras.length; i++) {
-			var fallback = jQuery("#timeline li").not('.overview').first().position().left;
 			if (jQuery("#timeline li." + this.eras[i]).size()) {
 				this.positions[this.eras[i]] = jQuery("#timeline li." + this.eras[i]).first().position().left;
 			} else {
-				this.positions[this.eras[i]] = fallback;
+				this.positions[this.eras[i]] = jQuery("#timeline li").not('.overview').first().position().left;
 			}
 		}
 		
@@ -26,32 +29,17 @@ var timeline = {
 		this.slider_start	= this.$slider_eras.first().position().left;
 		this.slider_end		= (0 - (jQuery("#timeline li").last().position().left - this.slider_start));
 		
-		//set initial scroll
-		if (this.$timeline.hasClass("policy")) {
-			//policy timeline, start on overview
-			this.$timeline.css("marginLeft", this.slider_start + "px");
-		} else {
-			//home page, start on progressive era
-			this.jump("progressive");
-		}
+		//maybe not when you're changing / sure hope there's a progressive year entered
+		this.jump("progressive");
 		
 		//set slider era links
+		this.$slider_eras.unbind("click");
 		this.$slider_eras.click(function(){
 			var target = jQuery(this).attr("class");
 			target = target.replace(" first", "").replace(" last", "").replace(" active", "");
 			timeline.jump(target);
 		});
 		
-		//set arrow
-		jQuery("#timeline a.arrow").hover(
-			function() {
-				timeline.increment = (jQuery(this).hasClass("left")) ? 7 : -7;
-				timeline.interval = setInterval(timeline.move, 10);
-			},
-			function() {
-				clearInterval(timeline.interval);
-			}
-		);
 	},
 	jump : function(which) {
 		//jump to an era on the timeline
@@ -92,3 +80,26 @@ var timeline = {
 		}
 	}
 };
+
+//set arrow
+jQuery("body").on("mouseenter", "#timeline a.arrow", function(){
+	timeline.increment = (jQuery(this).hasClass("left")) ? 7 : -7;
+	timeline.interval = setInterval(timeline.move, 10);
+});
+jQuery("body").on("mouseleave", "#timeline a.arrow", function(){
+	clearInterval(timeline.interval);
+});
+
+jQuery("#slider_policy li a").on("click", function(e) {
+	e.preventDefault();
+	jQuery("#slider_policy li a").removeClass('active');
+	jQuery(this).addClass('active');
+	jQuery.post("/wp-admin/admin-ajax.php", {
+		action : 'timeline',
+		category : jQuery(this).attr('href').substr(1),
+		type : jQuery(this).html().toLowerCase()
+	}, function(data) {
+		jQuery("#timeline_wrapper").html(data);
+		timeline.init();
+	});
+});

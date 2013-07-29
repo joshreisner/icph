@@ -21,14 +21,7 @@ for ($i = 0; $i < $era_count; $i++) {
 }
 
 $custom_fields = array(
-	'timeline_year'=>array(
-		'era'=>array(
-			'type'		=>'select',
-			'title'		=>'Era',
-			'options'	=>$era_options,
-		),
-	),
-	'policy_year'=>array(
+	'year'=>array(
 		'era'=>array(
 			'type'		=>'select',
 			'title'		=>'Era',
@@ -105,53 +98,6 @@ add_filter('image_size_names_choose', function ($sizes) {
 
 //register custom post types
 add_action('init', function() {
-	register_post_type('timeline_year', array(
-		'labels'        => array(
-			'name'               => _x( 'Timeline Years', 'post type general name' ),
-			'singular_name'      => _x( 'Timeline Year', 'post type singular name' ),
-			'add_new'            => _x( 'Add New', 'book' ),
-			'add_new_item'       => __( 'Add Year to the Timeline' ),
-			'edit_item'          => __( 'Edit Year' ),
-			'new_item'           => __( 'New Year' ),
-			'all_items'          => __( 'All Years' ),
-			'view_item'          => __( 'View Year' ),
-			'search_items'       => __( 'Search Years' ),
-			'not_found'          => __( 'No timeline years found' ),
-			'not_found_in_trash' => __( 'No timeline years found in the Trash' ), 
-			'parent_item_colon'  => '',
-			'menu_name'          => 'Timeline Years'
-		),
-		'description'   => 'Years for the main timeline',
-		'public'        => true,
-		'menu_position' => 5,
-		'supports'      => array('title', 'editor'),
-		'has_archive'   => false,
-	));
-	
-	register_post_type('policy_year', array(
-		'labels'        => array(
-			'name'               => _x( 'Policy Years', 'post type general name' ),
-			'singular_name'      => _x( 'Policy Year', 'post type singular name' ),
-			'add_new'            => _x( 'Add New', 'book' ),
-			'add_new_item'       => __( 'Add a Year to a Policy Timeline' ),
-			'edit_item'          => __( 'Edit Year' ),
-			'new_item'           => __( 'New Year' ),
-			'all_items'          => __( 'All Years' ),
-			'view_item'          => __( 'View Year' ),
-			'search_items'       => __( 'Search Years' ),
-			'not_found'          => __( 'No policy years found' ),
-			'not_found_in_trash' => __( 'No policy years found in the Trash' ), 
-			'parent_item_colon'  => '',
-			'menu_name'          => 'Policy Years'
-		),
-		'description'   => 'Years for the policy timelines',
-		'public'        => true,
-		'menu_position' => 6,
-		'supports'      => array('title', 'editor'),
-		'taxonomies'	=> array('category'),
-		'has_archive'   => false,
-	));
-	
 	register_post_type('era', array(
 		'labels'        => array(
 			'name'               => _x( 'Eras', 'post type general name' ),
@@ -170,11 +116,35 @@ add_action('init', function() {
 		),
 		'description'   => 'Eras',
 		'public'        => true,
-		'menu_position' => 5,
+		'menu_position' => 4,
 		'supports'      => array('title'),
 		'has_archive'   => false,
 	));
 	
+	register_post_type('year', array(
+		'labels'        => array(
+			'name'               => _x( 'Years', 'post type general name' ),
+			'singular_name'      => _x( 'Year', 'post type singular name' ),
+			'add_new'            => _x( 'Add New', 'book' ),
+			'add_new_item'       => __( 'Add Year to a Timeline' ),
+			'edit_item'          => __( 'Edit Year' ),
+			'new_item'           => __( 'New Year' ),
+			'all_items'          => __( 'All Years' ),
+			'view_item'          => __( 'View Year' ),
+			'search_items'       => __( 'Search Years' ),
+			'not_found'          => __( 'No years found' ),
+			'not_found_in_trash' => __( 'No years found in the Trash' ), 
+			'parent_item_colon'  => '',
+			'menu_name'          => 'Years'
+		),
+		'description'   => 'Years for the main timeline',
+		'public'        => true,
+		'menu_position' => 5,
+		'supports'      => array('title', 'editor'),
+		'taxonomies'	=> array('category'),
+		'has_archive'   => false,
+	));
+		
 	register_post_type('map_point', array(
 		'labels'        => array(
 			'name'               => _x( 'Map Points', 'post type general name' ),
@@ -332,9 +302,8 @@ function icph_slider($policy_active=false) {
 	//policies slider
 	foreach ($policies as &$policy) {
 		$policy = array(
-			'link'=>'/policies/?' . $policy->slug, 
-			'content'=>$policy->name,
-			'class'=>($_SERVER['REQUEST_URI'] == '/policies?' . $policy->slug) ? 'active' : false
+			'link'=>'#' . $policy->slug, 
+			'content'=>$policy->name
 		);
 	}
 	array_unshift($policies, array('content'=>'Filter by policy'));
@@ -356,6 +325,93 @@ function icph_thumbnail($post_id, $title=false, $slug=false) {
 				'</span>' . 
 			(has_post_thumbnail($post_id) ? get_the_post_thumbnail($post_id, 'circle') : '') . 
 		'</a>';
+}
+
+add_action('wp_ajax_timeline', 'icph_timeline');
+add_action('wp_ajax_nopriv_timeline', 'icph_timeline');
+function icph_timeline($category_id=false) {
+	global $eras, $policies;
+
+	//if showing main timeline (no cat), specifically exclude all cats
+	if (empty($category_id)) {
+		if (!empty($_POST['category'])) {
+			foreach ($policies as $policy) {
+				if ($policy->slug == $_POST['category']) $category_id = $policy->term_id;
+			}
+		} else {
+			$category_id = array();
+			foreach ($policies as $policy) $category_id[] = '-' . $policy->term_id;
+			$category_id = implode(',', $category_id);		
+		}
+	}
+
+	$li_items = array();
+
+	foreach ($eras as $era) {
+		//era overview & featured
+		if (empty($_POST['category'])) {
+			$featured = get_related_links('post', $era->ID);
+			$overview = array_shift($featured);
+			$overview = get_post($overview['id']);
+
+			//era overview
+			$li_items[] = '
+				<li id="' . $era->post_name . '" class="' . $era->post_name . ' overview">
+					<div class="upper">
+						<h1>' . $era->start_year . '&ndash;' . $era->end_year . '</h1>
+						<h2>' . $era->post_title . '</h2>
+					</div>
+					<div class="lower">
+						' . nl2br($overview->post_excerpt) . '
+						<a href="#' . $overview->post_name . '" class="more"><i class="icon-play-circled"></i> <span>Continue</span></a>
+					</div>
+				</li>';
+
+			//featured stories
+			foreach ($featured as $feature) {
+				$post = get_post($feature['id']);
+				$li_items[] = '
+					<li class="' . $era->post_name . ' featured">
+						<div class="upper"></div>
+						<div class="lower">' . 
+							((has_post_thumbnail($post->ID)) ? 
+								'<a href="#' . $post->post_name . '">' . get_the_post_thumbnail($post->ID, 'featured') . '</a>' :
+								'') . 
+							$post->post_excerpt . 
+							'<a href="#' . $post->post_name . '" class="more"><i class="icon-play-circled"></i> <span>' . $post->post_title . '</span></a>
+						</div>
+					</li>';
+			}
+		}
+
+		//loop through years
+		$years = get_posts('post_type=year&numberposts=-1&category=' . $category_id . '&orderby=title&order=ASC&meta_key=era&meta_value=' . $era->ID);
+		foreach ($years as $year) {
+			$li_items[] = '
+				<li class="' . $era->post_name . '">
+					<div class="upper">' . 
+						(($related_links = get_related_links('post', $year->ID)) ?
+							icph_thumbnail($related_links[0]['id'], $related_links[0]['title']) :
+							'') . '
+						<h3>' . $year->post_title . '</h3>
+					</div>
+					<div class="lower">' .
+						str_replace(site_url('/'), '#', apply_filters('the_content', $year->post_content)) . '
+					</div>
+				</li>';
+		}
+	}
+
+	//send output
+	echo '
+	<div id="timeline">
+		<ul>' . implode($li_items) . '</ul>
+		<a class="arrow left"><div class="cap"><i class="icon-left-open-big"></i></div></a>
+		<a class="arrow right"><div class="cap"><i class="icon-right-open-big"></i></div></a>
+	</div>';
+
+	//end output here on ajax requests
+	if (isset($_POST['type'])) die(); 
 }
 
 function icph_ul($elements, $arguments=array()) {
@@ -515,7 +571,7 @@ add_filter('manage_map_point_posts_columns', function($defaults) {
     );
 });  
 
-add_filter('manage_policy_year_posts_columns', function($defaults) {
+add_filter('manage_year_posts_columns', function($defaults) {
     return array(
     	'cb'=>'<input type="checkbox">',
     	'title'=>'Title',
@@ -535,10 +591,7 @@ add_filter('pre_get_posts', function($wp_query) {
 		$wp_query->set('meta_key', 'start_year');
 		$wp_query->set('orderby', 'meta_value');
 		$wp_query->set('order', 'ASC');
-	} elseif ($wp_query->query['post_type'] == 'timeline_year') {
-		$wp_query->set('orderby', 'title');
-		$wp_query->set('order', 'ASC');
-	} elseif ($wp_query->query['post_type'] == 'policy_year') {
+	} elseif ($wp_query->query['post_type'] == 'year') {
 		$wp_query->set('orderby', 'title');
 		$wp_query->set('order', 'ASC');
 	}

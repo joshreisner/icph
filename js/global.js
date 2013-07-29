@@ -61,14 +61,11 @@ jQuery(function(){
 		e.preventDefault();
 		jQuery("#browse .header a").removeClass("active");
 		jQuery(this).addClass("active");
-		var type = jQuery(this).html().toLowerCase();
-		jQuery.ajax({
-			url : "/wp-admin/admin-ajax.php",
-			type : "POST",
-			data : "action=browse&type=" + type,
-			success : function(data) {
-				jQuery("#browse .content").html(data);
-			}
+		jQuery.post("/wp-admin/admin-ajax.php", {
+			action : 'browse',
+			type : jQuery(this).html().toLowerCase() 
+		}, function(data) {
+			jQuery("#browse .content").html(data);
 		});
 	});
 
