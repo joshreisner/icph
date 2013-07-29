@@ -337,7 +337,7 @@ function icph_slider($policy_active=false) {
 			'class'=>($_SERVER['REQUEST_URI'] == '/policies?' . $policy->slug) ? 'active' : false
 		);
 	}
-	array_unshift($policies, array('content'=>'<i class="icon-plus-circled expand"></i><i class="icon-minus-circled close"></i> View by Policy'));
+	array_unshift($policies, array('content'=>'Filter by policy'));
 	
 	return '<div id="slider_policy_wrapper">' . icph_ul($slider_eras, array('id'=>'slider')) . icph_ul($policies, array('id'=>'slider_policy', 'class'=>($policy_active ? 'active' : false))) . '</div>';
 }

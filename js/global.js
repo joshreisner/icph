@@ -2,7 +2,6 @@
 //@codekit-prepend "jquery.mousewheel.js";
 //@codekit-prepend "jquery.jscrollpane.js";
 //@codekit-prepend "bootstrap.js";
-//@codekit-prepend "mglass.js";
 
 jQuery(function(){
 	//@codekit-prepend "timeline.js";
@@ -45,11 +44,6 @@ jQuery(function(){
 	
 	//initialize timeline if appropriate
 	if (jQuery("body").hasClass("timeline")) timeline.init();
-
-	//slider click
-	jQuery("#slider_policy li.first").click(function(){
-		jQuery(this).parent().toggleClass("active");
-	});
 
 	//set browse page accordion
 	jQuery("#browse").on("click", "h3", function(){

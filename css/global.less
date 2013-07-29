@@ -411,22 +411,15 @@ footer {
 	
 	#slider_policy {
 		list-style-type: none; .fontCondBold; overflow: auto; margin: 0; padding: 0 0 1px 0; display: block;
+		background-color: @gray_medium; 
 		li { 
-			float: left; margin-right: 20px; display: none; cursor: pointer; padding: @slider_padding @slider_padding @slider_padding @slider_padding; 
-			i.close { display: none; }
-			a { color: @white; border-bottom: 3px solid transparent; padding-bottom: 3px; }
-			&.first {
-				background-color: @gray_medium; color: @white; display: inline; padding-right: 10px; 
-				i { color: @white; }
+			float: left; margin-right: 10px; padding: @slider_padding; color: @gray_light;
+			a { 
+				color: @white; border-bottom: 3px solid transparent; padding-bottom: 4px; .fontCondBold; 
+				text-transform: uppercase; font-size: 12px;
 			}
 			&.last { margin-right: 0; }
 			&:hover, &.active { a { border-color: @white; } }
-		}
-		&.active {
-			background-color: @gray_medium; 
-			li { display: block; }
-			i.close { display: inline; }
-			i.expand { display: none; }
 		}
 	}
 }
