@@ -24,7 +24,7 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 		<div class="content">
 			<?php if (has_post_thumbnail()) {
 				$featured = get_post(get_post_thumbnail_id($post->ID));
-				$images = get_posts('post_type=attachment&post_status=any&post_mime_type=image&orderby=post_order&order=ASC&post_parent=' . $post->ID . '&exclude=' . $featured->ID);
+				$images = get_posts('post_type=attachment&post_status=any&post_mime_type=image&orderby=menu_order&order=ASC&post_parent=' . $post->ID . '&exclude=' . $featured->ID);
 				?>
 				<a class="featured_image" href="<?php echo icph_img($images[0]->ID)?>">
 					<?php echo get_the_post_thumbnail($post->ID, 'large')?>
