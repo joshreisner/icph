@@ -1,5 +1,9 @@
+<?php
+$site_title = get_bloginfo('name');
+$site_title = str_replace('NYC', '<span>NYC</span>', $site_title);
+?>
 		<div id="header">
-			<a class="logo" href="/">History of Poverty &amp; Homelessness <span>NYC</span></a>
+			<a class="logo" href="/"><?php echo $site_title?></a>
 			
 			<ul id="nav">
 				<li<?php if ($_SERVER['REQUEST_URI'] == '/') echo ' class="current_page_item"'?>>
