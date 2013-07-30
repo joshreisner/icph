@@ -307,6 +307,7 @@ function icph_slider($policy_active=false) {
 		);
 	}
 	array_unshift($policies, array('content'=>'Filter by policy'));
+	array_push($policies, array('content'=>'View complete timeline', 'link'=>'#'));
 	
 	return '<div id="slider_policy_wrapper">' . icph_ul($slider_eras, array('id'=>'slider')) . icph_ul($policies, array('id'=>'slider_policy', 'class'=>($policy_active ? 'active' : false))) . '</div>';
 }
@@ -332,11 +333,21 @@ add_action('wp_ajax_nopriv_timeline', 'icph_timeline');
 function icph_timeline($category_id=false) {
 	global $eras, $policies;
 
+	$description = '';
+
 	//if showing main timeline (no cat), specifically exclude all cats
 	if (empty($category_id)) {
 		if (!empty($_POST['category'])) {
 			foreach ($policies as $policy) {
-				if ($policy->slug == $_POST['category']) $category_id = $policy->term_id;
+				if ($policy->slug == $_POST['category']) {
+					$category_id = $policy->term_id;
+					$description = '
+					<div class="policy_description">
+						<h2>' . $policy->name . '</h2>
+						<a class="close"><i class="icon-cancel-circled"></i></a>
+						<div class="description">' . $policy->description . '</div>
+					</div>';
+				}
 			}
 		} else {
 			$category_id = array();
@@ -408,6 +419,7 @@ function icph_timeline($category_id=false) {
 		<ul>' . implode($li_items) . '</ul>
 		<a class="arrow left"><div class="cap"><i class="icon-left-open-big"></i></div></a>
 		<a class="arrow right"><div class="cap"><i class="icon-right-open-big"></i></div></a>
+		' . $description . '
 	</div>';
 
 	//end output here on ajax requests

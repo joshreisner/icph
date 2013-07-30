@@ -363,6 +363,17 @@ footer {
 		color: @white; .bg_opacity(@gray, .5); 
 		&:hover { .bg_opacity(@gray, .8); }
 	}
+
+	div.policy_description {
+		background-color: @gray_medium; color: @white;
+		position: absolute; top: 50%; left: 50%; margin: -200px 0 0 -250px;
+		width: 440px; height: 340px; padding: 30px; .shadowed;
+
+		h2 { .fontCondBold; font-size: 34px; margin: 0 0 20px 0; line-height: 1; }
+
+		a.close { position: absolute; top: 20px; right: 20px; }
+		div.description { .fontBold; height: 290px; overflow-y: scroll; }
+	}
 }
 
 #slider {
@@ -408,6 +419,7 @@ footer {
 
 #slider_policy_wrapper {
 	width: ((@slider_element_width * 5) + (@slider_padding * 7)); margin: 0 auto @header_height; 
+	position: relative;
 	
 	#slider_policy {
 		list-style-type: none; .fontCondBold; overflow: auto; margin: 0; padding: 0 0 1px 0; display: block;
@@ -418,7 +430,7 @@ footer {
 				color: @white; border-bottom: 3px solid transparent; padding-bottom: 4px; .fontCondBold; 
 				text-transform: uppercase; font-size: 12px;
 			}
-			&.last { margin-right: 0; }
+			&.last { position: absolute; right: 0; }
 			&:hover, &.active { a { border-color: @white; } }
 		}
 	}

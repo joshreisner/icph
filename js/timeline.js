@@ -81,7 +81,7 @@ var timeline = {
 	}
 };
 
-//set arrow
+//set arrows
 jQuery("body").on("mouseenter", "#timeline a.arrow", function(){
 	timeline.increment = (jQuery(this).hasClass("left")) ? 7 : -7;
 	timeline.interval = setInterval(timeline.move, 10);
@@ -92,14 +92,20 @@ jQuery("body").on("mouseleave", "#timeline a.arrow", function(){
 
 jQuery("#slider_policy li a").on("click", function(e) {
 	e.preventDefault();
-	jQuery("#slider_policy li a").removeClass('active');
-	jQuery(this).addClass('active');
+	var category = jQuery(this).attr('href').substr(1);
+	jQuery("#slider_policy li").removeClass('active');
+	if (category) jQuery(this).parent().addClass('active');
 	jQuery.post("/wp-admin/admin-ajax.php", {
 		action : 'timeline',
-		category : jQuery(this).attr('href').substr(1),
+		category : category,
 		type : jQuery(this).html().toLowerCase()
 	}, function(data) {
 		jQuery("#timeline_wrapper").html(data);
 		timeline.init();
 	});
+});
+
+jQuery("#timeline_wrapper").on("click", ".policy_description a.close", function(e){
+	e.preventDefault();
+	jQuery(this).closest(".policy_description").remove();
 });
