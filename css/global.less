@@ -419,11 +419,10 @@ footer {
 
 #slider_policy_wrapper {
 	width: ((@slider_element_width * 5) + (@slider_padding * 7)); margin: 0 auto @header_height; 
-	position: relative;
 	
 	#slider_policy {
 		list-style-type: none; .fontCondBold; overflow: auto; margin: 0; padding: 0 0 1px 0; display: block;
-		background-color: @gray_medium; 
+		background-color: @gray_medium; position: relative;
 		li { 
 			float: left; margin-right: 10px; padding: @slider_padding; color: @gray_light;
 			a { 
@@ -977,8 +976,10 @@ body.maps {
 		}
 	}
 	
-	#slider { position: absolute; bottom: 20px; }
-	#slider_policy { display: none; }
+	#slider_policy_wrapper {
+		#slider { position: absolute; bottom: 20px; }
+		#slider_policy { display: none; }		
+	}
 }
 
 #browse {
