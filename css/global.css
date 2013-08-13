@@ -26,7 +26,7 @@ html body div.wp-caption.alignright{float:right;margin:0 0 10px 10px}
 #header ul#nav li ul li.nineteenth div{color:#a3735f}
 #header ul#nav li ul li.progressive div{color:#5e7190}
 #header ul#nav li ul li.great_depression div{color:#9c474e}
-#header ul#nav li ul li.today div{color:#8a9d44}
+#header ul#nav li ul li.today div{color:#949d7b}
 #header ul#tools{right:20px}#header ul#tools li a.main{font-size:13px}
 #header ul#tools li ul.dropdown li a{color:#383434;padding:6px 20px 6px 6px;line-height:23px;text-transform:none;white-space:nowrap;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold}#header ul#tools li ul.dropdown li a i{color:#948f89;font-size:20px;display:block;float:left;margin-right:6px}
 #header ul#tools li ul.dropdown li a span{display:block;float:left}
@@ -63,7 +63,7 @@ footer ul li.icon{padding-top:0;margin-left:4px}
 #timeline ul li.overview.nineteenth .lower,#timeline ul li.end.nineteenth .lower{background-color:#a3735f}
 #timeline ul li.overview.progressive .lower,#timeline ul li.end.progressive .lower{background-color:#5e7190}
 #timeline ul li.overview.great_depression .lower,#timeline ul li.end.great_depression .lower{background-color:#9c474e}
-#timeline ul li.overview.today .lower,#timeline ul li.end.today .lower{background-color:#8a9d44}
+#timeline ul li.overview.today .lower,#timeline ul li.end.today .lower{background-color:#949d7b}
 #timeline ul li.end .lower{background-color:#c8c1b9;color:#383434;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal}
 #timeline ul li.featured{border-left:0}#timeline ul li.featured .lower{background-image:none}
 #timeline ul li.featured a.more{text-transform:none}
@@ -84,9 +84,9 @@ footer ul li.icon{padding-top:0;margin-left:4px}
 #timeline ul li.great_depression{border-color:#9c474e}#timeline ul li.great_depression .thumbnail{background-color:#e5cec7;color:#9c474e}
 #timeline ul li.great_depression h1,#timeline ul li.great_depression h2,#timeline ul li.great_depression h3{color:#9c474e}
 #timeline ul li.great_depression a{color:#9c474e}#timeline ul li.great_depression a:hover{background-color:#e5cec7}
-#timeline ul li.today{border-color:#8a9d44}#timeline ul li.today .thumbnail{background-color:#e0dfcd;color:#8a9d44}
-#timeline ul li.today h1,#timeline ul li.today h2,#timeline ul li.today h3{color:#8a9d44}
-#timeline ul li.today a{color:#8a9d44}#timeline ul li.today a:hover{background-color:#e0dfcd}
+#timeline ul li.today{border-color:#949d7b}#timeline ul li.today .thumbnail{background-color:#e0dfcd;color:#949d7b}
+#timeline ul li.today h1,#timeline ul li.today h2,#timeline ul li.today h3{color:#949d7b}
+#timeline ul li.today a{color:#949d7b}#timeline ul li.today a:hover{background-color:#e0dfcd}
 #timeline a.arrow{color:#fff;background-color:#383434;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#80383333, endColorstr=#80383333)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#80383333, endColorstr=#80383333);background-color:rgba(56,51,51,0.5)}#timeline a.arrow:hover{background-color:#383434;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc383333, endColorstr=#cc383333)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc383333, endColorstr=#cc383333);background-color:rgba(56,51,51,0.8)}
 #timeline div.policy_description{background-color:#64615c;color:#fff;position:absolute;top:50%;left:50%;margin:-200px 0 0 -250px;width:440px;height:340px;padding:30px;-webkit-box-shadow:0 0 6px rgba(0,0,0,0.6);-moz-box-shadow:0 0 6px rgba(0,0,0,0.6);box-shadow:0 0 6px rgba(0,0,0,0.6)}#timeline div.policy_description h2{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;font-size:34px;margin:0 0 20px 0;line-height:1}
 #timeline div.policy_description a.close{position:absolute;top:20px;right:20px}
@@ -97,7 +97,7 @@ footer ul li.icon{padding-top:0;margin-left:4px}
 #slider li.nineteenth{border-color:#a3735f}#slider li.nineteenth.active,#slider li.nineteenth:hover{background-color:#a3735f}
 #slider li.progressive{border-color:#5e7190}#slider li.progressive.active,#slider li.progressive:hover{background-color:#5e7190}
 #slider li.great_depression{border-color:#9c474e}#slider li.great_depression.active,#slider li.great_depression:hover{background-color:#9c474e}
-#slider li.today{border-color:#8a9d44}#slider li.today.active,#slider li.today:hover{background-color:#8a9d44}
+#slider li.today{border-color:#949d7b}#slider li.today.active,#slider li.today:hover{background-color:#949d7b}
 #slider_policy_wrapper{width:990px;margin:0 auto 48px}#slider_policy_wrapper #slider_policy{list-style-type:none;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;overflow:auto;margin:0;padding:0 0 1px 0;display:block;background-color:#64615c;position:relative}#slider_policy_wrapper #slider_policy li{float:left;margin-right:10px;padding:5px;color:#948f89}#slider_policy_wrapper #slider_policy li a{color:#fff;border-bottom:3px solid transparent;padding-bottom:4px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;text-transform:uppercase;font-size:12px}
 #slider_policy_wrapper #slider_policy li.last{position:absolute;right:0}
 #slider_policy_wrapper #slider_policy li:hover a,#slider_policy_wrapper #slider_policy li.active a{border-color:#fff}
@@ -165,13 +165,13 @@ footer ul li.icon{padding-top:0;margin-left:4px}
 #overlay.great_depression div.navigation strong{color:#9c474e}
 #overlay.great_depression div.related h3{color:#9c474e}
 #overlay.great_depression div.related a.thumbnail{background-color:#e5cec7;color:#9c474e}
-#overlay.today div.content a{color:#8a9d44}#overlay.today div.content a:hover{background-color:#e0dfcd}
+#overlay.today div.content a{color:#949d7b}#overlay.today div.content a:hover{background-color:#e0dfcd}
 #overlay.today div.header{background-color:#e0dfcd}
-#overlay.today div.navigation h3{background-color:#8a9d44}
-#overlay.today div.navigation ul a{color:#8a9d44}
-#overlay.today div.navigation strong{color:#8a9d44}
-#overlay.today div.related h3{color:#8a9d44}
-#overlay.today div.related a.thumbnail{background-color:#e0dfcd;color:#8a9d44}
+#overlay.today div.navigation h3{background-color:#949d7b}
+#overlay.today div.navigation ul a{color:#949d7b}
+#overlay.today div.navigation strong{color:#949d7b}
+#overlay.today div.related h3{color:#949d7b}
+#overlay.today div.related a.thumbnail{background-color:#e0dfcd;color:#949d7b}
 #era h3{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;font-size:30px}
 #era .inner{overflow:auto}#era .inner .column{float:left;width:460px;font-size:13px}#era .inner .column.right{margin-left:40px}
 #era .row.header{height:400px;padding-top:48px;background-size:cover}#era .row.header .inner{width:460px;height:360px;margin:0 auto;color:#fff;padding:20px;position:relative;font-size:14px;line-height:18px;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold}#era .row.header .inner h1,#era .row.header .inner h2{text-align:center}
@@ -213,17 +213,17 @@ footer ul li.icon{padding-top:0;margin-left:4px}
 #era.great_depression .row.header{background-image:url(../img/eras/progressive/era.jpg)}#era.great_depression .row.header .inner{background-color:#9c474e;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc9d484f, endColorstr=#cc9d484f)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc9d484f, endColorstr=#cc9d484f);background-color:rgba(157,72,79,0.8)}
 #era.great_depression .row.topics{background-color:#9c474e}#era.great_depression .row.topics a.thumbnail{background-color:#e5cec7;color:#9c474e}
 #era.great_depression .row.infographics{background-color:#e5cec7;color:#9c474e}
-#era.today a,#era.today h3{color:#8a9d44}
-#era.today .row.header{background-image:url(../img/eras/progressive/era.jpg)}#era.today .row.header .inner{background-color:#8a9d44;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff8a9d43, endColorstr=#ff8a9d43)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff8a9d43, endColorstr=#ff8a9d43);background-color:#8a9d43}
-#era.today .row.topics{background-color:#8a9d44}#era.today .row.topics a.thumbnail{background-color:#e0dfcd;color:#8a9d44}
-#era.today .row.infographics{background-color:#e0dfcd;color:#8a9d44}
+#era.today a,#era.today h3{color:#949d7b}
+#era.today .row.header{background-image:url(../img/eras/progressive/era.jpg)}#era.today .row.header .inner{background-color:#949d7b;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff949d7b, endColorstr=#ff949d7b)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff949d7b, endColorstr=#ff949d7b);background-color:#949d7b}
+#era.today .row.topics{background-color:#949d7b}#era.today .row.topics a.thumbnail{background-color:#e0dfcd;color:#949d7b}
+#era.today .row.infographics{background-color:#e0dfcd;color:#949d7b}
 body.maps footer{display:none}
 body.maps div.mapwrapper{position:fixed;width:100%;height:100%}body.maps div.mapwrapper div.map{width:100%;height:100%}
 body.maps div.mapwrapper.early_ny{display:none}body.maps div.mapwrapper.early_ny div#description{background-color:#78558b;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc78558b, endColorstr=#cc78558b)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc78558b, endColorstr=#cc78558b);background-color:rgba(120,85,139,0.8)}
 body.maps div.mapwrapper.nineteenth{display:none}body.maps div.mapwrapper.nineteenth div#description{background-color:#a3735f;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cca47560, endColorstr=#cca47560)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cca47560, endColorstr=#cca47560);background-color:rgba(164,117,96,0.8)}
 body.maps div.mapwrapper.progressive div#description{background-color:#5e7190;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc5f7291, endColorstr=#cc5f7291)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc5f7291, endColorstr=#cc5f7291);background-color:rgba(95,114,145,0.8)}
 body.maps div.mapwrapper.great_depression{display:none}body.maps div.mapwrapper.great_depression div#description{background-color:#9c474e;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc9d484f, endColorstr=#cc9d484f)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc9d484f, endColorstr=#cc9d484f);background-color:rgba(157,72,79,0.8)}
-body.maps div.mapwrapper.today{display:none}body.maps div.mapwrapper.today div#description{background-color:#8a9d44;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc8a9d43, endColorstr=#cc8a9d43)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc8a9d43, endColorstr=#cc8a9d43);background-color:rgba(138,157,67,0.8)}
+body.maps div.mapwrapper.today{display:none}body.maps div.mapwrapper.today div#description{background-color:#949d7b;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc949d7b, endColorstr=#cc949d7b)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc949d7b, endColorstr=#cc949d7b);background-color:rgba(148,157,123,0.8)}
 body.maps a.control{position:absolute;top:4px;right:4px;font-size:16px}body.maps a.control.expand{display:none}
 body.maps div.zoom{color:#fff;background-color:#000;text-align:center;line-height:30px;font-size:20px;-moz-opacity:.5;-khtml-opacity:.5;-webkit-opacity:.5;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";filter:alpha(opacity=50);opacity:.5;width:30px;height:30px;cursor:pointer;position:absolute;left:20px}body.maps div.zoom.in{top:70px}
 body.maps div.zoom.out{top:110px}
@@ -255,8 +255,8 @@ body.maps #slider_policy_wrapper #slider_policy{display:none}
 #browse .row ul li.progressive a.thumbnail{background-color:#d3d2d1;color:#5e7190}
 #browse .row ul li.great_depression h4{color:#9c474e}
 #browse .row ul li.great_depression a.thumbnail{background-color:#e5cec7;color:#9c474e}
-#browse .row ul li.today h4{color:#8a9d44}
-#browse .row ul li.today a.thumbnail{background-color:#e0dfcd;color:#8a9d44}
+#browse .row ul li.today h4{color:#949d7b}
+#browse .row ul li.today a.thumbnail{background-color:#e0dfcd;color:#949d7b}
 body.search .container{width:940px;margin:0 auto 100px;margin-top:96px}body.search .container h1{color:#948f89}
 body.search .container a{color:#383434}
 .scroll-pane,.infographics .inner div{outline:none}.scroll-pane .jspContainer,.infographics .inner div .jspContainer{overflow:hidden;position:relative}.scroll-pane .jspContainer .jspPane,.infographics .inner div .jspContainer .jspPane{position:absolute}
