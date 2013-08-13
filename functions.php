@@ -547,7 +547,7 @@ add_action('admin_menu', function(){
 add_action('save_post', function($post_id) {
 	global $post, $custom_fields;
 
-	if (empty($post->post_type)) $post->post_type = $_GET['post_type'];
+	if (empty($post->post_type)) $post->post_type = @$_GET['post_type'];
 	if (!isset($custom_fields[$post->post_type])) return;
 
 	foreach($custom_fields[$post->post_type] as $name=>$features) {  
@@ -599,13 +599,15 @@ add_action('manage_posts_custom_column', function($column_name, $post_ID) {
 }, 10, 2);
 
 add_filter('pre_get_posts', function($wp_query) {
-	if ($wp_query->query['post_type'] == 'era') {
-		$wp_query->set('meta_key', 'start_year');
-		$wp_query->set('orderby', 'meta_value');
-		$wp_query->set('order', 'ASC');
-	} elseif ($wp_query->query['post_type'] == 'year') {
-		$wp_query->set('orderby', 'title');
-		$wp_query->set('order', 'ASC');
+	if (isset($wp_query->query['post_type'])) {
+		if ($wp_query->query['post_type'] == 'era') {
+			$wp_query->set('meta_key', 'start_year');
+			$wp_query->set('orderby', 'meta_value');
+			$wp_query->set('order', 'ASC');
+		} elseif ($wp_query->query['post_type'] == 'year') {
+			$wp_query->set('orderby', 'title');
+			$wp_query->set('order', 'ASC');
+		}
 	}
 });
 

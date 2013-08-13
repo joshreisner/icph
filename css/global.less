@@ -226,6 +226,28 @@ footer {
 }
 
 /* pages */
+#home {
+	margin-top: @header_height; 
+	.column { 
+		width: 20%; float: left; 
+		.upper {
+			height: 400px; 
+		}
+		.lower {
+			height: 270px;
+		}
+		ul { display: none; }
+		&.early_ny			{ color: @purple_medium; background-color: @purple;}
+		&.nineteenth		{ color: @orange_medium; background-color: @orange; }
+		&.progressive		{ color: @blue_medium;   background-color: @blue; }
+		&.great_depression	{ color: @red_medium;    background-color: @red; }
+		&.today				{ color: @green_medium;  background-color: @green; }
+		&:hover {
+			color: @white;
+			ul { display: block; }
+		}
+	}
+}
 
 #timeline {
 	width: 100%; overflow: hidden; position: relative; margin-top: (@header_height * 2);
