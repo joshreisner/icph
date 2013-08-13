@@ -6,8 +6,8 @@ $site_title = str_replace('NYC', '<span>NYC</span>', $site_title);
 			<a class="logo" href="/"><?php echo $site_title?></a>
 			
 			<ul id="nav">
-				<li<?php if ($_SERVER['REQUEST_URI'] == '/') echo ' class="current_page_item"'?>>
-					<a class="main" href="/">Timeline</a>
+				<li<?php if ($_SERVER['REQUEST_URI'] == '/timeline/') echo ' class="current_page_item"'?>>
+					<a class="main" href="/timeline/">Timeline</a>
 					<div class="separator"></div>
 				</li>
 				<li>

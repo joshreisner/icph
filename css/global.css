@@ -257,6 +257,7 @@ body.maps #slider_policy_wrapper #slider_policy{display:none}
 #browse .row ul li.great_depression a.thumbnail{background-color:#e5cec7;color:#9c474e}
 #browse .row ul li.today h4{color:#949d7b}
 #browse .row ul li.today a.thumbnail{background-color:#e0dfcd;color:#949d7b}
+#error404{height:300px;padding-top:300px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;text-align:center}
 body.search .container{width:940px;margin:0 auto 100px;margin-top:96px}body.search .container h1{color:#948f89}
 body.search .container a{color:#383434}
 .scroll-pane,.infographics .inner div{outline:none}.scroll-pane .jspContainer,.infographics .inner div .jspContainer{overflow:hidden;position:relative}.scroll-pane .jspContainer .jspPane,.infographics .inner div .jspContainer .jspPane{position:absolute}
