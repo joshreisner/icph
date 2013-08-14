@@ -229,21 +229,52 @@ footer {
 #home {
 	margin-top: @header_height; 
 	.column { 
-		width: 20%; float: left; 
+		width: 20%; float: left; .fontCondBold;
 		.upper {
-			height: 400px; 
+			height: 450px; .opacity(.5);
 		}
 		.lower {
-			height: 270px;
+			height: 270px; padding: 10px; text-align: center;
+			h1 { font-size: 50px; }
+			h2 { font-size: 28px; line-height: 1; margin-bottom: 30px; }
+			ul { 
+				display: none; text-align: left; margin: 10px 0 0 10px; padding: 0; list-style-type: none; 
+				li {
+					margin: 0 0 10px 0; padding: 0 0 0 0;
+					a {
+						display: block; position: relative; padding-left: 24px; 
+						i { position: absolute; left: 0; }
+					}
+				}
+			}
 		}
-		ul { display: none; }
-		&.early_ny			{ color: @purple_medium; background-color: @purple;}
-		&.nineteenth		{ color: @orange_medium; background-color: @orange; }
-		&.progressive		{ color: @blue_medium;   background-color: @blue; }
-		&.great_depression	{ color: @red_medium;    background-color: @red; }
-		&.today				{ color: @green_medium;  background-color: @green; }
+
+		&.early_ny { 
+			color: @purple_medium; background-color: @purple; 
+			.upper { background-image: url(../img/eras/early_ny/home.jpg); }
+		}
+		
+		&.nineteenth		{
+			color: @orange_medium; background-color: @orange;
+			.upper { background-image: url(../img/eras/nineteenth/home.jpg); }
+		}
+		&.progressive		{
+			color: @blue_medium; background-color: @blue;
+			.upper { background-image: url(../img/eras/progressive/home.jpg); }
+		}
+		&.great_depression	{
+			color: @red_medium; background-color: @red;
+			.upper { background-image: url(../img/eras/great_depression/home.jpg); }
+		}
+		&.today				{
+			color: @green_medium; background-color: @green;
+			.upper { background-image: url(../img/eras/today/home.jpg); }
+		}
+
 		&:hover {
 			color: @white;
+			a { color: @white; }
+			.upper { .opacity(1); }
 			ul { display: block; }
 		}
 	}

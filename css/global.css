@@ -46,15 +46,18 @@ footer{overflow:auto;margin-bottom:20px;font-family:"BentonSans",Helvetica,sans-
 footer ul{float:right;list-style:none;margin:0 20px 0 0;padding:0;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold}footer ul li{float:left;margin:0 0 0 20px;font-size:16px;line-height:16px;padding-top:5px}footer ul li a{color:#948f89;text-transform:uppercase}footer ul li a i{font-size:26px}
 footer ul li a:hover{color:#64615c}
 footer ul li.icon{padding-top:0;margin-left:4px}
-#home{margin-top:48px}#home .column{width:20%;float:left}#home .column .upper{height:400px}
-#home .column .lower{height:270px}
-#home .column ul{display:none}
-#home .column.early_ny{color:#a992ab;background-color:#78558b}
-#home .column.nineteenth{color:#c5a696;background-color:#a3735f}
-#home .column.progressive{color:#99a2b1;background-color:#5e7190}
-#home .column.great_depression{color:#c18b8b;background-color:#9c474e}
-#home .column.today{color:#babea4;background-color:#949d7b}
-#home .column:hover{color:#fff}#home .column:hover ul{display:block}
+#home{margin-top:48px}#home .column{width:20%;float:left;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold}#home .column .upper{height:450px;-moz-opacity:.5;-khtml-opacity:.5;-webkit-opacity:.5;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";filter:alpha(opacity=50);opacity:.5}
+#home .column .lower{height:270px;padding:10px;text-align:center}#home .column .lower h1{font-size:50px}
+#home .column .lower h2{font-size:28px;line-height:1;margin-bottom:30px}
+#home .column .lower ul{display:none;text-align:left;margin:10px 0 0 10px;padding:0;list-style-type:none}#home .column .lower ul li{margin:0 0 10px 0;padding:0 0 0 0}#home .column .lower ul li a{display:block;position:relative;padding-left:24px}#home .column .lower ul li a i{position:absolute;left:0}
+#home .column.early_ny{color:#a992ab;background-color:#78558b}#home .column.early_ny .upper{background-image:url(../img/eras/early_ny/home.jpg)}
+#home .column.nineteenth{color:#c5a696;background-color:#a3735f}#home .column.nineteenth .upper{background-image:url(../img/eras/nineteenth/home.jpg)}
+#home .column.progressive{color:#99a2b1;background-color:#5e7190}#home .column.progressive .upper{background-image:url(../img/eras/progressive/home.jpg)}
+#home .column.great_depression{color:#c18b8b;background-color:#9c474e}#home .column.great_depression .upper{background-image:url(../img/eras/great_depression/home.jpg)}
+#home .column.today{color:#babea4;background-color:#949d7b}#home .column.today .upper{background-image:url(../img/eras/today/home.jpg)}
+#home .column:hover{color:#fff}#home .column:hover a{color:#fff}
+#home .column:hover .upper{-moz-opacity:1;-khtml-opacity:1;-webkit-opacity:1;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";filter:alpha(opacity=100);opacity:1}
+#home .column:hover ul{display:block}
 #timeline{width:100%;overflow:hidden;position:relative;margin-top:96px}#timeline ul{list-style-type:none;margin:0;padding:0;font-size:12px;overflow-x:auto;overflow-y:hidden;width:1000000px}#timeline ul li{width:226px;margin:0;padding:0;border-left:1px solid #eae3d9;float:left;position:relative}#timeline ul li h1,#timeline ul li h2,#timeline ul li h3{color:#64615c}
 #timeline ul li .upper{height:150px;position:relative}#timeline ul li .upper a.thumbnail{position:absolute;left:-50px;width:100px;height:100px;border-radius:50px;overflow:hidden}#timeline ul li .upper a.thumbnail i{line-height:20px}
 #timeline ul li .upper a.thumbnail img{width:100px;height:100px;border-radius:50px;overflow:hidden}
