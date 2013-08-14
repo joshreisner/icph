@@ -42,6 +42,15 @@ jQuery(function(){
 		jQuery("input#search").val("");
 	});
 	
+	//home insights
+	jQuery("#home_insights .arrow a").click(function(e){
+		e.preventDefault();
+	});
+
+	jQuery("#home_insights .insight a").click(function(e){
+		e.preventDefault();
+	});
+
 	//initialize timeline if appropriate
 	if (jQuery("body").hasClass("timeline")) timeline.init();
 
