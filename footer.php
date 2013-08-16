@@ -3,6 +3,18 @@ $site_title = get_bloginfo('name');
 $site_title = str_replace('NYC', '<span>NYC</span>', $site_title);
 ?>
 		<div id="header">
+
+			<div class="superheader">
+				<div class="side left">
+					1/5 of New Yorkers are poor or homeless today<br>How did we get here?
+				</div>
+				<div class="side right">
+					<em>The Institute of Children, Poverty, and Homelessness presents</em> timelines,
+					maps, stories, and articles exploring the historical experience of family poverty
+					and homelessness, and society's response to it.
+				</div>
+			</div>
+
 			<a class="logo" href="/"><?php echo $site_title?></a>
 			
 			<ul id="nav">

@@ -31,6 +31,7 @@
 
 /* dimensions */
 @header_height				: 48px;
+@header_height_big			: 130px;
 @overlay_content_width		: 640px;
 @overlay_header_height		: 97px;
 @overlay_navigation_width	: 320px; 
@@ -106,22 +107,36 @@ html {
 	.bg_opacity(@gray, .8); .shadowed(); height: @header_height; position: fixed; top: 0; left: 0; right: 0; 
 	overflow: visible;
 
-	a { 
-		color: @white; 
-		&.logo {
-			font-size: 28px; position: absolute; left: 20px; top: 6px; 
-			span { .fontCondBold; }
+	.superheader {
+		color: @white; display: none;
+		.side {
+			position: absolute; width: 532px; top: 20px;
+			&.left {
+				.fontCondBold; text-align: right; left: 30px; font-size: 22px; line-height: 1.3;
+			}
+			&.right {
+				.font; font-size: 15px;
+				em { font-style: normal; .fontCondBold; }
+			}
 		}
 	}
 	
+	a { 
+		color: @white; 
+		&.logo {
+			font-size: 28px; position: absolute; left: 20px; bottom: 6px; 
+			span { .fontCondBold; }
+		}
+	}
+
 	/* menus */
 	ul {
-		list-style-type: none; margin: 0; padding: 0; text-transform: uppercase; .fontCondBold; color: @white; position: absolute;
+		list-style-type: none; margin: 0; padding: 0; text-transform: uppercase; .fontCondBold; color: @white; position: absolute; bottom: 0;
 		li { 
 			float: left; margin: 0; padding: 0; position: relative;
 			a.main { height: @header_height - 25; line-height: @header_height - 20; display: block; border-bottom: 5px solid transparent; padding: 10px 0; }
 			ul {
-				display: none; position: fixed; top: @header_height; .bg; .shadowed;
+				display: none; position: fixed; top: @header_height; bottom: auto; .bg; .shadowed;
 				li {
 					float: none; border-bottom: 1px solid @beige_dark;
 					a {
@@ -226,76 +241,85 @@ footer {
 }
 
 /* pages */
-#home {
-	margin-top: @header_height; overflow: auto;
-	.column { 
-		width: 20%; float: left; .fontCondBold;
-		.upper {
-			height: 450px; .opacity(.5);
-		}
-		.lower {
-			height: 270px; padding: 10px; text-align: center;
-			h1 { font-size: 50px; }
-			h2 { font-size: 28px; line-height: 1; margin-bottom: 30px; }
-			ul { 
-				display: none; text-align: left; margin: 10px 0 0 10px; padding: 0; list-style-type: none; 
-				li {
-					margin: 0 0 10px 0; padding: 0 0 0 0;
-					a {
-						display: block; position: relative; padding-left: 24px; 
-						i { position: absolute; left: 0; }
+
+body.home {
+	#header { 
+		height: @header_height_big;
+		.superheader { display: block; }
+		ul li ul { top: @header_height_big; }
+	}
+	
+	#home {
+		margin-top: @header_height_big; overflow: auto;
+		.column { 
+			width: 20%; float: left; .fontCondBold;
+			.upper {
+				height: 450px; .opacity(.5);
+			}
+			.lower {
+				height: 270px; padding: 10px; text-align: center;
+				h1 { font-size: 50px; }
+				h2 { font-size: 28px; line-height: 1; margin-bottom: 30px; }
+				ul { 
+					display: none; text-align: left; margin: 10px 0 0 10px; padding: 0; list-style-type: none; 
+					li {
+						margin: 0 0 10px 0; padding: 0 0 0 0;
+						a {
+							display: block; position: relative; padding-left: 24px; 
+							i { position: absolute; left: 0; }
+						}
 					}
 				}
 			}
-		}
 
-		&.early_ny { 
-			color: @purple_medium; background-color: @purple; 
-			.upper { background-image: url(../img/eras/early_ny/home.jpg); }
-		}
-		
-		&.nineteenth		{
-			color: @orange_medium; background-color: @orange;
-			.upper { background-image: url(../img/eras/nineteenth/home.jpg); }
-		}
-		&.progressive		{
-			color: @blue_medium; background-color: @blue;
-			.upper { background-image: url(../img/eras/progressive/home.jpg); }
-		}
-		&.great_depression	{
-			color: @red_medium; background-color: @red;
-			.upper { background-image: url(../img/eras/great_depression/home.jpg); }
-		}
-		&.today				{
-			color: @green_medium; background-color: @green;
-			.upper { background-image: url(../img/eras/today/home.jpg); }
-		}
+			&.early_ny { 
+				color: @purple_medium; background-color: @purple; 
+				.upper { background-image: url(../img/eras/early_ny/home.jpg); }
+			}
+			
+			&.nineteenth		{
+				color: @orange_medium; background-color: @orange;
+				.upper { background-image: url(../img/eras/nineteenth/home.jpg); }
+			}
+			&.progressive		{
+				color: @blue_medium; background-color: @blue;
+				.upper { background-image: url(../img/eras/progressive/home.jpg); }
+			}
+			&.great_depression	{
+				color: @red_medium; background-color: @red;
+				.upper { background-image: url(../img/eras/great_depression/home.jpg); }
+			}
+			&.today				{
+				color: @green_medium; background-color: @green;
+				.upper { background-image: url(../img/eras/today/home.jpg); }
+			}
 
-		&:hover {
-			color: @white;
-			a { color: @white; }
-			.upper { .opacity(1); }
-			ul { display: block; }
+			&:hover {
+				color: @white;
+				a { color: @white; }
+				.upper { .opacity(1); }
+				ul { display: block; }
+			}
 		}
 	}
-}
 
-#home_insights {
-	width: 666px; margin: 40px auto; overflow: auto; text-align: center; color: @gray_light;
-	a {
-		color: @gray_light; 
-		&:hover { color: @gray; }
-	}
-	.title {
-		.font; font-size: 30px; 
-		em { font-style: normal; text-transform: uppercase; }
-	}
-	.arrow { width: 80px; float: left; font-size: 50px; }
-	.insight {
-		width: 500px; float: left; 
+	#home_insights {
+		width: 666px; margin: 40px auto; overflow: auto; text-align: center; color: @gray_light;
 		a {
-			.fontCondBold; width: 500px; float: left; display: none; font-size: 18px; margin-top: 10px;
-			&.active { display: block; }
+			color: @gray_light; 
+			&:hover { color: @gray; }
+		}
+		.title {
+			.font; font-size: 30px; 
+			em { font-style: normal; text-transform: uppercase; }
+		}
+		.arrow { width: 80px; float: left; font-size: 50px; }
+		.insight {
+			width: 500px; float: left; 
+			a {
+				.fontCondBold; width: 500px; float: left; display: none; font-size: 18px; margin-top: 10px;
+				&.active { display: block; }
+			}
 		}
 	}
 }
@@ -1156,6 +1180,13 @@ body.search {
 }
 
 @media (min-width: 1000px) {
+	body.home {
+		#header { 
+			div.superheader { 
+				div.side.right { right: 10px; width: 471px; }
+			}
+		}
+	}
 	#header { 
 		/* background-color: @purple;  */
 		ul#nav { 
@@ -1178,6 +1209,13 @@ body.search {
 }
 
 @media (min-width: 1200px) {
+	body.home {
+		#header { 
+			div.superheader { 
+				div.side.right { right: 123px; }
+			}
+		}
+	}
 	#header {
 		/* background-color: @red;  */
 		ul#nav { 
@@ -1200,6 +1238,13 @@ body.search {
 }
 
 @media (min-width: 1400px) {
+	body.home {
+		#header { 
+			div.superheader { 
+				div.side.right { right: 225px; }
+			}
+		}
+	}
 	#header { 
 		/* background-color: @blue;  */
 		ul#nav { right: 300px; }
