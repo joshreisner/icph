@@ -50,7 +50,7 @@ footer ul li a:hover{color:#64615c}
 footer ul li.icon{padding-top:0;margin-left:4px}
 body.home #header{height:130px}body.home #header .superheader{display:block}
 body.home #header ul li ul{top:130px}
-body.home #home{margin-top:130px;overflow:auto}body.home #home .column{width:20%;float:left;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold}body.home #home .column .upper{height:450px;-moz-opacity:.5;-khtml-opacity:.5;-webkit-opacity:.5;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";filter:alpha(opacity=50);opacity:.5}
+body.home #home{margin-top:130px;overflow:auto}body.home #home .column{width:20%;float:left;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold}body.home #home .column .upper{height:450px;-moz-opacity:.5;-khtml-opacity:.5;-webkit-opacity:.5;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";filter:alpha(opacity=50);opacity:.5;background-size:cover}
 body.home #home .column .lower{height:270px;padding:10px;text-align:center}body.home #home .column .lower h1{font-size:50px}
 body.home #home .column .lower h2{font-size:28px;line-height:1;margin-bottom:30px}
 body.home #home .column .lower ul{display:none;text-align:left;margin:10px 0 0 10px;padding:0;list-style-type:none}body.home #home .column .lower ul li{margin:0 0 10px 0;padding:0 0 0 0}body.home #home .column .lower ul li a{display:block;position:relative;padding-left:24px}body.home #home .column .lower ul li a i{position:absolute;left:0}
