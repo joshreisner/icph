@@ -11,6 +11,7 @@ $era_count = count($eras);
 for ($i = 0; $i < $era_count; $i++) {
 	$eras[$i]->start_year = get_post_meta($eras[$i]->ID, 'start_year', true);
 	$eras[$i]->description = get_post_meta($eras[$i]->ID, 'description', true);
+	$eras[$i]->url = '/archives/era/' . $eras[$i]->post_name;
 	$era_options[$eras[$i]->ID] = $eras[$i]->post_title;
 	if ($eras[$i]->post_name == 'progressive') $progressive_id = $eras[$i]->ID;
 }
@@ -89,6 +90,8 @@ add_image_size('circle', 125, 125, 1); //the little circles
 add_image_size('inline', 160); //for the era landing page or map point insert
 add_image_size('featured', 226, 120, 1); //for the featured story in the main timeline
 add_image_size('xl', 920); //for the view image overlay page
+
+add_filter( 'pre_option_link_manager_enabled', '__return_true');
 
 add_filter('image_size_names_choose', function ($sizes) {
 	//they should only be inserting thumbnails

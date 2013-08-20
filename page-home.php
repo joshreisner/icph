@@ -8,15 +8,14 @@ get_header();
 	foreach ($eras as $era) {
 		?>
 	<div class="column <?php echo $era->post_name?>">
-		<div class="upper">
-		</div>
+		<a class="upper" href="<?php echo $era->url?>"></a>
 		<div class="lower">
-			<h1><?php echo $era->start_year . '&ndash;' . $era->end_year?></h1>
-			<h2><?php echo $era->post_title?></h2>
+			<a href="<?php echo $era->url?>"><h1><?php echo $era->start_year . '&ndash;' . $era->end_year?></h1></a>
+			<a href="<?php echo $era->url?>"><h2><?php echo $era->post_title?></h2></a>
 			<ul>
-				<li><a href="#"><i class="icon-right-circle"></i>Read about the Progressive Era</a></li>
+				<li><a href="<?php echo $era->url?>"><i class="icon-right-circle"></i><?php echo get_post_meta($era->ID, 'home_read_more', true)?></a></li>
 				<li><a href="#"><i class="icon-right-circle"></i>Access the Timeline</a></li>
-				<li><a href="#"><i class="icon-right-circle"></i>Mapping the Settlement Houses</a></li>
+				<li><a href="#"><i class="icon-right-circle"></i><?php echo get_post_meta($era->ID, 'home_map', true)?></a></li>
 				<li><a href="#"><i class="icon-right-circle"></i>Life in New York Slums: the Gordon Story</a></li>
 			</ul>
 		</div>

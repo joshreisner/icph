@@ -254,7 +254,7 @@ body.home {
 		.column { 
 			width: 20%; float: left; .fontCondBold;
 			.upper {
-				height: 450px; .opacity(.5); background-size: cover;
+				height: 450px; .opacity(.5); background-size: cover; display: block;
 			}
 			.lower {
 				height: 270px; padding: 10px; text-align: center;
@@ -273,24 +273,29 @@ body.home {
 			}
 
 			&.early_ny { 
-				color: @purple_medium; background-color: @purple; 
+				background-color: @purple; 
+				a { color: @purple_medium; }
 				.upper { background-image: url(../img/eras/early_ny/home.jpg); }
 			}
 			
 			&.nineteenth		{
-				color: @orange_medium; background-color: @orange;
+				background-color: @orange;
+				a { color: @orange_medium; }
 				.upper { background-image: url(../img/eras/nineteenth/home.jpg); }
 			}
 			&.progressive		{
-				color: @blue_medium; background-color: @blue;
+				background-color: @blue;
+				a { color: @blue_medium; }
 				.upper { background-image: url(../img/eras/progressive/home.jpg); }
 			}
 			&.great_depression	{
-				color: @red_medium; background-color: @red;
+				background-color: @red;
+				a { color: @red_medium; }
 				.upper { background-image: url(../img/eras/great_depression/home.jpg); }
 			}
 			&.today				{
-				color: @green_medium; background-color: @green;
+				background-color: @green;
+				a { color: @green_medium; }
 				.upper { background-image: url(../img/eras/today/home.jpg); }
 			}
 

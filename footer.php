@@ -18,8 +18,8 @@ $site_title = str_replace('NYC', '<span>NYC</span>', $site_title);
 			<a class="logo" href="/"><?php echo $site_title?></a>
 			
 			<ul id="nav">
-				<li<?php if ($_SERVER['REQUEST_URI'] == '/timeline/') echo ' class="current_page_item"'?>>
-					<a class="main" href="/timeline/">Timeline</a>
+				<li<?php if ($_SERVER['REQUEST_URI'] == '/timeline') echo ' class="current_page_item"'?>>
+					<a class="main" href="/timeline">Timeline</a>
 					<div class="separator"></div>
 				</li>
 				<li>
@@ -29,7 +29,7 @@ $site_title = str_replace('NYC', '<span>NYC</span>', $site_title);
 						global $eras;
 						foreach ($eras as $era) {?>
 						<li class="<?php echo $era->post_name?>">
-							<a href="/eras/<?php echo $era->post_name?>">
+							<a href="<?php echo $era->url?>">
 								<div><?php echo $era->start_year?> to <?php echo $era->end_year?></div>
 								<?php echo $era->description?>
 							</a>
@@ -38,16 +38,16 @@ $site_title = str_replace('NYC', '<span>NYC</span>', $site_title);
 					</ul>
 					<div class="separator"></div>
 				</li>
-				<li<?php if ($_SERVER['REQUEST_URI'] == '/maps/') echo ' class="current_page_item"'?>>
-					<a class="main" href="/maps/">Maps</a>
+				<li<?php if ($_SERVER['REQUEST_URI'] == '/maps') echo ' class="current_page_item"'?>>
+					<a class="main" href="/maps">Maps</a>
 					<div class="separator"></div>
 				</li>
-				<li<?php if ($_SERVER['REQUEST_URI'] == '/browse/') echo ' class="current_page_item"'?>>
-					<a class="main" href="/browse/">Browse</a>
+				<li<?php if ($_SERVER['REQUEST_URI'] == '/browse') echo ' class="current_page_item"'?>>
+					<a class="main" href="/browse">Browse</a>
 					<div class="separator"></div>
 				</li>
-				<li<?php if ($_SERVER['REQUEST_URI'] == '/about/') echo ' class="current_page_item"'?>>
-					<a class="main" href="/about/">About</a>
+				<li<?php if ($_SERVER['REQUEST_URI'] == '/about') echo ' class="current_page_item"'?>>
+					<a class="main" href="/about">About</a>
 				</li>
 			</ul>
 			
