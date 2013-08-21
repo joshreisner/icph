@@ -65,6 +65,14 @@ $custom_fields = array(
 			'type'		=>'textarea',
 			'title'		=>'Map Text',
 		),
+		'map_link'=>array(
+			'type'		=>'input',
+			'title'		=>'Map Link',
+		),
+		'home_read_more'=>array(
+			'type'		=>'input',
+			'title'		=>'Read More',
+		),
 	)
 );
 
