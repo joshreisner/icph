@@ -6,6 +6,7 @@
 jQuery(function(){
 	//@codekit-prepend "timeline.js";
 	//@codekit-prepend "overlay.js";
+	//@codekit-prepend "home.js";
 
 	//console log helper
 	if (typeof console === "undefined") window.console = { log: function () {} };
