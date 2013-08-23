@@ -9,8 +9,10 @@ $era_options = array();
 $progressive_id = false;
 $era_count = count($eras);
 for ($i = 0; $i < $era_count; $i++) {
-	$eras[$i]->start_year = get_post_meta($eras[$i]->ID, 'start_year', true);
-	$eras[$i]->description = get_post_meta($eras[$i]->ID, 'description', true);
+	//todo test if i can get all this meta in one shot
+	$eras[$i]->start_year	= get_post_meta($eras[$i]->ID, 'start_year', true);
+	$eras[$i]->description 	= get_post_meta($eras[$i]->ID, 'description', true);
+	$eras[$i]->map_link		= get_post_meta($eras[$i]->ID, 'map_link', true);
 	$eras[$i]->url = '/archives/era/' . $eras[$i]->post_name;
 	$era_options[$eras[$i]->ID] = $eras[$i]->post_title;
 	if ($eras[$i]->post_name == 'progressive') $progressive_id = $eras[$i]->ID;

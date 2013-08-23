@@ -19,7 +19,7 @@ get_header();
 			<ul>
 				<li><a href="<?php echo $era->url?>"><i class="icon-right-circle"></i><?php echo get_post_meta($era->ID, 'home_read_more', true)?></a></li>
 				<li><a href="/timeline"><i class="icon-right-circle"></i>Access the Timeline</a></li>
-				<li><a href="/maps"><i class="icon-right-circle"></i><?php echo get_post_meta($era->ID, 'map_link', true)?></a></li>
+				<li><a href="/maps"><i class="icon-right-circle"></i><?php echo $era->map_link?></a></li>
 				<li><a href="/#<?php echo $overview->post_name?>"><i class="icon-right-circle"></i><?php echo $overview->post_title?></a></li>
 			</ul>
 		</div>
