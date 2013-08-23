@@ -439,23 +439,6 @@ function icph_timeline($category_id=false) {
 	if (isset($_POST['type'])) die(); 
 }
 
-//from http://stackoverflow.com/questions/7409512/new-line-to-paragraph-function
-function nl2p($string, $line_breaks = false, $xml = false) {
-
-	$string = str_replace(array('<p>', '</p>', '<br>', '<br />'), '', $string);
-
-	// It is conceivable that people might still want single line-breaks
-	// without breaking into a new paragraph.
-	if ($line_breaks == true)
-	    return '<p>'.preg_replace(array("/([\n]{2,})/i", "/([^>])\n([^<])/i"), array("</p>\n<p>", '$1<br'.($xml == true ? ' /' : '').'>$2'), trim($string)).'</p>';
-	else 
-	    return '<p>'.preg_replace(
-	    array("/([\n]{2,})/i", "/([\r\n]{3,})/i","/([^>])\n([^<])/i"),
-	    array("</p>\n<p>", "</p>\n<p>", '$1<br'.($xml == true ? ' /' : '').'>$2'),
-
-	    trim($string)).'</p>'; 
-}
-
 function icph_ul($elements, $arguments=array()) {
 	//universal lightweight method for outputting UL lists with first and last classes on LI elements
 	$count = count($elements);
@@ -472,6 +455,23 @@ function icph_ul($elements, $arguments=array()) {
 	$return = '<ul'; //assemble output
 	foreach ($arguments as $key=>$value) $return .= ' ' . $key . '="' . $value . '"';
 	return $return . '>' . implode('', $elements) . '</ul>';
+}
+
+//from http://stackoverflow.com/questions/7409512/new-line-to-paragraph-function
+function nl2p($string, $line_breaks = false, $xml = false) {
+
+	$string = str_replace(array('<p>', '</p>', '<br>', '<br />'), '', $string);
+
+	// It is conceivable that people might still want single line-breaks
+	// without breaking into a new paragraph.
+	if ($line_breaks == true)
+	    return '<p>'.preg_replace(array("/([\n]{2,})/i", "/([^>])\n([^<])/i"), array("</p>\n<p>", '$1<br'.($xml == true ? ' /' : '').'>$2'), trim($string)).'</p>';
+	else 
+	    return '<p>'.preg_replace(
+	    array("/([\n]{2,})/i", "/([\r\n]{3,})/i","/([^>])\n([^<])/i"),
+	    array("</p>\n<p>", "</p>\n<p>", '$1<br'.($xml == true ? ' /' : '').'>$2'),
+
+	    trim($string)).'</p>'; 
 }
 
 //custom stylesheet for tinymce
