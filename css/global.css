@@ -64,7 +64,7 @@ body.home #home .column.great_depression{background-color:#9c474e}body.home #hom
 body.home #home .column.great_depression .upper{background-image:url(../img/eras/great_depression/home.jpg)}
 body.home #home .column.today{background-color:#949d7b}body.home #home .column.today a{color:#babea4}
 body.home #home .column.today .upper{background-image:url(../img/eras/today/home.jpg)}
-body.home #home .column:hover{color:#fff}body.home #home .column:hover a{color:#fff}
+body.home #home .column:hover{color:#fff}body.home #home .column:hover a{color:#fff}body.home #home .column:hover a:hover{color:#eae3d9}
 body.home #home .column:hover .upper{-moz-opacity:1;-khtml-opacity:1;-webkit-opacity:1;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";filter:alpha(opacity=100);opacity:1}
 body.home #home .column:hover ul{display:block}
 body.home #home_insights{width:666px;margin:40px auto;overflow:auto;text-align:center;color:#948f89}body.home #home_insights a{color:#948f89}body.home #home_insights a:hover{color:#383434}

@@ -301,7 +301,10 @@ body.home {
 
 			&:hover {
 				color: @white;
-				a { color: @white; }
+				a {
+					color: @white;
+					&:hover { color: @beige; }
+				}
 				.upper { .opacity(1); }
 				ul { display: block; }
 			}
