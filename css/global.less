@@ -477,7 +477,14 @@ body.home {
 		h2 { .fontCondBold; font-size: 34px; margin: 0 0 20px 0; line-height: 1; }
 
 		a.close { position: absolute; top: 20px; right: 20px; }
-		div.description { .fontBold; height: 290px; overflow-y: scroll; }
+		
+		div.description { 
+			.fontBold; height: 290px; width: 450px;
+			p { display: block; width: 410px; }
+			.jspContainer { position: relative; }
+			.jspVerticalBar { top: 0; right: 0; background-color: pink; position: absolute; width: 10px; }
+		}
+
 	}
 }
 

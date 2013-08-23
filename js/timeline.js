@@ -102,6 +102,8 @@ jQuery("#slider_policy li a").on("click", function(e) {
 	}, function(data) {
 		jQuery("#timeline_wrapper").html(data);
 		timeline.init();
+		jQuery('#timeline_wrapper .description').jScrollPane();
+		//jQuery('.policy_description .jspPane').css({width:'410px'});
 	});
 });
 
