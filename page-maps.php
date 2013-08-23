@@ -47,7 +47,7 @@ foreach ($eras as $era) {
 			map<?php echo $era->ID?>.setZoom(map<?php echo $era->ID?>.getZoom() - 1);
 		});
 		
-		<?php if (in_array($era->post_name, array('progressive', 'nineteenth', 'great_depression'))) {?>
+		<?php if (in_array($era->post_name, array('progressive', 'nineteenth', 'great_depression', 'early_ny'))) {?>
 			var mapBounds = new google.maps.LatLngBounds(
 				new google.maps.LatLng(0.682437, -94.027215),
 				new google.maps.LatLng(60.880905, -53.901394)
