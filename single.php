@@ -5,7 +5,7 @@ if (empty($_GET['overlay'])) {
 	//not an overlay, forward to overlay page
 	$link = $_SERVER['REQUEST_URI'];
 	if (substr($link, 0, 1) == '/') $link = substr($link, 1);
-	header('Location: /#' . $_SERVER['REQUEST_URI']);
+	header('Location: /#' . $link);
 	exit;
 }
 
