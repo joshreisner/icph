@@ -255,6 +255,10 @@ body.maps div.mapwrapper.today{display:none}body.maps div.mapwrapper.today div#d
 body.maps a.control{position:absolute;top:4px;right:4px;font-size:16px}body.maps a.control.expand{display:none}
 body.maps div.zoom{color:#fff;background-color:#000;text-align:center;line-height:30px;font-size:20px;-moz-opacity:.5;-khtml-opacity:.5;-webkit-opacity:.5;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";filter:alpha(opacity=50);opacity:.5;width:30px;height:30px;cursor:pointer;position:absolute;left:20px}body.maps div.zoom.in{top:70px}
 body.maps div.zoom.out{top:110px}
+body.maps div.zoom.left{top:150px}
+body.maps div.zoom.right{top:190px}
+body.maps div.zoom.up{top:230px}
+body.maps div.zoom.down{top:270px}
 body.maps div.infoBox{background-color:#eae3d9;background-image:url(../img/background.png);width:300px;padding:10px;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal;font-size:12px;-webkit-box-shadow:0 0 6px rgba(0,0,0,0.6);-moz-box-shadow:0 0 6px rgba(0,0,0,0.6);box-shadow:0 0 6px rgba(0,0,0,0.6);margin:0 0 30px -10px;position:relative}body.maps div.infoBox div.title{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;margin-bottom:6px;font-size:20px;display:block;width:300px;line-height:22px}
 body.maps div.infoBox div.content{max-height:181px;overflow-y:scroll}
 body.maps div.infoBox a{color:#383434}body.maps div.infoBox a:hover{text-decoration:underline}
