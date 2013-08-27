@@ -24,6 +24,13 @@ for ($i = 0; $i < $era_count; $i++) {
 }
 
 $custom_fields = array(
+	'infographic'=>array(
+		'era'=>array(
+			'type'		=>'select',
+			'title'		=>'Era',
+			'options'	=>$era_options,
+		),
+	),
 	'year'=>array(
 		'era'=>array(
 			'type'		=>'select',
@@ -632,6 +639,15 @@ add_filter('manage_post_posts_columns', function($defaults) {
     );
 });  
 
+add_filter('manage_infographic_posts_columns', function($defaults) {
+    return array(
+    	'cb'=>'<input type="checkbox">',
+    	'title'=>'Title',
+    	'era'=>'Era',
+    	'date'=>'Date',
+    );
+});  
+
 add_filter('manage_map_point_posts_columns', function($defaults) {
     return array(
     	'cb'=>'<input type="checkbox">',
@@ -660,6 +676,10 @@ add_filter('pre_get_posts', function($wp_query) {
 	if (isset($wp_query->query['post_type'])) {
 		if ($wp_query->query['post_type'] == 'era') {
 			$wp_query->set('meta_key', 'start_year');
+			$wp_query->set('orderby', 'meta_value');
+			$wp_query->set('order', 'ASC');
+		} elseif ($wp_query->query['post_type'] == 'infographic') {
+			$wp_query->set('meta_key', 'era');
 			$wp_query->set('orderby', 'meta_value');
 			$wp_query->set('order', 'ASC');
 		} elseif ($wp_query->query['post_type'] == 'year') {
