@@ -25,6 +25,9 @@ jQuery(function(){
 		}
 	});
 
+	//regular jscrollpane
+	jQuery('.scroll-pane').jScrollPane();
+
 	//header
 	jQuery("li.search").hover(function(){
 		jQuery(this).find("input").first().focus();
@@ -45,77 +48,40 @@ jQuery(function(){
 		jQuery("input#search").val("");
 	});
 	
-	//home insights
-	jQuery("#home_insights .arrow a").click(function(e){
-		e.preventDefault();
-	});
+	//page-specific javascript
+	if (body.hasClass("home")) {
 
-	jQuery("#home_insights .insight a").click(function(e){
-		e.preventDefault();
-	});
-
-	//initialize timeline if appropriate
-	if (body.hasClass("timeline")) timeline.init();
-
-	//set browse page accordion
-	jQuery("#browse").on("click", "h3", function(){
-		jQuery(this).parent().find("ul").slideToggle();
-		var $icon = jQuery(this).find("i").first();
-		if ($icon.hasClass("icon-plus-circled")) {
-			$icon.removeClass("icon-plus-circled").addClass("icon-minus-circled");
-		} else {
-			$icon.removeClass("icon-minus-circled").addClass("icon-plus-circled");
-		}
-	});
-
-	//set browse page links
-	jQuery("#browse .header a").click(function(e){
-		e.preventDefault();
-		jQuery("#browse .header a").removeClass("active");
-		jQuery(this).addClass("active");
-		jQuery.post("/wp-admin/admin-ajax.php", {
-			action : 'browse',
-			type : jQuery(this).html().toLowerCase() 
-		}, function(data) {
-			jQuery("#browse .content").html(data);
-		});
-	});
-
-	//regular jscrollpane
-	jQuery('.scroll-pane').jScrollPane();
-
-	//era page infographic scrollpane, has to be done differently
-	var element = jQuery(".infographics .inner div.infographic_scroller")
-		.jScrollPane()
-		.bind('jsp-scroll-x', function(event, scrollPositionX, isAtLeft, isAtRight) {
-			if (isAtLeft) {
-				jQuery(".infographics a.arrow.left").hide();
+		//scroll-away header
+		jQuery(window).scroll(function(){
+			//alert(typeof(jQuery(window)));
+			if (jQuery(window).scrollTop() > 80) {
+				body.addClass("scrolled");
 			} else {
-				jQuery(".infographics a.arrow.left").show();
-			}
-			if (isAtRight) {
-				jQuery(".infographics a.arrow.right").hide();
-			} else {
-				jQuery(".infographics a.arrow.right").show();
+				body.removeClass("scrolled");
 			}
 		});
-	var interval = false;
-	jQuery(".infographics a.arrow").hover(function(){
-		var increment = (jQuery(this).hasClass("left")) ? -7 : 7;
-		interval = setInterval(function(){
-			element.data('jsp').scrollByX(increment);
-		}, 10);
-	}, function(){
-		clearInterval(interval);
-	});
-	
-	//map page
-	if (body.hasClass("maps")) {
+
+		jQuery("#home_insights .arrow a").click(function(e){
+			e.preventDefault();
+			var direction = (jQuery(this).hasClass('left')) ? 'left' : 'right';
+			insights.move(direction);
+		});
+
+		insights.init();		
+
+	} else if (body.hasClass("timeline")) {
+
+		//initialize timeline if appropriate
+		timeline.init();
+
+	} else if (body.hasClass("maps")) {
+
 		//description box
 		jQuery("div#description a.close").click(function(e){
 			jQuery(this).parent().toggleClass("minimized");
 			e.stopPropagation();
 		});
+
 		jQuery("body").on("click", "div#description.minimized", function(){
 			jQuery(this).toggleClass("minimized");
 		});
@@ -144,16 +110,32 @@ jQuery(function(){
 	    	window[new_id].setCenter(center);
 	    	window[new_id].setZoom(zoom);
 		});
-	}
 
-	//home scrollaway header scrollspy
-	if (body.hasClass("home")) {
-		jQuery(window).scroll(function(){
-			if (jQuery(window).scrollTop() > 80) {
-				body.addClass("scrolled");
+	} else if (body.hasClass("browse")) {
+
+		//set browse page accordion
+		jQuery("#browse").on("click", "h3", function(){
+			jQuery(this).parent().find("ul").slideToggle();
+			var $icon = jQuery(this).find("i").first();
+			if ($icon.hasClass("icon-plus-circled")) {
+				$icon.removeClass("icon-plus-circled").addClass("icon-minus-circled");
 			} else {
-				body.removeClass("scrolled");
+				$icon.removeClass("icon-minus-circled").addClass("icon-plus-circled");
 			}
 		});
+
+		//set browse page links
+		jQuery("#browse .header a").click(function(e){
+			e.preventDefault();
+			jQuery("#browse .header a").removeClass("active");
+			jQuery(this).addClass("active");
+			jQuery.post("/wp-admin/admin-ajax.php", {
+				action : 'browse',
+				type : jQuery(this).html().toLowerCase() 
+			}, function(data) {
+				jQuery("#browse .content").html(data);
+			});
+		});
+
 	}
 });
