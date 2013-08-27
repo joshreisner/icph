@@ -434,6 +434,13 @@ function icph_timeline($category_id=false) {
 		//loop through years
 		$years = get_posts('post_type=year&numberposts=-1&category=' . $category_id . '&orderby=title&order=ASC&meta_key=era&meta_value=' . $era->ID);
 		foreach ($years as $year) {
+			$content = apply_filters('the_content', $year->post_content);
+
+			//fix links
+			$content = str_replace('href="#', 'href="', $content);
+			$content = str_replace('href="' . site_url('/'), 'href="', $content);
+			$content = str_replace('href="', 'href="#', $content);
+
 			$li_items[] = '
 				<li class="' . $era->post_name . '">
 					<div class="upper">' . 
@@ -442,9 +449,7 @@ function icph_timeline($category_id=false) {
 							'') . '
 						<h3>' . $year->post_title . '</h3>
 					</div>
-					<div class="lower">' .
-						str_replace(site_url('/'), '#', apply_filters('the_content', $year->post_content)) . '
-					</div>
+					<div class="lower">' . $content . '</div>
 				</li>';
 		}
 	}
