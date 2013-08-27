@@ -30,7 +30,7 @@ var timeline = {
 		this.slider_end		= (0 - (jQuery("#timeline li").last().position().left - this.slider_start));
 		
 		//maybe not when you're changing / sure hope there's a progressive year entered
-		this.jump("progressive");
+		//this.jump("progressive");
 		
 		//set slider era links
 		this.$slider_eras.unbind("click");

@@ -14,6 +14,8 @@ jQuery(function(){
 	//automatically open window if there's a hash
 	if (location.hash && (location.hash !== "#contact")) overlay.show(location.hash);
 
+	var body = jQuery("body");
+
 	//open overlays when hash link clicked
 	$(window).on('hashchange', function() {
 		if (location.hash && (location.hash !== "#contact")) {
@@ -53,7 +55,7 @@ jQuery(function(){
 	});
 
 	//initialize timeline if appropriate
-	if (jQuery("body").hasClass("timeline")) timeline.init();
+	if (body.hasClass("timeline")) timeline.init();
 
 	//set browse page accordion
 	jQuery("#browse").on("click", "h3", function(){
@@ -108,7 +110,7 @@ jQuery(function(){
 	});
 	
 	//map page
-	if (jQuery("body").hasClass("maps")) {
+	if (body.hasClass("maps")) {
 		//description box
 		jQuery("div#description a.close").click(function(e){
 			jQuery(this).parent().toggleClass("minimized");
@@ -145,7 +147,6 @@ jQuery(function(){
 	}
 
 	//home scrollaway header scrollspy
-	var body = jQuery("body");
 	if (body.hasClass("home")) {
 		jQuery(window).scroll(function(){
 			if (jQuery(window).scrollTop() > 80) {
