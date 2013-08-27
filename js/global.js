@@ -144,4 +144,15 @@ jQuery(function(){
 		});
 	}
 
+	//home scrollaway header scrollspy
+	var body = jQuery("body");
+	if (body.hasClass("home")) {
+		jQuery(window).scroll(function(){
+			if (jQuery(window).scrollTop() > 80) {
+				body.addClass("scrolled");
+			} else {
+				body.removeClass("scrolled");
+			}
+		});
+	}
 });

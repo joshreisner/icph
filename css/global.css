@@ -48,7 +48,7 @@ footer{overflow:auto;margin-bottom:20px;font-family:"BentonSans",Helvetica,sans-
 footer ul{float:right;list-style:none;margin:0 20px 0 0;padding:0;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold}footer ul li{float:left;margin:0 0 0 20px;font-size:16px;line-height:16px;padding-top:5px}footer ul li a{color:#948f89;text-transform:uppercase}footer ul li a i{font-size:26px}
 footer ul li a:hover{color:#64615c}
 footer ul li.icon{padding-top:0;margin-left:4px}
-body.home #header{height:130px}body.home #header .superheader{display:block}
+body.home #header{height:130px;position:absolute}body.home #header .superheader{display:block}
 body.home #header ul li ul{top:130px}
 body.home #home{margin-top:130px;overflow:auto}body.home #home .column{width:20%;float:left;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold}body.home #home .column .upper{height:450px;-moz-opacity:.5;-khtml-opacity:.5;-webkit-opacity:.5;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";filter:alpha(opacity=50);opacity:.5;background-size:cover;display:block}
 body.home #home .column .lower{height:300px;padding:10px;text-align:center}body.home #home .column .lower h1{font-size:50px}
@@ -71,6 +71,7 @@ body.home #home_insights{width:666px;margin:40px auto;overflow:auto;text-align:c
 body.home #home_insights .title{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal;font-size:30px}body.home #home_insights .title em{font-style:normal;text-transform:uppercase}
 body.home #home_insights .arrow{width:80px;float:left;font-size:50px}
 body.home #home_insights .insight{width:500px;float:left}body.home #home_insights .insight a{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;width:500px;float:left;display:none;font-size:18px;margin-top:10px}body.home #home_insights .insight a.active{display:block}
+body.home.scrolled #header{position:fixed;height:48px}body.home.scrolled #header .superheader{display:none}
 #timeline{width:100%;overflow:hidden;position:relative;margin-top:96px}#timeline ul{list-style-type:none;margin:0;padding:0;font-size:12px;overflow-x:auto;overflow-y:hidden;width:1000000px}#timeline ul li{width:226px;margin:0;padding:0;border-left:1px solid #eae3d9;float:left;position:relative}#timeline ul li h1,#timeline ul li h2,#timeline ul li h3{color:#64615c}
 #timeline ul li .upper{height:150px;position:relative}#timeline ul li .upper a.thumbnail{position:absolute;left:-50px;width:100px;height:100px;border-radius:50px;overflow:hidden}#timeline ul li .upper a.thumbnail i{line-height:20px}
 #timeline ul li .upper a.thumbnail img{width:100px;height:100px;border-radius:50px;overflow:hidden}

@@ -244,7 +244,7 @@ footer {
 
 body.home {
 	#header { 
-		height: @header_height_big;
+		height: @header_height_big; position: absolute;
 		.superheader { display: block; }
 		ul li ul { top: @header_height_big; }
 	}
@@ -328,6 +328,13 @@ body.home {
 				.fontCondBold; width: 500px; float: left; display: none; font-size: 18px; margin-top: 10px;
 				&.active { display: block; }
 			}
+		}
+	}
+
+	&.scrolled {
+		#header {
+			position: fixed; height: @header_height;
+			.superheader { display: none; }
 		}
 	}
 }
