@@ -69,7 +69,6 @@ $site_title = str_replace('NYC', '<span>NYC</span>', $site_title);
 					<ul class="dropdown">
 						<li><a href="#"><i class="icon-facebook-circled"></i> Facebook</a></li>
 						<li><a href="#"><i class="icon-twitter-circled"></i> Twitter</a></li>
-						<li><a href="#"><i class="icon-gplus-circled"></i> Google Plus</a></li>
 						<li><a href="#"><i class="icon-pinterest-circled"></i> Pinterest</a></li>
 						<li><a href="#"><i class="icon-mail"></i> Email</a></li>
 					</ul>
