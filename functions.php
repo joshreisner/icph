@@ -78,10 +78,6 @@ $custom_fields = array(
 			'type'		=>'input',
 			'title'		=>'Map Link',
 		),
-		'home_read_more'=>array(
-			'type'		=>'input',
-			'title'		=>'Read More',
-		),
 	)
 );
 

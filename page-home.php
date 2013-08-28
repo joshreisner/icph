@@ -35,7 +35,7 @@ get_header();
 			<?php
 			$links = get_bookmarks('orderby=link_id&order=desc');
 			foreach ($links as $link) {
-				echo '<a href="' . $link->url . '">' . $link->link_name . '</a>';
+				echo '<a href="' . $link->link_url . '" target="_blank">' . $link->link_name . '</a>';
 			}
 			?>
 		</div>
