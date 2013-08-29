@@ -839,6 +839,7 @@ body.home {
 				padding-top: @header_height; 
 				.inner { padding-bottom: 60px; }
 			}
+
 		}
 		
 		&.infographics {
@@ -848,14 +849,16 @@ body.home {
 				div.infographic_scroller {
 					overflow-x: hidden;
 					ul {
-						/* display: table-row; */ margin: 0; padding: 0;
+						margin: 0; padding: 0; display: block; list-style: none;
 						li { 
-							display: table-cell; .fontCondBold; font-size: 16px; text-align: right; padding: 0 10px 0 0; margin: 0; vertical-align: middle; 
-							&.text {
-								min-width: 170px; padding-left: 30px; 
-								&:first-child { padding-left: 0; }
+							display: table-cell; vertical-align: middle; 
+							div {
+								display: table-cell; .fontCondBold; font-size: 16px; text-align: right; padding: 0 10px 0 0; margin: 0; vertical-align: middle; 
+								&.text {
+									width: 170px; min-width: 170px; padding-left: 30px; 
+								}
 							}
-							cite { font-style: normal; display: block; font-size: 12px; }
+							&:first-child div.text { padding-left: 0; }
 						}
 					}
 				}
@@ -877,7 +880,7 @@ body.home {
 		}
 
 		&.featured {
-			padding: 20px 0; min-height: 300px;
+			padding: 20px 0; min-height: 300px; margin: 1px 0 43px 0; 
 			.inner {
 				width: 1076px; margin: 0 auto;
 			}
@@ -907,6 +910,7 @@ body.home {
 				color: @purple; 
 				.arrow { background-color: @purple; }
 			}
+			&.featured { background-color: @purple_light; }
 		}
 	}
 	&.nineteenth {
@@ -921,6 +925,7 @@ body.home {
 				color: @orange; 
 				.arrow { background-color: @orange; }
 			}
+			&.featured { background-color: @orange_light; }
 		}
 	}
 	&.progressive {
@@ -935,6 +940,7 @@ body.home {
 				color: @blue; 
 				.arrow { background-color: @blue; }
 			}
+			&.featured { background-color: @blue_light; }
 		}
 	}
 	&.great_depression {
@@ -949,6 +955,7 @@ body.home {
 				color: @red; 
 				.arrow { background-color: @red; }
 			}
+			&.featured { background-color: @red_light; }
 		}
 	}
 	&.today {
@@ -963,6 +970,7 @@ body.home {
 				color: @green; 
 				.arrow { background-color: @green; }
 			}
+			&.featured { background-color: @green_light; }
 		}
 	}
 }

@@ -30,30 +30,17 @@ if (isset($related[1])) $featured = get_post($related[1]['id']);
 				<?php
 				$infographics = get_posts('post_type=infographic&numberposts=-1&orderby=rand&meta_key=era&meta_value=' . $era->ID);
 				foreach ($infographics as $infographic) {
-					echo '
-					<li class="text">' . $infographic->post_excerpt . '</li>
-					<li><img width="100" src="' . get_bloginfo('template_directory') . '/img/eras/' . $era->post_name . '/infographics/' . $infographic->post_name . '.png" alt="' . $infographic->post_title . '"></li>
-					';
+					$image = '/img/eras/' . $era->post_name . '/infographics/' . $infographic->post_name . '.png';
+					if (file_exists(TEMPLATEPATH . $image)) {
+						$sizes = getimagesize(TEMPLATEPATH . $image);
+						echo '
+						<li>
+							<div class="text">' . $infographic->post_excerpt . '</div>
+							<div><img src="' . get_bloginfo('template_directory') . $image . '" width="' . $sizes[0] . '" height="' . $sizes[1] . '" alt="' . $infographic->post_title . '"></div>
+						</li>';
+					}
 				}
 				?>
-				<!--
-					<li class="text">From 1790 to 1830, the population of New York increased sixfold, from 33,000 to 202,000.</li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/<?php echo $era->post_name?>/infographics/immigration.png" alt="Age"></li>
-					<li class="text">From 1790 to 1830, the population of New York increased sixfold, from 33,000 to 202,000.</li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/<?php echo $era->post_name?>/infographics/immigration.png" alt="Age"></li>
-					<li class="text">From 1790 to 1830, the population of New York increased sixfold, from 33,000 to 202,000.</li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/<?php echo $era->post_name?>/infographics/immigration.png" alt="Age"></li>
-					<li class="text">From 1790 to 1830, the population of New York increased sixfold, from 33,000 to 202,000.</li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/<?php echo $era->post_name?>/infographics/immigration.png" alt="Age"></li>
-					<li class="text">From 1790 to 1830, the population of New York increased sixfold, from 33,000 to 202,000.</li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/<?php echo $era->post_name?>/infographics/immigration.png" alt="Age"></li>
-					<li class="text">From 1790 to 1830, the population of New York increased sixfold, from 33,000 to 202,000.</li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/<?php echo $era->post_name?>/infographics/immigration.png" alt="Age"></li>
-					<li class="text">From 1790 to 1830, the population of New York increased sixfold, from 33,000 to 202,000.</li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/<?php echo $era->post_name?>/infographics/immigration.png" alt="Age"></li>
-					<li class="text">From 1790 to 1830, the population of New York increased sixfold, from 33,000 to 202,000.</li>
-					<li><img src="<?php bloginfo('template_directory');?>/img/eras/<?php echo $era->post_name?>/infographics/immigration.png" alt="Age"></li>
-				-->
 				</ul>
 			</div>
 		</div>

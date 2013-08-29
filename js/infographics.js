@@ -19,13 +19,14 @@ var infographics = {
 		this.$arrow_right	= jQuery('.row.infographics a.arrow.right');
 
 		var width = 0;
-		this.$element.children().each(function(){
+		this.$element.children("li").each(function(){
 			width += jQuery(this).width();
+			//window.console.log('width ' + jQuery(this).width());
 		});
 
 		this.margin_limit = 0 - (width - this.$element.parent().width());
 
-		this.margin_limit *= 2; 
+		this.$element.width(width + 'px');
 		
 		window.console.log('width is ' + width + ' and parent is ' + this.$element.parent().width() + ' and margin_limit is ' + this.margin_limit);
 
@@ -46,7 +47,7 @@ var infographics = {
 
 		infographics.margin_current = parseInt(infographics.$element.css('marginLeft'), 10) + infographics.increment;
 
-		window.console.log('new margin is ' + infographics.margin_current);
+		//window.console.log('new margin is ' + infographics.margin_current);
 
 		//when at limit, stop interval and hide arrow
 		if (infographics.margin_current >= 0) {
