@@ -917,7 +917,10 @@ body.home {
 				&.intro { background-image: url(../img/eras/nineteenth/era_1.jpg); }
 				.inner { .bg_opacity(@orange, .8); }
 			}
-			&.infographics { color: @orange; }
+			&.infographics { 
+				color: @orange; 
+				.arrow { background-color: @orange; }
+			}
 		}
 	}
 	&.progressive {
@@ -942,7 +945,10 @@ body.home {
 				&.intro { background-image: url(../img/eras/great_depression/era_1.jpg); }
 				.inner { .bg_opacity(@red, .8); }
 			}
-			&.infographics { color: @red; }
+			&.infographics { 
+				color: @red; 
+				.arrow { background-color: @red; }
+			}
 		}
 	}
 	&.today {
@@ -953,7 +959,10 @@ body.home {
 				&.intro { background-image: url(../img/eras/today/era_1.jpg); }
 				.inner { .bg_opacity(@green, 8); }
 			}
-			&.infographics { color: @green; }
+			&.infographics { 
+				color: @green; 
+				.arrow { background-color: @green; }
+			}
 		}
 	}
 }

@@ -32,7 +32,7 @@ if (isset($related[1])) $featured = get_post($related[1]['id']);
 				foreach ($infographics as $infographic) {
 					echo '
 					<li class="text">' . $infographic->post_excerpt . '</li>
-					<li><img src="' . get_bloginfo('template_directory') . '/img/eras/' . $era->post_name . '/infographics/' . $infographic->post_name . '.png" alt="' . $infographic->post_title . '"></li>
+					<li><img width="100" src="' . get_bloginfo('template_directory') . '/img/eras/' . $era->post_name . '/infographics/' . $infographic->post_name . '.png" alt="' . $infographic->post_title . '"></li>
 					';
 				}
 				?>
