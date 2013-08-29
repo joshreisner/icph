@@ -846,11 +846,11 @@ body.home {
 			.inner { 
 				width: 1076px; margin: 0 auto; padding: 40px 0;
 				div.infographic_scroller {
-					overflow-x: scroll;
+					overflow-x: hidden;
 					ul {
-						display: table-row; 
+						/* display: table-row; */ margin: 0; padding: 0;
 						li { 
-							display: table-cell; .fontCondBold; font-size: 16px; text-align: right; padding-right: 10px; padding-bottom: 14px; vertical-align: middle; 
+							display: table-cell; .fontCondBold; font-size: 16px; text-align: right; padding: 0 10px 0 0; margin: 0; vertical-align: middle; 
 							&.text {
 								min-width: 170px; padding-left: 30px; 
 								&:first-child { padding-left: 0; }
@@ -868,7 +868,7 @@ body.home {
 	
 		&.map {
 			display: block; background-image: url(../img/eras/progressive/map.png); background-size: cover; padding: 20px 0 40px; position: relative;
-			z-index: -1;
+			z-index: -1; min-height: 300px;
 			.inner {
 				width: 1076px; margin: 0 auto;
 				p { .fontCondBold; width: 424px; }
@@ -877,7 +877,7 @@ body.home {
 		}
 
 		&.featured {
-			padding: 20px 0;
+			padding: 20px 0; min-height: 300px;
 			.inner {
 				width: 1076px; margin: 0 auto;
 			}

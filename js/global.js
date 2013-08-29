@@ -7,14 +7,16 @@ jQuery(function(){
 	//@codekit-prepend "timeline.js";
 	//@codekit-prepend "overlay.js";
 	//@codekit-prepend "home.js";
+	//@codekit-prepend "infographics.js";
 
 	//console log helper
 	if (typeof console === "undefined") window.console = { log: function () {} };
 
+	//need this a lot below
+	var body = jQuery("body");
+
 	//automatically open window if there's a hash
 	if (location.hash && (location.hash !== "#contact")) overlay.show(location.hash);
-
-	var body = jQuery("body");
 
 	//open overlays when hash link clicked
 	$(window).on('hashchange', function() {
@@ -25,8 +27,8 @@ jQuery(function(){
 		}
 	});
 
-	//regular jscrollpane
-	jQuery('.scroll-pane').jScrollPane();
+	//regular (non-ajax) jscrollpane, don't think this is needed anymore
+	//jQuery('.scroll-pane').jScrollPane();
 
 	//header
 	jQuery("li.search").hover(function(){
@@ -137,5 +139,9 @@ jQuery(function(){
 			});
 		});
 
+	} else if (body.hasClass("single-era")) {
+
+		//start up infografix scroller
+		infographics.init();
 	}
 });

@@ -40,6 +40,37 @@ var timeline = {
 			timeline.jump(target);
 		});
 		
+		//set arrows
+		jQuery("body").on("mouseenter", "#timeline a.arrow", function(){
+			timeline.increment = (jQuery(this).hasClass("left")) ? 7 : -7;
+			timeline.interval = setInterval(timeline.move, 10);
+		});
+		jQuery("body").on("mouseleave", "#timeline a.arrow", function(){
+			clearInterval(timeline.interval);
+		});
+
+		jQuery("#slider_policy li a").on("click", function(e) {
+			e.preventDefault();
+			var category = jQuery(this).attr('href').substr(1);
+			jQuery("#slider_policy li").removeClass('active');
+			if (category) jQuery(this).parent().addClass('active');
+			jQuery.post("/wp-admin/admin-ajax.php", {
+				action : 'timeline',
+				category : category,
+				type : jQuery(this).html().toLowerCase()
+			}, function(data) {
+				jQuery("#timeline_wrapper").html(data);
+				timeline.init();
+				jQuery('#timeline_wrapper .description').jScrollPane();
+				//jQuery('.policy_description .jspPane').css({width:'410px'});
+			});
+		});
+
+		jQuery("#timeline_wrapper").on("click", ".policy_description a.close", function(e){
+			e.preventDefault();
+			jQuery(this).closest(".policy_description").remove();
+		});
+
 	},
 	jump : function(which) {
 		//jump to an era on the timeline
@@ -80,34 +111,3 @@ var timeline = {
 		}
 	}
 };
-
-//set arrows
-jQuery("body").on("mouseenter", "#timeline a.arrow", function(){
-	timeline.increment = (jQuery(this).hasClass("left")) ? 7 : -7;
-	timeline.interval = setInterval(timeline.move, 10);
-});
-jQuery("body").on("mouseleave", "#timeline a.arrow", function(){
-	clearInterval(timeline.interval);
-});
-
-jQuery("#slider_policy li a").on("click", function(e) {
-	e.preventDefault();
-	var category = jQuery(this).attr('href').substr(1);
-	jQuery("#slider_policy li").removeClass('active');
-	if (category) jQuery(this).parent().addClass('active');
-	jQuery.post("/wp-admin/admin-ajax.php", {
-		action : 'timeline',
-		category : category,
-		type : jQuery(this).html().toLowerCase()
-	}, function(data) {
-		jQuery("#timeline_wrapper").html(data);
-		timeline.init();
-		jQuery('#timeline_wrapper .description').jScrollPane();
-		//jQuery('.policy_description .jspPane').css({width:'410px'});
-	});
-});
-
-jQuery("#timeline_wrapper").on("click", ".policy_description a.close", function(e){
-	e.preventDefault();
-	jQuery(this).closest(".policy_description").remove();
-});

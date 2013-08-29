@@ -27,6 +27,16 @@ if (isset($related[1])) $featured = get_post($related[1]['id']);
 		<div class="inner">
 			<div class="infographic_scroller">
 				<ul>
+				<?php
+				$infographics = get_posts('post_type=infographic&numberposts=-1&orderby=rand&meta_key=era&meta_value=' . $era->ID);
+				foreach ($infographics as $infographic) {
+					echo '
+					<li class="text">' . $infographic->post_excerpt . '</li>
+					<li><img src="' . get_bloginfo('template_directory') . '/img/eras/' . $era->post_name . '/infographics/' . $infographic->post_name . '.png" alt="' . $infographic->post_title . '"></li>
+					';
+				}
+				?>
+				<!--
 					<li class="text">From 1790 to 1830, the population of New York increased sixfold, from 33,000 to 202,000.</li>
 					<li><img src="<?php bloginfo('template_directory');?>/img/eras/<?php echo $era->post_name?>/infographics/immigration.png" alt="Age"></li>
 					<li class="text">From 1790 to 1830, the population of New York increased sixfold, from 33,000 to 202,000.</li>
@@ -43,6 +53,7 @@ if (isset($related[1])) $featured = get_post($related[1]['id']);
 					<li><img src="<?php bloginfo('template_directory');?>/img/eras/<?php echo $era->post_name?>/infographics/immigration.png" alt="Age"></li>
 					<li class="text">From 1790 to 1830, the population of New York increased sixfold, from 33,000 to 202,000.</li>
 					<li><img src="<?php bloginfo('template_directory');?>/img/eras/<?php echo $era->post_name?>/infographics/immigration.png" alt="Age"></li>
+				-->
 				</ul>
 			</div>
 		</div>
