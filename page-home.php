@@ -14,8 +14,10 @@ get_header();
 	<div class="column <?php echo $era->post_name?>">
 		<a class="upper" href="<?php echo $era->url?>"></a>
 		<div class="lower">
-			<a href="<?php echo $era->url?>"><h1><?php echo $era->start_year . '&ndash;' . $era->end_year?></h1></a>
-			<a href="<?php echo $era->url?>"><h2><?php echo $era->post_title?></h2></a>
+			<a href="<?php echo $era->url?>">
+				<h1><?php echo $era->start_year . '&ndash;' . $era->end_year?></h1>
+				<h2><?php echo $era->post_title?></h2>
+			</a>
 			<ul>
 				<li><a href="/timeline"><i class="icon-right-circle"></i>Timeline</a></li>
 				<li><a href="/maps"><i class="icon-right-circle"></i>Map: <?php echo $era->map_link?></a></li>

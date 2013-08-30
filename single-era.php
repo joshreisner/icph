@@ -70,9 +70,11 @@ if (isset($related[1])) $featured = get_post($related[1]['id']);
 		<div class="inner">
 			<h3>Featured Articles</h3>
 			<?php 
-			foreach ($related as $story) {
-				echo 'hi';
+			if (count($related) > 5) $related = array_slice($related, 0, 5);
+			foreach ($related as &$story) {
+				$story['content'] = icph_thumbnail($story['id'], $story['title']) . $story['title'];
 			}
+			echo icph_ul($related);
 			?>
 		</div>
 	</div>
