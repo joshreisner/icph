@@ -103,7 +103,7 @@ jQuery(function(){
 	    	window[new_id].setZoom(zoom);
 		});
 
-	} else if (body.hasClass("browse")) {
+	} else if (body.hasClass("page-id-32")) {
 
 		//set browse page accordion
 		jQuery("#browse").on("click", "h3", function(){
