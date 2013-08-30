@@ -74,14 +74,7 @@ jQuery(function(){
 			jQuery(this).toggleClass("minimized");
 		});
 	
-		if (location.hash && (jQuery.inArray(location.hash.substr(1), eras) != -1)) {
-			var currentEra = location.hash.substr(1);
-			jQuery(".mapwrapper").hide();
-			jQuery(".mapwrapper." + currentEra).show();
-			jQuery("#slider li." + currentEra).addClass("active");
-		} else {
-			jQuery("#slider li.progressive").addClass("active");
-		}
+		jQuery("#slider li.progressive").addClass("active");
 		
 		jQuery("#slider li").click(function(){
 			if (jQuery(this).hasClass("active")) return;
@@ -89,6 +82,10 @@ jQuery(function(){
 			var old_id = jQuery(".mapwrapper." + old_era).find(".map").attr("id");
 			var center = window[old_id].getCenter();
 			var zoom = window[old_id].getZoom();
+			if (zoom == 3) {
+				zoom = 14;
+				center = new google.maps.LatLng(40.725, -73.965);
+			}
 			//alert(center.lat());
 			jQuery("#slider li.active").removeClass("active");
 			var new_era = jQuery(this).attr("class").replace(" first", "").replace(" last", ""); //HACK

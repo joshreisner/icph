@@ -8,6 +8,7 @@ var overlay = {
 				timeline.jump(hash.substr(1));
 				return false;
 			} else if (body.hasClass("maps")) {
+				jQuery("#slider li." + hash.substr(1)).click();
 				return false;
 			}
 			return false;
