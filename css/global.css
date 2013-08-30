@@ -264,7 +264,7 @@ body.maps div.infoBox img.alignleft{float:left;margin:0 10px 10px 0}
 body.maps div.infoBox img.alignright{float:right;margin:0 0 10px 10px}
 body.maps div.infoBox div.related{display:block;margin-top:10px}body.maps div.infoBox div.related ul{margin-top:5px}
 body.maps div#description{position:absolute;top:60px;right:10px;width:400px;color:#fff}body.maps div#description h3{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;font-size:16px;margin:0 0 8px;margin:10px}body.maps div#description h3.minimized{display:none}
-body.maps div#description .content{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal;font-size:12px;max-height:170px;overflow:scroll;margin:10px;line-height:18px}
+body.maps div#description .content{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal;font-size:12px;max-height:170px;overflow:auto;margin:10px;line-height:18px}
 body.maps div#description.minimized{width:200px;height:40px;cursor:pointer}body.maps div#description.minimized h3{display:none}
 body.maps div#description.minimized a.close{display:none}
 body.maps div#description.minimized a.expand{display:block}
