@@ -13,18 +13,16 @@ jQuery(function(){
 	if (typeof console === "undefined") window.console = { log: function () {} };
 
 	//need this a lot below
-	var body = jQuery("body");
+	body = jQuery("body");
+
+	eras = ["early_ny", "nineteenth", "progressive", "great_depression", "today"];
 
 	//automatically open window if there's a hash
-	if (location.hash && (location.hash !== "#contact")) overlay.show(location.hash);
+	if (location.hash) overlay.show(location.hash);
 
 	//open overlays when hash link clicked
 	$(window).on('hashchange', function() {
-		if (location.hash && (location.hash !== "#contact")) {
-			overlay.show(location.hash);
-		} else {
-			overlay.hide();
-		}
+		overlay.show(location.hash);
 	});
 
 	//regular (non-ajax) jscrollpane, don't think this is needed anymore

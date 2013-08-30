@@ -912,10 +912,18 @@ body.home {
 	}
 		
 	&.about {
+		a {
+			color: @blue; .fontCondBold;
+			&:hover {
+				background-color: @blue_light;
+			}
+		}
+		
 		.row {
-			&.header {
-				background-image: url(../img/about/ICPH_about_1280.jpg); height: auto;
-				.inner { .bg_opacity(@olive, .8); height: auto; }
+			.inner { width: 1076px; margin: 0 auto; }
+			&.story {
+				background-image: url(../img/about/ICPH_about_1280.jpg); margin-bottom: 40px;
+				.inner { .bg_opacity(@olive, .8); width: 460px; }
 			}
 			h3 { color: @olive; }
 		}

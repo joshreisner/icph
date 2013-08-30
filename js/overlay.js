@@ -1,6 +1,19 @@
 var overlay = {
 	show : function(hash) {
-		if (hash === "#") return this.hide();
+		if (hash == "#") return this.hide();
+
+		if (jQuery.inArray(hash.substr(1), eras) != -1) {
+			if (body.hasClass("timeline")) {
+				//window.alert("timeline " + hash.substr(1));
+				timeline.jump(hash.substr(1));
+				return false;
+			} else if (body.hasClass("maps")) {
+				window.alert("maps " + hash.substr(1));
+			}
+			return false;
+		} else if (hash == "#contact") {
+			return false;
+		}
 	
 		jQuery("div#overlay_backdrop").remove();
 		jQuery("body").append("<div id='overlay_loading'></div>");

@@ -8,7 +8,6 @@ var timeline = {
 	increment		: 0,
 	slider_start	: false,
 	slider_end		: false,
-	eras			: ["early_ny", "nineteenth", "progressive", "great_depression", "today"],
 	positions		: false,
 	
 	init : function(){
@@ -17,11 +16,11 @@ var timeline = {
 		this.$slider_eras = jQuery("ul#slider li");
 
 		//because not all eras were entered / can't depend on each era having years
-		for (var i = 0; i < this.eras.length; i++) {
-			if (jQuery("#timeline li." + this.eras[i]).size()) {
-				this.positions[this.eras[i]] = jQuery("#timeline li." + this.eras[i]).first().position().left;
+		for (var i = 0; i < eras.length; i++) {
+			if (jQuery("#timeline li." + eras[i]).size()) {
+				this.positions[eras[i]] = jQuery("#timeline li." + eras[i]).first().position().left;
 			} else {
-				this.positions[this.eras[i]] = jQuery("#timeline li").not('.overview').first().position().left;
+				this.positions[eras[i]] = jQuery("#timeline li").not('.overview').first().position().left;
 			}
 		}
 		
@@ -88,9 +87,9 @@ var timeline = {
 		//update the slider to reflect current timeline scroll
 		var currentMargin = 0 - parseInt(this.$timeline.css("marginLeft"), 10) + this.slider_start;
 		var currentMarginEnd = parseInt(this.$timeline.css("marginLeft"), 10);
-		var currentEra = this.eras[0];
-		for (var i = 0; i < this.eras.length; i++) {
-			if (this.positions[this.eras[i]] <= currentMargin) currentEra = this.eras[i];
+		var currentEra = eras[0];
+		for (var i = 0; i < eras.length; i++) {
+			if (this.positions[eras[i]] <= currentMargin) currentEra = eras[i];
 		}
 		this.$slider_eras.removeClass("active");
 		jQuery("ul#slider li." + currentEra).addClass("active");
