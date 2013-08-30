@@ -220,7 +220,7 @@ body.home.scrolled #header ul li ul{top:48px}
 #era.early_ny .row.story{background-image:url(../img/eras/early_ny/era_2.jpg)}#era.early_ny .row.story.intro{background-image:url(../img/eras/early_ny/era_1.jpg)}
 #era.early_ny .row.story .inner{background-color:#78558b;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc78558b, endColorstr=#cc78558b)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc78558b, endColorstr=#cc78558b);background-color:rgba(120,85,139,0.8)}
 #era.early_ny .row.infographics{color:#78558b}#era.early_ny .row.infographics .arrow{background-color:#78558b}
-#era.early_ny .row.featured{background-color:#d9ceca}
+#era.early_ny .row.featured{background-color:#d9ceca}#era.early_ny .row.featured a.thumbnail{background-color:#a992ab}
 #era.nineteenth a,#era.nineteenth h3{color:#a3735f}
 #era.nineteenth .row.story{background-image:url(../img/eras/nineteenth/era_2.jpg)}#era.nineteenth .row.story.intro{background-image:url(../img/eras/nineteenth/era_1.jpg)}
 #era.nineteenth .row.story .inner{background-color:#a3735f;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cca47560, endColorstr=#cca47560)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cca47560, endColorstr=#cca47560);background-color:rgba(164,117,96,0.8)}
@@ -230,17 +230,17 @@ body.home.scrolled #header ul li ul{top:48px}
 #era.progressive .row.story{background-image:url(../img/eras/progressive/era_2.jpg)}#era.progressive .row.story.intro{background-image:url(../img/eras/progressive/era_1.jpg)}
 #era.progressive .row.story .inner{background-color:#5e7190;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc5f7291, endColorstr=#cc5f7291)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc5f7291, endColorstr=#cc5f7291);background-color:rgba(95,114,145,0.8)}
 #era.progressive .row.infographics{color:#5e7190}#era.progressive .row.infographics .arrow{background-color:#5e7190}
-#era.progressive .row.featured{background-color:#d3d2d1}
+#era.progressive .row.featured{background-color:#d3d2d1}#era.progressive .row.featured a.thumbnail{background-color:#99a2b1}
 #era.great_depression a,#era.great_depression h3{color:#9c474e}
 #era.great_depression .row.story{background-image:url(../img/eras/great_depression/era_2.jpg)}#era.great_depression .row.story.intro{background-image:url(../img/eras/great_depression/era_1.jpg)}
 #era.great_depression .row.story .inner{background-color:#9c474e;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc9d484f, endColorstr=#cc9d484f)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc9d484f, endColorstr=#cc9d484f);background-color:rgba(157,72,79,0.8)}
 #era.great_depression .row.infographics{color:#9c474e}#era.great_depression .row.infographics .arrow{background-color:#9c474e}
-#era.great_depression .row.featured{background-color:#e5cec7}
+#era.great_depression .row.featured{background-color:#e5cec7}#era.great_depression .row.featured a.thumbnail{background-color:#c18b8b}
 #era.today a,#era.today h3{color:#949d7b}
 #era.today .row.story{background-image:url(../img/eras/today/era_2.jpg)}#era.today .row.story.intro{background-image:url(../img/eras/today/era_1.jpg)}
 #era.today .row.story .inner{background-color:#949d7b;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff949d7b, endColorstr=#ff949d7b)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff949d7b, endColorstr=#ff949d7b);background-color:#949d7b}
 #era.today .row.infographics{color:#949d7b}#era.today .row.infographics .arrow{background-color:#949d7b}
-#era.today .row.featured{background-color:#e0dfcd}
+#era.today .row.featured{background-color:#e0dfcd}#era.today .row.featured a.thumbnail{background-color:#babea4}
 body.maps footer{display:none}
 body.maps div.mapwrapper{position:fixed;width:100%;height:100%}body.maps div.mapwrapper div.map{width:100%;height:100%}
 body.maps div.mapwrapper.early_ny{display:none}body.maps div.mapwrapper.early_ny div#description{background-color:#78558b;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc78558b, endColorstr=#cc78558b)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc78558b, endColorstr=#cc78558b);background-color:rgba(120,85,139,0.8)}
