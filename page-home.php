@@ -19,8 +19,8 @@ get_header();
 				<h2><?php echo $era->post_title?></h2>
 			</a>
 			<ul>
-				<li><a href="/timeline"><i class="icon-right-circle"></i>Timeline</a></li>
-				<li><a href="/maps"><i class="icon-right-circle"></i>Map: <?php echo $era->map_link?></a></li>
+				<li><a href="/timeline#<?php echo $era->post_name?>"><i class="icon-right-circle"></i>Timeline</a></li>
+				<li><a href="/maps#<?php echo $era->post_name?>"><i class="icon-right-circle"></i>Map: <?php echo $era->map_link?></a></li>
 				<li><a href="#<?php echo $overview->post_name?>"><i class="icon-right-circle"></i><?php echo $overview->post_title?></a></li>
 			</ul>
 		</div>

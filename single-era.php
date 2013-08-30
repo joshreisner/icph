@@ -18,7 +18,7 @@ if (isset($related[1])) $featured = get_post($related[1]['id']);
 			<p><?php echo nl2br($overview->post_excerpt)?></p>
 			<div class="more">
 				<a href="#<?php echo $overview->post_name?>"><i class="icon-right-circle"></i> Continue Reading the Introduction</a>
-				<a href="/"><i class="icon-right-circle"></i> Explore Articles on the Timeline</a>
+				<a href="/timeline#<?php echo $era->post_name?>"><i class="icon-right-circle"></i> Explore Articles on the Timeline</a>
 			</div>
 		</div>
 	</div>

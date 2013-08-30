@@ -23,7 +23,7 @@ $site_title = str_replace('NYC', '<span>NYC</span>', $site_title);
 					<div class="separator"></div>
 				</li>
 				<li>
-					<a class="main" href="#">Eras</a>
+					<a class="main">Eras</a>
 					<ul class="dropdown">
 						<?php 
 						global $eras;
@@ -39,13 +39,13 @@ $site_title = str_replace('NYC', '<span>NYC</span>', $site_title);
 					<div class="separator"></div>
 				</li>
 				<li<?php if ($_SERVER['REQUEST_URI'] == '/maps') echo ' class="current_page_item"'?>>
-					<a class="main" href="/maps">Maps</a>
+					<a class="main">Maps</a>
 					<ul class="dropdown">
 						<?php 
 						global $eras;
 						foreach ($eras as $era) {?>
 						<li class="<?php echo $era->post_name?>">
-							<a href="/maps/">
+							<a href="/maps#<?php echo $era->post_name?>">
 								<div><?php echo $era->start_year?> to <?php echo $era->end_year?></div>
 								<?php echo $era->map_link?>
 							</a>

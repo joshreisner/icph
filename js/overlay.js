@@ -8,7 +8,7 @@ var overlay = {
 				timeline.jump(hash.substr(1));
 				return false;
 			} else if (body.hasClass("maps")) {
-				window.alert("maps " + hash.substr(1));
+				return false;
 			}
 			return false;
 		} else if (hash == "#contact") {

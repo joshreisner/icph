@@ -12,21 +12,9 @@ jQuery(function(){
 	//console log helper
 	if (typeof console === "undefined") window.console = { log: function () {} };
 
-	//need this a lot below
+	//global variables needed everywhere
 	body = jQuery("body");
-
 	eras = ["early_ny", "nineteenth", "progressive", "great_depression", "today"];
-
-	//automatically open window if there's a hash
-	if (location.hash) overlay.show(location.hash);
-
-	//open overlays when hash link clicked
-	$(window).on('hashchange', function() {
-		overlay.show(location.hash);
-	});
-
-	//regular (non-ajax) jscrollpane, don't think this is needed anymore
-	//jQuery('.scroll-pane').jScrollPane();
 
 	//header
 	jQuery("li.search").hover(function(){
@@ -86,7 +74,14 @@ jQuery(function(){
 			jQuery(this).toggleClass("minimized");
 		});
 	
-		jQuery("#slider li.progressive").addClass("active");
+		if (location.hash && (jQuery.inArray(location.hash.substr(1), eras) != -1)) {
+			var currentEra = location.hash.substr(1);
+			jQuery(".mapwrapper").hide();
+			jQuery(".mapwrapper." + currentEra).show();
+			jQuery("#slider li." + currentEra).addClass("active");
+		} else {
+			jQuery("#slider li.progressive").addClass("active");
+		}
 		
 		jQuery("#slider li").click(function(){
 			if (jQuery(this).hasClass("active")) return;
@@ -142,4 +137,13 @@ jQuery(function(){
 		//start up infografix scroller
 		infographics.init();
 	}
+
+	//automatically open window if there's a hash
+	if (location.hash) overlay.show(location.hash);
+
+	//open overlays when hash link clicked
+	$(window).on('hashchange', function() {
+		overlay.show(location.hash);
+	});
+	
 });
