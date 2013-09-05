@@ -114,6 +114,9 @@ add_filter('image_size_names_choose', function ($sizes) {
 
 //register custom post types
 add_action('init', function() {
+
+	add_post_type_support('page', 'excerpt');
+
 	register_post_type('era', array(
 		'labels'        => array(
 			'name'               => _x( 'Eras', 'post type general name' ),
