@@ -136,11 +136,11 @@ jQuery(function(){
 	}
 
 	//automatically open window if there's a hash
-	if (location.hash) overlay.show(location.hash);
+	if (window.location.hash.length > 1) overlay.show();
 
 	//open overlays when hash link clicked
-	$(window).on('hashchange', function() {
-		overlay.show(location.hash);
+	jQuery(window).on('hashchange', function() {
+		overlay.show();
 	});
 	
 });

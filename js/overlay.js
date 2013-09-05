@@ -1,18 +1,23 @@
 var overlay = {
-	show : function(hash) {
-		if (hash == "#") return this.hide();
+	show : function() {
+		var hash = window.location.hash;
+		if (hash.length && (hash.substr(0, 1) == '#')) hash = hash.substr(1);
+		if (!hash.length) return this.hide();
 
-		if (jQuery.inArray(hash.substr(1), eras) != -1) {
+		window.console.log('running overlay.show for ' + hash);
+
+
+
+		if (jQuery.inArray(hash, eras) != -1) {
 			if (body.hasClass("timeline")) {
-				//window.alert("timeline " + hash.substr(1));
-				timeline.jump(hash.substr(1));
+				timeline.jump(hash);
 				return false;
 			} else if (body.hasClass("maps")) {
-				jQuery("#slider li." + hash.substr(1)).click();
+				jQuery("#slider li." + hash).click();
 				return false;
 			}
 			return false;
-		} else if (hash == "#contact") {
+		} else if (hash == "contact") {
 			return false;
 		}
 	
@@ -20,19 +25,21 @@ var overlay = {
 		jQuery("body").append("<div id='overlay_loading'></div>");
 		
 		jQuery.ajax({
-			url : "/" + hash.substr(1) + "/?overlay=true",
+			url : "/" + hash + "/?overlay=true",
 			success : function(data) {
-				overlay.hide();
+				jQuery("#overlay_loading").remove();
+				jQuery("div#overlay_backdrop").remove();
+				jQuery("div#overlay").remove();
+
 				jQuery("body").append(data);
 				jQuery("#overlay_loading").remove();
 				
 				//escape key to close overlay
 				jQuery("body").keydown(function(e){
 					//bind the escape key to overlay-closing
-					//window.alert(e.keyCode);
 					if (e.keyCode === 27) {
-						overlay.hide();
-						location.href = "#";
+						window.console.log('escape key detected');
+						window.location.hash = '';
 					}
 				});
 				
@@ -51,8 +58,7 @@ var overlay = {
 				
 				//close on click outside
 				jQuery("#overlay_backdrop").click(function(){
-					overlay.hide();
-					location.href = "#";
+					window.location.hash = '';
 				});
 				
 				//arrows
@@ -70,11 +76,12 @@ var overlay = {
 			},
 			error : function() {
 				//must clear this bad URL
-				location.href = "/";
+				window.location.hash = '';
 			}
 		});
 	},
 	hide : function() {
+		window.console.log('hiding window');
 		jQuery("#overlay_loading").remove();
 		jQuery("div#overlay_backdrop").remove();
 		jQuery("div#overlay").remove();
