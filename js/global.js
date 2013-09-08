@@ -6,15 +6,18 @@
 jQuery(function(){
 	//@codekit-prepend "timeline.js";
 	//@codekit-prepend "overlay.js";
-	//@codekit-prepend "home.js";
+	//@codekit-prepend "insights.js";
 	//@codekit-prepend "infographics.js";
+
 
 	//console log helper
 	if (typeof console === "undefined") window.console = { log: function () {} };
 
+
 	//global variables needed everywhere
 	body = jQuery("body");
 	eras = ["early_ny", "nineteenth", "progressive", "great_depression", "today"];
+
 
 	//header
 	jQuery("li.search").hover(function(){
@@ -23,6 +26,7 @@ jQuery(function(){
 		jQuery(this).find("input").first().blur();
 	});
 	
+
 	//hide placeholder on focus
 	jQuery("input").focus(function(){
 		jQuery(this).attr("data-placeholder", jQuery(this).attr("placeholder"));
@@ -35,6 +39,11 @@ jQuery(function(){
 	jQuery("li.search i").click(function(){
 		jQuery("input#search").val("");
 	});
+
+
+	//insights could be on home or about
+	if (jQuery("#home_insights").size()) insights.init();		
+
 	
 	//page-specific javascript
 	if (body.hasClass("home")) {
@@ -48,14 +57,6 @@ jQuery(function(){
 				body.removeClass("scrolled");
 			}
 		});
-
-		jQuery("#home_insights .arrow a").click(function(e){
-			e.preventDefault();
-			var direction = (jQuery(this).hasClass('left')) ? 'left' : 'right';
-			insights.move(direction);
-		});
-
-		insights.init();		
 
 	} else if (body.hasClass("timeline")) {
 

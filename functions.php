@@ -104,13 +104,12 @@ add_image_size('inline', 160); //for the era landing page or map point insert
 add_image_size('featured', 226, 120, 1); //for the featured story in the main timeline
 add_image_size('xl', 920); //for the view image overlay page
 
-add_filter( 'pre_option_link_manager_enabled', '__return_true');
+add_filter('pre_option_link_manager_enabled', '__return_true');
 
 add_filter('image_size_names_choose', function ($sizes) {
 	//they should only be inserting thumbnails
 	foreach ($sizes as $key=>$value) return array($key=>$value);
 });
-
 
 //register custom post types
 add_action('init', function() {
@@ -209,6 +208,24 @@ add_action('init', function() {
 		'supports'      => array('title', 'excerpt'),
 		'has_archive'   => false,
 	));
+});
+
+//home and contact page link carousel
+add_shortcode('insights', function(){
+	$links = get_bookmarks('orderby=link_id&order=desc');
+	foreach ($links as &$link) {
+		$link = '<a href="' . $link->link_url . '" target="_blank">' . $link->link_name . '</a>';
+	}
+
+	return '
+	<div id="home_insights">
+		<div class="title">Policy &amp; Research <em>Insights</em></div>
+		<div>
+			<div class="arrow left"><a href="#"><i class="icon-left-open-big"></i></a></div>
+			<div class="insight">' . implode($links) . '</div>
+			<div class="arrow right"><a href="#"><i class="icon-right-open-big"></i></a></div>
+		</div>
+	</div>';
 });
 
 //browse as an ajax function

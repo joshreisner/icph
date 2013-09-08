@@ -28,21 +28,8 @@ get_header();
 	<?php }?>
 </div>
 
-<div id="home_insights">
-	<div class="title">Policy &amp; Research <em>Insights</em></div>
-	<div>
-		<div class="arrow left"><a href="#"><i class="icon-left-open-big"></i></a></div>
-		<div class="insight">
-			<?php
-			$links = get_bookmarks('orderby=link_id&order=desc');
-			foreach ($links as $link) {
-				echo '<a href="' . $link->link_url . '" target="_blank">' . $link->link_name . '</a>';
-			}
-			?>
-		</div>
-		<div class="arrow right"><a href="#"><i class="icon-right-open-big"></i></a></div>
-	</div>
-</div>
-
 <?php 
+
+echo do_shortcode('[insights]');
+
 get_footer();

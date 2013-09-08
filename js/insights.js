@@ -7,6 +7,12 @@ var insights = {
 	init : function() {
 		this.elements.first().addClass("active");
 		this.count = this.elements.size() - 1;
+
+		jQuery("#home_insights .arrow a").click(function(e){
+			e.preventDefault();
+			var direction = (jQuery(this).hasClass('left')) ? 'left' : 'right';
+			insights.move(direction);
+		});
 	},
 
 	move : function(direction) {
