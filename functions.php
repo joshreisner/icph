@@ -219,7 +219,7 @@ add_shortcode('insights', function(){
 
 	return '
 	<div id="home_insights">
-		<div class="title">What''s New From <em>ICPH</em></div>
+		<div class="title">What Is New From <em>ICPH</em></div>
 		<div>
 			<div class="arrow left"><a href="#"><i class="icon-left-open-big"></i></a></div>
 			<div class="insight">' . implode($links) . '</div>
