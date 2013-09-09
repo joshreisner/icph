@@ -127,7 +127,7 @@ body.home.scrolled #header ul li ul{top:48px}
 #slider_policy_wrapper #slider_policy li.last{position:absolute;right:0}
 #slider_policy_wrapper #slider_policy li:hover a,#slider_policy_wrapper #slider_policy li.active a{border-color:#fff}
 #home_insights{width:666px;margin:40px auto;overflow:auto;text-align:center;color:#948f89}#home_insights div.arrow a,#home_insights div.insight a{color:#948f89}#home_insights div.arrow a:hover,#home_insights div.insight a:hover{color:#383434;background-color:transparent}
-#home_insights .title{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal;font-size:30px}#home_insights .title em{font-style:normal;text-transform:uppercase}
+#home_insights .title{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal;font-size:30px}
 #home_insights .arrow{width:80px;float:left;font-size:50px}
 #home_insights .insight{width:500px;float:left}#home_insights .insight a{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;width:500px;float:left;display:none;font-size:18px;margin-top:10px}#home_insights .insight a.active{display:block}
 #overlay_loading{position:fixed;top:0;bottom:0;left:0;right:0;z-index:1040;background-color:#000;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#80000000, endColorstr=#80000000)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#80000000, endColorstr=#80000000);background-color:rgba(0,0,0,0.5);background-image:url(../img/spinner.gif);background-repeat:no-repeat;background-position:center center}
