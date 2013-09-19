@@ -4,10 +4,6 @@ var overlay = {
 		if (hash.length && (hash.substr(0, 1) == '#')) hash = hash.substr(1);
 		if (!hash.length) return this.hide();
 
-		window.console.log('running overlay.show for ' + hash);
-
-
-
 		if (jQuery.inArray(hash, eras) != -1) {
 			if (body.hasClass("timeline")) {
 				timeline.jump(hash);
@@ -20,6 +16,8 @@ var overlay = {
 		} else if (hash == "contact") {
 			return false;
 		}
+
+		window.console.log('running overlay.show for ' + hash);		
 	
 		jQuery("div#overlay_backdrop").remove();
 		jQuery("body").append("<div id='overlay_loading'></div>");

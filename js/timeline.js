@@ -73,6 +73,7 @@ var timeline = {
 	},
 	jump : function(which) {
 		//jump to an era on the timeline
+		jQuery(window).scrollTop(0);
 		this.$timeline.css("marginLeft", (0 - (this.positions[which] - this.slider_start)) + "px");
 		this.update();
 	},

@@ -438,7 +438,8 @@ function icph_timeline($category_id=false) {
 				</li>';
 
 			//featured stories
-			foreach ($featured as $feature) {
+			if (count($featured)) {
+				$feature = array_shift($featured);
 				$post = get_post($feature['id']);
 				$li_items[] = '
 					<li class="' . $era->post_name . ' featured">
