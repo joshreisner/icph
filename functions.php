@@ -13,7 +13,7 @@ for ($i = 0; $i < $era_count; $i++) {
 	$eras[$i]->start_year	= get_post_meta($eras[$i]->ID, 'start_year', true);
 	$eras[$i]->description 	= get_post_meta($eras[$i]->ID, 'description', true);
 	$eras[$i]->map_link		= get_post_meta($eras[$i]->ID, 'map_link', true);
-	$eras[$i]->url = '/archives/era/' . $eras[$i]->post_name;
+	$eras[$i]->url = '/era/' . $eras[$i]->post_name;
 	$era_options[$eras[$i]->ID] = $eras[$i]->post_title;
 	if ($eras[$i]->post_name == 'progressive') $progressive_id = $eras[$i]->ID;
 }
@@ -81,6 +81,7 @@ $custom_fields = array(
 	)
 );
 
+
 //set up images and custom sizes
 add_theme_support('post-thumbnails'); 
 
@@ -132,13 +133,16 @@ add_action('init', function() {
 			'parent_item_colon'  => '',
 			'menu_name'          => 'Eras'
 		),
-		'description'   => 'Eras',
+	    'description'   => 'Eras',
 		'public'        => true,
 		'menu_position' => 4,
+      'capability_type' => 'page',
 		'supports'      => array('title'),
-		'has_archive'   => false,
+		'has_archive'   => true,
 	));
 	
+	flush_rewrite_rules();
+
 	register_post_type('year', array(
 		'labels'        => array(
 			'name'               => _x( 'Years', 'post type general name' ),
