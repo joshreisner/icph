@@ -6,16 +6,14 @@ $eras				= get_posts(array('post_status'=>'publish', 'post_type'=>'era', 'meta_k
 
 //era options for select and other places
 $era_options = array();
-$progressive_id = false;
 $era_count = count($eras);
 for ($i = 0; $i < $era_count; $i++) {
 	//todo test if i can get all this meta in one shot
-	$eras[$i]->start_year	= get_post_meta($eras[$i]->ID, 'start_year', true);
-	$eras[$i]->description 	= get_post_meta($eras[$i]->ID, 'description', true);
-	$eras[$i]->map_link		= get_post_meta($eras[$i]->ID, 'map_link', true);
-	$eras[$i]->url = '/era/' . $eras[$i]->post_name;
+	$eras[$i]->start_year		= get_post_meta($eras[$i]->ID, 'start_year', true);
+	$eras[$i]->description 		= get_post_meta($eras[$i]->ID, 'description', true);
+	$eras[$i]->map_link			= get_post_meta($eras[$i]->ID, 'map_link', true);
+	$eras[$i]->url 				= '/era/' . $eras[$i]->post_name;
 	$era_options[$eras[$i]->ID] = $eras[$i]->post_title;
-	if ($eras[$i]->post_name == 'progressive') $progressive_id = $eras[$i]->ID;
 }
 
 //special code to loop through again and determine the era's end_year
