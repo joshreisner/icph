@@ -136,12 +136,12 @@ add_action('init', function() {
 			'parent_item_colon'  => '',
 			'menu_name'          => 'Eras'
 		),
-	    'description'   => 'Eras',
-		'public'        => true,
-		'menu_position' => 4,
-      'capability_type' => 'page',
-		'supports'      => array('title'),
-		'has_archive'   => true,
+	    'description'			=> 'Eras',
+		'public'				=> true,
+		'menu_position'			=> 4,
+		'supports'				=> array('title'),
+		'has_archive'			=> true,
+		'exclude_from_search'	=> true,
 	));
 	
 	flush_rewrite_rules();
@@ -162,12 +162,13 @@ add_action('init', function() {
 			'parent_item_colon'  => '',
 			'menu_name'          => 'Years'
 		),
-		'description'   => 'Years for the main timeline',
-		'public'        => true,
-		'menu_position' => 5,
-		'supports'      => array('title', 'editor'),
-		'taxonomies'	=> array('category'),
-		'has_archive'   => false,
+		'description'			=> 'Years for the main timeline',
+		'public'				=> true,
+		'menu_position'			=> 5,
+		'supports'				=> array('title', 'editor'),
+		'taxonomies'			=> array('category'),
+		'has_archive'			=> false,
+		'exclude_from_search'	=> true,
 	));
 		
 	register_post_type('map_point', array(
@@ -186,11 +187,12 @@ add_action('init', function() {
 			'parent_item_colon'  => '',
 			'menu_name'          => 'Map Points'
 		),
-		'description'   => 'Map Points',
-		'public'        => true,
-		'menu_position' => 5,
-		'supports'      => array('title', 'editor'),
-		'has_archive'   => false,
+		'description'			=> 'Map Points',
+		'public'				=> true,
+		'menu_position'			=> 5,
+		'supports'				=> array('title', 'editor'),
+		'has_archive'			=> false,
+		'exclude_from_search'	=> true,
 	));
 		
 	register_post_type('infographic', array(
@@ -209,11 +211,12 @@ add_action('init', function() {
 			'parent_item_colon'  => '',
 			'menu_name'          => 'Infographics'
 		),
-		'description'   => 'Infographics',
-		'public'        => true,
-		'menu_position' => 5,
-		'supports'      => array('title', 'excerpt'),
-		'has_archive'   => false,
+		'description'			=> 'Infographics',
+		'public'				=> true,
+		'menu_position'			=> 5,
+		'supports'				=> array('title', 'excerpt'),
+		'has_archive'			=> false,
+		'exclude_from_search'	=> true,
 	));
 });
 
