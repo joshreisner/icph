@@ -105,10 +105,15 @@ add_image_size('xl', 920); //for the view image overlay page
 
 add_filter('pre_option_link_manager_enabled', '__return_true');
 
-add_filter('image_size_names_choose', function ($sizes) {
+add_filter('image_size_names_choose', function($sizes) {
 	//they should only be inserting thumbnails
 	foreach ($sizes as $key=>$value) return array($key=>$value);
 });
+
+add_filter('excerpt_length', function() {
+	return 999;
+});
+
 
 //register custom post types
 add_action('init', function() {
