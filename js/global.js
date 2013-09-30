@@ -25,6 +25,18 @@ jQuery(function(){
 	},function(){
 		jQuery(this).find("input").first().blur();
 	});
+
+	jQuery("#header #nav > li").hover(function(){
+		jQuery(this).find("ul.dropdown").slideDown('fast');
+	},function(){
+		jQuery(this).find("ul.dropdown").slideUp('fast');		
+	});
+	
+	jQuery("#header #tools > li").hover(function(){
+		jQuery(this).find("ul.dropdown").slideDown('fast');
+	},function(){
+		jQuery(this).find("ul.dropdown").slideUp('fast');		
+	});
 	
 
 	//hide placeholder on focus

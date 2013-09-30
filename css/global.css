@@ -16,10 +16,9 @@ html body div.wp-caption.alignright{float:right;margin:0 0 10px 10px}
 #header{background-color:#383434;zoom:1;background-color:transparent\9;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc383333, endColorstr=#cc383333)";filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc383333, endColorstr=#cc383333);background-color:rgba(56,51,51,0.8);-webkit-box-shadow:0 0 6px rgba(0,0,0,0.6);-moz-box-shadow:0 0 6px rgba(0,0,0,0.6);box-shadow:0 0 6px rgba(0,0,0,0.6);height:48px;position:fixed;top:0;left:0;right:0;overflow:visible;}#header .superheader{color:#fff;display:none}#header .superheader .side{position:absolute;width:532px;top:20px}#header .superheader .side.left{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;text-align:right;left:30px;font-size:22px;line-height:1.3}
 #header .superheader .side.right{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal;font-size:15px}#header .superheader .side.right em{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold}
 #header a{color:#fff}#header a.logo{font-size:28px;position:absolute;left:20px;bottom:6px}#header a.logo span{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold}
-#header ul{list-style-type:none;margin:0;padding:0;text-transform:uppercase;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;color:#fff;position:absolute;bottom:0}#header ul li{float:left;margin:0;padding:0;position:relative}#header ul li a.main{height:23px;line-height:28px;display:block;border-bottom:5px solid transparent;padding:10px 0}
+#header ul{list-style-type:none;margin:0;padding:0;text-transform:uppercase;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;color:#fff;position:absolute;bottom:0}#header ul li{float:left;margin:0;padding:0;position:relative;}#header ul li a.main{height:23px;line-height:28px;display:block;border-bottom:5px solid transparent;padding:10px 0}
 #header ul li ul{display:none;position:fixed;top:48px;bottom:auto;background-color:#eae3d9;background-image:url(../img/background.png);-webkit-box-shadow:0 0 6px rgba(0,0,0,0.6);-moz-box-shadow:0 0 6px rgba(0,0,0,0.6);box-shadow:0 0 6px rgba(0,0,0,0.6)}#header ul li ul li{float:none;border-bottom:1px solid #d2cbc1}#header ul li ul li a{display:block;padding:10px;height:auto}
 #header ul li:hover a.main,#header ul li.current_page_item a.main{color:#eae3d9;border-color:#eae3d9}
-#header ul li:hover ul{display:block}
 #header ul#nav li{padding:0 22px 0 0;margin:0 20px 0 0;overflow:auto}#header ul#nav li a.main{font-size:17px}
 #header ul#nav li div.separator{background-color:#fff;width:2px;position:absolute;right:0;top:17px;height:13px}
 #header ul#nav li ul li{margin:0}#header ul#nav li ul li a{width:240px;font-size:12px;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal;color:#383434;line-height:16px;text-transform:none}#header ul#nav li ul li a div{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold}
@@ -30,7 +29,7 @@ html body div.wp-caption.alignright{float:right;margin:0 0 10px 10px}
 #header ul#nav li ul li.great_depression div{color:#9c474e}
 #header ul#nav li ul li.today div{color:#949d7b}
 #header ul#tools{right:20px}#header ul#tools li a.main{font-size:13px}
-#header ul#tools li ul.dropdown li a{color:#383434;padding:6px 20px 6px 6px;line-height:23px;text-transform:none;white-space:nowrap;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold}#header ul#tools li ul.dropdown li a i{color:#948f89;font-size:20px;display:block;float:left;margin-right:6px}
+#header ul#tools li ul.dropdown{}#header ul#tools li ul.dropdown li a{color:#383434;padding:6px 20px 6px 6px;line-height:23px;text-transform:none;white-space:nowrap;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold}#header ul#tools li ul.dropdown li a i{color:#948f89;font-size:20px;display:block;float:left;margin-right:6px}
 #header ul#tools li ul.dropdown li a span{display:block;float:left}
 #header ul#tools li ul.dropdown li.form{padding-top:10px}#header ul#tools li ul.dropdown li.form input{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:bold;width:184px;font-size:13px;padding:4px 19px 4px 2px;margin:0 8px}
 #header ul#tools li ul.dropdown li.form i{color:#383434;position:absolute;top:14px;right:10px;cursor:pointer}
@@ -38,11 +37,10 @@ html body div.wp-caption.alignright{float:right;margin:0 0 10px 10px}
 #header ul#tools li ul.dropdown li.all a{color:#948f89;text-transform:uppercase;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold}#header ul#tools li ul.dropdown li.all a i{margin-top:1px}
 #header ul#tools li ul.dropdown li:first-child{border-top:none}
 #header ul#tools li ul.dropdown li:hover{background-color:#d2cbc1;background-image:url(../img/background-dark.png)}
-#header ul#tools li ul.dropdown:hover{display:block}
 #header ul#tools li.share{margin-right:20px}
 #header ul#tools li.search ul.dropdown{right:20px}#header ul#tools li.search ul.dropdown ul.typeahead{position:static;width:224px}#header ul#tools li.search ul.dropdown ul.typeahead li{overflow-x:hidden}
 #header ul#tools li:hover a{border-bottom:5px solid #eae3d9;color:#eae3d9}
-#header ul#tools li:hover ul.dropdown{display:block}#header ul#tools li:hover ul.dropdown li a{border-bottom:0}
+#header ul#tools li:hover ul.dropdown{}#header ul#tools li:hover ul.dropdown li a{border-bottom:0}
 #header ul.typeahead{position:static}
 footer{overflow:auto;margin-bottom:20px;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal}footer .copyright{float:left;margin-left:20px;font-size:11px;color:#948f89}
 footer ul{float:right;list-style:none;margin:0 20px 0 0;padding:0;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold}footer ul li{float:left;margin:0 0 0 20px;font-size:16px;line-height:16px;padding-top:5px}footer ul li a{color:#948f89;text-transform:uppercase}footer ul li a i{font-size:26px}
