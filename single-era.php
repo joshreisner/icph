@@ -62,7 +62,7 @@ if (isset($related[1])) $featured = get_post($related[1]['id']);
 		<div class="inner">
 			<h3><?php echo $era->map_link?></h3>
 			<p><?php echo nl2br(get_post_meta($era->ID, 'map_description', true))?></p>
-			<a class="more" href="/maps"><i class="icon-right-circle"></i> Explore the Map</a>
+			<a class="more" href="/maps#<?php echo $era->post_name?>"><i class="icon-right-circle"></i> Explore the Map</a>
 		</div>
 	</div>
 
