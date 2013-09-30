@@ -38,6 +38,12 @@ jQuery(function(){
 		jQuery(this).find("ul.dropdown").slideUp('fast');		
 	});
 	
+	//fading circle thumbnails
+	jQuery("a.thumbnail").hover(function(){
+		jQuery(this).find("img").fadeOut();
+	},function(){
+		jQuery(this).find("img").fadeIn();		
+	});
 
 	//hide placeholder on focus
 	jQuery("input").focus(function(){
