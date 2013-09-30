@@ -31,6 +31,7 @@ var overlay = {
 
 				jQuery("body").append(data);
 				jQuery("#overlay_loading").remove();
+				jQuery("#overlay").fadeIn();
 				
 				//escape key to close overlay
 				jQuery("body").keydown(function(e){
@@ -80,8 +81,11 @@ var overlay = {
 	},
 	hide : function() {
 		window.console.log('hiding window');
-		jQuery("#overlay_loading").remove();
-		jQuery("div#overlay_backdrop").remove();
-		jQuery("div#overlay").remove();
+		jQuery("div#overlay_backdrop").fadeOut();
+		jQuery("div#overlay").fadeOut(function(){
+			jQuery("#overlay_loading").remove();
+			jQuery("div#overlay_backdrop").remove();
+			jQuery("div#overlay").remove();
+		});
 	}
 };
