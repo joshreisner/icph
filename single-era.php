@@ -2,11 +2,12 @@
 //era landing pages & about page
 get_header();
 
-if (!$era = icph_get_era(false, $post->post_name)) die('era not found'); //need some better failure mechanism
-
-$related = get_related_links('post', $era->ID);
-if (isset($related[0])) $overview = get_post($related[0]['id']);
-if (isset($related[1])) $featured = get_post($related[1]['id']);
+$era		= icph_get_era(false, $post->post_name);
+$related	= get_related_links('post', $era->ID);
+$overview	= array_shift($related);
+$overview	= get_post($overview['id']);
+$featured	= array_shift($related);
+$featured	= get_post($featured['id']);
 ?>
 
 <div id="era" class="<?php echo $era->post_name?>">
