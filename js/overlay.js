@@ -31,6 +31,7 @@ var overlay = {
 
 				jQuery("body").append(data);
 				jQuery("#overlay_loading").remove();
+				window.scrollTo(0, 0);
 				jQuery("#overlay").fadeIn();
 				
 				//escape key to close overlay
