@@ -470,10 +470,8 @@ function icph_timeline($category_id=false) {
 		foreach ($years as $year) {
 			$content = apply_filters('the_content', $year->post_content);
 
-			//fix links
-			$content = str_replace('href="#', 'href="', $content);
-			$content = str_replace('href="' . site_url('/'), 'href="', $content);
-			$content = str_replace('href="', 'href="#', $content);
+			//fix article links
+			$content = icph_links($content);
 
 			$li_items[] = '
 				<li class="' . $era->post_name . '">
@@ -499,6 +497,13 @@ function icph_timeline($category_id=false) {
 
 	//end output here on ajax requests
 	if (isset($_POST['type'])) die(); 
+}
+
+function icph_links($content) {
+	$content = str_replace('href="#', 'href="', $content);
+	$content = str_replace('href="' . site_url('/'), 'href="', $content);
+	$content = str_replace('href="', 'href="#', $content);
+	return $content;	
 }
 
 function icph_ul($elements, $arguments=array()) {
