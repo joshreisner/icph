@@ -42,6 +42,13 @@ foreach ($links as $link) {
 		} else {
 			$skips[] = $link;
 		}
+	} elseif (ends($link, '/')) {
+		$slug = strtolower(substr($link, 0, (strlen($link) - 1)));
+		if (array_key_exists($slug, $slugs)) {
+			$replaces[$link] = $base . $slug;
+		} else {
+			$skips[] = $link;
+		}
 	} else {
 		//relative path
 		if (array_key_exists($link, $slugs)) {
@@ -50,6 +57,12 @@ foreach ($links as $link) {
 			$skips[] = $link;
 		}
 	}
+}
+
+foreach ($replaces as $old=>$new) {
+	$sql = "UPDATE wp_posts SET post_content = REPLACE(post_content, 'href=\"$old\"', 'href=\"$new\"')";
+	//echo $sql . "\n";
+	$wpdb->query($sql);
 }
 
 echo '<h3>Replaces</h3>' . ol_assoc($replaces);
@@ -68,4 +81,8 @@ function ol_assoc($items) {
 
 function starts($haystack, $needle) {
 	return (substr($haystack, 0, strlen($needle)) == $needle);
+}
+
+function ends($haystack, $needle) {
+	return (substr($haystack, 0 - strlen($needle)) == $needle);
 }
