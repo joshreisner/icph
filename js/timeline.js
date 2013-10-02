@@ -58,6 +58,12 @@ var timeline = {
 				category : category,
 				type : jQuery(this).html().toLowerCase()
 			}, function(data) {
+				if (category) {
+					jQuery("#slider_policy li.last").show();
+				} else {
+					jQuery("#slider_policy li.last").hide();
+				}
+
 				jQuery("#timeline_wrapper").html(data);
 				timeline.init();
 				jQuery('#timeline_wrapper .description').jScrollPane();

@@ -121,7 +121,7 @@ body.home.scrolled #header ul li ul{top:48px}
 #slider li.great_depression{border-color:#9c474e}#slider li.great_depression.active,#slider li.great_depression:hover{background-color:#9c474e}
 #slider li.today{border-color:#949d7b}#slider li.today.active,#slider li.today:hover{background-color:#949d7b}
 #slider_policy_wrapper{width:990px;margin:0 auto 48px}#slider_policy_wrapper #slider_policy{list-style-type:none;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;overflow:auto;margin:0;padding:0 0 1px 0;display:block;background-color:#64615c;position:relative}#slider_policy_wrapper #slider_policy li{float:left;margin-right:10px;padding:5px;color:#948f89}#slider_policy_wrapper #slider_policy li a{color:#fff;border-bottom:3px solid transparent;padding-bottom:4px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;text-transform:uppercase;font-size:12px}
-#slider_policy_wrapper #slider_policy li.last{position:absolute;right:0}
+#slider_policy_wrapper #slider_policy li.last{position:absolute;right:0;display:none}
 #slider_policy_wrapper #slider_policy li:hover a,#slider_policy_wrapper #slider_policy li.active a{border-color:#fff}
 #home_insights{width:666px;margin:40px auto;overflow:auto;text-align:center;color:#948f89}#home_insights div.arrow a,#home_insights div.insight a{color:#948f89}#home_insights div.arrow a:hover,#home_insights div.insight a:hover{color:#383434;background-color:transparent}
 #home_insights .title{font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal;font-size:30px}
