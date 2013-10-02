@@ -563,10 +563,15 @@ body.home {
 	a.arrow {
 		.bg; display: table; color: @gray; top: ((@timeline_upper_height + @timeline_lower_height) / 2) + (@header_height * 2);
 		div.cap { background-color: @beige_light; }
-		div.stem { width: 130px; .fontCondBold; display: none; vertical-align: middle; font-size: 13px; line-height: 16px; }
-		&.left .stem { padding-right: 10px; text-align: right; }
-		&.right .stem { padding-left: 10px; }
-		&:hover div.stem { display: table-cell; }
+		div.stem { width: 130px; .fontCondBold; display: table-cell; vertical-align: middle; font-size: 13px; line-height: 16px; }
+		&.left {
+			left: -140px;
+			.stem { padding-right: 10px; text-align: right; }
+		}
+		&.right {
+			right: -140px;
+			.stem { padding-left: 10px; }
+		}
 	}
 }
 
@@ -578,7 +583,7 @@ body.home {
 	div.header {
 		position: relative; height: @overlay_header_height; .fontCondBold; 
 		h1 {
-			position: absolute; bottom: @overlay_padding; left: @overlay_padding; width: @overlay_content_width; line-height: 30px;
+			position: absolute; bottom: @overlay_padding; left: @overlay_padding; width: @overlay_content_width - 10; line-height: 30px;
 		}
 		a {
 			color: @gray; text-transform: uppercase; 

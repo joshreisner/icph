@@ -69,6 +69,18 @@ var overlay = {
 				//arrows
 				jQuery("a.arrow").click(function(e){
 					e.stopPropagation();
+				}).hover(function(){
+					if (jQuery(this).hasClass('left')) {
+						jQuery(this).animate({'left':0}, 100);
+					} else {
+						jQuery(this).animate({'right':0}, 100);
+					}
+				},function(){
+					if (jQuery(this).hasClass('left')) {
+						jQuery(this).animate({'left':-140}, 100);
+					} else {
+						jQuery(this).animate({'right':-140}, 100);
+					}
 				});
 				
 				jQuery("a.back").click(function(e){
