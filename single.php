@@ -36,7 +36,7 @@ foreach ($eras as $era) if ($era->ID == $era_id) break;
 			<?php }?>
 
 			<div class="inner">
-				<?php echo icph_links(get_the_content())?>
+				<?php echo icph_links(apply_filters('the_content', get_the_content()))?>
 				
 				<?php if ($related_links = get_related_links()) {?>
 				<div class="related">
