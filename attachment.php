@@ -57,21 +57,23 @@ foreach ($siblings as $sibling) {
 }
 
 $prev = $next = $last = false;
-foreach ($nav_array as $key=>$value) {
-	if ($key == $parent->post_name . '/' . $post->post_name) {
-		$prev = $last;
-	} elseif ($prev) {
-		$next = array('slug'=>$key, 'title'=>$value); 
-		break;
-	} else {
-		$last = array('slug'=>$key, 'title'=>$value); 
+if (count($nav_array) > 1) {	
+	foreach ($nav_array as $key=>$value) {
+		if ($key == $parent->post_name . '/' . $post->post_name) {
+			$prev = $last;
+		} elseif ($prev) {
+			$next = array('slug'=>$key, 'title'=>$value); 
+			break;
+		} else {
+			$last = array('slug'=>$key, 'title'=>$value); 
+		}
 	}
-}
 
-//special catch for first element
-if (!$prev && !$next && count($nav_array > 1)) {
-	$nav_keys = array_keys($nav_array);
-	$next = array('slug'=>$nav_keys[1], 'title'=>$nav_array[$nav_keys[1]]);
+	//special catch for first element
+	if (!$prev && !$next) {
+		$nav_keys = array_keys($nav_array);
+		$next = array('slug'=>$nav_keys[1], 'title'=>$nav_array[$nav_keys[1]]);
+	}
 }
 ?>
 
