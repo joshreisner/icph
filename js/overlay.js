@@ -34,6 +34,11 @@ var overlay = {
 				window.scrollTo(0, 0);
 				jQuery("#overlay").fadeIn();
 				
+				//check to make sure overlay covers 100% height of the window
+				if (jQuery("#overlay").height() < jQuery(document).height()) {
+					jQuery("#overlay").height(jQuery(document).height());
+				}
+
 				//escape key to close overlay
 				jQuery("body").keydown(function(e){
 					//bind the escape key to overlay-closing
