@@ -64,7 +64,7 @@ var timeline = {
 					jQuery("#slider_policy li.last").hide();
 				}
 
-				jQuery("#timeline_wrapper").html(data);
+				jQuery("#timeline_wrapper").html(data).find("div.policy_description").fadeIn();
 				timeline.init();
 				jQuery('#timeline_wrapper .description').jScrollPane();
 				//jQuery('.policy_description .jspPane').css({width:'410px'});
@@ -73,7 +73,7 @@ var timeline = {
 
 		jQuery("#timeline_wrapper").on("click", ".policy_description a.close", function(e){
 			e.preventDefault();
-			jQuery(this).closest(".policy_description").remove();
+			jQuery(this).closest(".policy_description").fadeOut();
 		});
 
 	},
