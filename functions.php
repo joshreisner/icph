@@ -500,9 +500,10 @@ function icph_timeline($category_id=false) {
 }
 
 function icph_links($content) {
-	$content = str_replace('href="#', 'href="', $content);
-	$content = str_replace('href="' . site_url('/'), 'href="', $content);
-	$content = str_replace('href="', 'href="#', $content);
+	//$content = str_replace('href="#', 'href="', $content);
+	//$content = str_replace('href="' . site_url('/'), 'href="', $content);
+	//$content = str_replace('href="', 'href="#', $content);
+	$content = str_replace('href="' . site_url('/'), 'href="#', $content);
 	return $content;	
 }
 
