@@ -67,10 +67,10 @@ $site_title = str_replace('NYC', '<span>NYC</span>', $site_title);
 				<li class="share">
 					<a class="main"><i class="icon-export"></i> <span>Share</span></a>
 					<ul class="dropdown">
-						<li><a href="#"><i class="icon-facebook-circled"></i> Facebook</a></li>
-						<li><a href="#"><i class="icon-twitter-circled"></i> Twitter</a></li>
-						<li><a href="#"><i class="icon-pinterest-circled"></i> Pinterest</a></li>
-						<li><a href="#"><i class="icon-mail"></i> Email</a></li>
+						<li><a href="https://www.facebook.com/InstituteforChildrenandPoverty?v=wall"><i class="icon-facebook-circled"></i> Facebook</a></li>
+						<li><a href="https://twitter.com/icph_homeless"><i class="icon-twitter-circled"></i> Twitter</a></li>
+						<li><a href="http://www.pinterest.com/icphusa/"><i class="icon-pinterest-circled"></i> Pinterest</a></li>
+						<li><a href="mailto:info@ICPHusa.org"><i class="icon-mail"></i> Email</a></li>
 					</ul>
 				</li>
 				<li class="search">
