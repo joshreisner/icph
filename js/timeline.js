@@ -40,15 +40,15 @@ var timeline = {
 		});
 		
 		//set arrows
-		jQuery("body").on("mouseenter", "#timeline a.arrow", function(){
+		jQuery("body").off("mouseenter", "#timeline a.arrow").on("mouseenter", "#timeline a.arrow", function(){
 			timeline.increment = (jQuery(this).hasClass("left")) ? 7 : -7;
 			timeline.interval = setInterval(timeline.move, 10);
 		});
-		jQuery("body").on("mouseleave", "#timeline a.arrow", function(){
+		jQuery("body").off("mouseleave", "#timeline a.arrow").on("mouseleave", "#timeline a.arrow", function(){
 			clearInterval(timeline.interval);
 		});
 
-		jQuery("#slider_policy li a").on("click", function(e) {
+		jQuery("#slider_policy li a").off("click").on("click", function(e) {
 			e.preventDefault();
 			var category = jQuery(this).attr('href').substr(1);
 			jQuery("#slider_policy li").removeClass('active');
