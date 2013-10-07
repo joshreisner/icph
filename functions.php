@@ -300,7 +300,7 @@ function icph_browse($type='subject') {
 			<h3<?php if ($category->name == $categories[0]->name) {?> class="first"<?php }?>><i class="icon-plus-circled"></i> <?php echo $category->name?></h3>
 			<ul>
 				<?php 
-				$posts = get_posts('category=' . $category->term_id);
+				$posts = get_posts('numberposts=-1&orderby=title&order=asc&category=' . $category->term_id);
 				foreach ($posts as $post) {
 					$era = icph_get_era(get_post_meta($post->ID, 'era', true));
 				?>
