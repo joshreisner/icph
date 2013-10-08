@@ -6,8 +6,6 @@ var overlay = {
 
 		if (jQuery.inArray(hash, eras) != -1) {
 			if (body.hasClass("timeline")) {
-				jQuery("#timeline a.arrow").remove();
-				jQuery("#timeline").append('<a class="arrow left"><div class="cap"><i class="icon-left-open-big"></i></div></a><a class="arrow right"><div class="cap"><i class="icon-right-open-big"></i></div></a>');
 				timeline.jump(hash);
 				return false;
 			} else if (body.hasClass("maps")) {
@@ -64,14 +62,14 @@ var overlay = {
 				var navScroller = jQuery('.navigation .scroll-pane').jScrollPane();
 				
 				//close on click outside
-				jQuery("#overlay_backdrop").click(function(){
+				jQuery("#overlay_backdrop").unbind("click").click(function(){
 					window.location.hash = '';
 				});
 				
 				//arrows
-				jQuery("a.arrow").click(function(e){
+				jQuery("#overlay_backdrop a.arrow").unbind("click").click(function(e){
 					e.stopPropagation();
-				}).hover(function(){
+				}).unbind("hover").hover(function(){
 					if (jQuery(this).hasClass('left')) {
 						jQuery(this).animate({'left':0}, 100);
 					} else {
@@ -85,7 +83,7 @@ var overlay = {
 					}
 				});
 				
-				jQuery("a.back").click(function(e){
+				jQuery("a.back").unbind("click").click(function(e){
 					e.preventDefault();
 					jQuery("div.body").show();
 					jQuery("div.header a.close").show();
