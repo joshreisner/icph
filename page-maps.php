@@ -70,28 +70,24 @@ foreach ($eras as $era) {
 			map<?php echo $era->ID?>.panBy(0, 100);
 		});
 		
-		<?php if (in_array($era->post_name, array('progressive', 'nineteenth', 'great_depression', 'early_ny'))) {?>
-			var mapBounds = new google.maps.LatLngBounds(
-				new google.maps.LatLng(0.682437, -94.027215),
-				new google.maps.LatLng(60.880905, -53.901394)
-			);
-			map<?php echo $era->ID?>.fitBounds(mapBounds);
-			
-			google.maps.event.addListenerOnce(map<?php echo $era->ID?>, 'bounds_changed', function() {
-		    	this.setZoom(14);
-		    	this.setCenter(new google.maps.LatLng(40.725, -73.965));
-			});
-			//setTimeout(function(){google.maps.event.removeListener(zoomChangeBoundsListener)}, 2000);
-
-			var mapGetTile = function(x,y,z) { 
-				return "/wp-content/themes/icph/img/eras/<?php echo $era->post_name?>/tiles/" + z + "/" + x + "/" + y + ".png";
-			}
+		var mapBounds = new google.maps.LatLngBounds(
+			new google.maps.LatLng(0.682437, -94.027215),
+			new google.maps.LatLng(60.880905, -53.901394)
+		);
+		map<?php echo $era->ID?>.fitBounds(mapBounds);
 		
-			var maptiler = new klokantech.MapTilerMapType(map<?php echo $era->ID?>, mapGetTile, mapBounds, 10, 15);
-		<?php } else { ?>
-			map<?php echo $era->ID?>.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+		google.maps.event.addListenerOnce(map<?php echo $era->ID?>, 'bounds_changed', function() {
+	    	this.setZoom(14);
+	    	this.setCenter(new google.maps.LatLng(40.725, -73.965));
+		});
+		//setTimeout(function(){google.maps.event.removeListener(zoomChangeBoundsListener)}, 2000);
 
-		<?php } ?>
+		var mapGetTile = function(x,y,z) { 
+			return "/wp-content/themes/icph/img/eras/<?php echo $era->post_name?>/tiles/" + z + "/" + x + "/" + y + ".png";
+		}
+	
+		var maptiler = new klokantech.MapTilerMapType(map<?php echo $era->ID?>, mapGetTile, mapBounds, 10, 15);
+
 		
 		infowindow = new InfoBox({alignBottom:true, closeBoxURL: ""});
 		

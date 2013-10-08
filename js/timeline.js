@@ -28,23 +28,21 @@ var timeline = {
 		this.slider_start	= this.$slider_eras.first().position().left;
 		this.slider_end		= (0 - (jQuery("#timeline li").last().position().left - this.slider_start));
 		
-		//maybe not when you're changing / sure hope there's a progressive year entered
+		//line up the first era with the left of the slider
 		this.jump(eras[0]);
 		
 		//set slider era links
-		this.$slider_eras.unbind("click");
-		this.$slider_eras.click(function(){
+		this.$slider_eras.unbind("click").click(function(){
 			var target = jQuery(this).attr("class");
 			target = target.replace(" first", "").replace(" last", "").replace(" active", "");
 			timeline.jump(target);
 		});
 		
 		//set arrows
-		jQuery("body").off("mouseenter", "#timeline a.arrow").on("mouseenter", "#timeline a.arrow", function(){
+		body.off("mouseenter", "#timeline a.arrow").on("mouseenter", "#timeline a.arrow", function(){
 			timeline.increment = (jQuery(this).hasClass("left")) ? 7 : -7;
 			timeline.interval = setInterval(timeline.move, 10);
-		});
-		jQuery("body").off("mouseleave", "#timeline a.arrow").on("mouseleave", "#timeline a.arrow", function(){
+		}).off("mouseleave", "#timeline a.arrow").on("mouseleave", "#timeline a.arrow", function(){
 			clearInterval(timeline.interval);
 		});
 
@@ -71,7 +69,7 @@ var timeline = {
 			});
 		});
 
-		jQuery("#timeline_wrapper").on("click", ".policy_description a.close", function(e){
+		jQuery("#timeline_wrapper").off("click", ".policy_description a.close").on("click", ".policy_description a.close", function(e){
 			e.preventDefault();
 			jQuery(this).closest(".policy_description").fadeOut();
 		});

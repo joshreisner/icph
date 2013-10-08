@@ -6,6 +6,8 @@ var overlay = {
 
 		if (jQuery.inArray(hash, eras) != -1) {
 			if (body.hasClass("timeline")) {
+				jQuery("#timeline a.arrow").remove();
+				jQuery("#timeline").append('<a class="arrow left"><div class="cap"><i class="icon-left-open-big"></i></div></a><a class="arrow right"><div class="cap"><i class="icon-right-open-big"></i></div></a>');
 				timeline.jump(hash);
 				return false;
 			} else if (body.hasClass("maps")) {
