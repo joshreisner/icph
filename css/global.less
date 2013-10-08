@@ -1064,13 +1064,30 @@ body.maps {
 	}
 	
 	div.zoom {
-		color: @white; background-color: black; text-align: center; line-height: 30px; font-size: 20px; .opacity(.5); width: 30px; height: 30px; cursor: pointer; position: absolute; left: 20px;
-		&.in { top: 70px; }
-		&.out { top: 110px; }
-		&.left { top: 150px; }
-		&.right { top: 190px; }
-		&.up { top: 230px; }
-		&.down { top: 270px; }
+		.opacity(.7); width: 30px; height: 30px; cursor: pointer; position: absolute; left: 40px;
+		&.in { top: 20px; background-image: url(../img/map/zoom/in.png); }
+		&.out { top: 60px; background-image: url(../img/map/zoom/out.png); }
+		&:hover { .opacity(1); }
+	}
+
+	div.pan {
+		position: absolute; top: 100px; left: 20px; width: 73px; height: 73px; cursor: pointer;
+
+		-moz-transform: rotate(45deg);  /* FF3.5/3.6 */
+		-o-transform: rotate(45deg);  /* Opera 10.5 */
+		-webkit-transform: rotate(45deg);  /* Saf3.1+ */
+		transform: rotate(45deg);  /* Newer browsers (incl IE9) */
+		filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476); /* IE6,IE7 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476)"; /* IE8 */
+
+		div {
+			width: 35px; height: 35px; .opacity(.7);
+			&.up { position: absolute; top: 0; left: 0; background-image: url(../img/map/pan/up.png); }
+			&.right { position: absolute; top: 0; right: 0; background-image: url(../img/map/pan/right.png); }
+			&.down { position: absolute; bottom: 0; right: 0; background-image: url(../img/map/pan/down.png); }
+			&.left { position: absolute; bottom: 0; left: 0; background-image: url(../img/map/pan/left.png); }
+			&:hover { .opacity(1); }
+		}
 	}
 	
 	div.infoBox {

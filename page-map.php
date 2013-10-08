@@ -22,8 +22,8 @@ foreach ($eras as $era) {
 	?>
 	<div class="mapwrapper <?php echo $era->post_name?>">
 		<div class="map" id="map<?php echo $era->ID?>"></div>
-		<div class="zoom in" id="zoom-in<?php echo $era->ID?>"><i class="icon-plus-circled"></i></div>
-		<div class="zoom out" id="zoom-out<?php echo $era->ID?>"><i class="icon-minus-circled"></i></div>
+		<div class="zoom in" id="zoom-in<?php echo $era->ID?>"></div>
+		<div class="zoom out" id="zoom-out<?php echo $era->ID?>"></div>
 		
 		<div id="description">
 			<a class="control close"><i class="icon-cancel-circled"></i></a>

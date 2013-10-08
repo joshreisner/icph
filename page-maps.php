@@ -12,12 +12,15 @@ foreach ($eras as $era) {
 	?>
 	<div class="mapwrapper <?php echo $era->post_name?>">
 		<div class="map" id="map<?php echo $era->ID?>"></div>
-		<div class="zoom in" id="zoom-in<?php echo $era->ID?>"><i class="icon-plus-circled"></i></div>
-		<div class="zoom out" id="zoom-out<?php echo $era->ID?>"><i class="icon-minus-circled"></i></div>
-		<div class="zoom left" id="zoom-left<?php echo $era->ID?>">&larr;</div>
-		<div class="zoom right" id="zoom-right<?php echo $era->ID?>">&rarr;</div>
-		<div class="zoom up" id="zoom-up<?php echo $era->ID?>">&uarr;</div>
-		<div class="zoom down" id="zoom-down<?php echo $era->ID?>">&darr;</div>
+		<div class="zoom in" id="zoom-in<?php echo $era->ID?>"></div>
+		<div class="zoom out" id="zoom-out<?php echo $era->ID?>"></div>
+
+		<div class="pan">
+			<div class="left" id="pan-left<?php echo $era->ID?>"></div>
+			<div class="right" id="pan-right<?php echo $era->ID?>"></div>
+			<div class="up" id="pan-up<?php echo $era->ID?>"></div>
+			<div class="down" id="pan-down<?php echo $era->ID?>"></div>
+		</div>
 
 		<div id="description">
 			<a class="control close"><i class="icon-cancel-circled"></i></a>
@@ -51,19 +54,19 @@ foreach ($eras as $era) {
 			map<?php echo $era->ID?>.setZoom(map<?php echo $era->ID?>.getZoom() - 1);
 		});
 		
-		google.maps.event.addDomListener(document.getElementById("zoom-left<?php echo $era->ID?>"), 'click', function() {
+		google.maps.event.addDomListener(document.getElementById("pan-left<?php echo $era->ID?>"), 'click', function() {
 			map<?php echo $era->ID?>.panBy(-100, 0);
 		});
 		
-		google.maps.event.addDomListener(document.getElementById("zoom-right<?php echo $era->ID?>"), 'click', function() {
+		google.maps.event.addDomListener(document.getElementById("pan-right<?php echo $era->ID?>"), 'click', function() {
 			map<?php echo $era->ID?>.panBy(100, 0);
 		});
 		
-		google.maps.event.addDomListener(document.getElementById("zoom-up<?php echo $era->ID?>"), 'click', function() {
+		google.maps.event.addDomListener(document.getElementById("pan-up<?php echo $era->ID?>"), 'click', function() {
 			map<?php echo $era->ID?>.panBy(0, -100);
 		});
 		
-		google.maps.event.addDomListener(document.getElementById("zoom-down<?php echo $era->ID?>"), 'click', function() {
+		google.maps.event.addDomListener(document.getElementById("pan-down<?php echo $era->ID?>"), 'click', function() {
 			map<?php echo $era->ID?>.panBy(0, 100);
 		});
 		
