@@ -5,7 +5,7 @@ get_header();
 ?>
 <script src="//maps.google.com/maps/api/js?key=AIzaSyADB0wyHm58AKLfOefVvZ13G-oZq3UftWY&sensor=false"></script>
 <script src="//maptilercdn.s3.amazonaws.com/klokantech.js"></script>
-<script src="/wp-content/themes/icph/js/infobox.js"></script>
+<script src="<?php bloginfo('template_directory');?>/js/infobox.js"></script>
 
 <?php
 foreach ($eras as $era) {
@@ -23,6 +23,27 @@ foreach ($eras as $era) {
 		</div>
 
 		<div id="description">
+			<?php if ($era->post_name == 'today') {?>
+				<h3>Concentration of Poor New Yorkers</h3>
+				<dl>
+					<dt class="high"><h3>High</h3></dt>
+					<dd>High areas on the map denote large concentrations of poor persons in a given year.</dd>
+
+					<dt class="low"><h3>Low</h3></dt>
+					<dd>Low areas refer to locations where few poor persons are living.  In other words, areas where more affluent persons are present.</dd>
+				</dl>
+				
+				<p>Note: Tests for global spatial autocorrelation using Moran's l were significant (p=.001).  All clusters
+					using local indicators of spatial association were significant (p<.005).</p>
+				<p>Source: Minnesota Population Center, National Historical Geographic Information System: Version 2.0
+					Minneapolis, MN: University of Minnesota 2011</p>
+
+				<div id="slider_whole">
+					<div class="label start">1980</div>
+					<div id="today_map_slider"></div>
+					<div class="label end">2000</div>
+				</div>
+			<?php } else {?>
 			<a class="control close"><i class="icon-cancel-circled"></i></a>
 			<a class="control expand"><i class="icon-plus-circled"></i></a>
 			<h3><?php echo get_post_meta($era->ID, 'map_title', true)?></h3>
@@ -30,6 +51,7 @@ foreach ($eras as $era) {
 			<div class="content scroll-pane">
 				<div><?php echo nl2br(get_post_meta($era->ID, 'map_description', true))?></div>
 			</div>
+			<?php }?>
 		</div>
 	</div>
 	

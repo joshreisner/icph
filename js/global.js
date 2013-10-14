@@ -1,6 +1,7 @@
 //@codekit-prepend "jquery-1.9.1.js";
 //@codekit-prepend "jquery.mousewheel.js";
 //@codekit-prepend "jquery.jscrollpane.js";
+//@codekit-prepend "jquery-ui.js";
 //@codekit-prepend "bootstrap.js";
 
 jQuery(function(){
@@ -27,15 +28,15 @@ jQuery(function(){
 	});
 
 	jQuery("#header #nav > li").hover(function(){
-		jQuery(this).find("ul.dropdown").slideDown('fast');
+		jQuery(this).find("ul.dropdown").fadeIn('fast');
 	},function(){
-		jQuery(this).find("ul.dropdown").slideUp('fast');		
+		jQuery(this).find("ul.dropdown").fadeOut('fast');		
 	});
 	
 	jQuery("#header #tools > li").hover(function(){
-		jQuery(this).find("ul.dropdown").slideDown('fast');
+		jQuery(this).find("ul.dropdown").fadeIn('fast');
 	},function(){
-		jQuery(this).find("ul.dropdown").slideUp('fast');		
+		jQuery(this).find("ul.dropdown").fadeOut('fast');		
 	});
 	
 	//fading circle thumbnails
@@ -121,6 +122,12 @@ jQuery(function(){
 	    	window[new_id].setCenter(center);
 	    	window[new_id].setZoom(zoom);
 		});
+
+	    jQuery("#today_map_slider").slider({
+	    	slide: function(event, ui) {
+	    		window.console.log('hi there' + ui.value);
+	    	}
+	   	});
 
 	} else if (body.hasClass("page-id-32")) {
 

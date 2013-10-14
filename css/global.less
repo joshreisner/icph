@@ -1,5 +1,6 @@
 /*import*/
 @import 'mixins.less';
+@import 'slider.less';
 @import '../fontello-c90a6563/css/fontello.css';
 
 
@@ -1113,14 +1114,29 @@ body.maps {
 	}
 	
 	div#description {
-		position: absolute; top: 60px; right: 10px; width: 400px; color: @white; 
+		position: absolute; top: 10px; right: 10px; width: 400px; color: @white; .font; font-size: 12px;
+		padding-top: 10px;
+		
+		h3, .content, dl, p { margin: 0 10px 10px; }
+
+		h3, div.label, dt { .fontCondBold; font-size: 18px; }		
 		h3 { 
-			.fontCondBold; font-size: 16px; margin: 0 0 8px; margin: 10px; 
 			&.minimized { display: none; }
 		}
+		
 		.content {
-			.font; font-size: 12px; max-height: 170px; overflow: auto; margin: 10px; line-height: 18px;
+			max-height: 170px; overflow: auto; line-height: 18px;
 		}
+		
+		dl { 
+			overflow: auto; margin-bottom: 0;
+			dt { 
+				float: left; width: 80px; display: block; clear: left; margin-bottom: 10px;
+				h3 { margin: 0; }
+			}
+			dd { float: left; display: block; width: 270px; margin: 0; margin-bottom: 10px; }
+		}
+
 		&.minimized {
 			width: 200px; height: 40px;	cursor: pointer;
 			h3 { display: none; }
@@ -1129,6 +1145,21 @@ body.maps {
 			h3.minimized { display: block; }
 			.content { display: none; }
 		}
+
+		#slider_whole {
+			margin: 10px;
+			div.label { 
+				width: 50px; float: left; margin-bottom: 20px;
+				&.end { text-align: right; }
+			}
+			#today_map_slider { 
+				float: left; margin: 6px 30px 0; width: 210px; height: 12px; background-color: @gray_medium; 
+				position: relative;
+				a { background-color: @gray; height: 28px; width: 28px; color: @white; position: absolute; margin: -8px 0 0 -14px; }
+			}
+
+		}
+
 	}
 	
 	#slider_policy_wrapper {
