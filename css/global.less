@@ -1131,10 +1131,14 @@ body.maps {
 		dl { 
 			overflow: auto; margin-bottom: 0;
 			dt { 
-				float: left; width: 80px; display: block; clear: left; margin-bottom: 10px;
+				float: left; width: 50px; display: block; clear: left; margin-bottom: 10px;
+				background-repeat: no-repeat; padding-left: 30px; 
+				&.high { background-image: url(../img/map/legend/high.png); }
+				&.low { background-image: url(../img/map/legend/low.png); }
+
 				h3 { margin: 0; }
 			}
-			dd { float: left; display: block; width: 270px; margin: 0; margin-bottom: 10px; }
+			dd { float: left; display: block; width: 270px; margin: 0; margin-bottom: 10px; padding-top: 7px; }
 		}
 
 		&.minimized {

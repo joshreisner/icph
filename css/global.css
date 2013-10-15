@@ -288,8 +288,10 @@ body.maps div#description{position:absolute;top:10px;right:10px;width:400px;colo
 body.maps div#description h3,body.maps div#description div.label,body.maps div#description dt{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;font-size:18px}
 body.maps div#description h3.minimized{display:none}
 body.maps div#description .content{max-height:170px;overflow:auto;line-height:18px}
-body.maps div#description dl{overflow:auto;margin-bottom:0}body.maps div#description dl dt{float:left;width:80px;display:block;clear:left;margin-bottom:10px}body.maps div#description dl dt h3{margin:0}
-body.maps div#description dl dd{float:left;display:block;width:270px;margin:0;margin-bottom:10px}
+body.maps div#description dl{overflow:auto;margin-bottom:0}body.maps div#description dl dt{float:left;width:50px;display:block;clear:left;margin-bottom:10px;background-repeat:no-repeat;padding-left:30px}body.maps div#description dl dt.high{background-image:url(../img/map/legend/high.png)}
+body.maps div#description dl dt.low{background-image:url(../img/map/legend/low.png)}
+body.maps div#description dl dt h3{margin:0}
+body.maps div#description dl dd{float:left;display:block;width:270px;margin:0;margin-bottom:10px;padding-top:7px}
 body.maps div#description.minimized{width:200px;height:40px;cursor:pointer}body.maps div#description.minimized h3{display:none}
 body.maps div#description.minimized a.close{display:none}
 body.maps div#description.minimized a.expand{display:block}

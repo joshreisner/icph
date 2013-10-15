@@ -125,7 +125,9 @@ jQuery(function(){
 
 	    jQuery("#today_map_slider").slider({
 	    	slide: function(event, ui) {
-	    		window.console.log('hi there' + ui.value);
+	    		var opacity1980 = (100 - ui.value) / 100;
+	    		window.console.log('set opacity to ' + opacity1980);
+	    		jQuery('div#map459').css('opacity', opacity1980);
 	    	}
 	   	});
 
