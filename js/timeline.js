@@ -25,7 +25,7 @@ var timeline = {
 		}
 		
 		//set up vars
-		this.slider_start	= this.$slider_eras.first().position().left;
+		this.slider_start	= Math.round(this.$slider_eras.first().position().left);
 		this.slider_end		= (0 - (jQuery("#timeline li").last().position().left - this.slider_start));
 		
 		//line up the first era with the left of the slider
@@ -94,6 +94,7 @@ var timeline = {
 		var currentMarginEnd = parseInt(this.$timeline.css("marginLeft"), 10);
 		var currentEra = eras[0];
 		for (var i = 0; i < eras.length; i++) {
+			//window.console.log('this.slider_start is ' + this.slider_start + ' and currentMargin is ' + currentMargin + ', while ' + eras[i] + ' is ' + this.positions[eras[i]]);
 			if (this.positions[eras[i]] <= currentMargin) currentEra = eras[i];
 		}
 		this.$slider_eras.removeClass("active");
