@@ -12,7 +12,9 @@ get_header();
 		$overview = get_post($overview['id']);
 		?>
 	<div class="column <?php echo $era->post_name?>">
-		<a class="upper" href="<?php echo $era->url?>"></a>
+		<div class="upper_wrapper">
+			<a class="upper" href="<?php echo $era->url?>"></a>
+		</div>
 		<div class="lower">
 			<a href="<?php echo $era->url?>">
 				<h1><?php echo $era->start_year . '&ndash;' . $era->end_year?></h1>

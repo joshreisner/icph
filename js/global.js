@@ -83,6 +83,44 @@ jQuery(function(){
 			}
 		});
 
+		jQuery("#home .column").hover(function(){
+			//zoom and fade in per request.  cannot animate backgroundSize per jQuery
+			var $upper = jQuery(this).find(".upper");
+			if ($upper.hasClass("zoomed")) return;
+			jQuery(this).find("ul").fadeIn();
+			var old_width	= $upper.width();
+			var old_height	= $upper.height();
+			var new_width	= old_width * 1.1;
+			var new_height	= old_height * 1.1;
+			var marginx		= (new_width - old_width) / 2;
+			var marginy		= (new_height - old_height) / 2;
+			$upper.attr("data-width", old_width).attr("data-height", old_height).addClass("zoomed");
+			$upper.animate({
+				width: new_width, 
+				height: new_height,
+				marginLeft: "-" + marginx + "px",
+				marginTop: "-" + marginy + "px"
+			},{
+			  duration: 200,
+			  queue: false
+			});
+			$upper.fadeTo("fast", 1);
+		}, function(){
+			jQuery(this).find("ul").fadeOut();
+			var $upper = jQuery(this).find(".upper");
+			$upper.fadeTo("fast", .5).animate({
+				marginLeft:0,
+				marginTop:0,
+				width:$upper.attr("data-width"),
+				height:$upper.attr("data-height")
+			},{
+			  duration: 200,
+			  queue: false,
+			  complete: function(){
+				$upper.removeClass("zoomed");
+			}});
+		});
+
 	} else if (body.hasClass("timeline")) {
 
 		//initialize timeline if appropriate

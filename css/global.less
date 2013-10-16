@@ -255,8 +255,11 @@ body.home {
 		margin-top: @header_height_big; overflow: auto;
 		.column { 
 			width: 20%; float: left; .fontCondBold;
-			.upper {
-				height: 450px; .opacity(.5); background-size: cover; display: block;
+			.upper_wrapper {
+				height: 450px; overflow: hidden;
+				.upper {
+					height: 450px; .opacity(.5); background-size: cover; display: block;
+				}
 			}
 			.lower {
 				height: 300px; padding: 10px; text-align: center;
@@ -307,8 +310,6 @@ body.home {
 					color: @white;
 					&:hover { color: @beige; }
 				}
-				.upper { .opacity(1); }
-				ul { display: block; }
 			}
 		}
 	}
