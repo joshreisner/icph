@@ -1301,6 +1301,30 @@ body.search {
 	}
 }
 
+@media (max-width: 1024px) {
+	#header {
+		a.logo { font-size: 25px; bottom: 7px; }
+	}
+
+	#era.about .row .inner { width: 900px; }
+
+	body.home {
+		#header {
+			height: @header_height;
+			div.superheader { display: none; }
+			ul li ul { top: @header_height; }
+		}
+		#home { 
+			margin-top: @header_height; 
+			.column .lower {
+				height: 250px; 
+				h1 { font-size: 33px; }
+				h2 { font-size: 23px; }
+			}
+		}
+	}
+}
+
 @media (min-width: 1200px) {
 	body.home {
 		#header { 
