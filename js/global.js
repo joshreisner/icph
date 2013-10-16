@@ -46,6 +46,7 @@ jQuery(function(){
 		jQuery(this).find("img").fadeIn();		
 	});
 
+	//search
 	//hide placeholder on focus
 	jQuery("input").focus(function(){
 		jQuery(this).attr("data-placeholder", jQuery(this).attr("placeholder"));
@@ -58,6 +59,11 @@ jQuery(function(){
 	jQuery("li.search i").click(function(){
 		jQuery("input#search").val("");
 	});
+
+	//all results button
+	jQuery("li.search li.all a").click(function(){
+		jQuery(this).closest("ul.dropdown").find("form").first().submit();
+	})
 
 
 	//insights could be on home or about
