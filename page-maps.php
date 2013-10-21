@@ -3,7 +3,7 @@
 $body_class = 'maps';
 get_header();
 ?>
-<script src="//maps.google.com/maps/api/js?key=AIzaSyADB0wyHm58AKLfOefVvZ13G-oZq3UftWY&sensor=false"></script>
+<script src="//maps.google.com/maps/api/js?key=AIzaSyADB0wyHm58AKLfOefVvZ13G-oZq3UftWY&amp;sensor=false"></script>
 <script src="//maptilercdn.s3.amazonaws.com/klokantech.js"></script>
 <script src="<?php bloginfo('template_directory');?>/js/infobox.js"></script>
 
@@ -12,6 +12,11 @@ foreach ($eras as $era) {
 	?>
 	<div class="mapwrapper <?php echo $era->post_name?>">
 		<div class="map" id="map<?php echo $era->ID?>"></div>
+
+		<?php if ($era->post_name == 'today') {?>
+			<a id="toggle"><img src="<?php bloginfo('template_directory');?>/img/map/toggle/1980.png"></a>
+		<?php }?>
+
 		<div class="zoom in" id="zoom-in<?php echo $era->ID?>"></div>
 		<div class="zoom out" id="zoom-out<?php echo $era->ID?>"></div>
 
@@ -37,12 +42,6 @@ foreach ($eras as $era) {
 					using local indicators of spatial association were significant (p<.005).</p>
 				<p>Source: Minnesota Population Center, National Historical Geographic Information System: Version 2.0
 					Minneapolis, MN: University of Minnesota 2011</p>
-
-				<div id="slider_whole">
-					<div class="label start">1980</div>
-					<div id="today_map_slider"></div>
-					<div class="label end">2000</div>
-				</div>
 			<?php } else {?>
 			<a class="control close"><i class="icon-cancel-circled"></i></a>
 			<a class="control expand"><i class="icon-plus-circled"></i></a>
@@ -92,6 +91,13 @@ foreach ($eras as $era) {
 			map<?php echo $era->ID?>.panBy(0, 100);
 		});
 		
+		<?php if ($era->post_name == 'today') {?>
+			google.maps.event.addDomListener(document.getElementById("toggle"), 'click', function() {
+				//alert('hey hey');
+				map<?php echo $era->ID?>.getTileLayer().removeOverlay(this.overlay);
+			});
+		<?php }?>
+
 		var mapBounds = new google.maps.LatLngBounds(
 			new google.maps.LatLng(0.682437, -94.027215),
 			new google.maps.LatLng(60.880905, -53.901394)

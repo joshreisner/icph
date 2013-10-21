@@ -167,14 +167,6 @@ jQuery(function(){
 	    	window[new_id].setZoom(zoom);
 		});
 
-	    jQuery("#today_map_slider").slider({
-	    	slide: function(event, ui) {
-	    		var opacity1980 = (100 - ui.value) / 100;
-	    		window.console.log('set opacity to ' + opacity1980);
-	    		jQuery('div#map459').css('opacity', opacity1980);
-	    	}
-	   	});
-
 	} else if (body.hasClass("page-id-32")) {
 
 		//set browse page accordion

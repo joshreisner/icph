@@ -282,6 +282,7 @@ body.maps div.infoBox a{color:#383434}body.maps div.infoBox a:hover{text-decorat
 body.maps div.infoBox img.alignleft{float:left;margin:0 10px 10px 0}
 body.maps div.infoBox img.alignright{float:right;margin:0 0 10px 10px}
 body.maps div.infoBox div.related{display:block;margin-top:10px}body.maps div.infoBox div.related ul{margin-top:5px}
+body.maps a#toggle{position:fixed;top:50px;left:50%;margin-left:-83px}
 body.maps div#description{position:absolute;top:10px;right:10px;width:400px;color:#fff;font-family:"BentonSans",Helvetica,sans-serif;font-style:normal;font-weight:normal;font-size:12px;padding-top:10px}body.maps div#description h3,body.maps div#description .content,body.maps div#description dl,body.maps div#description p{margin:0 10px 10px}
 body.maps div#description h3,body.maps div#description div.label,body.maps div#description dt{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;font-size:18px}
 body.maps div#description h3.minimized{display:none}
@@ -295,8 +296,6 @@ body.maps div#description.minimized a.close{display:none}
 body.maps div#description.minimized a.expand{display:block}
 body.maps div#description.minimized h3.minimized{display:block}
 body.maps div#description.minimized .content{display:none}
-body.maps div#description #slider_whole{margin:10px}body.maps div#description #slider_whole div.label{width:50px;float:left;margin-bottom:20px}body.maps div#description #slider_whole div.label.end{text-align:right}
-body.maps div#description #slider_whole #today_map_slider{float:left;margin:6px 30px 0;width:210px;height:12px;background-color:#64615c;position:relative}body.maps div#description #slider_whole #today_map_slider a{background-color:#383434;height:28px;width:28px;color:#fff;position:absolute;margin:-8px 0 0 -14px}
 body.maps #slider_policy_wrapper #slider{position:absolute;bottom:20px}
 body.maps #slider_policy_wrapper #slider_policy{display:none}
 #browse{width:940px;margin:0 auto;padding:80px 0 40px 0}#browse .header{border-bottom:1px solid #383434;margin-bottom:40px;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;font-size:18px;padding-bottom:8px}#browse .header a{color:#948f89;margin-left:20px;padding-bottom:8px}#browse .header a.active{border-bottom:4px solid #383434;padding-bottom:4px;color:#383434}
