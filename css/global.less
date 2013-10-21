@@ -484,16 +484,14 @@ body.home {
 	background-color: @gray_light; color: @white; font-size: 15px; .fontCondBold; .shadowed; 
 	list-style: none; overflow: auto; margin: @header_height auto 0; padding: @slider_padding; width: ((@slider_element_width * 5) + (@slider_padding * 5));
 	
-	background: @gray_light; /* Old browsers */
-	background: -moz-linear-gradient(top,  @gray_light 0%, #7c7974 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@gray_light), color-stop(100%,#7c7974)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  @gray_light 0%,#7c7974 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  @gray_light 0%,#7c7974 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  @gray_light 0%,#7c7974 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  @gray_light 0%,#7c7974 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@{gray_light}', endColorstr='#7c7974',GradientType=0 ); /* IE6-9 */
+background: -moz-linear-gradient(top, rgba(56,52,52,0.6) 0%, rgba(0,0,0,0.6) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(56,52,52,0.6)), color-stop(100%,rgba(0,0,0,0.6))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(56,52,52,0.6) 0%,rgba(0,0,0,0.6) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(56,52,52,0.6) 0%,rgba(0,0,0,0.6) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(56,52,52,0.6) 0%,rgba(0,0,0,0.6) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(56,52,52,0.6) 0%,rgba(0,0,0,0.6) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99383434', endColorstr='#99000000',GradientType=0 ); /* IE6-9 */	
 
-	
 	li { 
 		width: @slider_element_width; float: left; border-top: 12px solid @gray_light; height: @slider_element_height; line-height: @slider_element_height; padding: 0 0 0 @slider_padding; cursor: pointer;
 		span { margin-left: @slider_padding; display: none; }
