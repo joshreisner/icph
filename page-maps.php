@@ -94,7 +94,7 @@ foreach ($eras as $era) {
 		<?php if ($era->post_name == 'today') {?>
 			google.maps.event.addDomListener(document.getElementById("toggle"), 'click', function() {
 				//alert('hey hey');
-				map<?php echo $era->ID?>.getTileLayer().removeOverlay(this.overlay);
+				//map<?php echo $era->ID?>.panBy(0, 100);
 			});
 		<?php }?>
 
