@@ -142,29 +142,18 @@ jQuery(function(){
 		
 		jQuery("#slider li").click(function(){
 			if (jQuery(this).hasClass("active")) return;
-			var old_era = jQuery("#slider li.active").attr("class").replace(" first", "").replace(" active", "").replace(" last", ""); //HACK
-			var old_id = jQuery(".mapwrapper." + old_era).find(".map").attr("id");
-			var center = window[old_id].getCenter();
-			var zoom = window[old_id].getZoom();
-			if (zoom == 3) {
-				zoom = 14;
-				center = new google.maps.LatLng(40.725, -73.965);
-			}
-			//alert(center.lat());
-			jQuery("#slider li.active").removeClass("active");
 			var new_era = jQuery(this).attr("class").replace(" first", "").replace(" last", ""); //HACK
+			changeMapEraTo(new_era);
+			jQuery("#slider li.active").removeClass("active");
 			jQuery(this).addClass("active");
-			jQuery(".mapwrapper").hide();
-			jQuery(".mapwrapper." + new_era).show();
-			var new_id = jQuery(".mapwrapper." + new_era).find(".map").attr("id");
-			google.maps.event.addListenerOnce(window[new_id], 'bounds_changed', function() {
-				window.console.log('bounds changed');
-		    	this.setCenter(center);
-		    	this.setZoom(zoom);
-			});
-			google.maps.event.trigger(window[new_id], 'resize');
-	    	window[new_id].setCenter(center);
-	    	window[new_id].setZoom(zoom);
+		});
+
+		jQuery("a.toggle").click(function(){
+			if (jQuery(this).attr("id") == "toggle-1980") {
+				changeMapEraTo("today-2000");
+			} else {
+				changeMapEraTo("today");				
+			}
 		});
 
 	} else if (body.hasClass("page-id-32")) {
@@ -206,5 +195,27 @@ jQuery(function(){
 	jQuery(window).on('hashchange', function() {
 		overlay.show();
 	});
+
+	function changeMapEraTo(new_era) {
+		var old_era = jQuery("#slider li.active").attr("class").replace(" first", "").replace(" active", "").replace(" last", ""); //HACK
+		var old_id  = jQuery(".mapwrapper." + old_era).find(".map").attr("id");
+		var center  = window[old_id].getCenter();
+		var zoom    = window[old_id].getZoom();
+		if (zoom == 3) {
+			zoom = 14;
+			center = new google.maps.LatLng(40.725, -73.965);
+		}
+		jQuery(".mapwrapper").hide();
+		jQuery(".mapwrapper." + new_era).show();
+		var new_id = jQuery(".mapwrapper." + new_era).find(".map").attr("id");
+		google.maps.event.addListenerOnce(window[new_id], 'bounds_changed', function() {
+			window.console.log('bounds changed');
+	    	this.setCenter(center);
+	    	this.setZoom(zoom);
+		});
+		google.maps.event.trigger(window[new_id], 'resize');
+    	window[new_id].setCenter(center);
+    	window[new_id].setZoom(zoom);
+	}
 	
 });

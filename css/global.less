@@ -1033,31 +1033,27 @@ body.home {
 }
 
 body.maps {
-
 	footer { display: none; }
 	
 	div.mapwrapper {
-		position: fixed; width: 100%; height: 100%; 
+		position: fixed; top: 0; bottom: 0; left: 0; right: 0; display: none; 
 		div.map { width:100%; height:100%; }
 		
 		&.early_ny { 
-			display: none; 
 			div#description { .bg_opacity(@purple, .8); }
 		}
 		&.nineteenth { 
-			display: none; 
 			div#description { .bg_opacity(@orange, .8); }
 		}
 		&.progressive { 
+			display: block;
 			div#description { .bg_opacity(@blue, .8); }
 		}
 		&.great_depression { 
-			display: none; 
 			div#description { .bg_opacity(@red, .8); }
 		}
-		&.today { 
-			display: none; 
-			div#description { .bg_opacity(@green, .8); }
+		&.today, &.today-2000 { 
+			div#description { .bg_opacity(@gray_medium, .8); }
 		}
 	}
 	
@@ -1068,13 +1064,13 @@ body.maps {
 	
 	div.zoom {
 		.opacity(.7); width: 30px; height: 30px; cursor: pointer; position: absolute; left: 40px;
-		&.in { top: 20px; background-image: url(../img/map/zoom/in.png); }
-		&.out { top: 60px; background-image: url(../img/map/zoom/out.png); }
+		&.in { top: 60px; background-image: url(../img/map/zoom/in.png); }
+		&.out { top: 100px; background-image: url(../img/map/zoom/out.png); }
 		&:hover { .opacity(1); }
 	}
 
 	div.pan {
-		position: absolute; top: 100px; left: 20px; width: 73px; height: 73px; cursor: pointer;
+		position: absolute; top: 140px; left: 20px; width: 73px; height: 73px; cursor: pointer;
 
 		-moz-transform: rotate(45deg);  /* FF3.5/3.6 */
 		-o-transform: rotate(45deg);  /* Opera 10.5 */
@@ -1114,10 +1110,10 @@ body.maps {
 		}
 	}
 
-	a#toggle { position: fixed; top: 50px; left: 50%; margin-left: -83px; }
+	a.toggle { position: fixed; top: 50px; left: 50%; margin-left: -83px; }
 	
 	div#description {
-		position: absolute; top: 10px; right: 10px; width: 400px; color: @white; .font; font-size: 12px;
+		position: absolute; top: 60px; right: 10px; width: 400px; color: @white; .font; font-size: 12px;
 		padding-top: 10px;
 		
 		h3, .content, dl, p { margin: 0 10px 10px; }
