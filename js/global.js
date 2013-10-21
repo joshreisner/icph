@@ -84,7 +84,9 @@ jQuery(function(){
 		});
 
 		jQuery("#home .column").hover(function(){
-			//zoom and fade in per request.  cannot animate backgroundSize per jQuery
+			//zoom and fade home columns (would be simpler to animate backgroundSize but jQuery cannot)
+
+			var duration = 400;
 			var $upper = jQuery(this).find(".upper");
 			if ($upper.hasClass("zoomed")) return;
 			jQuery(this).find("ul").fadeIn();
@@ -101,20 +103,21 @@ jQuery(function(){
 				marginLeft: "-" + marginx + "px",
 				marginTop: "-" + marginy + "px"
 			},{
-			  duration: 200,
+			  duration: duration,
 			  queue: false
 			});
-			$upper.fadeTo("fast", 1);
+			$upper.fadeTo(duration, 1);
 		}, function(){
-			jQuery(this).find("ul").fadeOut();
+			var duration = 400;
+			jQuery(this).find("ul").fadeOut(duration);
 			var $upper = jQuery(this).find(".upper");
-			$upper.fadeTo("fast", .5).animate({
+			$upper.fadeTo(duration, .5).animate({
 				marginLeft:0,
 				marginTop:0,
 				width:$upper.attr("data-width"),
 				height:$upper.attr("data-height")
 			},{
-			  duration: 200,
+			  duration: duration,
 			  queue: false,
 			  complete: function(){
 				$upper.removeClass("zoomed");
