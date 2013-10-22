@@ -175,7 +175,7 @@ foreach ($eras as $era) {
 <!-- specially added map for 2000-->
 	<div class="mapwrapper today-2000">
 		<div class="map" id="map2000"></div>
-		<a id="toggle-2000" class="toggle"><img src="http://povertyhistory.dev/wp-content/themes/icph/img/map/toggle/2000.png"></a>
+		<a id="toggle-2000" class="toggle"><img src="/wp-content/themes/icph/img/map/toggle/2000.png"></a>
 		
 		<div class="zoom in" id="zoom-in2000"></div>
 		<div class="zoom out" id="zoom-out2000"></div>
