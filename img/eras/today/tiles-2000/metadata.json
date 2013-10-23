@@ -1,0 +1,11 @@
+{
+  "name": "today00",
+  "version": "1.0.0",
+  "description": "",
+  "type": "overlay",
+  "format": "png",
+  "minzoom": "9",
+  "maxzoom": "14",
+  "bounds": "-74.25976499,40.48814074,-73.69503796,40.91626307",
+  "profile": "mercator"
+}
