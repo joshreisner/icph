@@ -30,6 +30,10 @@
 @white			: #ffffff;
 @olive			: #938f8c;
 
+@map_color_high : #B83E26; /*#9c464e;*/
+@map_color_low  : #949e79;
+
+
 /* dimensions */
 @header_height				: 48px;
 @header_height_big			: 130px;
@@ -1128,10 +1132,13 @@ body.maps {
 		dl { 
 			overflow: auto; margin-bottom: 0;
 			dt { 
-				float: left; width: 50px; display: block; clear: left; margin-bottom: 10px;
-				background-repeat: no-repeat; padding-left: 30px; 
-				&.high { background-image: url(../img/map/legend/high.png); }
-				&.low { background-image: url(../img/map/legend/low.png); }
+				float: left; width: 50px; display: block; clear: left; margin-bottom: 10px; padding-left: 30px; 
+				position: relative; 
+				div.swatch {
+					position: absolute; top: 0; left: 0; width: 24px; height: 24px;
+					&.high { background-color: @map_color_high; }
+					&.low { background-color: @map_color_low; }
+				}
 
 				h3 { margin: 0; }
 			}

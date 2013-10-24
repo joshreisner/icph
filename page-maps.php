@@ -31,10 +31,16 @@ foreach ($eras as $era) {
 			<?php if ($era->post_name == 'today') {?>
 				<h3>Concentration of Poor New Yorkers</h3>
 				<dl>
-					<dt class="high"><h3>High</h3></dt>
+					<dt>
+						<div class="swatch high"></div>
+						<h3>High</h3>
+					</dt>
 					<dd>High areas on the map denote large concentrations of poor persons in a given year.</dd>
 
-					<dt class="low"><h3>Low</h3></dt>
+					<dt>
+						<div class="swatch low"></div>
+						<h3>Low</h3>
+					</dt>
 					<dd>Low areas refer to locations where few poor persons are living.  In other words, areas where more affluent persons are present.</dd>
 				</dl>
 				
