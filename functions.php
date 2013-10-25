@@ -504,6 +504,7 @@ function icph_links($content) {
 	//$content = str_replace('href="' . site_url('/'), 'href="', $content);
 	//$content = str_replace('href="', 'href="#', $content);
 	$content = str_replace('href="' . site_url('/'), 'href="#', $content);
+	$content = str_replace('href="#map_point/', 'href="#', $content);
 	return $content;	
 }
 
