@@ -1,6 +1,26 @@
 <?php
 //maps page
 $body_class = 'maps';
+$today_legend = '<h3>Concentration of Poor New Yorkers</h3>
+				<dl>
+					<dt>
+						<div class="swatch high"></div>
+						<h3>High</h3>
+					</dt>
+					<dd>High areas on the map denote large concentrations of poor persons in a given year.</dd>
+
+					<dt>
+						<div class="swatch low"></div>
+						<h3>Low</h3>
+					</dt>
+					<dd>Low areas refer to locations where few poor persons are living.  In other words, areas where more affluent persons are present.</dd>
+				</dl>
+				
+				<p>Note: Tests for global spatial autocorrelation using Moran\'s l were significant (p=.001).  All clusters
+					using local indicators of spatial association were significant (p<.005).</p>
+				<p>Source: Minnesota Population Center, National Historical Geographic Information System: Version 2.0
+					Minneapolis, MN: University of Minnesota 2011</p>';
+
 get_header();
 ?>
 <script src="//maps.google.com/maps/api/js?key=AIzaSyADB0wyHm58AKLfOefVvZ13G-oZq3UftWY&amp;sensor=false"></script>
@@ -28,27 +48,9 @@ foreach ($eras as $era) {
 		</div>
 
 		<div id="description">
-			<?php if ($era->post_name == 'today') {?>
-				<h3>Concentration of Poor New Yorkers</h3>
-				<dl>
-					<dt>
-						<div class="swatch high"></div>
-						<h3>High</h3>
-					</dt>
-					<dd>High areas on the map denote large concentrations of poor persons in a given year.</dd>
-
-					<dt>
-						<div class="swatch low"></div>
-						<h3>Low</h3>
-					</dt>
-					<dd>Low areas refer to locations where few poor persons are living.  In other words, areas where more affluent persons are present.</dd>
-				</dl>
-				
-				<p>Note: Tests for global spatial autocorrelation using Moran's l were significant (p=.001).  All clusters
-					using local indicators of spatial association were significant (p<.005).</p>
-				<p>Source: Minnesota Population Center, National Historical Geographic Information System: Version 2.0
-					Minneapolis, MN: University of Minnesota 2011</p>
-			<?php } else {?>
+			<?php if ($era->post_name == 'today') {
+				echo $today_legend;
+			} else {?>
 			<a class="control close"><i class="icon-cancel-circled"></i></a>
 			<a class="control expand"><i class="icon-plus-circled"></i></a>
 			<h3><?php echo get_post_meta($era->ID, 'map_title', true)?></h3>
@@ -195,19 +197,7 @@ foreach ($eras as $era) {
 		</div>
 
 		<div id="description">
-			<h3>Concentration of Poor New Yorkers</h3>
-			<dl>
-				<dt class="high"><h3>High</h3></dt>
-				<dd>High areas on the map denote large concentrations of poor persons in a given year.</dd>
-
-				<dt class="low"><h3>Low</h3></dt>
-				<dd>Low areas refer to locations where few poor persons are living.  In other words, areas where more affluent persons are present.</dd>
-			</dl>
-			
-			<p>Note: Tests for global spatial autocorrelation using Moran's l were significant (p=.001).  All clusters
-				using local indicators of spatial association were significant (p<.005).</p>
-			<p>Source: Minnesota Population Center, National Historical Geographic Information System: Version 2.0
-				Minneapolis, MN: University of Minnesota 2011</p>
+			<?php echo $today_legend?>
 		</div>
 	</div>
 	
