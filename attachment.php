@@ -11,6 +11,9 @@ the_post();
 $era_id = get_post_meta($post->post_parent, 'era', true); //does get_post_meta cache?  if so i could make this a one-liner
 foreach ($eras as $era) if ($era->ID == $era_id) break;
 
+$parent = get_post($post->post_parent);
+
+
 //get image properties
 list($url, $width, $height) = wp_get_attachment_image_src($post->ID, 'xl');
 list($full_url, $full_width, $full_height) = wp_get_attachment_image_src($post->ID, 'full');
@@ -23,7 +26,11 @@ $download = $wpdb->get_var($wpdb->prepare("SELECT guid FROM $wpdb->posts WHERE p
 <div id="overlay" class="image <?php echo $era->post_name?>">
 	<div class="header">
 		<h1><?php echo $post->post_title?></h1>
+		<?php if ($parent->post_type == 'post') {?>
 		<a href="<?php echo icph_post($post->post_parent)?>" class="close"><span>Back to Article</span> <i class="icon-cancel-circled"></i></a>
+		<?php } else {?>
+		<a href="#" class="close"><span>Close</span> <i class="icon-cancel-circled"></i></a>
+		<?php }?>
 		<div class="attachment">
 			<?php if ($download) {?>
 			<a href="<?php echo $download?>">Download as .PDF</a>
