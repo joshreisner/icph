@@ -79,7 +79,6 @@ html {
 				display: table; overflow: hidden; position: relative; 
 				img { position: absolute; top: 0; left: 0; }
 				span { display: table-cell; text-align: center; .fontCondBold; text-transform: uppercase; vertical-align: middle; }
-				/* &:hover img { display: none; } */
 			}
 		}
 		h1, h2, h3, h4 { margin: 0; padding: 0; }
@@ -140,7 +139,7 @@ html {
 		li { 
 			float: left; margin: 0; padding: 0; position: relative;
 			a.main { height: @header_height - 25; line-height: @header_height - 20; display: block; border-bottom: 5px solid transparent; padding: 10px 0; }
-			ul {
+			ul.dropdown {
 				display: none; position: fixed; top: @header_height; bottom: auto; .bg; .shadowed;
 				li {
 					float: none; border-bottom: 1px solid @beige_dark;
@@ -149,8 +148,9 @@ html {
 					}
 				}
 			}
-			&:hover a.main, &.current_page_item a.main { color: @beige; border-color: @beige; }
-			/* &:hover ul { display: block; } */
+			&:hover, &.current_page_item {
+				a.main { color: @beige; border-color: @beige; }
+			}
 		}
 		
 		&#nav {
@@ -182,25 +182,29 @@ html {
 				a.main { font-size: 13px; }
 				ul.dropdown {
 					li { 
+						border-bottom: 1px solid @beige_dark;
 						a { 
-							color: @gray; padding: 6px 20px 6px 6px; line-height: 23px; text-transform: none; white-space: nowrap; .fontBold;
-							i { color: @gray_light; font-size: 20px; display: block; float: left; margin-right: 6px; }
+							color: @gray; text-transform: none; .fontBold; margin: 0;
+							i { color: @gray_light; font-size: 20px; display: block; float: left; margin: 0 6px 0 0; }
 							span { display: block; float: left; }
 						}
 						&.form {
-							padding-top: 10px;
+							padding-top: 10px; border-bottom: 0;
 							input { .fontBold; width: 184px; font-size: 13px; padding: 4px 19px 4px 2px; margin: 0 8px; }
 							i { color: @gray; position: absolute; top: 14px; right: 10px; cursor: pointer; }
-							&:hover { .bg; }
 						}
-						&.all a { 
-							color: @gray_light; text-transform: uppercase; .fontCondBold; 
-							i { margin-top: 1px; }
+						&.all {
+							border-bottom: 0;
+							a { 
+								color: @gray_light; text-transform: uppercase; .fontCondBold;
+								i { margin-top: 1px; }
+							}
 						}
 						&:first-child { border-top: none; }
-						&:hover { .bgDark; }
+						ul li {
+							&:hover, &.active { .bgDark; }
+						}
 					}
-					/* &:hover { display: block; } */
 				}
 				
 				&.share { margin-right: 20px; }
@@ -210,13 +214,6 @@ html {
 						position: static; 
 						width:224px; 
 						li { overflow-x: hidden; }
-					}
-				}
-				&:hover {
-					a { border-bottom: 5px solid @beige; color: @beige; }
-					ul.dropdown {
-						/* display: block; */
-						li a { border-bottom: 0; }
 					}
 				}
 			}

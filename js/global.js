@@ -1,4 +1,3 @@
-//@codekit-prepend "jquery-1.9.1.js";
 //@codekit-prepend "jquery.mousewheel.js";
 //@codekit-prepend "jquery.jscrollpane.js";
 //@codekit-prepend "jquery-ui.js";
@@ -21,12 +20,7 @@ jQuery(function(){
 
 
 	//header
-	jQuery("li.search").hover(function(){
-		jQuery(this).find("input").first().focus();
-	},function(){
-		jQuery(this).find("input").first().blur();
-	});
-
+	$search = jQuery("input#search");
 	jQuery("#header #nav > li").hover(function(){
 		jQuery(this).find("ul.dropdown").fadeIn('fast');
 	},function(){
@@ -34,9 +28,18 @@ jQuery(function(){
 	});
 	
 	jQuery("#header #tools > li").hover(function(){
-		jQuery(this).find("ul.dropdown").fadeIn('fast');
+		jQuery(this).find("ul.dropdown").fadeIn('fast', function(){
+			$search.focus();
+		});
 	},function(){
-		jQuery(this).find("ul.dropdown").fadeOut('fast');		
+		if (jQuery(this).hasClass("search") && $search.is(":focus")) {
+		} else {
+			jQuery(this).find("ul.dropdown").fadeOut('fast');			
+		}
+	});
+
+	$search.blur(function(){
+		jQuery("li.search ul.dropdown").fadeOut('fast');
 	});
 	
 	//fading circle thumbnails

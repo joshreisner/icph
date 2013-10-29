@@ -1,8 +1,5 @@
 <?php
 global $body_class;
-
-//fyi: top navigation has been moved to footer.php for IE 8 & 9
-
 ?><!DOCTYPE html>
 <html <?php language_attributes() ?>>
 	<head>

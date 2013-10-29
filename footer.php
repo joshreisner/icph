@@ -110,6 +110,7 @@ $site_title = str_replace('NYC', '<span>NYC</span>', $site_title);
 		</footer>
 
 		<?php wp_footer(); ?>
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src="<?php bloginfo('template_directory');?>/js/global.min.js"></script>
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
