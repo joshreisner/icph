@@ -1055,19 +1055,39 @@ body.maps {
 		
 		&.early_ny { 
 			div#description { .bg_opacity(@purple, .8); }
+			div.infoBox div.content a { 
+				color: @purple;
+				&:hover { background-color: @purple_light; }
+			}
 		}
 		&.nineteenth { 
 			div#description { .bg_opacity(@orange, .8); }
+			div.infoBox div.content a { 
+				color: @orange;
+				&:hover { background-color: @orange_light; }
+			}
 		}
 		&.progressive { 
 			display: block;
 			div#description { .bg_opacity(@blue, .8); }
+			div.infoBox div.content a { 
+				color: @blue;
+				&:hover { background-color: @blue_light; }
+			}
 		}
 		&.great_depression { 
 			div#description { .bg_opacity(@red, .8); }
+			div.infoBox div.content a { 
+				color: @red;
+				&:hover { background-color: @red_light; }
+			}
 		}
 		&.today, &.today-2000 { 
 			div#description { .bg_opacity(@gray_medium, .8); }
+			div.infoBox div.content a { 
+				color: @green;
+				&:hover { background-color: @green_light; }
+			}
 		}
 	}
 	
@@ -1109,7 +1129,7 @@ body.maps {
 		div.title { .fontCondBold; margin-bottom: 6px; font-size: 20px; display: block; width: 300px; line-height: 22px; }
 		div.content { max-height: 181px; overflow-y: scroll; }
 		a { 
-			color: @gray;
+			.fontBold;
 			&:hover { text-decoration: underline; }
 		}
 		img {
