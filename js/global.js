@@ -20,11 +20,25 @@ jQuery(function(){
 
 
 	//header
-	$search = jQuery("input#search");
 	jQuery("#header #nav > li").hover(function(){
 		jQuery(this).find("ul.dropdown").fadeIn('fast');
 	},function(){
 		jQuery(this).find("ul.dropdown").fadeOut('fast');		
+	});
+
+	$search = jQuery("input#search");
+
+	$search.typeahead({
+	    source: function (query, process) {
+	        return $.get('/typeahead', { query: query }, function (data) {
+	            return process(data.options);
+	        });
+	    },
+		updater : function(item) {
+			this.$element[0].value = item;
+			this.$element[0].form.submit();
+			return item;
+		}
 	});
 	
 	jQuery("#header #tools > li").hover(function(){

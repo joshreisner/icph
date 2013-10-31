@@ -646,6 +646,7 @@ add_action('admin_menu', function(){
 add_action('save_post', function($post_id) {
 	global $post, $custom_fields;
 
+	if (!is_object($post)) return;
 	if (empty($post->post_type)) $post->post_type = @$_GET['post_type'];
 	if (!isset($custom_fields[$post->post_type])) return;
 

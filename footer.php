@@ -84,7 +84,7 @@ $site_title = str_replace('NYC', '<span>NYC</span>', $site_title);
 								//$posts = array_slice($posts, 1);
 								$posts = implode(',', $posts);
 								?>
-						        <input type="text" name="s" id="search" data-provide="typeahead" data-source='[<?php echo $posts?>]' value="<?php the_search_query()?>" placeholder="What are you looking for?">
+						        <input type="text" name="s" id="search" value="<?php the_search_query()?>" placeholder="What are you looking for?">
 						        <i class="icon-cancel-circled"></i>
 							</form>
 						</li>
