@@ -5,13 +5,13 @@ $today_legend = '<h3>Concentration of Poor New Yorkers in 1980 and 2000</h3>
 				<dl>
 					<dt>
 						<div class="swatch high"></div>
-						<h3>High Poverty Areas</h3>
+						<h3>High</h3>
 					</dt>
 					<dd>These areas on the map indicate greater concentrations of poor people than were found in surrounding communities.</dd>
 
 					<dt>
 						<div class="swatch low"></div>
-						<h3>Low Poverty Areas</h3>
+						<h3>Low</h3>
 					</dt>
 					<dd>These areas on the map indicate lower concentrations of poor people than were found in surrounding communities. Typically, these were more affluent areas of the city.</dd>
 				</dl>
