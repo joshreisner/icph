@@ -16,8 +16,10 @@ $today_legend = '<h3>Concentration of Poor New Yorkers in 1980 and 2000</h3>
 					<dd>These areas on the map indicate lower concentrations of poor people than were found in surrounding communities. Typically, these were more affluent areas of the city.</dd>
 				</dl>
 				
-				<p>Note: Tests for global spatial autocorrelation using Moran's I were significant (p=.001). All clusters using local indicators of spatial association were significant (p=.05).</p>
-				<p>Minnesota Population Center. <em>National Historical Geographic Information System: Version 2.0</em>. Minneapolis, MN: University of Minnesota 2011.</p>';
+				<p>Note: Tests for global spatial autocorrelation using Moran\'s l were significant (p=.001).  All clusters
+					using local indicators of spatial association were significant (p<.005).</p>
+				<p>Source: Minnesota Population Center, National Historical Geographic Information System: Version 2.0
+					Minneapolis, MN: University of Minnesota 2011</p>';
 
 get_header();
 ?>
