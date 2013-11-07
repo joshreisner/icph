@@ -1,13 +1,17 @@
 <?php
 
 //define vars for later
-$links = $slugs = $ids = $skips = $replaces = array();
+$links = $slugs = $ids = $skips = $replaces = $imgs = array();
 $base = site_url('/');
 
 
 //get all live posts
 $posts = $wpdb->get_results('SELECT id, post_title, post_name, post_content FROM wp_posts WHERE post_status = \'publish\'');
 
+$attachments = $wpdb->get_results('SELECT p1.guid, p1.post_name, p2.post_name parent_name FROM wp_posts p1 JOIN wp_posts p2 ON p1.post_parent = p2.ID WHERE p1.post_type = \'attachment\'');
+foreach ($attachments as $attachment) {
+	$imgs[$attachment->guid] = $base . $attachment->parent_name . '/' . $attachment->post_name;
+}
 
 //make an array of links and an array of slug/IDs
 foreach ($posts as $post) {
@@ -25,7 +29,9 @@ sort($links);
 foreach ($links as $link) {
 	if (starts($link, 'http:') || starts($link, 'https:')) {
 		//absolute url
-		if (starts($link, $base . 'archives/')) {
+		if (isset($imgs[$link])) {
+			$replaces[$link] = $imgs[$link]; 
+		} elseif (starts($link, $base . 'archives/')) {
 			$id = substr($link, strlen($base . 'archives/'));
 			if (array_key_exists($id, $ids)) {
 				$replaces[$link] = $base . $ids[$id];
