@@ -294,8 +294,8 @@ body.maps div#description{position:absolute;top:60px;right:10px;width:400px;colo
 body.maps div#description h3,body.maps div#description div.label,body.maps div#description dt{font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;font-size:18px}
 body.maps div#description h3.minimized{display:none}
 body.maps div#description .content{max-height:170px;overflow:auto;line-height:18px}
-body.maps div#description dl{overflow:auto;margin-bottom:0}body.maps div#description dl dt{float:left;width:50px;display:block;clear:left;margin-bottom:10px;padding-left:30px;position:relative}body.maps div#description dl dt div.swatch{position:absolute;top:0;left:0;width:24px;height:24px}body.maps div#description dl dt div.swatch.high{background-color:#b83e26}
-body.maps div#description dl dt div.swatch.low{background-color:#949e79}
+body.maps div#description dl{overflow:auto;margin-bottom:0}body.maps div#description dl dt{float:left;width:50px;display:block;clear:left;margin-bottom:10px;padding-left:30px;position:relative}body.maps div#description dl dt div.swatch{position:absolute;top:0;left:0;width:24px;height:24px}body.maps div#description dl dt div.swatch.high{background-color:#996158}
+body.maps div#description dl dt div.swatch.low{background-color:#97928c}
 body.maps div#description dl dt h3{margin:0}
 body.maps div#description dl dd{float:left;display:block;width:270px;margin:0;margin-bottom:10px;padding-top:7px}
 body.maps div#description.minimized{width:200px;height:40px;cursor:pointer}body.maps div#description.minimized h3{display:none}
