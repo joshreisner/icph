@@ -29,7 +29,10 @@ var overlay = {
 				jQuery("div#overlay_backdrop").remove();
 				jQuery("div#overlay").remove();
 
-				jQuery("body").append(data);
+				body.append(data);
+				if (body.hasClass("maps")) {
+					$("#overlay .header .close").attr("href", "#").find("span").html("Close");
+				}
 				jQuery("#overlay_loading").remove();
 				window.scrollTo(0, 0);
 				jQuery("#overlay").fadeIn();

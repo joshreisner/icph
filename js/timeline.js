@@ -9,6 +9,7 @@ var timeline = {
 	slider_start	: false,
 	slider_end		: false,
 	positions		: false,
+	currentEra		: "early_ny",
 	
 	init : function(){
 		this.positions = [];
@@ -28,13 +29,14 @@ var timeline = {
 		this.slider_start	= Math.round(this.$slider_eras.first().position().left);
 		this.slider_end		= (0 - (jQuery("#timeline li").last().position().left - this.slider_start));
 		
-		//line up the first era with the left of the slider
-		this.jump(eras[0]);
+		//line up the first era with the left of the slider, or jump to the current era if one selected
+		this.jump(this.currentEra);
 		
 		//set slider era links
 		this.$slider_eras.unbind("click").click(function(){
 			var target = jQuery(this).attr("class");
 			target = target.replace(" first", "").replace(" last", "").replace(" active", "");
+			this.currentEra = target;
 			timeline.jump(target);
 		});
 		
@@ -46,6 +48,7 @@ var timeline = {
 			clearInterval(timeline.interval);
 		});
 
+		//set policy links
 		jQuery("#slider_policy li a").off("click").on("click", function(e) {
 			e.preventDefault();
 			var category = jQuery(this).attr('href').substr(1);
@@ -63,12 +66,16 @@ var timeline = {
 				}
 
 				jQuery("#timeline_wrapper").html(data).find("div.policy_description").fadeIn();
+
 				timeline.init();
+				timeline.update();
+
 				jQuery('#timeline_wrapper .description').jScrollPane();
 				//jQuery('.policy_description .jspPane').css({width:'410px'});
 			});
 		});
 
+		//set policy close
 		jQuery("#timeline_wrapper").off("click", ".policy_description a.close").on("click", ".policy_description a.close", function(e){
 			e.preventDefault();
 			jQuery(this).closest(".policy_description").fadeOut();
@@ -92,13 +99,13 @@ var timeline = {
 		//update the slider to reflect current timeline scroll
 		var currentMargin = 0 - parseInt(this.$timeline.css("marginLeft"), 10) + this.slider_start;
 		var currentMarginEnd = parseInt(this.$timeline.css("marginLeft"), 10);
-		var currentEra = eras[0];
+
 		for (var i = 0; i < eras.length; i++) {
 			//window.console.log('this.slider_start is ' + this.slider_start + ' and currentMargin is ' + currentMargin + ', while ' + eras[i] + ' is ' + this.positions[eras[i]]);
-			if (this.positions[eras[i]] <= currentMargin) currentEra = eras[i];
+			if (this.positions[eras[i]] <= currentMargin) this.currentEra = eras[i];
 		}
 		this.$slider_eras.removeClass("active");
-		jQuery("ul#slider li." + currentEra).addClass("active");
+		jQuery("ul#slider li." + this.currentEra).addClass("active");
 
 		//when at limit, stop interval and hide arrow
 		if (currentMargin === 0) {
