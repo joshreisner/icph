@@ -25,6 +25,7 @@ html body p{margin:0 0 15px 0}
 html body a.arrow{position:absolute;top:261px}html body a.arrow div.cap{width:38px;height:50px;text-align:center}html body a.arrow div.cap i{font-size:30px;line-height:50px}
 html body a.arrow.left{left:0}html body a.arrow.left i{margin-left:-5px}
 html body a.arrow.right{right:0}
+html body img.alignleft{float:left;margin:0 10px 10px 0}
 html body div.wp-caption{font-size:12px;line-height:14px}html body div.wp-caption iframe{margin:0}
 html body div.wp-caption a{display:block}
 html body div.wp-caption p.wp-caption-text{margin:-3px 0 0 0;font-family:"BentonSansCond",Helvetica,sans-serif;font-style:normal;font-weight:bold;padding:10px;background-color:#d2cbc1;background-image:url(../img/background-dark.png)}
